@@ -42,7 +42,7 @@ const userSchema = new Schema(
         solvedQuestions: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Questions",
+                ref: "Question",
             },
         ],
     },
