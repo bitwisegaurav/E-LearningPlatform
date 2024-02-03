@@ -5,4 +5,12 @@ import { connectDB } from "./database/connection.db.js";
 
 dotenv.config();
 
-connectDB();
+connectDB()
+    .then(() => {
+        app.listen(process.env.PORT || 3000, () => {
+            console.log("Server is running at", process.env.PORT || 3000);
+        });
+    })
+    .catch((err) => {
+        console.log("Database connection failed. Error : ", err);
+    });
