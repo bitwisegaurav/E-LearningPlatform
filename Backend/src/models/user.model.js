@@ -30,7 +30,7 @@ const userSchema = new Schema(
             type: String, // url of the image
         },
         progress: {
-            type: Object,
+            type: Schema.Types.Mixed,
             default: {},
         },
         courses: [
