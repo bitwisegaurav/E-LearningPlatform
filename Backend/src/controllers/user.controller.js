@@ -39,7 +39,7 @@ const registerUserProfile = asyncHandler(async (req, res, next) => {
 
     // check if user is already exists
     const existedUser = await User.findOne({
-        $or: [{ username }, { email }],
+        $or: [{ username: username.toLowerCase() }, { email }],
     });
 
     if (existedUser) {
@@ -100,10 +100,7 @@ const registerUserProfile = asyncHandler(async (req, res, next) => {
 });
 
 const getUserProfile = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.user._id).select("-password");
-    if (!user) {
-        throw new ApiError(404, "User not found");
-    }
+    const user = req.user;
 
     const responseData = {
         user,
@@ -115,7 +112,7 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
 const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const { username } = req.params;
 
-    const user = await User.find({ username }).select(
+    const user = await User.findOne({ username: username.toLowerCase() }).select(
         "-password -refreshToken",
     );
 
