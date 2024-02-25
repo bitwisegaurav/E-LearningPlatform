@@ -9,6 +9,7 @@ import {
     updateUserPassword,
     deleteUserAccount,
     refreshAccessToken,
+    updateAvatarImage,
 } from "../controllers/user.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -35,5 +36,6 @@ router.route("/logout-user").post(verifyJWT, logoutUser);
 router.route("/update-user-password").patch(verifyJWT, updateUserPassword);
 router.route("/delete-user-account").delete(verifyJWT, deleteUserAccount);
 router.route("/refresh-access-token").post(verifyJWT, refreshAccessToken);
+router.route("/update-avatar-image").patch(verifyJWT, updateAvatarImage);
 
 export default router;
