@@ -37,8 +37,8 @@ router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/update-password").patch(verifyJWT, updateUserPassword);
 router.route("/delete-account").delete(verifyJWT, deleteUserAccount);
 router.route("/refresh-access-token").put(verifyJWT, refreshAccessToken);
-router.route("/update-avatar-image").patch(verifyJWT
-    , upload.single("avatar")
-    , updateAvatarImage);
+router
+    .route("/update-avatar-image")
+    .patch(verifyJWT, upload.single("avatar"), updateAvatarImage);
 
 export default router;
