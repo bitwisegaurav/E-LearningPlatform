@@ -74,19 +74,23 @@ const registerUserProfile = asyncHandler(async (req, res) => {
         name,
         email,
         password,
-        profilePic: avatarCloudinaryResponse.url,
+        avatar: avatarCloudinaryResponse.url,
         coverImage: coverImageCloudinaryResponse.url,
-    }).select("-password");
-
-    // check if user is created or not
-    if (!user) {
-        throw new ApiError(500, "Error while creating user");
-    }
+    });
 
     // generate access and refresh token
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
         user?._id,
     );
+
+    const findCreatedUser = await User.findById(user?._id).select(
+        "-password -refreshToken",
+    );
+
+    // check if user is created or not
+    if (!findCreatedUser) {
+        throw new ApiError(500, "Error while creating user");
+    }
 
     return res
         .status(201)
@@ -95,7 +99,7 @@ const registerUserProfile = asyncHandler(async (req, res) => {
         .json({
             message: "User created successfully",
             data: {
-                user,
+                findCreatedUser,
             },
         });
 });
@@ -120,6 +124,10 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const user = await User.findOne({ username: username.toLowerCase() }).select(
         "-password -refreshToken",
     );
+
+    if (!user) {
+        throw new ApiError(404, "User not found");
+    }
 
     const responseData = {
         user,
@@ -146,7 +154,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
             $set: {
                 ...(username && { username }),
                 ...(email && { email }),
-                ...(fullName && { fullName }),
+                ...(name && { name }),
             },
         },
         { new: true },
@@ -164,13 +172,13 @@ const loginUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
 
     // validation for fields
-    if (!password || !(username && email)) {
+    if (!password || !(username || email)) {
         throw new ApiError(400, "Please provide login details");
     }
 
     // check if user is exists
     const user = await User.findOne({
-        $or: [{ username: username.toLowerCase() }, { email }],
+        $or: [{ username: username?.toLowerCase() }, { email }],
     });
 
     if (!user) {
@@ -237,10 +245,10 @@ const updateUserPassword = asyncHandler(async (req, res) => {
       throw new ApiError(400, "Please provide new password");
     }
     
-    const user = req.user;
+    const user = await User.findById(req.user._id);
   
     // Check if the provided current password is correct
-    const isCurrentPasswordCorrect = await user.isPasswordCorrect(password);
+    const isCurrentPasswordCorrect = await user.isPasswordCorrect(password, user.password);
     if (!isCurrentPasswordCorrect) {
         throw new ApiError(400, "Current password is incorrect");
     }
@@ -265,8 +273,30 @@ const deleteUserAccount = asyncHandler(async (req, res) => {
 
     const user = req.user;
 
+    // delete avatar image from cloudinary
+    const avatar = user.avatar.split('/').pop().split('.')[0];
+
+    const isAvatarDeleted = await deleteImage(avatar);
+
+    if (!isAvatarDeleted) {
+        console.log("Failed to delete avtavar image");
+    }
+
+    // delete cover image from cloudinary
+    const coverImage = user.coverImage.split('/').pop().split('.')[0];
+
+    const isCoverImageDeleted = await deleteImage(coverImage);
+
+    if (!isCoverImageDeleted) {
+        console.log("Failed to delete cover image");
+    }
+
     // Delete the user from the database
-    await user.remove();
+    const response = await User.findByIdAndDelete(user._id);
+
+    if (!response) {
+        throw new ApiError(404, "User not found");
+    }
 
     const responseData = {
         message: "Account deleted successfully",
