@@ -101,6 +101,10 @@ const registerUserProfile = asyncHandler(async (req, res) => {
 });
 
 const getUserProfile = asyncHandler(async (req, res, next) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     const user = req.user;
 
     const responseData = {
@@ -125,6 +129,10 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
 });
 
 const updateUserProfile = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     const { username, name, email } = req.body;
 
     // validation for fields
@@ -199,6 +207,10 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const logoutUser = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     await User.findByIdAndUpdate(req.user._id, {
         $set: {
             refreshToken: undefined,
@@ -215,6 +227,10 @@ const logoutUser = asyncHandler(async (req, res) => {
 })
 
 const updateUserPassword = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     const { password, newPassword } = req.body;
     
     if (!password || !newPassword) {
@@ -243,6 +259,10 @@ const updateUserPassword = asyncHandler(async (req, res) => {
 });
 
 const deleteUserAccount = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     const user = req.user;
 
     // Delete the user from the database
@@ -302,6 +322,10 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 })
 
 const updateAvatarImage = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
     const avatarLocalPath = req.file?.path;
 
     if(!avatarLocalPath) {
