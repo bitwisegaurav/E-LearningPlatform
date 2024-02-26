@@ -398,6 +398,53 @@ const updateAvatarImage = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, user, "Avatar updated successfully"));
 });
 
+const updateCoverImage = asyncHandler(async (req, res) => {
+    if(!req.user) {
+        return next(new ApiError(401, "Please login to access this route"));
+    }
+
+    const coverImageLocalPath = req.file?.path;
+
+    if(!coverImageLocalPath) {
+        throw new ApiError(400, "Please provide cover image");
+    }
+
+    // delete previous cover image from cloudinary
+    const previousCoverImage = req.user.coverImage.split('/').pop().split('.')[0];
+
+    const isDeleted = await deleteImage(previousCoverImage);
+
+    if (!isDeleted) {
+        console.log("Failed to delete cover image");
+    }
+
+    // upload image on cloudinary
+    const coverImage = await uploadImage(coverImageLocalPath);
+
+    if (!coverImage) {
+        throw new ApiError(500, "Failed to upload cover image");
+    }
+
+    // find user from database
+    const user = await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $set: {
+                coverImage: coverImage.url,
+            },
+        },
+        { new: true },
+    ).select("-password -refreshToken");
+
+    if (!user) {
+        throw new ApiError(404, "User not found");
+    }
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, user, "Cover Image updated successfully"));
+});
+
 export {
     registerUserProfile,
     getUserProfile,
@@ -409,4 +456,5 @@ export {
     deleteUserAccount,
     refreshAccessToken,
     updateAvatarImage,
+    updateCoverImage,
 };

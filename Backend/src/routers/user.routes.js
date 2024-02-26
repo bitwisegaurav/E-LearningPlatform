@@ -10,6 +10,7 @@ import {
     deleteUserAccount,
     refreshAccessToken,
     updateAvatarImage,
+    updateCoverImage,
 } from "../controllers/user.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -40,5 +41,8 @@ router.route("/refresh-access-token").put(verifyJWT, refreshAccessToken);
 router
     .route("/update-avatar-image")
     .patch(verifyJWT, upload.single("avatar"), updateAvatarImage);
+router
+    .route("/update-cover-image")
+    .patch(verifyJWT, upload.single("coverImage"), updateCoverImage);
 
 export default router;
