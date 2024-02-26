@@ -35,10 +35,34 @@ const createCourse = asyncHandler(async (req, res) => {
         description,
         image,
     });
-    
-    return res
-    .status(201)
-    .json(new ApiResponse(201, course, "Course created successfully"));
-})
 
-export { createCourse };
+    return res
+        .status(201)
+        .json(new ApiResponse(201, course, "Course created successfully"));
+});
+
+const getCourses = asyncHandler(async (__, res) => {
+    const courses = await Course.find();
+    if (!courses) {
+        throw new ApiError(404, "Courses not found");
+    }
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, courses, "Courses fetched successfully"));
+});
+
+const getCourseById = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const course = await Course.findById(id);
+    if (!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, course, "Course fetched successfully"));
+});
+
+export { createCourse, getCourses, getCourseById };
