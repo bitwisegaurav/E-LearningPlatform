@@ -65,4 +65,33 @@ const getCourseById = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course fetched successfully"));
 });
 
+const updateCourse = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { title, description } = req.body;
+
+    // validation for fields
+    if (!title && !description) {
+        throw new ApiError(400, "Provide at least one field to update");
+    }
+
+    const course = await Course.findByIdAndUpdate(
+        id,
+        {
+            $set: {
+                ...(title && { title }),
+                ...(description && { description }),
+            },
+        },
+        { new: true },
+    );
+
+    if (!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, course, "Course updated successfully"));
+});
+
 export { createCourse, getCourses, getCourseById };
