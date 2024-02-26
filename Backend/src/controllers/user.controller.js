@@ -368,7 +368,7 @@ const updateAvatarImage = asyncHandler(async (req, res) => {
     const isDeleted = await deleteImage(previousAvatar);
 
     if (!isDeleted) {
-        console.log("Failed to delete avtavar image");
+        console.log("Failed to delete avatar image");
     }
 
     // upload image on cloudinary
