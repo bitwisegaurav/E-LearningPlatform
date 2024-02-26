@@ -94,4 +94,21 @@ const updateCourse = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, course, "Course updated successfully"));
 });
 
-export { createCourse, getCourses, getCourseById };
+const deleteCourse = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+
+    const course = await Course.findByIdAndDelete(id);
+    if (!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    // delete image from cloudinary
+    const image = course.image.split('/').pop().split('.')[0];
+    await deleteImage(image);
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, course, "Course deleted successfully"));
+})
+
+export { createCourse, getCourses, getCourseById, updateCourse, deleteCourse };
