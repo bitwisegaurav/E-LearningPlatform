@@ -6,12 +6,10 @@ const moduleSchema = new Schema(
             type: String,
             required: true,
         },
-        content: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Content",
-            },
-        ],
+        content: {
+            type: String,
+            required: true,
+        },
         assignments: [
             {
                 type: Schema.Types.ObjectId,
