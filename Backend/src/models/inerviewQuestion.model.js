@@ -2,7 +2,11 @@ import { model, Schema } from "mongoose";
 
 const interviewQuestionSchema = new Schema(
     {
-        content: {
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
             type: String,
             required: true,
         },
@@ -17,6 +21,7 @@ const interviewQuestionSchema = new Schema(
             },
         ],
         companies: [String],
+        tags: [String],
     },
     { timestamps: true },
 );
