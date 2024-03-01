@@ -2,7 +2,11 @@ import { model, Schema } from "mongoose";
 
 const questionSchema = new Schema(
     {
-        content: {
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
             type: String,
             required: true,
         },
@@ -17,6 +21,7 @@ const questionSchema = new Schema(
             },
         ],
         companies: [String],
+        tags: [String],
     },
     { timestamps: true },
 );
