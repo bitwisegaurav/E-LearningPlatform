@@ -65,6 +65,26 @@ const getCourseById = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course fetched successfully"));
 });
 
+const getModules = asyncHandler(async (req, res) => {
+    if (!req.user || !req.user.isAdmin) {
+        throw new ApiError(401, "Unauthorized");
+    }
+
+    const { title } = req.body;
+
+    const course = await Course.findOne({ title });
+
+    if (!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    const modules = course.modules;
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, modules, "Modules fetched successfully"));
+});
+
 const updateCourse = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { title, description } = req.body;
@@ -90,8 +110,8 @@ const updateCourse = asyncHandler(async (req, res) => {
     }
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, course, "Course updated successfully"));
+        .status(200)
+        .json(new ApiResponse(200, course, "Course updated successfully"));
 });
 
 const deleteCourse = asyncHandler(async (req, res) => {
@@ -103,12 +123,12 @@ const deleteCourse = asyncHandler(async (req, res) => {
     }
 
     // delete image from cloudinary
-    const image = course.image.split('/').pop().split('.')[0];
+    const image = course.image.split("/").pop().split(".")[0];
     await deleteImage(image);
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, course, "Course deleted successfully"));
-})
+        .status(200)
+        .json(new ApiResponse(200, course, "Course deleted successfully"));
+});
 
-export { createCourse, getCourses, getCourseById, updateCourse, deleteCourse };
+export { createCourse, getCourses, getCourseById, getModules, updateCourse, deleteCourse };
