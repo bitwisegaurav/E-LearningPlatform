@@ -2,30 +2,34 @@ import { Module } from "../models/module.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
+import { Course } from "../models/course.model.js";
 
 const createModule = asyncHandler(async (req, res) => {
-    const { title, content, assignments } = req.body;
+    const { title, content, courseTitle } = req.body;
 
-    if (!title || !content || !assignments) {
+    if (
+        [title, content, courseTitle].some((field) => field?.trim() === "")
+    ) {
         throw new ApiError(400, "Title, content, and assignments are required");
     }
 
     const module = await Module.create({
         title,
         content,
-        assignments,
     });
+
+    const course = await Course.findOne({ title: courseTitle });
+
+    if(!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    course.modules.push(module._id);
+    await course.save();
 
     return res
         .status(201)
         .json(new ApiResponse(201, module, "Module created successfully"));
-});
-
-const getModules = asyncHandler(async (_, res) => {
-    const modules = await Module.find();
-    return res
-        .status(200)
-        .json(new ApiResponse(200, modules, "Modules fetched successfully"));
 });
 
 const getModuleById = asyncHandler(async (req, res) => {
@@ -43,9 +47,11 @@ const getModuleById = asyncHandler(async (req, res) => {
 
 const updateModule = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { title, content, assignments } = req.body;
+    const { title, content } = req.body;
 
-    if (!title && !content && !assignments) {
+    if (
+        [title, content].some((field) => field?.trim() === "")
+    ) {
         throw new ApiError(400, "Provide at least one field to update");
     }
 
@@ -55,7 +61,6 @@ const updateModule = asyncHandler(async (req, res) => {
             $set: {
                 ...(title && { title }),
                 ...(content && { content }),
-                ...(assignments && { assignments }),
             },
         },
         { new: true }
@@ -80,7 +85,7 @@ const deleteModule = asyncHandler(async (req, res) => {
 
     return res
         .status(200)
-        .json(new ApiResponse(200, module, "Module deleted successfully"));
+        .json(new ApiResponse(200, "Module deleted successfully"));
 });
 
-export { createModule, getModules, getModuleById, updateModule, deleteModule };
+export { createModule, getModuleById, updateModule, deleteModule };
