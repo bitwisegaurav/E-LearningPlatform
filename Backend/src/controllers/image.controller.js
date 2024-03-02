@@ -1,6 +1,7 @@
 import { ApiError } from "../utils/ApiError.util";
 import { ApiResponse } from "../utils/ApiResponse.util";
 import { asyncHandler } from "../utils/asyncHandler.util";
+import { uploadImage } from "../utils/cloudinary.util";
 
 const uploadImageHandler = asyncHandler(async (req, res) => {
     const imageLocalPath = req.file?.path;
