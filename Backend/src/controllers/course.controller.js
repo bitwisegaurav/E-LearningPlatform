@@ -114,6 +114,38 @@ const updateCourse = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course updated successfully"));
 });
 
+const updateCourseImage = asyncHandler(async (req, res) => {
+    if(!req.user || !req.user.isAdmin) {
+        throw new ApiError(401, "Unauthorized");
+    }
+
+    const { id } = req.params;
+
+    const imageLocalPath = req.file?.path;
+
+    const course = await Course.findById(id);
+
+    if (!course) {
+        throw new ApiError(404, "Course not found");
+    }
+
+    const image = await uploadImage(imageLocalPath);
+
+    if (!image) {
+        throw new ApiError(500, "Failed to upload image");
+    }
+
+    const imageUrl = course.image.split("/").pop().split(".")[0];
+    await deleteImage(imageUrl);
+
+    course.image = image.url;
+    await course.save();
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, course, "Course image updated successfully"));
+})
+
 const deleteCourse = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
@@ -131,4 +163,4 @@ const deleteCourse = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course deleted successfully"));
 });
 
-export { createCourse, getCourses, getCourseById, getModules, updateCourse, deleteCourse };
+export { createCourse, getCourses, getCourseById, getModules, updateCourse, updateCourseImage, deleteCourse };
