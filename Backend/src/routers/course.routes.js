@@ -24,8 +24,8 @@ router.route("/health").get((__, res) => {
 router
     .route("/create-course")
     .post(verifyUser, verifyAdmin, upload.single("image"), createCourse);
-router.route("/get-courses").get(verifyUser, getCourses);
-router.route("/get-course/:id").get(verifyUser, getCourseById);
+router.route("/get-course").get(verifyUser, getCourses);
+router.route("/get-courseById/:id").get(verifyUser, getCourseById);
 router.route("/get-modules").get(verifyUser, getModules);
 router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, updateCourse);
 router
