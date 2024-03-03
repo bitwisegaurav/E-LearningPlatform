@@ -1,7 +1,7 @@
 import Router from "express";
-import { verifyJWT } from "../middlewares/auth.middleware";
-import { verifyAdmin } from "../middlewares/adminAuth.middleware";
-import { upload } from "../middlewares/multer.middleware";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyAdmin } from "../middlewares/adminAuth.middleware.js";
+import { upload } from "../middlewares/multer.middleware.js";
 import {
     createCourse,
     getCourses,
@@ -10,7 +10,7 @@ import {
     updateCourse,
     updateCourseImage,
     deleteCourse,
-} from "../controllers/course.controller";
+} from "../controllers/course.controller.js";
 
 const router = Router();
 
@@ -20,10 +20,6 @@ router.route("/health").get((__, res) => {
         status: 200,
     });
 });
-
-/**
- * export { createCourse, getCourses, getCourseById, getModules, updateCourse, deleteCourse };
- */
 
 router
     .route("/create-course")
