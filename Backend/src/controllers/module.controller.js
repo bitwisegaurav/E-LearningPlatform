@@ -8,9 +8,15 @@ const createModule = asyncHandler(async (req, res) => {
     const { title, content, courseTitle } = req.body;
 
     if (
-        [title, content, courseTitle].some((field) => field?.trim() === "")
+        [title, content, courseTitle].some((field) => !field || field?.trim() === "")
     ) {
         throw new ApiError(400, "Title, content, and assignments are required");
+    }
+
+    const existedModule = await Module.findOne({ title });
+
+    if (existedModule) {
+        throw new ApiError(409, "Module with this title already exists");
     }
 
     const module = await Module.create({
