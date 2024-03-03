@@ -33,7 +33,7 @@ const createCourse = asyncHandler(async (req, res) => {
     const course = await Course.create({
         title,
         description,
-        image,
+        image: image?.url,
     });
 
     return res
@@ -41,8 +41,13 @@ const createCourse = asyncHandler(async (req, res) => {
         .json(new ApiResponse(201, course, "Course created successfully"));
 });
 
-const getCourses = asyncHandler(async (__, res) => {
-    const courses = await Course.find();
+const getCourses = asyncHandler(async (req, res) => {
+    const { title } = req.body;
+    if (!title) {
+        throw new ApiError(400, "Title is required");
+    }
+
+    const courses = await Course.findOne({ title });
     if (!courses) {
         throw new ApiError(404, "Courses not found");
     }
@@ -115,7 +120,7 @@ const updateCourse = asyncHandler(async (req, res) => {
 });
 
 const updateCourseImage = asyncHandler(async (req, res) => {
-    if(!req.user || !req.user.isAdmin) {
+    if (!req.user || !req.user.isAdmin) {
         throw new ApiError(401, "Unauthorized");
     }
 
@@ -142,9 +147,11 @@ const updateCourseImage = asyncHandler(async (req, res) => {
     await course.save();
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, course, "Course image updated successfully"));
-})
+        .status(200)
+        .json(
+            new ApiResponse(200, course, "Course image updated successfully"),
+        );
+});
 
 const deleteCourse = asyncHandler(async (req, res) => {
     const { id } = req.params;
@@ -163,4 +170,12 @@ const deleteCourse = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course deleted successfully"));
 });
 
-export { createCourse, getCourses, getCourseById, getModules, updateCourse, updateCourseImage, deleteCourse };
+export {
+    createCourse,
+    getCourses,
+    getCourseById,
+    getModules,
+    updateCourse,
+    updateCourseImage,
+    deleteCourse,
+};
