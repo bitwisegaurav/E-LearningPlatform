@@ -1,6 +1,6 @@
 import Router from "express";
-import { verifyUser } from "../middlewares/auth.middleware";
-import { verifyAdmin } from "../middlewares/adminAuth.middleware";
+import { verifyUser } from "../middlewares/auth.middleware.js";
+import { verifyAdmin } from "../middlewares/adminAuth.middleware.js";
 import {
     createModule,
     getModuleById,
