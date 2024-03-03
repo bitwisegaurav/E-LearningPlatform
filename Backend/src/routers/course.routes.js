@@ -1,5 +1,5 @@
 import Router from "express";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyUser } from "../middlewares/auth.middleware.js";
 import { verifyAdmin } from "../middlewares/adminAuth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import {
@@ -23,14 +23,14 @@ router.route("/health").get((__, res) => {
 
 router
     .route("/create-course")
-    .post(verifyJWT, verifyAdmin, upload.single("image"), createCourse);
-router.route("/get-courses").get(verifyJWT, getCourses);
-router.route("/get-course/:id").get(verifyJWT, getCourseById);
-router.route("/get-modules").get(verifyJWT, getModules);
-router.route("/update-course-details/:id").patch(verifyJWT, verifyAdmin, updateCourse);
+    .post(verifyUser, verifyAdmin, upload.single("image"), createCourse);
+router.route("/get-courses").get(verifyUser, getCourses);
+router.route("/get-course/:id").get(verifyUser, getCourseById);
+router.route("/get-modules").get(verifyUser, getModules);
+router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, updateCourse);
 router
     .route("/update-course-image/:id")
-    .patch(verifyJWT, verifyAdmin, upload.single("image"), updateCourseImage);
-router.route("/delete-course/:id").delete(verifyJWT, verifyAdmin, deleteCourse);
+    .patch(verifyUser, verifyAdmin, upload.single("image"), updateCourseImage);
+router.route("/delete-course/:id").delete(verifyUser, verifyAdmin, deleteCourse);
 
 export default router;

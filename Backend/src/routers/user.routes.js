@@ -12,7 +12,7 @@ import {
     updateAvatarImage,
     updateCoverImage,
 } from "../controllers/user.controller.js";
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { verifyUser } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
 
 const router = Router();
@@ -30,19 +30,19 @@ router.route("/register-user").post(
     ]),
     registerUserProfile,
 );
-router.route("/get-user").get(verifyJWT, getUserProfile);
+router.route("/get-user").get(verifyUser, getUserProfile);
 router.route("/get-user/:username").get(getUserProfileByUsername);
-router.route("/update-user").patch(verifyJWT, updateUserProfile);
+router.route("/update-user").patch(verifyUser, updateUserProfile);
 router.route("/login").post(loginUser);
-router.route("/logout").post(verifyJWT, logoutUser);
-router.route("/update-password").patch(verifyJWT, updateUserPassword);
-router.route("/delete-account").delete(verifyJWT, deleteUserAccount);
-router.route("/refresh-access-token").put(verifyJWT, refreshAccessToken);
+router.route("/logout").post(verifyUser, logoutUser);
+router.route("/update-password").patch(verifyUser, updateUserPassword);
+router.route("/delete-account").delete(verifyUser, deleteUserAccount);
+router.route("/refresh-access-token").put(verifyUser, refreshAccessToken);
 router
     .route("/update-avatar-image")
-    .patch(verifyJWT, upload.single("avatar"), updateAvatarImage);
+    .patch(verifyUser, upload.single("avatar"), updateAvatarImage);
 router
     .route("/update-cover-image")
-    .patch(verifyJWT, upload.single("coverImage"), updateCoverImage);
+    .patch(verifyUser, upload.single("coverImage"), updateCoverImage);
 
 export default router;
