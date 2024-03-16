@@ -3,6 +3,7 @@ import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { uploadImage, deleteImage } from "../utils/cloudinary.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
+import { Module } from "../models/module.model.js";
 
 const createCourse = asyncHandler(async (req, res) => {
     const { title, description } = req.body;
@@ -91,7 +92,16 @@ const getModules = asyncHandler(async (req, res) => {
 });
 
 const updateCourse = asyncHandler(async (req, res) => {
+    if(!req?.user || !req.user?.isAdmin){
+        throw new ApiError(403, 'Unauthorized access');
+    }
+
     const { id } = req.params;
+
+    if(!id) {
+        throw new ApiError(400, 'Missing ID in request');
+    }
+
     const { title, description } = req.body;
 
     // validation for fields
@@ -156,6 +166,10 @@ const updateCourseImage = asyncHandler(async (req, res) => {
 const deleteCourse = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
+    if(!id) {
+        throw new ApiError(400, 'Missing id in request');
+    }
+
     const course = await Course.findByIdAndDelete(id);
     if (!course) {
         throw new ApiError(404, "Course not found");
@@ -165,9 +179,16 @@ const deleteCourse = asyncHandler(async (req, res) => {
     const image = course.image.split("/").pop().split(".")[0];
     await deleteImage(image);
 
+    const modules = course.modules;
+
+    // Delete each module
+    for (const moduleId of modules) {
+        await Module.findByIdAndDelete(moduleId);
+    }
+
     return res
         .status(200)
-        .json(new ApiResponse(200, course, "Course deleted successfully"));
+        .json(new ApiResponse(200, "Course deleted successfully"));
 });
 
 export {
