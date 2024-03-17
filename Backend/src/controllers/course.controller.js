@@ -71,6 +71,23 @@ const getCourseById = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, course, "Course fetched successfully"));
 });
 
+const getAllCourses = asyncHandler(async (req, res) => {
+    const courses = await await Course.aggregate([
+        {
+            $project: {
+                title: 1,
+                description: 1,
+                image: 1,
+                moduleCount: { $size: "$modules" }
+            }
+        }
+    ]);
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, courses, "Courses fetched successfully"));
+})
+
 const getModules = asyncHandler(async (req, res) => {
     if (!req.user || !req.user.isAdmin) {
         throw new ApiError(401, "Unauthorized");
@@ -195,6 +212,7 @@ export {
     createCourse,
     getCourses,
     getCourseById,
+    getAllCourses,
     getModules,
     updateCourse,
     updateCourseImage,
