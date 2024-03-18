@@ -43,38 +43,40 @@ const createCourse = asyncHandler(async (req, res) => {
 });
 
 const addCourseToUser = asyncHandler(async (req, res) => {
-    if(!req.user || !req.user.isAdmin) {
-        throw new ApiError(403, 'Unauthorized access');
+    if (!req.user || !req.user.isAdmin) {
+        throw new ApiError(403, "Unauthorized access");
     }
 
     const user = req.user;
-    
+
     const { courseId } = req.body;
 
-    if(!courseId) {
-        throw new ApiError(400, 'Course id is required');
+    if (!courseId) {
+        throw new ApiError(400, "Course id is required");
     }
 
     // check if it was already added
-    const isCoursePresent = user.courses.find((course) => course._id.toString() === courseId);
+    const isCoursePresent = user.courses.find(
+        (course) => course._id.toString() === courseId,
+    );
 
-    if(isCoursePresent) {
-        throw new ApiError(409, 'Course already added');
+    if (isCoursePresent) {
+        throw new ApiError(409, "Course already added");
     }
 
     // check if there is any course exists with this id
     const course = await Course.findById(courseId);
-    if(!course) {
-        throw new ApiError(404, 'Course not found');
+    if (!course) {
+        throw new ApiError(404, "Course not found");
     }
 
     user.courses.push(course._id);
-    await user.save()
+    await user.save();
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, user, 'Course added successfully'));
-})
+        .status(200)
+        .json(new ApiResponse(200, user, "Course added successfully"));
+});
 
 const getCourses = asyncHandler(async (req, res) => {
     const { title } = req.body;
@@ -112,15 +114,15 @@ const getAllCourses = asyncHandler(async (req, res) => {
                 title: 1,
                 description: 1,
                 image: 1,
-                moduleCount: { $size: "$modules" }
-            }
-        }
+                moduleCount: { $size: "$modules" },
+            },
+        },
     ]);
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, courses, "Courses fetched successfully"));
-})
+        .status(200)
+        .json(new ApiResponse(200, courses, "Courses fetched successfully"));
+});
 
 const getModules = asyncHandler(async (req, res) => {
     if (!req.user || !req.user.isAdmin) {
@@ -143,14 +145,14 @@ const getModules = asyncHandler(async (req, res) => {
 });
 
 const updateCourse = asyncHandler(async (req, res) => {
-    if(!req?.user || !req.user?.isAdmin){
-        throw new ApiError(403, 'Unauthorized access');
+    if (!req?.user || !req.user?.isAdmin) {
+        throw new ApiError(403, "Unauthorized access");
     }
 
     const { id } = req.params;
 
-    if(!id) {
-        throw new ApiError(400, 'Missing ID in request');
+    if (!id) {
+        throw new ApiError(400, "Missing ID in request");
     }
 
     const { title, description } = req.body;
@@ -214,11 +216,35 @@ const updateCourseImage = asyncHandler(async (req, res) => {
         );
 });
 
+const removeCourseFromUser = asyncHandler(async (req, res) => {
+    if (!req.user || !req.user.isAdmin) {
+        throw new ApiError(403, "Unauthorized access");
+    }
+
+    const user = req.user;
+
+    const { courseId } = req.body;
+
+    if (!courseId) {
+        throw new ApiError(400, "Course id is required");
+    }
+
+    // remove course from user
+    user.courses = user.courses.filter(
+        (courseid) => courseid.toString() !== courseId,
+    );
+    await user.save();
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, user, "Course removed successfully"));
+});
+
 const deleteCourse = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
-    if(!id) {
-        throw new ApiError(400, 'Missing id in request');
+    if (!id) {
+        throw new ApiError(400, "Missing id in request");
     }
 
     const course = await Course.findByIdAndDelete(id);
@@ -251,5 +277,6 @@ export {
     getModules,
     updateCourse,
     updateCourseImage,
+    removeCourseFromUser,
     deleteCourse,
 };
