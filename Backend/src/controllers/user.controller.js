@@ -33,7 +33,9 @@ const registerUserProfile = asyncHandler(async (req, res) => {
 
     // validation for fields
     if (
-        [username, email, name, password].some((field) => !field || field?.trim() === "")
+        [username, email, name, password].some(
+            (field) => !field || field?.trim() === "",
+        )
     ) {
         throw new ApiError(400, "Please provide all the required fields");
     }
@@ -105,25 +107,97 @@ const registerUserProfile = asyncHandler(async (req, res) => {
 });
 
 const getUserProfile = asyncHandler(async (req, res, next) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
-    const user = req.user;
+    const user = await User.aggregate([
+        {
+            $match: {
+                _id: req.user?._id,
+            },
+        },
+        {
+            $lookup: {
+                from: "courses",
+                localField: "courses",
+                foreignField: "_id",
+                as: "courses",
+                pipeline: [
+                    {
+                        $addFields: {
+                            modulesCount: { $size: "$modules" },
+                        },
+                    },
+                    {
+                        $project: {
+                            modules: 0,
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            $project: {
+                password: 0,
+                refreshToken: 0,
+            },
+        },
+    ]);
+
+    if (!user) {
+        return next(new ApiError(404, "User not found"));
+    }
 
     const responseData = {
         user,
     };
 
-    return res.status(200).json(new ApiResponse(200, responseData));
+    return res
+        .status(200)
+        .json(new ApiResponse(200, responseData, "User Fetched Successfully"));
 });
 
 const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const { username } = req.params;
 
-    const user = await User.findOne({ username: username.toLowerCase() }).select(
-        "-password -refreshToken",
-    );
+    const user1 = await User.findOne({
+        username: username.toLowerCase(),
+    }).select("-password -refreshToken");
+
+    const user = await User.aggregate([
+        {
+            $match: {
+                username: username.toLowerCase(),
+            },
+        },
+        {
+            $lookup: {
+                from: "courses",
+                localField: "courses",
+                foreignField: "_id",
+                as: "courses",
+                pipeline: [
+                    {
+                        $addFields: {
+                            modulesCount: { $size: "$modules" },
+                        },
+                    },
+                    {
+                        $project: {
+                            modules: 0,
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            $project: {
+                password: 0,
+                refreshToken: 0,
+            },
+        },
+    ]);
 
     if (!user) {
         throw new ApiError(404, "User not found");
@@ -137,7 +211,7 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
 });
 
 const updateUserProfile = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
@@ -203,19 +277,21 @@ const loginUser = asyncHandler(async (req, res) => {
     delete responseUser.refreshToken;
 
     return res
-    .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
-    .json(new ApiResponse(200, {
-        message: "User logged in successfully",
-        data: {
-            responseUser,
-        },
-    }));
-})
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new ApiResponse(200, {
+                message: "User logged in successfully",
+                data: {
+                    responseUser,
+                },
+            }),
+        );
+});
 
 const logoutUser = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
@@ -226,29 +302,34 @@ const logoutUser = asyncHandler(async (req, res) => {
     });
 
     return res
-    .status(200)
-    .clearCookie("accessToken", options)
-    .clearCookie("refreshToken", options)
-    .json(new ApiResponse(200, {
-        message: "User logged out successfully",
-    }))
-})
+        .status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json(
+            new ApiResponse(200, {
+                message: "User logged out successfully",
+            }),
+        );
+});
 
 const updateUserPassword = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
     const { password, newPassword } = req.body;
-    
+
     if (!password || !newPassword) {
-      throw new ApiError(400, "Please provide new password");
+        throw new ApiError(400, "Please provide new password");
     }
-    
+
     const user = await User.findById(req.user._id);
-  
+
     // Check if the provided current password is correct
-    const isCurrentPasswordCorrect = await user.isPasswordCorrect(password, user.password);
+    const isCurrentPasswordCorrect = await user.isPasswordCorrect(
+        password,
+        user.password,
+    );
     if (!isCurrentPasswordCorrect) {
         throw new ApiError(400, "Current password is incorrect");
     }
@@ -267,14 +348,14 @@ const updateUserPassword = asyncHandler(async (req, res) => {
 });
 
 const deleteUserAccount = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
     const user = req.user;
 
     // delete avatar image from cloudinary
-    const avatar = user.avatar.split('/').pop().split('.')[0];
+    const avatar = user.avatar.split("/").pop().split(".")[0];
 
     const isAvatarDeleted = await deleteImage(avatar);
 
@@ -283,7 +364,7 @@ const deleteUserAccount = asyncHandler(async (req, res) => {
     }
 
     // delete cover image from cloudinary
-    const coverImage = user.coverImage.split('/').pop().split('.')[0];
+    const coverImage = user.coverImage.split("/").pop().split(".")[0];
 
     const isCoverImageDeleted = await deleteImage(coverImage);
 
@@ -310,7 +391,8 @@ const deleteUserAccount = asyncHandler(async (req, res) => {
 });
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
-    const incomingRefreshToken = req.cookies?.refreshToken || req.body?.refreshToken;
+    const incomingRefreshToken =
+        req.cookies?.refreshToken || req.body?.refreshToken;
 
     // check if refresh token is present
     if (!incomingRefreshToken) {
@@ -318,7 +400,10 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     }
 
     try {
-        const decodedToken = jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET);
+        const decodedToken = jwt.verify(
+            incomingRefreshToken,
+            process.env.REFRESH_TOKEN_SECRET,
+        );
 
         // find user by id
         const user = await User.findById(decodedToken?._id);
@@ -334,36 +419,36 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         }
 
         // generate new access and refresh tokens
-        const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
-            user?._id,
-        );
+        const { accessToken, refreshToken } =
+            await generateAccessAndRefreshToken(user?._id);
 
         return res
-        .status(200)
-        .cookie("accessToken", accessToken, options)
-        .cookie("refreshToken", refreshToken, options)
-        .json(new ApiResponse(200, {
-            message: "Access token refreshed successfully",
-        }));
-
+            .status(200)
+            .cookie("accessToken", accessToken, options)
+            .cookie("refreshToken", refreshToken, options)
+            .json(
+                new ApiResponse(200, {
+                    message: "Access token refreshed successfully",
+                }),
+            );
     } catch (error) {
         throw new ApiError(404, error?.message || "Invalid Refresh Token");
     }
-})
+});
 
 const updateAvatarImage = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
     const avatarLocalPath = req.file?.path;
 
-    if(!avatarLocalPath) {
+    if (!avatarLocalPath) {
         throw new ApiError(400, "Please provide avatar image");
     }
 
     // delete previous avatar image from cloudinary
-    const previousAvatar = req.user.avatar.split('/').pop().split('.')[0];
+    const previousAvatar = req.user.avatar.split("/").pop().split(".")[0];
 
     const isDeleted = await deleteImage(previousAvatar);
 
@@ -394,23 +479,26 @@ const updateAvatarImage = asyncHandler(async (req, res) => {
     }
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, user, "Avatar updated successfully"));
+        .status(200)
+        .json(new ApiResponse(200, user, "Avatar updated successfully"));
 });
 
 const updateCoverImage = asyncHandler(async (req, res) => {
-    if(!req.user) {
+    if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
     }
 
     const coverImageLocalPath = req.file?.path;
 
-    if(!coverImageLocalPath) {
+    if (!coverImageLocalPath) {
         throw new ApiError(400, "Please provide cover image");
     }
 
     // delete previous cover image from cloudinary
-    const previousCoverImage = req.user.coverImage.split('/').pop().split('.')[0];
+    const previousCoverImage = req.user.coverImage
+        .split("/")
+        .pop()
+        .split(".")[0];
 
     const isDeleted = await deleteImage(previousCoverImage);
 
@@ -441,8 +529,8 @@ const updateCoverImage = asyncHandler(async (req, res) => {
     }
 
     return res
-    .status(200)
-    .json(new ApiResponse(200, user, "Cover Image updated successfully"));
+        .status(200)
+        .json(new ApiResponse(200, user, "Cover Image updated successfully"));
 });
 
 export {
