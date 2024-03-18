@@ -10,6 +10,7 @@ import {
     updateCourse,
     updateCourseImage,
     deleteCourse,
+    addCourseToUser,
 } from "../controllers/course.controller.js";
 
 const router = Router();
@@ -24,6 +25,7 @@ router.route("/health").get((__, res) => {
 router
     .route("/create-course")
     .post(verifyUser, verifyAdmin, upload.single("image"), createCourse);
+router.route("/add-course-to-user").post(verifyUser, verifyAdmin, addCourseToUser);
 router.route("/get-course").get(verifyUser, getCourses);
 router.route("/get-courseById/:id").get(verifyUser, getCourseById);
 router.route("/get-modules").get(verifyUser, getModules);
