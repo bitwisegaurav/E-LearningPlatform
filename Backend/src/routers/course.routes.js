@@ -11,6 +11,7 @@ import {
     updateCourseImage,
     deleteCourse,
     addCourseToUser,
+    removeCourseFromUser,
 } from "../controllers/course.controller.js";
 
 const router = Router();
@@ -33,6 +34,7 @@ router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, update
 router
     .route("/update-course-image/:id")
     .patch(verifyUser, verifyAdmin, upload.single("image"), updateCourseImage);
+router.route("/remove-course-from-user").patch(verifyUser, verifyAdmin, removeCourseFromUser);
 router.route("/delete-course/:id").delete(verifyUser, verifyAdmin, deleteCourse);
 
 export default router;
