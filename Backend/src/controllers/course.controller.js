@@ -42,6 +42,40 @@ const createCourse = asyncHandler(async (req, res) => {
         .json(new ApiResponse(201, course, "Course created successfully"));
 });
 
+const addCourseToUser = asyncHandler(async (req, res) => {
+    if(!req.user || !req.user.isAdmin) {
+        throw new ApiError(403, 'Unauthorized access');
+    }
+
+    const user = req.user;
+    
+    const { courseId } = req.body;
+
+    if(!courseId) {
+        throw new ApiError(400, 'Course id is required');
+    }
+
+    // check if it was already added
+    const isCoursePresent = user.courses.find((course) => course._id.toString() === courseId);
+
+    if(isCoursePresent) {
+        throw new ApiError(409, 'Course already added');
+    }
+
+    // check if there is any course exists with this id
+    const course = await Course.findById(courseId);
+    if(!course) {
+        throw new ApiError(404, 'Course not found');
+    }
+
+    user.courses.push(course._id);
+    await user.save()
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, user, 'Course added successfully'));
+})
+
 const getCourses = asyncHandler(async (req, res) => {
     const { title } = req.body;
     if (!title) {
@@ -72,7 +106,7 @@ const getCourseById = asyncHandler(async (req, res) => {
 });
 
 const getAllCourses = asyncHandler(async (req, res) => {
-    const courses = await await Course.aggregate([
+    const courses = await Course.aggregate([
         {
             $project: {
                 title: 1,
@@ -210,6 +244,7 @@ const deleteCourse = asyncHandler(async (req, res) => {
 
 export {
     createCourse,
+    addCourseToUser,
     getCourses,
     getCourseById,
     getAllCourses,
