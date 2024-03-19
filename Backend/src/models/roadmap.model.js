@@ -6,13 +6,16 @@ const roadmapSchema = new Schema(
             type: String,
             required: true,
         },
+        image: {
+            type: String,
+        },
         description: {
             type: String,
             required: true,
         },
         course: {
-            type: Schema.Types.ObjectId,
-            ref: "Course",
+            type: String,
+            required: true,
         },
     },
     { timestamps: true },
