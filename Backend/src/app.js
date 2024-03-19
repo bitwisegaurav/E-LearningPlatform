@@ -20,10 +20,14 @@ app.use(cookieParser());
 import userRoutes from "./routers/user.routes.js";
 import courseRoutes from "./routers/course.routes.js";
 import moduleRoutes from "./routers/module.routes.js";
+import roadmapRoutes from "./routers/roadmap.routes.js";
+import followerRoutes from "./routers/follower.routes.js";
 
 // setting routes
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/module", moduleRoutes);
+app.use("/api/v1/roadmap", roadmapRoutes);
+app.use("/api/v1/follower", followerRoutes);
 
 export { app };
