@@ -4,7 +4,7 @@ import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { Followers } from "../models/follower.model.js";
 import { User } from "../models/user.model.js";
 
-const follwerUser = asyncHandler(async (req, res) => {
+const followUser = asyncHandler(async (req, res) => {
     const userId = req.params?.userId || req.body?.userId;
     const { userName } = req.body;
 
@@ -143,4 +143,4 @@ const unFollowUser = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, "User unfollowed successfully"));
 });
 
-export { follwerUser, isFollowing, unFollowUser };
+export { followUser, isFollowing, unFollowUser };
