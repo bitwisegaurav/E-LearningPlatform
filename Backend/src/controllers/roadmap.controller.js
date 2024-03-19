@@ -104,7 +104,7 @@ const updateRoadmap = asyncHandler(async (req, res) => {
 });
 
 const updateRoadmapImage = asyncHandler(async (req, res) => {
-    const { id } = req.params || req.body;
+    const id = req.params?.id || req.body?.id;
 
     const imageLocalPath = req.file?.path;
     const image = await uploadImage(imageLocalPath);
