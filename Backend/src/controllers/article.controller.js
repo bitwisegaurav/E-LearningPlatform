@@ -117,7 +117,6 @@ const likeArticle = asyncHandler(async (req, res) => {
 });
 
 const updateArticle = asyncHandler(async (req, res) => {
-    const id = req.params?.id || req.body?.id;
     const { title, body, imageURL } = req.body;
 
     if (!title && !body && !imageURL) {
@@ -128,7 +127,7 @@ const updateArticle = asyncHandler(async (req, res) => {
     }
 
     if (imageURL?.trim().length) {
-        const article = await Article.findById(id);
+        const article = req.article;
         if (!article && !article.imageURL) {
             throw new ApiError(404, "Article or image is not found");
         }
@@ -140,6 +139,8 @@ const updateArticle = asyncHandler(async (req, res) => {
             throw new ApiError(500, "Failed to delete previous image");
         }
     }
+
+    const id = req.article._id;
 
     const updatedArticle = await Article.findByIdAndUpdate(
         id,
@@ -169,13 +170,11 @@ const updateArticle = asyncHandler(async (req, res) => {
 });
 
 const deleteArticle = asyncHandler(async (req, res) => {
-    const id = req.params?.id || req.body?.id;
-
-    if (!id) {
-        throw new ApiError(400, "Article id is required");
+    if(!req.article?.id) {
+        throw new ApiError(404, "Article not found");
     }
 
-    const article = await Article.findByIdAndDelete(id);
+    const article = await Article.findById(req.article._id);
 
     if (!article) {
         throw new ApiError(404, "Article not found");
