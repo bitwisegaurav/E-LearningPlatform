@@ -4,11 +4,7 @@ import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { uploadImage, deleteImage } from "../utils/cloudinary.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-
-const options = {
-    httpOnly: true,
-    secure: true,
-};
+import { options } from "../constants.js";
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
@@ -534,6 +530,7 @@ const updateCoverImage = asyncHandler(async (req, res) => {
 });
 
 export {
+    generateAccessAndRefreshToken,
     registerUserProfile,
     getUserProfile,
     getUserProfileByUsername,
