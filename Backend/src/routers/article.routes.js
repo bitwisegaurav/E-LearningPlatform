@@ -1,10 +1,17 @@
 import Router from "express";
 import { verifyUser } from "../middlewares/auth.middleware.js";
-import { verifyAdmin } from "../middlewares/adminAuth.middleware.js";
-import { createArticle, deleteArticle, getArticleById, getArticles, updateArticle } from "../controllers/article.controller.js";
-
+import { verifyArticleOwner } from "../middlewares/authArticle.middleware.js";
+import {
+    createArticle,
+    deleteArticle,
+    getArticleById,
+    getArticles,
+    likeArticle,
+    updateArticle,
+} from "../controllers/article.controller.js";
 
 const router = Router();
+// router.use(verifyUser); // all articles routes need authentication
 
 router.route("/health").get((__, res) => {
     res.json({
@@ -13,10 +20,15 @@ router.route("/health").get((__, res) => {
     });
 });
 
-router.route('/create-article').post(verifyUser, verifyAdmin, createArticle);
-router.route('/get-articles').get(verifyUser, getArticles);
-router.route('/get-article/:id').get(verifyUser, getArticleById);
-router.route('/update-article/:id').patch(verifyUser, verifyAdmin, updateArticle); // TODO : Add middleware to check if the article belongs to the user
-router.route('/delete-article/:id').delete(verifyUser, verifyAdmin, deleteArticle); // TODO : Add middleware to check if the article belongs to the user
+router.route("/create-article").post(verifyUser, createArticle);
+router.route("/get-articles").get(verifyUser, getArticles);
+router.route("/get-article/:id").get(verifyUser, getArticleById);
+router.route("/like-article/:id").patch(verifyUser, likeArticle);
+router
+    .route("/update-article/:id")
+    .patch(verifyUser, verifyArticleOwner, updateArticle);
+router
+    .route("/delete-article/:id")
+    .delete(verifyUser, verifyArticleOwner, deleteArticle);
 
 export default router;
