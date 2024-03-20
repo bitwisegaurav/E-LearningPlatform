@@ -1,23 +1,29 @@
-import { ApiResponse } from "../utils/apiResponse.util.js";
-import { ApiError } from "../utils/apiError.util.js";
+import { ApiResponse } from "../utils/ApiResponse.util.js";
+import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { Followers } from "../models/follower.model.js";
 import { User } from "../models/user.model.js";
 
 const followUser = asyncHandler(async (req, res) => {
     const userId = req.params?.userId || req.body?.userId;
-    const { userName } = req.body;
+    const { username } = req.body;
+
+    console.log(userId, username);
+
+    if(!userId && !username) {
+        throw new ApiError(400, "User id or username is required");
+    }
 
     const follower = await User.findById(req.user?._id);
     if (!follower) {
-        throw new ApiError(404, "User not found");
+        throw new ApiError(404, "Follower not found");
     }
 
     const followingTo = await User.findOne({
-        $or: [{ username: userName }, { _id: userId }],
+        $or: [{ username: username }, { _id: userId }],
     });
     if (!followingTo) {
-        throw new ApiError(404, "User not found");
+        throw new ApiError(404, "User whom you are following is not found");
     }
 
     // Check if the user is already following the user
@@ -50,9 +56,9 @@ const followUser = asyncHandler(async (req, res) => {
 
 const isFollowing = asyncHandler(async (req, res) => {
     const userId = req.params?.userId || req.body?.userId;
-    const { userName } = req.body;
+    const { username } = req.body;
 
-    if (!userId && !userName) {
+    if (!userId && !username) {
         throw new ApiError(400, "User id is required");
     }
 
@@ -63,7 +69,7 @@ const isFollowing = asyncHandler(async (req, res) => {
     }
 
     const followingTo = await User.findOne({
-        $or: [{ _id: userId }, { userName: userName }],
+        $or: [{ _id: userId }, { username: username }],
     });
 
     if (!followingTo) {
@@ -83,17 +89,21 @@ const isFollowing = asyncHandler(async (req, res) => {
             new ApiResponse(
                 200,
                 isFollowing,
-                "Is following result fetched successfully",
+                isFollowing ? "You are following this user" : "You are not following this user",
             ),
         );
 });
 
 const unFollowUser = asyncHandler(async (req, res) => {
     const userId = req.params?.userId || req.body?.userId;
-    const { userName } = req.body;
+    const { username } = req.body;
 
-    if (!userId) {
-        throw new ApiError(400, "User id is required");
+    console.log(req.body);
+
+    console.log(userId, username);
+
+    if (!userId && !username) {
+        throw new ApiError(400, "User id or username is required");
     }
 
     const follower = await User.findById(req.user?._id);
@@ -104,7 +114,7 @@ const unFollowUser = asyncHandler(async (req, res) => {
 
     // Find the user that we want to unfollow from the database
     const followingTo = await User.findOne({
-        $or: [{ _id: userId }, { userName: userName }],
+        $or: [{ _id: userId }, { username: username }],
     });
 
     if (!followingTo) {

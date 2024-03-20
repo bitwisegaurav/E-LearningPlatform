@@ -1,6 +1,6 @@
-import { Roadmaps } from "../models/roadmaps.model.js";
-import { ApiResponse } from "../utils/apiResponse.util.js";
-import { ApiError } from "../utils/apiError.util.js";
+import { Roadmap } from "../models/roadmap.model.js";
+import { ApiResponse } from "../utils/ApiResponse.util.js";
+import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { uploadImage } from "../utils/cloudinary.util.js";
 import { Course } from "../models/course.model.js";
@@ -31,7 +31,7 @@ const createRoadmap = asyncHandler(async (req, res) => {
         image = await Course.findOne({ title: courseTitle }).select("image");
     }
 
-    const roadmap = await Roadmaps.create({
+    const roadmap = await Roadmap.create({
         title,
         ...(image && { image }),
         description,
@@ -44,11 +44,11 @@ const createRoadmap = asyncHandler(async (req, res) => {
 });
 
 const getRoadmaps = asyncHandler(async (req, res) => {
-    const roadmaps = await Roadmaps.find().select("-description");
+    const roadmap = await Roadmap.find().select("-description");
 
     return res
         .status(200)
-        .json(new ApiResponse(200, roadmaps, "Roadmaps fetched successfully"));
+        .json(new ApiResponse(200, roadmap, "Roadmap fetched successfully"));
 });
 
 const getRoadmapByDetails = asyncHandler(async (req, res) => {
@@ -61,7 +61,7 @@ const getRoadmapByDetails = asyncHandler(async (req, res) => {
         );
     }
 
-    const roadmap = await Roadmaps.findOne({
+    const roadmap = await Roadmap.findOne({
         $or: [{ _id: id }, { title: title }, { course: courseTitle }],
     });
 
@@ -82,7 +82,7 @@ const updateRoadmap = asyncHandler(async (req, res) => {
         throw new ApiError(400, "All fields are required");
     }
 
-    const roadmap = await Roadmaps.findByIdAndUpdate(
+    const roadmap = await Roadmap.findByIdAndUpdate(
         id,
         {
             $set: {
@@ -113,7 +113,7 @@ const updateRoadmapImage = asyncHandler(async (req, res) => {
         throw new ApiError(500, "Something went wrong while uploading image");
     }
 
-    const roadmap = await Roadmaps.findById(id);
+    const roadmap = await Roadmap.findById(id);
 
     // Delete old image from cloudinary
     if (previousImage) {
@@ -133,7 +133,7 @@ const updateRoadmapImage = asyncHandler(async (req, res) => {
 const deleteRoadmap = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
-    const roadmap = await Roadmaps.findByIdAndDelete(id);
+    const roadmap = await Roadmap.findByIdAndDelete(id);
 
     if (!roadmap) {
         throw new ApiError(404, "Roadmap not found");

@@ -1,6 +1,6 @@
 import { Article } from "../models/article.model.js";
-import { ApiResponse } from "../utils/apiResponse.util.js";
-import { ApiError } from "../utils/apiError.util.js";
+import { ApiResponse } from "../utils/ApiResponse.util.js";
+import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { deleteImage } from "../utils/cloudinary.util.js";
 

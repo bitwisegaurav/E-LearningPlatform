@@ -1,3 +1,4 @@
+import { Article } from "../models/article.model.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 

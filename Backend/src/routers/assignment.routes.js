@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { verifyUser } from "../middlewares/auth.middleware";
-import { verifyAdmin } from "../middlewares/adminAuth.middleware";
+import { verifyUser } from "../middlewares/auth.middleware.js";
+import { verifyAdmin } from "../middlewares/adminAuth.middleware.js";
 import {
     createAssignment,
     deleteAssignment,
     getAssignmentById,
     getAssignments,
     updateAssignment,
-} from "../controllers/assignment.controller";
+} from "../controllers/assignment.controller.js";
 
 const router = Router();
 
