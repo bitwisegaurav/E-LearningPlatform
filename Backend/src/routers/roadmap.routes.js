@@ -24,7 +24,7 @@ router
     .route("/create-roadmap")
     .post(verifyUser, verifyAdmin, upload.single("image"), createRoadmap);
 router.route("/get-roadmaps").get(verifyUser, getRoadmaps);
-router.route("/get-roadmapByDetails/:id").get(verifyUser, getRoadmapByDetails);
+router.route("/get-roadmapByDetails").get(verifyUser, getRoadmapByDetails);
 router
     .route("/update-roadmap/:id")
     .patch(verifyUser, verifyAdmin, updateRoadmap);
