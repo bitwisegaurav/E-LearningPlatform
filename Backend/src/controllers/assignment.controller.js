@@ -85,7 +85,7 @@ const updateAssignment = asyncHandler(async (req, res) => {
             $set: {
                 ...(title && { title }),
                 ...(description && { description }),
-                module: { ...(moduleId && { moduleId }) },
+                ...(moduleId && { module: moduleId }) ,
             },
         },
         { new: true }
