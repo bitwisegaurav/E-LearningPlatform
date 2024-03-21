@@ -24,8 +24,10 @@ import roadmapRoutes from "./routers/roadmap.routes.js";
 import followerRoutes from "./routers/follower.routes.js";
 import articleRoutes from "./routers/article.routes.js";
 import assignmentRoutes from "./routers/assignment.routes.js";
+import imageRoutes from "./routers/image.routes.js";
 
 // setting routes
+app.use("/api/v1/image", imageRoutes);
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/module", moduleRoutes);
