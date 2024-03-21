@@ -8,7 +8,9 @@ import {
     getArticles,
     likeArticle,
     updateArticle,
+    updateArticleImage,
 } from "../controllers/article.controller.js";
+import { upload } from "../middlewares/multer.middleware.js";
 
 const router = Router();
 // router.use(verifyUser); // all articles routes need authentication
@@ -20,13 +22,14 @@ router.route("/health").get((__, res) => {
     });
 });
 
-router.route("/create-article").post(verifyUser, createArticle);
+router.route("/create-article").post(verifyUser, upload.single('image'), createArticle);
 router.route("/get-articles").get(verifyUser, getArticles);
-router.route("/get-article/:id").get(verifyUser, getArticleById);
+router.route("/get-articleById/:id").get(verifyUser, getArticleById);
 router.route("/like-article/:id").patch(verifyUser, likeArticle);
 router
     .route("/update-article/:id")
     .patch(verifyUser, verifyArticleOwner, updateArticle);
+router.route('/update-article-image/:id').patch(verifyUser, verifyArticleOwner, upload.single('image'), updateArticleImage);
 router
     .route("/delete-article/:id")
     .delete(verifyUser, verifyArticleOwner, deleteArticle);
