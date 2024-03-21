@@ -10,6 +10,10 @@ const assignmentSchema = new Schema(
             type: String,
             required: true,
         },
+        content: {
+            type: String,
+            required: true,
+        },
         module: {
             type: Schema.Types.ObjectId,
             ref: "Module",
