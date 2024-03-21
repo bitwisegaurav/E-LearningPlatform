@@ -2,7 +2,7 @@ import { Roadmap } from "../models/roadmap.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-import { uploadImage } from "../utils/cloudinary.util.js";
+import { deleteImage, uploadImage } from "../utils/cloudinary.util.js";
 import { Course } from "../models/course.model.js";
 
 const createRoadmap = asyncHandler(async (req, res) => {
@@ -28,7 +28,8 @@ const createRoadmap = asyncHandler(async (req, res) => {
 
         image = imageCloudinaryPath.url;
     } else {
-        image = await Course.findOne({ title: courseTitle }).select("image");
+        const course = await Course.findOne({ title: courseTitle });
+        image = course.image;
     }
 
     const roadmap = await Roadmap.create({
@@ -74,13 +75,21 @@ const getRoadmapByDetails = asyncHandler(async (req, res) => {
 });
 
 const updateRoadmap = asyncHandler(async (req, res) => {
-    const { id, title, description, courseTitle } = req.body;
+    const { id } = req.params;
+
+    if (!id) {
+        throw new ApiError(400, "Roadmap id is required");
+    }
+
+    const { title, description, courseTitle } = req.body;
 
     if (
-        ![id, title, description, course].some((field) => field?.trim() === "")
+        [id, title, description, courseTitle].some((field) => field?.trim() === "")
     ) {
-        throw new ApiError(400, "All fields are required");
+        throw new ApiError(400, "Atleast one field is required");
     }
+
+    const course = courseTitle;
 
     const roadmap = await Roadmap.findByIdAndUpdate(
         id,
@@ -92,7 +101,7 @@ const updateRoadmap = asyncHandler(async (req, res) => {
             },
         },
         { new: true },
-    ).populate("course", "title");
+    );
 
     if (!roadmap) {
         throw new ApiError(404, "Roadmap not found");
@@ -116,13 +125,13 @@ const updateRoadmapImage = asyncHandler(async (req, res) => {
     const roadmap = await Roadmap.findById(id);
 
     // Delete old image from cloudinary
-    if (previousImage) {
+    if (roadmap?.image) {
         const publicId = roadmap.image.split("/").pop().split(".")[0];
         await deleteImage(publicId);
     }
 
     // Update image in database
-    roadmap.image = image;
+    roadmap.image = image.url;
     await roadmap.save();
 
     return res
