@@ -1,7 +1,7 @@
 import { ApiError } from "../utils/ApiError.util.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-import { uploadImage } from "../utils/cloudinary.util.js";
+import { uploadCloudinary } from "../utils/cloudinary.util.js";
 
 const uploadImageHandler = asyncHandler(async (req, res) => {
     const imageLocalPath = req.file?.path;
@@ -10,7 +10,7 @@ const uploadImageHandler = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Image is required");
     }
 
-    const image = await uploadImage(imageLocalPath);
+    const image = await uploadCloudinary(imageLocalPath);
 
     if (!image) {
         throw new ApiError(500, "Failed to upload image");

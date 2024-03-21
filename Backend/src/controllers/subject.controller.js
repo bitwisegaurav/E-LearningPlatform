@@ -6,13 +6,15 @@ import { asyncHandler } from "../utils/asyncHandler.util.js";
 const createSubject = asyncHandler(async (req, res) => {
     const { title, years } = req.body;
 
-    if (!title || !years || !Array.isArray(years)) {
+    const yearsArray = years.split(' ').map(value => Number(value));
+
+    if (!title || !years || !Array.isArray(yearsArray)) {
         throw new ApiError(400, "Title and years are required");
     }
 
     const subject = await Subject.create({
         title,
-        years,
+        years: yearsArray,
     });
 
     return res
@@ -44,7 +46,9 @@ const updateSubject = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { title, years } = req.body;
 
-    if (!title && !years && !Array.isArray(years)) {
+    const yearsArray = years.split(' ').map(value => Number(value));
+
+    if (!title && !(years && Array.isArray(yearsArray))) {
         throw new ApiError(400, "Provide at least one field to update");
     }
 
@@ -53,7 +57,7 @@ const updateSubject = asyncHandler(async (req, res) => {
         {
             $set: {
                 ...(title && { title }),
-                ...(years && { years }),
+                ...(yearsArray.length && { years: yearsArray }),
             },
         },
         { new: true }

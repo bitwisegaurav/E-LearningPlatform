@@ -2,7 +2,7 @@ import { Roadmap } from "../models/roadmap.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-import { deleteImage, uploadImage } from "../utils/cloudinary.util.js";
+import { deleteCloudinary, uploadCloudinary } from "../utils/cloudinary.util.js";
 import { Course } from "../models/course.model.js";
 
 const createRoadmap = asyncHandler(async (req, res) => {
@@ -18,7 +18,7 @@ const createRoadmap = asyncHandler(async (req, res) => {
     const imageLocalPath = req.file?.path;
     let image = null;
     if (imageLocalPath) {
-        const imageCloudinaryPath = await uploadImage(imageLocalPath);
+        const imageCloudinaryPath = await uploadCloudinary(imageLocalPath);
         if (!imageCloudinaryPath) {
             throw new ApiError(
                 500,
@@ -116,7 +116,7 @@ const updateRoadmapImage = asyncHandler(async (req, res) => {
     const id = req.params?.id || req.body?.id;
 
     const imageLocalPath = req.file?.path;
-    const image = await uploadImage(imageLocalPath);
+    const image = await uploadCloudinary(imageLocalPath);
 
     if (!image) {
         throw new ApiError(500, "Something went wrong while uploading image");
@@ -127,7 +127,7 @@ const updateRoadmapImage = asyncHandler(async (req, res) => {
     // Delete old image from cloudinary
     if (roadmap?.image) {
         const publicId = roadmap.image.split("/").pop().split(".")[0];
-        await deleteImage(publicId);
+        await deleteCloudinary(publicId);
     }
 
     // Update image in database
@@ -152,7 +152,7 @@ const deleteRoadmap = asyncHandler(async (req, res) => {
     const image = roadmap.image;
     if (image) {
         const publicId = image.split("/").pop().split(".")[0];
-        await deleteImage(publicId);
+        await deleteCloudinary(publicId);
     }
 
     return res

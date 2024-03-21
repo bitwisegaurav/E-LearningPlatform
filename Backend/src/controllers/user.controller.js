@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
-import { uploadImage, deleteImage } from "../utils/cloudinary.util.js";
+import { uploadCloudinary, deleteCloudinary } from "../utils/cloudinary.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { options } from "../constants.js";
 
@@ -59,8 +59,8 @@ const registerUserProfile = asyncHandler(async (req, res) => {
     }
 
     // upload images to cloudinary
-    const avatarCloudinaryResponse = await uploadImage(avatarLocalPath);
-    const coverImageCloudinaryResponse = await uploadImage(coverImageLocalPath);
+    const avatarCloudinaryResponse = await uploadCloudinary(avatarLocalPath);
+    const coverImageCloudinaryResponse = await uploadCloudinary(coverImageLocalPath);
 
     if (!avatarCloudinaryResponse || !coverImageCloudinaryResponse) {
         throw new ApiError(500, "Error while uploading images to cloudinary");
@@ -451,7 +451,7 @@ const deleteUserAccount = asyncHandler(async (req, res) => {
     // delete avatar image from cloudinary
     const avatar = user.avatar.split("/").pop().split(".")[0];
 
-    const isAvatarDeleted = await deleteImage(avatar);
+    const isAvatarDeleted = await deleteCloudinary(avatar);
 
     if (!isAvatarDeleted) {
         console.log("Failed to delete avtavar image");
@@ -460,7 +460,7 @@ const deleteUserAccount = asyncHandler(async (req, res) => {
     // delete cover image from cloudinary
     const coverImage = user.coverImage.split("/").pop().split(".")[0];
 
-    const isCoverImageDeleted = await deleteImage(coverImage);
+    const isCoverImageDeleted = await deleteCloudinary(coverImage);
 
     if (!isCoverImageDeleted) {
         console.log("Failed to delete cover image");
@@ -544,14 +544,14 @@ const updateAvatarImage = asyncHandler(async (req, res) => {
     // delete previous avatar image from cloudinary
     const previousAvatar = req.user.avatar.split("/").pop().split(".")[0];
 
-    const isDeleted = await deleteImage(previousAvatar);
+    const isDeleted = await deleteCloudinary(previousAvatar);
 
     if (!isDeleted) {
         console.log("Failed to delete avatar image");
     }
 
     // upload image on cloudinary
-    const avatar = await uploadImage(avatarLocalPath);
+    const avatar = await uploadCloudinary(avatarLocalPath);
 
     if (!avatar) {
         throw new ApiError(500, "Failed to upload avatar image");
@@ -594,14 +594,14 @@ const updateCoverImage = asyncHandler(async (req, res) => {
         .pop()
         .split(".")[0];
 
-    const isDeleted = await deleteImage(previousCoverImage);
+    const isDeleted = await deleteCloudinary(previousCoverImage);
 
     if (!isDeleted) {
         console.log("Failed to delete cover image");
     }
 
     // upload image on cloudinary
-    const coverImage = await uploadImage(coverImageLocalPath);
+    const coverImage = await uploadCloudinary(coverImageLocalPath);
 
     if (!coverImage) {
         throw new ApiError(500, "Failed to upload cover image");

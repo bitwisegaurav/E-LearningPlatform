@@ -2,7 +2,7 @@ import { Article } from "../models/article.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-import { deleteImage, uploadImage } from "../utils/cloudinary.util.js";
+import { deleteCloudinary, uploadCloudinary } from "../utils/cloudinary.util.js";
 
 const createArticle = asyncHandler(async (req, res) => {
     const { title, body } = req.body;
@@ -17,7 +17,7 @@ const createArticle = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Image is required");
     }
 
-    const imageCloudinaryPath = await uploadImage(imageLocalPath);
+    const imageCloudinaryPath = await uploadCloudinary(imageLocalPath);
 
     const article = await Article.create({
         title,
@@ -178,7 +178,7 @@ const updateArticleImage = asyncHandler(async (req, res) => {
 
     // delete previous image
     const previousImage = article.imageURL.split("/").pop().split(".")[0];
-    const isDeleted = await deleteImage(previousImage);
+    const isDeleted = await deleteCloudinary(previousImage);
     if (!isDeleted) {
         throw new ApiError(500, "Failed to delete previous image");
     }
@@ -188,7 +188,7 @@ const updateArticleImage = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Image is required");
     }
 
-    const imageCloudinaryPath = await uploadImage(imageLocalPath);
+    const imageCloudinaryPath = await uploadCloudinary(imageLocalPath);
     if (!imageCloudinaryPath) {
         throw new ApiError(500, "Failed to upload image");
     }
@@ -224,7 +224,7 @@ const deleteArticle = asyncHandler(async (req, res) => {
     // delete image
     if (article.imageURL) {
         const imageName = article.imageURL.split("/").pop().split(".")[0];
-        const isDeleted = await deleteImage(imageName);
+        const isDeleted = await deleteCloudinary(imageName);
         if (!isDeleted) {
             throw new ApiError(500, "Failed to delete image");
         }

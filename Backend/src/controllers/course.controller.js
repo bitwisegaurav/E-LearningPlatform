@@ -1,7 +1,7 @@
 import { Course } from "../models/course.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
-import { uploadImage, deleteImage } from "../utils/cloudinary.util.js";
+import { uploadCloudinary, deleteCloudinary } from "../utils/cloudinary.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { Module } from "../models/module.model.js";
 
@@ -26,7 +26,7 @@ const createCourse = asyncHandler(async (req, res) => {
     }
 
     // upload image to cloudinary
-    const image = await uploadImage(imageLocalPath);
+    const image = await uploadCloudinary(imageLocalPath);
     if (!image) {
         throw new ApiError(500, "Failed to upload image");
     }
@@ -197,14 +197,14 @@ const updateCourseImage = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Course not found");
     }
 
-    const image = await uploadImage(imageLocalPath);
+    const image = await uploadCloudinary(imageLocalPath);
 
     if (!image) {
         throw new ApiError(500, "Failed to upload image");
     }
 
     const imageUrl = course.image.split("/").pop().split(".")[0];
-    await deleteImage(imageUrl);
+    await deleteCloudinary(imageUrl);
 
     course.image = image.url;
     await course.save();
@@ -254,7 +254,7 @@ const deleteCourse = asyncHandler(async (req, res) => {
 
     // delete image from cloudinary
     const image = course.image.split("/").pop().split(".")[0];
-    await deleteImage(image);
+    await deleteCloudinary(image);
 
     const modules = course.modules;
 
