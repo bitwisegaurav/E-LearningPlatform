@@ -13,8 +13,8 @@ const router = Router();
 
 router.route("/create-subject").post(verifyUser, verifyAdmin, createSubject);
 router.route("/get-subjects").get(verifyUser, getSubjects);
-router.route("/get-subject/:id").get(verifyUser, getSubjectById);
-router.route("/update-subject").patch(verifyUser, verifyAdmin, updateSubject);
+router.route("/get-subjectById/:id").get(verifyUser, getSubjectById);
+router.route("/update-subject/:id").patch(verifyUser, verifyAdmin, updateSubject);
 router
     .route("/delete-subject/:id")
     .delete(verifyUser, verifyAdmin, deleteSubject);
