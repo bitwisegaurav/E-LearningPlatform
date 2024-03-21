@@ -5,15 +5,16 @@ import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { Module } from "../models/module.model.js";
 
 const createAssignment = asyncHandler(async (req, res) => {
-    const { title, description, moduleId } = req.body;
+    const { title, description, content, moduleId } = req.body;
 
-    if ([title, description, moduleId].some((field) => field?.trim() === "")) {
+    if ([title, description, content, moduleId].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "Title, description, and moduleId are required");
     }
 
     const assignment = await Assignment.create({
         title,
         description,
+        content,
         module: moduleId,
     });
 
@@ -106,16 +107,16 @@ const deleteAssignment = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Assignment id is required");
     }
     
+    const assignment = await Assignment.findByIdAndDelete(id);
+    
+    if (!assignment) {
+        throw new ApiError(404, "Assignment not found");
+    }
+    
     const module = await Module.findById(assignment.module);
     
     if(!module) {
         throw new ApiError(404, "Module not found");
-    }
-
-    const assignment = await Assignment.findByIdAndDelete(id);
-
-    if (!assignment) {
-        throw new ApiError(404, "Assignment not found");
     }
 
     module.assignments = module.assignments.filter((assignmentId) => assignmentId.toString() !== id);
