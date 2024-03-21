@@ -134,6 +134,55 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
             },
         },
         {
+            $lookup: {
+                from: "articles",
+                localField: "_id",
+                foreignField: "owner",
+                as: "articles",
+                pipeline: [
+                    {
+                        $addFields: {
+                            likesCount: { $size: "$likes" },
+                        },
+                    },
+                    {
+                        $project: {
+                            title: 1,
+                            imageURL: 1,
+                            createdAt: 1,
+                            likesCount: 1,
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            $lookup: {
+                from: "followers",
+                localField: "_id",
+                foreignField: "FollowingId",
+                as: "followers",
+            },
+        },
+        {
+            $lookup: {
+                from: "followers",
+                localField: "_id",
+                foreignField: "FollowerId",
+                as: "following",
+            },
+        },
+        {
+            $addFields: {
+                followers: {
+                    $size: "$followers",
+                },
+                following: {
+                    $size: "$following",
+                }
+            }
+        },
+        {
             $project: {
                 password: 0,
                 refreshToken: 0,
@@ -186,6 +235,55 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
                     },
                 ],
             },
+        },
+        {
+            $lookup: {
+                from: "articles",
+                localField: "_id",
+                foreignField: "owner",
+                as: "articles",
+                pipeline: [
+                    {
+                        $addFields: {
+                            likesCount: { $size: "$likes" },
+                        },
+                    },
+                    {
+                        $project: {
+                            title: 1,
+                            imageURL: 1,
+                            createdAt: 1,
+                            likesCount: 1,
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            $lookup: {
+                from: "followers",
+                localField: "_id",
+                foreignField: "FollowingId",
+                as: "followers",
+            },
+        },
+        {
+            $lookup: {
+                from: "followers",
+                localField: "_id",
+                foreignField: "FollowerId",
+                as: "following",
+            },
+        },
+        {
+            $addFields: {
+                followers: {
+                    $size: "$followers",
+                },
+                following: {
+                    $size: "$following",
+                }
+            }
         },
         {
             $project: {
