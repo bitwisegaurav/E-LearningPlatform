@@ -2,19 +2,27 @@ import { Article } from "../models/article.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
-import { deleteImage } from "../utils/cloudinary.util.js";
+import { deleteImage, uploadImage } from "../utils/cloudinary.util.js";
 
 const createArticle = asyncHandler(async (req, res) => {
-    const { title, body, imageURL } = req.body;
+    const { title, body } = req.body;
 
-    if ([title, body, imageURL].some((field) => field?.trim() === "")) {
+    if ([title, body].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "Title and body are required");
     }
+
+    const imageLocalPath = req.file?.path;
+
+    if (!imageLocalPath) {
+        throw new ApiError(400, "Image is required");
+    }
+
+    const imageCloudinaryPath = await uploadImage(imageLocalPath);
 
     const article = await Article.create({
         title,
         body,
-        imageURL,
+        imageURL: imageCloudinaryPath.url,
         owner: req.user?._id,
     });
 
@@ -32,14 +40,16 @@ const getArticles = asyncHandler(async (req, res) => {
                 foreignField: "_id",
                 as: "owner",
 
-                pipeline: {
-                    $project: {
-                        _id: 1,
-                        username: 1,
-                        name: 1,
-                        avatar: 1,
+                pipeline: [
+                    {
+                        $project: {
+                            _id: 1,
+                            username: 1,
+                            name: 1,
+                            avatar: 1,
+                        },
                     },
-                },
+                ],
             },
         },
         {
@@ -102,6 +112,10 @@ const likeArticle = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Article not found");
     }
 
+    if (article.likes.includes(req.user?._id)) {
+        throw new ApiError(400, "You have already liked this article");
+    }
+
     article.likes.push(req.user?._id);
     try {
         await article.save();
@@ -117,27 +131,15 @@ const likeArticle = asyncHandler(async (req, res) => {
 });
 
 const updateArticle = asyncHandler(async (req, res) => {
-    const { title, body, imageURL } = req.body;
+    const { title, body } = req.body;
 
-    if (!title && !body && !imageURL) {
+    console.log(title, body);
+
+    if (!title && !body) {
         throw new ApiError(
             400,
             "Provide atleast one detail of the article to update",
         );
-    }
-
-    if (imageURL?.trim().length) {
-        const article = req.article;
-        if (!article && !article.imageURL) {
-            throw new ApiError(404, "Article or image is not found");
-        }
-
-        // delete previous image
-        const previousImage = article.imageURL.split("/").pop().split(".")[0];
-        const isDeleted = await deleteImage(previousImage);
-        if (!isDeleted) {
-            throw new ApiError(500, "Failed to delete previous image");
-        }
     }
 
     const id = req.article._id;
@@ -148,7 +150,6 @@ const updateArticle = asyncHandler(async (req, res) => {
             $set: {
                 ...(title && { title }),
                 ...(body && { body }),
-                ...(imageURL && { imageURL }),
             },
         },
         { new: true },
@@ -169,12 +170,52 @@ const updateArticle = asyncHandler(async (req, res) => {
         );
 });
 
+const updateArticleImage = asyncHandler(async (req, res) => {
+    const article = req.article;
+    if (!article && !article.imageURL) {
+        throw new ApiError(404, "Article or image is not found");
+    }
+
+    // delete previous image
+    const previousImage = article.imageURL.split("/").pop().split(".")[0];
+    const isDeleted = await deleteImage(previousImage);
+    if (!isDeleted) {
+        throw new ApiError(500, "Failed to delete previous image");
+    }
+
+    const imageLocalPath = req.file?.path;
+    if(!imageLocalPath) {
+        throw new ApiError(400, "Image is required");
+    }
+
+    const imageCloudinaryPath = await uploadImage(imageLocalPath);
+    if (!imageCloudinaryPath) {
+        throw new ApiError(500, "Failed to upload image");
+    }
+
+    const updatedArticle = await Article.findByIdAndUpdate(
+        article._id,
+        {
+            $set: {
+                imageURL: imageCloudinaryPath.url,
+            },
+        },
+        { new: true },
+    );
+
+    if (!updatedArticle) {
+        throw new ApiError(404, "Some error occured while updating image");
+    }
+
+    return res.status(200).json(new ApiResponse(200, updatedArticle, "Image updated successfully"));
+})
+
 const deleteArticle = asyncHandler(async (req, res) => {
-    if(!req.article?.id) {
+    if (!req.article?.id) {
         throw new ApiError(404, "Article not found");
     }
 
-    const article = await Article.findById(req.article._id);
+    const article = await Article.findByIdAndDelete(req.article._id);
 
     if (!article) {
         throw new ApiError(404, "Article not found");
@@ -200,5 +241,6 @@ export {
     getArticleById,
     likeArticle,
     updateArticle,
+    updateArticleImage,
     deleteArticle,
 };
