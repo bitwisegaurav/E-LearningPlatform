@@ -6,16 +6,24 @@ import { asyncHandler } from "../utils/asyncHandler.util.js";
 const createQuestion = asyncHandler(async (req, res) => {
     const { title, content, answer, course, companies } = req.body;
 
-    if (!content || !answer || !course || !companies) {
-        throw new ApiError(400, "Content, answer, course, and companies are required");
+    if (
+        [title, content, course, companies].some(field => field.trim() === "")
+    ) {
+        throw new ApiError(400, "Content, course, and companies are required");
     }
+
+    if (!answer && !Array.isArray(answer)) {
+        throw new ApiError(400, "Answer must be provided and it must be an array");
+    }
+
+    const compainesArray = companies.split(' ').sort();
 
     const question = await Question.create({
         title,
         content,
-        answer,
+        answer: JSON.stringify(answer),
         course,
-        companies,
+        companies: compainesArray,
     });
 
     return res
@@ -25,6 +33,13 @@ const createQuestion = asyncHandler(async (req, res) => {
 
 const getQuestions = asyncHandler(async (_, res) => {
     const questions = await Question.find();
+
+    if(!questions) {
+        throw new ApiError(500, "Question not found");
+    }
+
+    questions.answer = JSON.parse(questions.answer);
+    
     return res
         .status(200)
         .json(new ApiResponse(200, questions, "Questions fetched successfully"));
