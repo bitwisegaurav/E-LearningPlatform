@@ -38,7 +38,9 @@ const getQuestions = asyncHandler(async (_, res) => {
         throw new ApiError(500, "Question not found");
     }
 
-    questions.answer = JSON.parse(questions.answer);
+    questions.forEach(question => {
+        question.answer = JSON.parse(question.answer);
+    });
     
     return res
         .status(200)
