@@ -34,14 +34,14 @@ const createQuestion = asyncHandler(async (req, res) => {
 const getQuestions = asyncHandler(async (_, res) => {
     const questions = await Question.find();
 
-    if(!questions) {
+    if (!questions) {
         throw new ApiError(500, "Question not found");
     }
 
     questions.forEach(question => {
         question.answer = JSON.parse(question.answer);
     });
-    
+
     return res
         .status(200)
         .json(new ApiResponse(200, questions, "Questions fetched successfully"));
@@ -50,10 +50,16 @@ const getQuestions = asyncHandler(async (_, res) => {
 const getQuestionById = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
+    if (!id) {
+        throw new ApiError(400, "Id is required");
+    }
+
     const question = await Question.findById(id);
     if (!question) {
         throw new ApiError(404, "Question not found");
     }
+
+    question.answer = JSON.parse(question.answer);
 
     return res
         .status(200)
