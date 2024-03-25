@@ -70,18 +70,28 @@ const updateQuestion = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { content, answer, course, companies } = req.body;
 
+    if(!id) {
+        throw new ApiError(400, "Id is required");
+    }
+
     if (!content && !answer && !course && !companies) {
         throw new ApiError(400, "Provide at least one field to update");
     }
+
+    if (!answer && !Array.isArray(answer)) {
+        throw new ApiError(400, "Answer must be provided and it must be an array");
+    }
+
+    const compainesArray = companies.split(' ').sort();
 
     const question = await Question.findByIdAndUpdate(
         id,
         {
             $set: {
                 ...(content && { content }),
-                ...(answer && { answer }),
+                ...(answer && { answer: JSON.stringify(answer) }),
                 ...(course && { course }),
-                ...(companies && { companies }),
+                ...(companies && { companies: compainesArray }),
             },
         },
         { new: true }
@@ -90,6 +100,8 @@ const updateQuestion = asyncHandler(async (req, res) => {
     if (!question) {
         throw new ApiError(404, "Question not found");
     }
+
+    question.answer = JSON.parse(question.answer);
 
     return res
         .status(200)
