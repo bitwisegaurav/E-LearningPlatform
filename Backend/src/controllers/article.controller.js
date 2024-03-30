@@ -26,6 +26,14 @@ const createArticle = asyncHandler(async (req, res) => {
         owner: req.user?._id,
     });
 
+    if (!article) {
+        throw new ApiError(500, "Failed to create article");
+    }
+
+    const user = req.user;
+    user.articleCount += 1;
+    await user.save();
+
     return res
         .status(201)
         .json(new ApiResponse(201, article, "Article created successfully"));
@@ -229,6 +237,10 @@ const deleteArticle = asyncHandler(async (req, res) => {
             throw new ApiError(500, "Failed to delete image");
         }
     }
+
+    const user = req.user;
+    user.articleCount += 1;
+    await user.save();
 
     return res
         .status(200)
