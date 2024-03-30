@@ -8,8 +8,6 @@ const followUser = asyncHandler(async (req, res) => {
     const userId = req.params?.userId || req.body?.userId;
     const { username } = req.body;
 
-    console.log(userId, username);
-
     if(!userId && !username) {
         throw new ApiError(400, "User id or username is required");
     }
