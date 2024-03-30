@@ -96,9 +96,7 @@ const registerUserProfile = asyncHandler(async (req, res) => {
         .cookie("refreshToken", refreshToken, options)
         .json({
             message: "User created successfully",
-            data: {
-                findCreatedUser,
-            },
+            data: {...findCreatedUser.toObject()},
         });
 });
 
@@ -151,6 +149,7 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
                             imageURL: 1,
                             createdAt: 1,
                             likesCount: 1,
+                            body: 1,
                         },
                     },
                 ],
@@ -195,7 +194,7 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
     }
 
     const responseData = {
-        user,
+        user: user[0],
     };
 
     return res
@@ -205,10 +204,6 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
 
 const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const { username } = req.params;
-
-    const user1 = await User.findOne({
-        username: username.toLowerCase(),
-    }).select("-password -refreshToken");
 
     const user = await User.aggregate([
         {
@@ -254,6 +249,7 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
                             imageURL: 1,
                             createdAt: 1,
                             likesCount: 1,
+                            body: 1,
                         },
                     },
                 ],
@@ -298,7 +294,7 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     }
 
     const responseData = {
-        user,
+        user: user[0],
     };
 
     res.status(200).json(new ApiResponse(200, responseData));
@@ -374,6 +370,7 @@ const loginUser = asyncHandler(async (req, res) => {
         .status(200)
         .cookie("accessToken", accessToken, options)
         .cookie("refreshToken", refreshToken, options)
+        .cookie("username", user.username, options)
         .json(
             new ApiResponse(200, {
                 message: "User logged in successfully",
