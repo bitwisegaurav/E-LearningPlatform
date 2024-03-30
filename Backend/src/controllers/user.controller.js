@@ -302,9 +302,9 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     let isFollowedByAccessingUser = false;
     let isFollowingAccessingUser = false;
     const accessingUser = req.user?._id;
+    const accessedUser = user[0]?._id;
 
-    if (accessingUser) {
-        const accessedUser = user[0]?._id;
+    if (accessingUser && accessedUser && accessingUser !== accessedUser) {
 
         const accessingUserFollowing = await Followers.findOne({ 
            $and: [
@@ -319,9 +319,6 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
                 { FollowingId: accessingUser }
             ]
         });
-
-        console.log(accessedUser, accessingUser);
-        console.log(accessingUserFollowing, accessingUserFollowed);
 
         if(accessingUserFollowing) isFollowedByAccessingUser = true;
         if(accessingUserFollowed) isFollowingAccessingUser = true;
