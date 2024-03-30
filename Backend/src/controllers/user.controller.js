@@ -272,13 +272,53 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
             },
         },
         {
+            $lookup: {
+                from: "followers",
+                let: { userId: "$_id", accessingUserId: ObjectId(req.user?._id) },
+                pipeline: [
+                    {
+                        $match: {
+                            $expr: {
+                                $and: [
+                                    { $eq: ["$FollowerId", "$$userId"] },
+                                    { $eq: ["$FollowingId", "$$accessingUserId"] },
+                                ],
+                            },
+                        },
+                    },
+                ],
+                as: "isFollowedByAccessingUser",
+            },
+        },
+        {
+            $lookup: {
+                from: "followers",
+                let: { userId: "$_id", accessingUserId: ObjectId(req.user?._id) },
+                pipeline: [
+                    {
+                        $match: {
+                            $expr: {
+                                $and: [
+                                    { $eq: ["$FollowerId", "$$accessingUserId"] },
+                                    { $eq: ["$FollowingId", "$$userId"] },
+                                ],
+                            },
+                        },
+                    },
+                ],
+                as: "isFollowingAccessingUser",
+            },
+        },
+        {
             $addFields: {
                 followers: {
                     $size: "$followers",
                 },
                 following: {
                     $size: "$following",
-                }
+                },
+                isFollowedByAccessingUser: { $gt: [{ $size: "$isFollowedByAccessingUser" }, 0] },
+                isFollowingAccessingUser: { $gt: [{ $size: "$isFollowingAccessingUser" }, 0] },
             }
         },
         {
