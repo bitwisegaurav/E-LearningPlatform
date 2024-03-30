@@ -14,7 +14,7 @@ const verifyUser = asyncHandler(async (req, res, next) => {
         if (!accessToken) {
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
-                throw new ApiError(401, "Unauthorized access");
+                throw new ApiError(401, null, "Unauthorized access");
             }
             const decodedValues = await jwt.verify(
                 refreshToken,
@@ -44,7 +44,7 @@ const verifyUser = asyncHandler(async (req, res, next) => {
             );
 
             if (!user) {
-                throw new ApiError(404, "Invalid access token");
+                throw new ApiError(404, null, "User not found");
             }
 
             req.user = user;
