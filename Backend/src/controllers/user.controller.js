@@ -196,6 +196,9 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
 
     const responseData = {
         user: user[0],
+        isFollowedByAccessingUser: false,
+        isFollowingAccessingUser: false,
+        isBothSame: true
     };
 
     return res
@@ -293,16 +296,13 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     if (!user) {
         throw new ApiError(404, "User not found");
     }
-    
-    const responseData = {
-        user: user[0],
-    };
 
     // check if user is logged in that they follow each other or not
     let isFollowedByAccessingUser = false;
     let isFollowingAccessingUser = false;
     const accessingUser = req.user?._id;
     const accessedUser = user[0]?._id;
+    const isBothSame = accessingUser.toString() === accessedUser.toString();
 
     if (accessingUser && accessedUser && accessingUser !== accessedUser) {
 
@@ -324,10 +324,14 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
         if(accessingUserFollowed) isFollowingAccessingUser = true;
     }
 
-    responseData.isFollowedByAccessingUser = isFollowedByAccessingUser;
-    responseData.isFollowingAccessingUser = isFollowingAccessingUser;
+    const responseData = {
+        user: user[0],
+        isFollowedByAccessingUser,
+        isFollowingAccessingUser,
+        isBothSame
+    };
 
-    res.status(200).json(new ApiResponse(200, responseData));
+    return res.status(200).json(new ApiResponse(200, responseData));
 });
 
 const updateUserProfile = asyncHandler(async (req, res) => {
