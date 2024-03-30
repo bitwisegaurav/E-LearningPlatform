@@ -5,6 +5,7 @@ import { ApiError } from "../utils/ApiError.util.js";
 import { uploadCloudinary, deleteCloudinary } from "../utils/cloudinary.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
 import { options } from "../constants.js";
+import { Followers } from "../models/follower.model.js";
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
@@ -272,53 +273,13 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
             },
         },
         {
-            $lookup: {
-                from: "followers",
-                let: { userId: "$_id", accessingUserId: ObjectId(req.user?._id) },
-                pipeline: [
-                    {
-                        $match: {
-                            $expr: {
-                                $and: [
-                                    { $eq: ["$FollowerId", "$$userId"] },
-                                    { $eq: ["$FollowingId", "$$accessingUserId"] },
-                                ],
-                            },
-                        },
-                    },
-                ],
-                as: "isFollowedByAccessingUser",
-            },
-        },
-        {
-            $lookup: {
-                from: "followers",
-                let: { userId: "$_id", accessingUserId: ObjectId(req.user?._id) },
-                pipeline: [
-                    {
-                        $match: {
-                            $expr: {
-                                $and: [
-                                    { $eq: ["$FollowerId", "$$accessingUserId"] },
-                                    { $eq: ["$FollowingId", "$$userId"] },
-                                ],
-                            },
-                        },
-                    },
-                ],
-                as: "isFollowingAccessingUser",
-            },
-        },
-        {
             $addFields: {
                 followers: {
                     $size: "$followers",
                 },
                 following: {
                     $size: "$following",
-                },
-                isFollowedByAccessingUser: { $gt: [{ $size: "$isFollowedByAccessingUser" }, 0] },
-                isFollowingAccessingUser: { $gt: [{ $size: "$isFollowingAccessingUser" }, 0] },
+                }
             }
         },
         {
@@ -332,10 +293,42 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     if (!user) {
         throw new ApiError(404, "User not found");
     }
-
+    
     const responseData = {
         user: user[0],
     };
+
+    // check if user is logged in that they follow each other or not
+    let isFollowedByAccessingUser = false;
+    let isFollowingAccessingUser = false;
+    const accessingUser = req.user?._id;
+
+    if (accessingUser) {
+        const accessedUser = user[0]?._id;
+
+        const accessingUserFollowing = await Followers.findOne({ 
+           $and: [
+                { FollowerId: accessingUser },
+                { FollowingId: accessedUser }
+           ]
+        });
+
+        const accessingUserFollowed = await Followers.findOne({ 
+            $and: [
+                { FollowerId: accessedUser },
+                { FollowingId: accessingUser }
+            ]
+        });
+
+        console.log(accessedUser, accessingUser);
+        console.log(accessingUserFollowing, accessingUserFollowed);
+
+        if(accessingUserFollowing) isFollowedByAccessingUser = true;
+        if(accessingUserFollowed) isFollowingAccessingUser = true;
+    }
+
+    responseData.isFollowedByAccessingUser = isFollowedByAccessingUser;
+    responseData.isFollowingAccessingUser = isFollowingAccessingUser;
 
     res.status(200).json(new ApiResponse(200, responseData));
 });
