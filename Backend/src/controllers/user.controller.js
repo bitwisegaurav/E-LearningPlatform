@@ -302,7 +302,7 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     let isFollowingAccessingUser = false;
     const accessingUser = req.user?._id;
     const accessedUser = user[0]?._id;
-    const isBothSame = accessingUser.toString() === accessedUser.toString();
+    const isBothSame = accessingUser?.toString() === accessedUser?.toString();
 
     if (accessingUser && accessedUser && accessingUser !== accessedUser) {
 
