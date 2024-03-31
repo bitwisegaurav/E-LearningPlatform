@@ -26,7 +26,7 @@ router.route("/health").get((__, res) => {
 router
     .route("/create-course")
     .post(verifyUser, verifyAdmin, upload.single("image"), createCourse);
-router.route("/add-course-to-user").post(verifyUser, verifyAdmin, addCourseToUser);
+router.route("/add-course-to-user").post(verifyUser, addCourseToUser);
 router.route("/get-course").get(verifyUser, getCourses);
 router.route("/get-courseById/:id").get(verifyUser, getCourseById);
 router.route("/get-modules").get(verifyUser, getModules);
@@ -34,7 +34,7 @@ router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, update
 router
     .route("/update-course-image/:id")
     .patch(verifyUser, verifyAdmin, upload.single("image"), updateCourseImage);
-router.route("/remove-course-from-user").patch(verifyUser, verifyAdmin, removeCourseFromUser);
+router.route("/remove-course-from-user").patch(verifyUser, removeCourseFromUser);
 router.route("/delete-course/:id").delete(verifyUser, verifyAdmin, deleteCourse);
 
 export default router;
