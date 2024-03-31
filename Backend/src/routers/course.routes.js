@@ -12,6 +12,7 @@ import {
     deleteCourse,
     addCourseToUser,
     removeCourseFromUser,
+    getAllCourses,
 } from "../controllers/course.controller.js";
 
 const router = Router();
@@ -29,6 +30,7 @@ router
 router.route("/add-course-to-user").post(verifyUser, addCourseToUser);
 router.route("/get-course").get(verifyUser, getCourses);
 router.route("/get-courseById/:id").get(verifyUser, getCourseById);
+router.route("/get-all-courses").get(verifyUser, getAllCourses);
 router.route("/get-modules").get(verifyUser, getModules);
 router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, updateCourse);
 router
