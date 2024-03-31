@@ -43,7 +43,7 @@ const createCourse = asyncHandler(async (req, res) => {
 });
 
 const addCourseToUser = asyncHandler(async (req, res) => {
-    if (!req.user || !req.user.isAdmin) {
+    if (!req.user) {
         throw new ApiError(403, "Unauthorized access");
     }
 
@@ -217,7 +217,7 @@ const updateCourseImage = asyncHandler(async (req, res) => {
 });
 
 const removeCourseFromUser = asyncHandler(async (req, res) => {
-    if (!req.user || !req.user.isAdmin) {
+    if (!req.user) {
         throw new ApiError(403, "Unauthorized access");
     }
 
