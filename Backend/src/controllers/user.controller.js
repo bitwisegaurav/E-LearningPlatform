@@ -673,6 +673,7 @@ export {
     registerUserProfile,
     getUserProfile,
     getUserProfileByUsername,
+    getUserCourses,
     updateUserProfile,
     loginUser,
     logoutUser,

@@ -11,6 +11,7 @@ import {
     refreshAccessToken,
     updateAvatarImage,
     updateCoverImage,
+    getUserCourses,
 } from "../controllers/user.controller.js";
 import { verifyUser } from "../middlewares/auth.middleware.js";
 import { upload } from "../middlewares/multer.middleware.js";
@@ -33,6 +34,7 @@ router.route("/register-user").post(
 );
 router.route("/get-user").get(verifyUser, getUserProfile);
 router.route("/get-user/:username").get(getUser, getUserProfileByUsername);
+router.route("/get-courses").get(verifyUser, getUserCourses);
 router.route("/update-user").patch(verifyUser, updateUserProfile);
 router.route("/login").post(loginUser);
 router.route("/logout").post(verifyUser, logoutUser);
