@@ -334,6 +334,16 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, responseData));
 });
 
+const getUserCourses = asyncHandler(async (req, res) => {
+    if(!req.user){
+        throw new ApiError(401, "Please login to access this route");
+    }
+
+    const user = req.user;
+
+    return res.status(200).json(new ApiResponse(200, {courses: user.courses}, "Courses fetched successfully"));
+});
+
 const updateUserProfile = asyncHandler(async (req, res) => {
     if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
