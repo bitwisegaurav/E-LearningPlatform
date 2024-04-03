@@ -42,6 +42,7 @@ import articleRoutes from "./routers/article.routes.js";
 import assignmentRoutes from "./routers/assignment.routes.js";
 import degreeRoutes from "./routers/degree.routes.js";
 import subjectRoutes from "./routers/subject.routes.js";
+import interviewQuestionRoutes from "./routers/interviewQuestion.routes.js";
 
 // setting routes
 app.use("/api/v1/image", imageRoutes);
@@ -54,5 +55,6 @@ app.use("/api/v1/article", articleRoutes);
 app.use("/api/v1/assignment", assignmentRoutes);
 app.use("/api/v1/degree", degreeRoutes);
 app.use("/api/v1/subject", subjectRoutes);
+app.use("/api/v1/interview-question", interviewQuestionRoutes);
 
 export { app };
