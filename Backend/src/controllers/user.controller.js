@@ -344,6 +344,32 @@ const getUserCourses = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, {courses: user.courses}, "Courses fetched successfully"));
 });
 
+const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await User.find({}).select("-password -refreshToken");
+
+    if(!users){
+        throw new ApiError(404, "No users found");
+    }
+
+    // get all the usersId which are followed by accessing user
+    const accessingUser = req.user?._id;
+
+    const following = accessingUser ? await Followers.find({ FollowerId: accessingUser }) : [];
+
+    const followingIds = following.map((follower) => follower.FollowingId);
+
+    const responseData = {
+        users: users.map((user) => {
+            return {
+                ...user.toObject(),
+                isFollowedByAccessingUser: followingIds.includes(user._id)
+            }
+        })
+    }
+
+    return res.status(200).json(new ApiResponse(200, responseData, "Users fetched successfully"));
+});
+
 const updateUserProfile = asyncHandler(async (req, res) => {
     if (!req.user) {
         return next(new ApiError(401, "Please login to access this route"));
@@ -674,6 +700,7 @@ export {
     getUserProfile,
     getUserProfileByUsername,
     getUserCourses,
+    getAllUsers,
     updateUserProfile,
     loginUser,
     logoutUser,
