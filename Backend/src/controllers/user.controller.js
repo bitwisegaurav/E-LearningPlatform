@@ -345,7 +345,9 @@ const getUserCourses = asyncHandler(async (req, res) => {
 });
 
 const getAllUsers = asyncHandler(async (req, res) => {
-    const users = await User.find({}).select("-password -refreshToken");
+    const users = await User.find({
+        _id: { $ne: req.user._id }
+    }).select("_id username name avatar");
 
     if(!users){
         throw new ApiError(404, "No users found");
