@@ -141,8 +141,6 @@ const likeArticle = asyncHandler(async (req, res) => {
 const updateArticle = asyncHandler(async (req, res) => {
     const { title, body } = req.body;
 
-    console.log(title, body);
-
     if (!title && !body) {
         throw new ApiError(
             400,
