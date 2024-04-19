@@ -345,9 +345,12 @@ const getUserCourses = asyncHandler(async (req, res) => {
 });
 
 const getAllUsers = asyncHandler(async (req, res) => {
-    const users = await User.find({
-        _id: { $ne: req.user._id }
-    }).select("_id username name avatar");
+    let query = {};
+    if (req.user) {
+        query._id = { $ne: req.user._id };
+    }
+
+    const users = await User.find(query).select("_id username name avatar");
 
     if(!users){
         throw new ApiError(404, "No users found");
@@ -358,13 +361,13 @@ const getAllUsers = asyncHandler(async (req, res) => {
 
     const following = accessingUser ? await Followers.find({ FollowerId: accessingUser }) : [];
 
-    const followingIds = following.map((follower) => follower.FollowingId);
+    const followingIds = following.map((follower) => follower.FollowingId.toString());
 
     const responseData = {
         users: users.map((user) => {
             return {
                 ...user.toObject(),
-                isFollowedByAccessingUser: followingIds.includes(user._id)
+                isFollowedByAccessingUser: followingIds.includes(user._id.toString())
             }
         })
     }
