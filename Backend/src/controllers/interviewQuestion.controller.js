@@ -1,4 +1,4 @@
-import { InterviewQuestion } from "../models/interviewQuestion.model.js";
+import { InterviewQuestion } from "../models/inerviewQuestion.model.js";
 import { ApiResponse } from "../utils/ApiResponse.util.js";
 import { ApiError } from "../utils/ApiError.util.js";
 import { asyncHandler } from "../utils/asyncHandler.util.js";
