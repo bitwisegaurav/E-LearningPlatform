@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Object-Oriented Programming (OOP) in JavaScript</title>
+</head>
+<body>
+    <h1>Object-Oriented Programming (OOP) in JavaScript</h1>
+
+    <p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code into objects, which can contain data and behavior. JavaScript, despite being a prototype-based language, supports OOP principles through objects, classes, inheritance, and encapsulation.</p>
+
+    <h2>1. Objects and Classes</h2>
+
+    <p>In JavaScript, objects are collections of key-value pairs, where keys are strings (or symbols) and values can be any data type, including functions. Classes provide a blueprint for creating objects with shared properties and methods.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of defining a class and creating objects
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.greet(); // Output: Hello, my name is Bob and I am 25 years old.
+</pre></div>
+
+    <h2>3. Inheritance</h2>
+
+    <p>Inheritance allows objects to inherit properties and methods from other objects. In JavaScript, inheritance is achieved using prototype chaining, where objects inherit from prototypes.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of inheritance
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+const dog = new Dog('Buddy');
+dog.speak(); // Output: Buddy barks.
+</pre></div>
+
+    <h2>5. Encapsulation</h2>
+
+    <p>Encapsulation is the bundling of data and methods that operate on the data within a single unit or class. It helps in hiding the internal state of an object and only exposing necessary functionality.</p>
+
+    <h2>Conclusion</h2>
+
+    <p>Object-Oriented Programming is a powerful paradigm for structuring and organizing code in JavaScript. By leveraging objects, classes, inheritance, and encapsulation, developers can create more modular, reusable, and maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

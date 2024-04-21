@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Selectors and Combinators in CSS</title>
+</head>
+
+<body>
+    <h1>Selectors and Combinators in CSS</h1>
+
+    <p>CSS selectors are patterns used to select and style HTML elements. They allow you to target specific elements or groups of elements to apply styling rules. Combinators are used to define relationships between different elements.</p>
+
+    <h2>1. Basic Selectors:</h2>
+
+    <p>Selectors can target elements based on their type, class, or ID. Here are examples of basic selectors:</p>
+
+    <div class="code"><pre>
+/* Type Selector */
+p {
+    color: blue;
+}
+
+/* Class Selector */
+.button {
+    background-color: #008080;
+}
+
+/* ID Selector */
+#header {
+    font-size: 24px;
+}</pre>
+    </div>
+
+    <h2>2. Descendant Combinator:</h2>
+
+    <p>The descendant combinator (whitespace) selects all elements that are descendants of a specified element:</p>
+
+    <div class="code"><pre>
+/* Selects all &lt;span&gt; elements inside a &lt;div&gt; */
+div span {
+    font-weight: bold;
+}</pre>
+    </div>
+
+    <h2>3. Child Combinator:</h2>
+
+    <p>The child combinator (`>`) selects all direct children of a specified element:</p>
+
+    <div class="code"><pre>
+/* Selects all &lt;p&gt; elements that are direct children of &lt;div&gt; */
+div > p {
+    color: red;
+}</pre>
+    </div>
+
+    <h2>4. Adjacent Sibling Combinator:</h2>
+<p>The adjacent sibling combinator (`+`) selects an element that is immediately preceded by a specified element:</p>
+
+    <div class="code"><pre>
+/* Selects the &lt;span&gt; immediately following an &lt;h2&gt; */
+h2 + span {
+    font-style: italic;
+}</pre>
+    </div>
+
+    <h2>5. General Sibling Combinator:</h2>
+
+    <p>The general sibling combinator (`~`) selects all elements that are siblings of a specified element:</p>
+
+    <div class="code"><pre>
+/* Selects all &lt;li&gt; elements that are siblings of &lt;h3&gt; */
+h3 ~ li {
+    list-style: square;
+}</pre>
+    </div>
+
+    <p>Understanding selectors and combinators is crucial for efficiently styling specific elements on a webpage. They provide a powerful way to apply styles based on the structure and relationships of HTML elements.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

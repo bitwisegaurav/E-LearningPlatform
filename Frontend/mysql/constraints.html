@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Constraints</title>
+    <style>
+        p,
+        li {
+            line-height: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #structimg img {
+            margin-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Constraints</h1>
+    <p>Constraints are used to enforce rules on data in MySQL tables. They can be used to ensure data integrity and
+        consistency, and to prevent invalid data from being inserted into the table. MySQL supports several types of
+        constraints:</p>
+    <ul>
+        <li><span>Primary Key Constraint :</span> A primary key constraint is used to uniquely identify each record in a
+            table. It ensures that no two records have the same values for the primary key column.
+            <p>For more info <a href="/mysql/primary_key.html">Click here</a> .</p>
+        </li>
+        <li><span>Foreign Key Constraint :</span> A foreign key constraint is used to create a relationship between two
+            tables. It ensures that values in the foreign key column of one table correspond to values in the primary
+            key column of another table.
+            <p>For more info <a href="/mysql/foreign_key.html">Click here</a> .</p>
+        </li>
+        <li><span>Unique Constraint :</span> A unique constraint is used to ensure that no two records have the same
+            values for the specified column(s). Unlike a primary key constraint, a unique constraint can allow null
+            values.
+            <p>Syntax :</p>
+            <div class="code">
+                col_name datatype unique
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/Constraints/unique.PNG" alt="create database" class="hori">
+            </div>
+        </li>
+        <li><span>Check Constraint :</span> A check constraint is used to ensure that values in a column meet certain
+            conditions. It can be used to ensure that values are within a certain range, or that they match a specific
+            pattern.
+            <p>Syntax :</p>
+            <div class="code">
+                col_name datatype check condition
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/Constraints/check.PNG" alt="create database" class="hori">
+            </div>
+        </li>
+        <li><span>Not Null Constraint :</span> A not null constraint is used to ensure that a column cannot contain null
+            values. It ensures that a value is always required for that column.
+            <p>Syntax :</p>
+            <div class="code">
+                col_name datatype not null
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/Constraints/not_null.PNG" alt="create database" class="hori">
+            </div>
+        </li>
+        <li> <span>Default Constraint :</span> A default constraint is used to specify a default value for a column in a
+            MySQL table. If a value is not specified for the column when a new record is inserted, the default value
+            will be used instead. The default value must be compatible with the data type of the column.
+            <p>Syntax :</p>
+            <div class="code">
+                col_name datatype default value
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/Constraints/default.PNG" alt="create database" class="box">
+            </div>
+        </li>
+    </ul>
+    <p>Constraints can be added to a table when it is created, or they can be added later using the ALTER TABLE
+        statement. Constraints can also be removed using the ALTER TABLE statement.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>setTimeout and setInterval in JavaScript</title>
+</head>
+<body>
+    <h1>setTimeout and setInterval in JavaScript</h1>
+
+    <p><span>setTimeout</span> and <span>setInterval</span> are special apis in web because they provide a way to schedule code execution <span>asynchronously</span> in JavaScript, which is inherently <span>single-threaded</span> and <span>non-blocking</span>.</p>
+    <p class="text-center"><span>or</span></p>
+    <p>In other words, <span>setTimeout</span> and <span>setInterval</span> are JavaScript functions that allow you to schedule the execution of code after a certain delay.</p>
+
+    <h2>setTimeout</h2>
+
+    <p>The setTimeout function is used to execute a specified function or code snippet after a defined delay.</p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+setTimeout ( functionReference/functionDefination, delay, ...args );</pre>
+    </div>
+
+    <ol>
+        <li><span>function Reference/Definition:</span> This is the function that you want to execute after the specified delay. It can be either a reference to an existing function or an inline function definition.</li>
+        <li><span>delay:</span> This is the delay in <span>milliseconds</span> before the function is executed.</li>
+        <li><span>args:</span> These are optional additional arguments that can be passed to the function when it is executed. You can pass any number of arguments as needed.</li>
+    </ol>
+
+    <h3>Return</h3>
+    <p>It returns the timer ID.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+setTimeout(() => {
+    console.log('Delayed function executed after 2 seconds');
+}, 2000);</pre>
+    </div>
+
+    <p>Now the statement will be consoled after 2 seconds of delay.</p>
+
+    <p>Behind the scenes, when setTimeout is called, the browser schedules the execution of the provided function to occur after the specified delay. It doesn't block the main thread, allowing other tasks to continue while waiting for the timeout to complete.</p>
+
+    <p>setTimeout accepts two arguments: the function to execute and the delay in milliseconds. Optionally, additional arguments can be passed to the function. It returns a unique identifier (timer ID) that can be used to cancel the timeout using the clearTimeout function.</p>
+
+    <h2>setInterval</h2>
+
+    <p>The setInterval function is similar to setTimeout but is used to <span>repeatedly</span> execute a specified function or code snippet at fixed intervals.</p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+setInterval ( functionReference/functionDefination, delay, ...args );</pre>
+    </div>
+
+    <h3>Return</h3>
+    <p>It returns the timer ID.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+let counter = 0;
+let intervalId = setInterval(() => {
+    counter++;
+    console.log('Interval function executed:', counter);
+}, 1000);</pre>
+    </div>
+
+    <p>Behind the scenes, setInterval works by scheduling the execution of the provided function at regular intervals, defined by the specified time interval. It continues to execute the function indefinitely until clearInterval is called or the page is unloaded.</p>
+
+    <p>setInterval accepts two arguments: the function to execute and the interval in milliseconds. Like setTimeout, additional arguments can be passed to the function. It returns a unique identifier (timer ID) that can be used to cancel the interval using the clearInterval function.</p>
+
+    <h2>clearTimeout</h2>
+
+    <p>
+        The <span>clearTimeout</span> function is used to cancel a timeout that was set using the <span>setTimeout</span> function. It takes the timer ID returned by setTimeout as an argument and cancels the scheduled timeout.The <span>clearTimeout()</span> function is used to stop or clear a timer set with the <span>setTimeout()</span> method.
+    </p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+clearTimeout ( timerID );</pre>
+    </div>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+// Example using setTimeout
+const time = setTimeout(() => {
+    console.log('Delayed function executed after 2 seconds');
+}, 2000);
+
+clearTimeout(time);
+</pre></div>
+
+    <h2>clearInterval</h2>
+    <p>
+        The <span>clearInterval</span> function is used to cancel a repeated action that was set using the <span>setInterval</span> function. It takes the timer ID returned by setInterval as an argument and cancels the scheduled interval. The <span>clearInterval()</span> function is used to stop or clear a timer set with the <span>setInterval()</span> method.
+    </p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+clearInterval ( timerID );</pre>
+    </div>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let counter = 0;
+let intervalId = setInterval(() => {
+    counter++;
+    console.log('Interval function executed:', counter);
+    if (counter === 5) {
+        clearInterval(intervalId);
+        console.log('Interval stopped after 5 executions');
+    }
+}, 1000);
+</pre></div>
+
+    <h2>setImmediate</h2>
+    <p>The setImmediate function is used to execute a specified function or code snippet after the current execution stack is cleared.</p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+setImmediate ( functionReference/functionDefination, ...args );</pre>
+    </div>
+
+    <h3>Return</h3>
+    <p>It returns the timer ID.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+setImmediate(() => {
+    console.log('Immediate function executed');
+});</pre>
+    </div>
+
+    <h2>clearImmediate</h2>
+    <p>
+        The <span>clearImmediate</span> function is used to cancel a timeout that was set using the <span>setImmediate</span> function.
+    </p>
+
+    <h3>Syntax</h3>
+    <br>
+    <div class="code">
+        <pre>
+clearImmediate(immediateID);</pre>
+    </div>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+const immediate = setImmediate(() => {
+    console.log('Immediate function executed');
+});
+
+setTimeout(() => {
+    clearImmediate(immediate);
+    console.log('Immediate stopped');
+}, 1000);</pre>
+    </div>
+
+    <h2>Working of setTimeout/Interval/Immediate methods</h2>
+    <ul>
+        <li>When you call <span>setTimeout</span>, you're essentially telling the browser: "Execute this code after a certain amount of time."</li>
+        <li>The browser <span>registers</span> the <span>callback function</span> (the function you want to execute after the delay) and the specified delay time.</li>
+        <li>It then continues executing the rest of your code.</li>
+        <li>After the specified delay has elapsed, the browser puts the callback function into the <span>task queue</span>.</li>
+        <li>When the <span>main thread</span> becomes available (i.e., it's not busy executing other tasks), it pulls the callback function from the <span>event queue</span>, make it pass through <span>Event loop</span> and executes it.</li>
+    </ul>
+
+    <div class="structimg img-center"><img src="../examples/javascript/env/js_runtime_env_detailed.png" alt="JS runtime environment"></div>
+
+    <p class="note note-imp">It's important to note that JavaScript, being <span>single-threaded</span>, can only execute one piece of code at a time. So, while <span>setTimeout</span> and <span>setInterval</span> allow you to defer code execution, they don't create <span>additional threads</span> or <span>parallelism</span>. Instead, they leverage <span>event-driven</span> architecture to handle <span>asynchronous</span> behavior.</p>
+
+    <h2>Conclusion</h2>
+
+    <p>setTimeout and setInterval are powerful tools in JavaScript for managing asynchronous code execution and scheduling time-based operations. Understanding their behavior and usage is essential for developing efficient and responsive web applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

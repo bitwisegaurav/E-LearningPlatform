@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Debouncing and Throttling in JavaScript</title>
+</head>
+<body>
+    <h1>Debouncing and Throttling in JavaScript</h1>
+
+    <p>Debouncing and throttling are techniques used to limit the rate at which a function is executed, particularly in scenarios where rapid firing of events can cause performance issues or undesired behavior. These techniques help optimize performance and improve user experience by ensuring that functions are called at controlled intervals.</p>
+
+    <h2>1. Debouncing</h2>
+
+    <p>Debouncing is the process of delaying the execution of a function until a certain amount of time has passed since the last invocation of the function. It is commonly used to improve performance in scenarios such as handling input events like keystrokes or scroll events.</p>
+
+    <h2>2. Throttling</h2>
+
+    <p>Throttling limits the rate at which a function is executed by ensuring that it is called at regular intervals, typically no more frequently than a specified delay. Throttling is useful in scenarios where frequent execution of a function can lead to performance issues, such as handling resize or scroll events.</p>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of debouncing
+function debounce(func, delay) {
+    let timeoutId;
+
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+// Example of throttling
+function throttle(func, delay) {
+    let throttled = false;
+
+    return function(...args) {
+        if (!throttled) {
+            throttled = true;
+            func.apply(this, args);
+            setTimeout(() => {
+                throttled = false;
+            }, delay);
+        }
+    };
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Debouncing and throttling are valuable techniques in JavaScript for controlling the rate of function execution, particularly in scenarios where rapid firing of events can lead to performance issues. By applying debouncing and throttling appropriately, developers can optimize performance, improve user experience, and prevent unintended side effects.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

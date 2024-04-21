@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Modules in JavaScript</title>
+</head>
+<body>
+    <h1>Modules in JavaScript</h1>
+
+    <p>Modules are a way to organize and structure JavaScript code into reusable units. They help improve code maintainability, reusability, and scalability by encapsulating related functionality into separate files or modules.</p>
+
+    <h2>1. ES6 Modules</h2>
+
+    <p>ES6 introduced native support for modules in JavaScript. ES6 modules use the <code>import</code> and <code>export</code> keywords to define dependencies between modules and expose functionality for reuse.</p>
+
+    <h2>2. Exporting from a Module</h2>
+
+    <p>To export functionality from a module, you can use the <code>export</code> keyword followed by the declaration or expression you want to export. You can export variables, functions, classes, or even objects.</p>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of exporting from a module
+// math.js
+export const sum = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// import.js
+import { sum, subtract } from './math.js';
+
+console.log(sum(5, 3)); // Output: 8
+console.log(subtract(5, 3)); // Output: 2
+</pre></div>
+
+    <h2>4. Importing into a Module</h2>
+
+    <p>To import functionality from another module, you can use the <code>import</code> keyword followed by the names of the exported entities enclosed in curly braces (<code>{}</code>). You can also use the <code>*</code> wildcard to import all exports from a module.</p>
+
+    <h2>5. Benefits of Modules</h2>
+
+    <p>Modules offer several benefits in JavaScript development:</p>
+    <ul>
+        <li><strong>Encapsulation:</strong> Modules encapsulate functionality, reducing namespace pollution and preventing naming conflicts.</li>
+        <li><strong>Reusability:</strong> Modules promote code reuse by allowing developers to import and use functionality from other modules in different parts of their applications.</li>
+        <li><strong>Maintainability:</strong> Modules improve code organization and maintainability by separating concerns and facilitating modular design.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Modules are an essential feature in modern JavaScript development for organizing and structuring code into reusable units. By leveraging modules effectively, developers can create more maintainable, scalable, and reusable JavaScript applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

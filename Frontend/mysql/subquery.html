@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+        #structimg img{
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Subqueries in MySQL</h1>
+    <p>A subquery is a SELECT statement that is embedded in another SELECT statement. It is used to retrieve data that will be used in the main query. Subqueries can be used in the SELECT, FROM, and WHERE clauses of a SELECT statement. They can return a single value or a set of values.</p>
+    <h3>Types of Subqueries</h3>
+<ul>
+  <li><span>Single-row subquery:</span> A subquery that returns only one row and one column. It is used with comparison operators (such as =, <, >, <=, >=, and <>).
+    <p>Example:</p>
+    <div class="structimg" class="pl">
+        <img src="../examples/mysql/Subquery/single_row.PNG" alt="procedure"
+        class="hori">
+    </div>
+</li>
+  <li><span>Multiple-row subquery:</span> A subquery that returns multiple rows and one column. It is used with comparison operators (such as IN and NOT IN).
+    <p>Example:</p>
+    <div class="structimg" class="pl">
+        <img src="../examples/mysql/Subquery/multirow.PNG" alt="procedure"
+        class="hori">
+    </div>
+</li>
+  <li><span>Multiple-column subquery:</span> A subquery that returns multiple rows and columns. It is used with comparison operators (such as EXISTS and NOT EXISTS).
+    <p>Example:</p>
+    <div class="structimg" class="pl">
+        <img src="../examples/mysql/Subquery/multi_column.PNG" alt="procedure"
+        class="hori">
+    </div>
+</li>
+  <li><span>Correlated subquery:</span> A subquery that uses a column from the outer query in its WHERE clause. It is used to return rows from one table based on a condition that involves another table.
+    <p>Example:</p>
+    <div class="structimg" class="pl">
+        <img src="../examples/mysql/Subquery/corelated.PNG" alt="procedure"
+        class="hori">
+    </div>
+</li>
+</ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

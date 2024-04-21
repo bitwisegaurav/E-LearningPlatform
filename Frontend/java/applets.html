@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Applets in Java</title>
+    <style>
+        #image{
+            display: grid;
+            place-items: center;
+            width: 100%;
+            margin: 2rem 0 1rem;
+        }
+        #image img{
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Applets</h1>
+    <p>
+        Applets are the graphical user interface, which are embedded in the webpage.
+    </p>
+    <p>To embed applet in the webpage, we use an applet tag including the following attributes :- </p>
+    <ul>
+        <li><strong>Code :</strong> In code, we will specify the path of the code file.</li>
+        <li><strong>Width & Height :</strong> Because am applet is embedded in a webapge, we will specify the width and height that will be taken in a webapge by an applet. for e.g 
+        <div class="code">
+            <pre>&lt;applet code="A.class" width="400" height="400">&lt;/applet> </pre>
+        </div>
+        </li>
+    </ul>
+    <p>Applets are of two types :- </p>
+    <ol>
+        <li><strong>Standalone Applet :</strong> These are the applets that are executed independently without any help of the browser. These are executed by using the appletviewer tool. For e.g
+        <div class="code">
+            <pre>appletviewer A.java</pre>
+        </div>
+        </li>
+        <li><strong>Embedded Applet :</strong> These are the applets that are executed with the help of the browser. For e.g
+        <div class="code">
+            <pre>&lt;applet code="A.class" width="400px" height="400px">&lt;/applet> </pre>
+        </div>
+        </li>
+    </ol>
+
+    <p>For creating an applet, we will use a class that is applet which present in a package called <span>java.applet.Applet</span>. Applet by default uses <span>FlowLayout</span> as a Layout Manager.</p>
+
+    <h2>Applet Life Cycle</h2>
+    <p>
+        There is a life cycle of an applet which is consisting of five phases. Each phase is represented as a function Applet class.
+    </p>
+    <ul>
+        <li><strong>Initialization :</strong> In this phase, we will initialize the variables that are required for an applet. If we want to initalize some variable in the applet, then we will use/override a function that is :- 
+        <div class="code">
+            <pre>public void init() {} </pre>
+        </div>
+        This phase is executed only once.
+        </li>
+        <li><strong>Start :</strong> So when an applet is ready to run, then the start function of the applet is executed. To override this function, we will use following method :- 
+        <div class="code">
+            <pre>public void start() {} </pre>
+        </div>
+        </li>
+        <li><strong>Paint :</strong> Applet is a graphical component, so each time the new pixels are painted. By increasing or decreasing the size of an applet, the paint is called multiple times. To override the paint function, we will use following syntax :- 
+        <div class="code">
+            <pre>public void paint (java.awt.Graphics) {} </pre>
+        </div>
+        </li>
+        <li><strong>Stop :</strong> When the applet is ideal that is when we minimise the applet, then stop function is called multiple times and when we restore the applet, the start function will be called. For overriding the stop function, we will write :- 
+        <div class="code">
+            <pre>public void stop() {} </pre>
+        </div>
+        </li>
+        <li><strong>Destroy :</strong> When we close an applet or we close the webpage which is containing applet, then destroy function is called. Destroy function is called only one time.
+        <div class="code">
+            <pre>public void destroy() {} </pre>
+        </div>
+        </li>
+    </ul>
+
+    <div id="image">
+        <img src="../examples/java/Applet-Life-Cycle.png" alt="Applets Life Cycle Image">
+    </div>
+
+    <h2>Example</h2>
+    <p>
+        Here's a basic example of a Java applet that displays "Hello, Applet!" within a web page.
+    </p>
+    <!-- Example: Simple Java Applet -->
+    <div class="code">
+        <pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class HelloApplet extends Applet {
+    public void paint(Graphics g) {
+        g.drawString("Hello, Applet!", 50, 25);
+    }
+}</pre>
+    </div>
+
+    <h2>Embedding Applets in HTML</h2>
+    <p>
+        To embed an applet in an HTML page, you can use the <span>&lt;applet&gt;</span> or <span>&lt;object&gt;</span> tag. Here's an example of embedding the "HelloApplet" in HTML.
+    </p>
+    <!-- Example: Embedding Applet in HTML -->
+    <div class="code">
+        <pre>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Applet Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;applet code="HelloApplet.class" width="300" height="150"&gt;
+    &lt;/applet&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Java applets provide a way to create interactive content within web pages. Understanding the applet life cycle and embedding applets in HTML is essential for web development with Java applets.
+    </p>
+    
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Constructors in Java</title>
+</head>
+<body>
+    <h1>Constructors</h1>
+    <p>
+        Constructors in Java are special methods used for initializing objects. They are called when an object of a class is created. Constructors are used to set the initial state of an object, allocate memory, and perform other setup tasks.
+    </p>
+    <p>Constructors are having some features : </p>
+    <ul>
+        <li>They have same name as class name.</li>
+        <li>They does not have any return type.</li>
+        <li>We can pass arguments in the constructor.</li>
+        <li>If the programmer does not create any type of constructor then the compiler will create a public default constructor.</li>
+    </ul>
+
+    <h2>Types of Constructors</h2>
+    <p>
+        There are 3 types of constructors in Java:
+    </p>
+    <ul>
+        <li>Default Constructor</li>
+        <li>Parameterized Constructor</li>
+        <li>Copy Constructor</li>
+    </ul>
+
+    <h2>Default Constructor</h2>
+    <p>
+        If a class does not explicitly define any constructors, a default constructor is provided by the Java compiler. The default constructor takes no arguments and initializes instance variables to default values (e.g., 0 for numeric types, <span>null</span> for objects).
+    </p>
+    <div class="code">
+        <pre>
+class MyClass {
+    int myVar;
+    // Default constructor
+    MyClass() {
+        myVar = 42;
+    }
+}</pre>
+    </div>
+
+    <h2>Parameterized Constructors</h2>
+    <p>
+        Java allows you to define constructors with parameters, known as parameterized constructors. These constructors accept arguments and initialize instance variables based on the provided values.
+    </p>
+    <div class="code">
+        <pre>
+class Person {
+    String name;
+    int age;
+    // Parameterized constructor
+    Person(String n, int a) {
+        name = n;
+        age = a;
+    }
+}</pre>
+    </div>
+
+    <h2>Copy Constructor</h2>
+    <p>A copy constructor is a constructor that takes an object of the same class as a parameter and creates a new object with the same values as the parameter object.</p>
+    <div class="code">
+        <pre>
+class Person {
+    String name;
+    int age;
+    // Parameterized constructor
+    Person(String n, int a) {
+        name = n;
+        age = a;
+    }
+    // Copy constructor
+    Person(Person obj) {
+        name = obj.n;
+        age = obj.a;
+    }
+}</pre>
+    </div>
+
+    <h2>Using Constructors</h2>
+    <p>
+        To create an object and call a constructor, use the <span>new</span> keyword followed by the class name and constructor arguments (if any). Here's an example:
+    </p>
+    <div class="code">
+        <pre>
+public class Main {
+    public static void main(String[] args) {
+        // Using the default constructor
+        MyClass obj1 = new MyClass();
+        // Using the parameterized constructor
+        Person person1 = new Person("Alice", 30);
+    }
+}</pre>
+    </div>
+
+    <h2>Constructor Overloading</h2>
+    <p>
+        Just like methods, constructors can also be overloaded. This means you can define multiple constructors with different parameter lists in the same class.
+    </p>
+    <div class="code">
+        <pre>
+class Book {
+    String title;
+    String author;
+    // Parameterized constructor 1
+    Book(String t, String a) {
+        title = t;
+        author = a;
+    }
+    // Parameterized constructor 2
+    Book(String t) {
+        title = t;
+        author = "Unknown";
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Constructors in Java play a crucial role in object initialization and setting the initial state of objects. They can be used to provide default values or accept arguments to customize object initialization. Constructor overloading allows you to create objects with different initialization options.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Error Handling in JavaScript</title>
+</head>
+<body>
+    <h1>Error Handling in JavaScript</h1>
+
+    <p>Error handling is an essential aspect of JavaScript programming, allowing developers to gracefully handle unexpected errors and exceptions that may occur during program execution. Proper error handling can improve the reliability and robustness of your applications.</p>
+
+    <h2>1. try...catch Statement</h2>
+
+    <p>The <code>try...catch</code> statement is used to catch errors that occur within a block of code. The <code>try</code> block contains the code that may throw an error, and the <code>catch</code> block handles the error if one occurs.</p>
+
+    <h2>2. throw Statement</h2>
+
+    <p>The <code>throw</code> statement is used to throw custom errors or exceptions. You can throw any value (such as a string, number, object, or error) to indicate that an exceptional condition has occurred.</p>
+
+    <h2>3. Error Object</h2>
+
+    <p>In JavaScript, errors are represented by instances of the built-in <code>Error</code> object or its subclasses (e.g., <code>SyntaxError</code>, <code>TypeError</code>, <code>ReferenceError</code>). These objects contain information about the error, including a descriptive message and a stack trace.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of error handling with try...catch
+try {
+    // Code that may throw an error
+    throw new Error('Custom error message');
+} catch (error) {
+    // Handle the error
+    console.error('An error occurred:', error.message);
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Effective error handling is crucial for building robust and reliable JavaScript applications. By using techniques such as the <code>try...catch</code> statement, <code>throw</code> statement, and Error objects, developers can identify, handle, and recover from errors in their code, leading to more resilient applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

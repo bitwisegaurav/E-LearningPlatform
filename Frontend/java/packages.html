@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Packages</title>
+</head>
+<body>
+    <h1>Packages</h1>
+    <p>
+        In Java, a package is a collection of multiple classes, interfaces and packages. Packages provide a mechanism to group classes that belong to the same domain or purpose, making code organization and management more efficient.
+    </p>
+    <p>By default a package is imported in every source file known as <span>java.lang</span>.</p>
+
+    <h2>Methods to represent classname</h2>
+    <ul>
+        <li><span>Qualified name : </span>It is the absolute path of a class. For e.g. java.lang.String.</li>
+        <li><span>Unqualified name : </span>In this method, first we import the package and then use it directly by name. For e.g. String, System.</li>
+    </ul>
+
+    <h2>Types of packages</h2>
+    <ul>
+        <li><span>Inbuilt package : </span>
+            All the inbuilt packages are written in lowercase letters. We can use or inherit any class of the inbuilt package depending upon its definition. To access a class of a package, we can either use a qualified name or an unqualified name by using <span>import</span> keyword.
+            <p>Example of qualified path name: </p>
+            <div class="code">
+                <pre>
+class A{
+    public static void main(){
+        java.lang.String s = "Hello";
+        System.out.println(s);
+    }
+}</pre>
+            </div>
+            <p>Example of unqualified path name: </p>
+            <div class="code">
+                <pre>
+class A{
+    public static void main(){
+        String s = "Hello";
+        System.out.println(s);
+    }
+}</pre>
+    </div>
+    </li>
+        <li><span>User defined package: </span>User defined packages can be named as uppercase and camelcase letters also. We can use them as same as Inbuilt packages.</li>
+    </ul>
+
+    <h2>Creating a Package</h2>
+    <p>
+        To create a package in Java, you include the <span>package</span> statement at the beginning of your source file. Packages are organized hierarchically, and you can use subpackages to further structure your code.
+    </p>
+    <div class="code">
+        <pre>
+package p1;
+public class MyClass {
+    // Class content
+}</pre>
+    </div>
+    <p>To compile the source file and move the bytecodes in the created folder of package name, we can use this command :</p>
+    <div class="code">
+        <pre>javac -d . file_name</pre>
+    </div>
+
+    <h2>Package inside a package</h2>
+    <p>We can create a package inside a package like this</p>
+    <div class="code">
+        <pre>package p1.p2;</pre>
+    </div>
+
+    <h2>Using Packages</h2>
+    <p>
+        To use classes from a package, you either fully qualify the class name with the package name or use the <span>import</span> statement to bring specific classes or the entire package into your code.
+    </p>
+    <div class="code">
+        <pre>
+// Fully qualified class name
+com.example.myapp.MyClass myObj = new com.example.myapp.MyClass();
+
+// Using import statement
+import com.example.myapp.MyClass;
+// ...
+MyClass myObj = new MyClass();</pre>
+    </div>
+
+    <h2>Java Standard Packages</h2>
+    <p>
+        Java provides a rich set of standard packages that cover various aspects of programming, such as <span>java.util</span> for utility classes, <span>java.io</span> for input and output, and <span>java.lang</span> for fundamental classes and exceptions.
+    </p>
+    <div class="code">
+        <pre>
+import java.util.ArrayList;
+import java.io.FileReader;
+// ...
+ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+FileReader fileReader = new FileReader("example.txt");</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Packages in Java provide a structured way to organize classes and interfaces, making it easier to manage and maintain code. They are essential for building modular and maintainable Java applications and are widely used in both standard and custom libraries.
+    </p>
+
+    
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</body>
+</html>

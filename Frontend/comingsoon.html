@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="common_files/outer.css">
+    <link rel="stylesheet" href="common_files/comingsoon.css">
+    <title>Coming Soon - Codevengers</title>
+</head>
+<body class="dark">
+    <nav></nav>
+    <main>
+        <div class="contain">
+            <div class="logo">
+                <!-- Add your vector image here -->
+                <img src="images/Code-development.png" alt="Vector Image">
+            </div>
+            <div class="about">
+                <h1>Coming Soon</h1>
+                <hr>
+                <p>We're crafting valuable content for this page.</p>
+                <p>While it's not available yet, you can explore our other courses.</p>
+                <p>Click the courses button above.</p>
+            </div>
+        </div>
+    </main>
+</body>
+<script defer src="common_files/header.js"></script>
+<script defer src="index.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", async () => {
+        await getHeader("languages/", "");
+        setTheme();
+        
+        const themeBtn = document.querySelector("#theme");
+        if(themeBtn) themeBtn.addEventListener("click", toggleTheme);
+    })
+</script>
+</html>

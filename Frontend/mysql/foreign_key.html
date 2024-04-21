@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        p,li{
+            line-height: 1.5rem;
+        }
+        li{
+            margin-bottom: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Foreign Key</h1>
+    <p>
+        A foreign key is a column or set of columns in one table that refers to the
+        primary key of another table. It is used to establish a link between the
+        data in two tables and enforce referential integrity. The foreign key
+        constraints ensure that the values inserted in the referencing table
+        (child table) must match the values in the referenced table (parent table).
+      </p>
+      <p>
+        Here are some important points to remember while working with foreign keys
+        in MySQL:
+      </p>
+      <ul>
+        <li>
+          A foreign key can be defined using the <span>FOREIGN KEY</span> constraint.
+        </li>
+        <li>
+          The referenced table must have a primary key or a unique key constraint
+          on the column(s) being referenced.
+        </li>
+        <li>
+          The foreign key constraint can be added while creating a table or
+          altering an existing table.
+        </li>
+        <li>
+          Datatypes of the columns of the parent table and the child table must be same.
+        </li>
+        <li>
+          A foreign key constraint can be named using the <span>CONSTRAINT</span>
+          keyword.
+        </li>
+        <li>
+          The <span>ON DELETE</span> and <span>ON UPDATE</span> clauses can be used
+          to specify what happens when a referenced row is deleted or updated.
+        </li>
+        <li>
+          The <span>CASCADE</span> option can be used to automatically delete or
+          update the referencing rows when a referenced row is deleted or updated.
+        </li>
+      </ul>
+      <p>Syntax :</p>
+    <div class="code">
+        mysql>  create table table_name (col_name datatype, col_name datatype,... , foreign key (col_name)  references parent_table(col_name) );
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/Foreign_Key/foreign_key.PNG" alt="create database" class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

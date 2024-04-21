@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Arrays in Java</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <p>
+        Arrays are homogeneous data structures that store a fixed-size, ordered collection of elements of the same type. They are widely used to store and manipulate data efficiently. Arrays in java are dynamic and continous. While declaring the array in java, we can't give the size of the array.
+    </p>
+
+    <h2>Types of Arrays</h2>
+    <p>
+        There are two main types of arrays in Java:
+    </p>
+    <ul>
+        <li><strong>Single-Dimensional Arrays:</strong> These are arrays that have a single dimension or a single row. They are used to store a list of values of the same type.</li>
+        <li><strong>Multi-Dimensional Arrays:</strong> These are arrays with two or more dimensions, often referred to as matrices. Multi-dimensional arrays can be used to represent tables, grids, and more complex data structures.</li>
+    </ul>
+
+    <h2>Steps for Working with Arrays</h2>
+    <p>
+        To work with arrays in Java, you typically follow these steps:
+    </p>
+    <ol>
+        <li><strong>Declaration:</strong> Declare an array variable with its type and size.
+            <p>Syntax :</p>
+            <div class="code">
+                <pre>datatype array_name[]; //for single dimension
+datatype array_name[][]...; //for multi dimension</pre>
+            </div>
+        </li>
+        <li><strong>Memory Allocation:</strong> Allocate memory for the array using the <span>new</span> keyword.
+            <p>Syntax :</p>
+            <div class="code">
+                <pre>array_name = new datatype[size]; //for single dimension
+array_name... = new datatype[size1][size2]...; //for multi dimension
+or
+array_name = new datatype[size1];
+array_name[0] = new datatype[size2];</pre>
+            </div>
+        </li>
+        <li><strong>Assigning Values:</strong> Assign values to array elements using index notation.
+            <p>Syntax :</p>
+            <div class="code">
+                <pre>array_name[index] = value;</pre>
+            </div>
+        </li>
+        <li><strong>Accessing Elements:</strong> Retrieve and manipulate elements by their index.
+            <p>Syntax :</p>
+            <div class="code">
+                <pre>array_name[index];</pre>
+            </div>
+        </li>
+    </ol>
+
+    <h2>Example of Single-Dimensional Array</h2>
+    <p>
+        Here's an example of a single-dimensional array in Java:
+    </p>
+    <div class="code">
+        <pre>
+int[] numbers = new int[5]; // Declaration and memory allocation
+numbers[0] = 1; // Assigning values
+numbers[1] = 2;
+numbers[2] = 3;
+numbers[3] = 4;
+numbers[4] = 5;
+int thirdElement = numbers[2]; // Accessing elements
+System.out.println("Third Element: " + thirdElement); // Output: Third Element: 3</pre>
+    </div>
+
+    <h2>Example of Jagged Array</h2>
+    <p>
+        A jagged array is an array of arrays, where each element can be an array of different sizes. Here's an example:
+    </p>
+    <div class="code">
+        <pre>
+int[][] jaggedArray = new int[3][]; // Declaration and memory allocation
+jaggedArray[0] = new int[3];
+jaggedArray[1] = new int[4];
+jaggedArray[2] = new int[2];</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Arrays are fundamental data structures in Java, allowing you to efficiently store and manipulate collections of data. Understanding the steps for declaration, memory allocation, assigning values, and accessing elements is essential for working with arrays in Java.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

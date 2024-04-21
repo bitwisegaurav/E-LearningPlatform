@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>DOM Elements in JavaScript</title>
+</head>
+<body>
+    <h1>Manipulating DOM Elements in JavaScript</h1>
+
+    <p>JavaScript provides powerful methods for creating, inserting, editing, and deleting DOM elements dynamically. These methods allow developers to modify the structure and content of web pages in response to user interactions or other events.</p>
+
+    <h2>Creating Elements</h2>
+
+    <p>New DOM elements can be created using the <span>document.createElement()</span> method. This method creates a new element with the specified tag name, which can then be customized and added to the document.</p>
+
+    <div class="code"><pre>
+const box = document.createElement('div');
+box.textContent = 'New Element';
+box.classList.add('something');
+box.id = "box"</pre></div>
+
+    <h2>Inserting Elements</h2>
+
+    <p>DOM elements can be inserted into the document using methods like <span>appendChild()</span>, <span>insertBefore()</span>, <span>insertAdjacentElement()</span>, and <span>innerHTML</span>. These methods allow developers to add elements to specific locations within the document.</p>
+
+    <div class="code">
+        <pre>document.getElementById('outerBox').appendChild(box);</pre>
+    </div>
+
+    <h2>Editing Elements</h2>
+
+    <p>DOM elements can be edited dynamically by modifying their properties, attributes, or content. This allows developers to update the appearance or behavior of elements based on user interactions or other events.</p>
+
+    <div class="code">
+        <pre>document.getElementById('box').textContent = "Content is changed";</pre>
+    </div>
+
+    <h2>Deleting Elements</h2>
+
+    <p>DOM elements can be removed from the document using methods like <span>removeChild()</span> or by setting the <span>innerHTML</span> property of their parent element to an empty string. This allows developers to remove elements from the document when they are no longer needed.</p>
+
+    <div class="code"><pre>
+let elementToDelete = document.getElementById('toBeDeleted');
+elementToDelete.parentElement.removeChild(elementToDelete);
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Manipulating DOM elements in JavaScript is a fundamental aspect of web development. By creating, inserting, editing, and deleting elements dynamically, developers can create dynamic and interactive web pages that respond to user interactions and events.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Positioning of Elements in CSS</title>
+</head>
+
+<body>
+    <h1>Positioning of Elements in CSS</h1>
+
+    <p>CSS provides several properties to control the positioning of elements on a web page. Understanding these properties is essential for creating diverse and responsive layouts.</p>
+
+    <h2>1. Static Positioning:</h2>
+
+    <p>The default positioning for elements is static, where elements are positioned according to the normal flow of the document. The `position` property set to `static` is the default behavior.</p>
+
+    <div class="code"><pre>
+.element {
+    position: static;
+}</pre>
+    </div>
+
+    <h2>2. Relative Positioning:</h2>
+
+    <p>The `position: relative;` property allows you to position an element relative to its normal position. You can then use the `top`, `right`, `bottom`, and `left` properties to adjust its position.</p>
+
+    <div class="code"><pre>
+.element {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}</pre>
+    </div>
+
+    <h2>3. Absolute Positioning:</h2>
+
+    <p>With `position: absolute;`, an element is positioned relative to its closest positioned (not static) ancestor element. If there is no such ancestor, it is positioned relative to the initial containing block.</p>
+
+    <div class="code"><pre>
+.element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}</pre>
+    </div>
+
+    <h2>4. Fixed Positioning:</h2>
+
+    <p>Using `position: fixed;`, an element is positioned relative to the browser window. It stays fixed even when the page is scrolled.</p>
+
+    <div class="code"><pre>
+.element {
+    position: fixed;
+    top: 0;
+    right: 0;
+}</pre>
+    </div>
+
+    <h2>5. Sticky Positioning:</h2>
+
+    <p>The `position: sticky;` property is a hybrid of relative and fixed positioning. The element is treated as relative positioned until it crosses a specified point during scrolling, then it is treated as fixed positioned.</p>
+
+    <div class="code"><pre>
+.element {
+    position: sticky;
+    top: 20px;
+}</pre>
+    </div>
+
+    <p>Understanding these positioning techniques is crucial for creating layouts that respond well to different screen sizes and user interactions.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

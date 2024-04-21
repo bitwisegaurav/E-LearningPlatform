@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        #structimg img{
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cursors</h1>
+    <p>Cursors are used to process individual rows returned by a SELECT statement. They allow PL/SQL code to perform operations on a set of rows returned by a query.</p>
+	<p>There are two types of cursors in PL/SQL:</p>
+	<ul>
+		<li><span>Implicit cursors :</span> They are created and managed by the PL/SQL engine. They are automatically created for every SQL statement that is executed within a PL/SQL block. Implicit cursors are useful when the result set is small.
+            <p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/cursor/implicit.PNG" alt="procedure"
+        class="hori">
+    </div>
+        </li>
+
+		<li><span>Explicit cursors :</span> They are created and managed by the developer. Explicit cursors are used when the result set is large or when more control is needed over the processing of the result set.
+            <p>Explicit Cursor processing involves the following steps:</p>
+            <ul>
+                <li>Declare the cursor</li>
+                <li>Open the cursor</li>
+                <li>Fetch the rows from the cursor</li>
+                <li>Process the fetched rows</li>
+                <li>Close the cursor</li>
+            </ul>
+            <p>Syntax :</p>
+        <pre class="code">Declare
+    cursor cur_name is select query;
+Begin
+    open cur_name;
+    fetch cur_name into variable;
+    close cur_name;
+</pre>
+<p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/cursor/explicit.PNG" alt="procedure"
+        class="hori">
+    </div>
+        </li>
+
+        <li><span>Parameterized Cursors :</span> These cursors allow passing arguments to the SELECT statement, which enables more dynamic queries. The parameters can be used to filter the data or to modify the behavior of the cursor.
+            <p>Syntax :</p>
+            <pre class="code">Declare
+    cursor cur_name(vairable datatype) is select query;
+Begin
+    open cur_name;
+    fetch cur_name into variable;
+    close cur_name;</pre>
+    <p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/cursor/parameterized.PNG" alt="procedure"
+        class="hori">
+    </div>
+    </li>
+	</ul>
+	<h3>Cursor Attributes in PL/SQL</h3>
+	<p>In PL/SQL, cursor attributes are used to provide information about the current state of the cursor. The following are the different cursor attributes:</p>
+	<ul>
+		<li><span>%found:</span> This attribute returns TRUE if a SELECT statement returned at least one row.</li>
+		<li><span>%notfound:</span> This attribute returns TRUE if a SELECT statement returned no rows.</li>
+		<li><span>%rowcount:</span> This attribute returns the number of rows fetched so far.</li>
+		<li><span>%isopen:</span> This attribute returns TRUE if the cursor is open and FALSE if the cursor is closed.</li>
+		<li><span>%rowtype:</span> This attribute used to declare a record variable that has the same structure as a cursor's query result.</li>
+	</ul>
+	
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

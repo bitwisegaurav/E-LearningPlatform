@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../common_files/inner.css" />
+    <title>Developing Computer Graphics using C</title>
+  </head>
+  <body>
+    <h1>Developing Computer Graphics using C</h1>
+
+    <h2>Introduction</h2>
+    <p>
+      Computer graphics using the C programming language involves creating
+      visual content such as images, animations, and interactive applications on
+      a computer screen. This chapter explores the fundamentals of developing
+      computer graphics using C, including the components of a Visual Display
+      Unit (VDU), display adapters, and graphics functions.
+    </p>
+
+    <h2>Components of VDU</h2>
+    <p>
+      A Visual Display Unit (VDU), also known as a monitor, consists of various
+      components that work together to display visual information. These
+      components include the screen, cathode ray tube (CRT), display controller,
+      and input/output ports.
+    </p>
+
+    <h2>Display Adapters</h2>
+    <p>
+      A display adapter, or graphics card, is a hardware component that connects
+      the computer to the monitor and processes graphical data for display. It
+      converts digital signals from the computer into analog signals for the
+      monitor and includes memory and processing units for rendering images.
+    </p>
+
+    <h2>Graphics in C</h2>
+    <p>
+      C provides a set of libraries and functions for performing basic graphics
+      operations, such as drawing lines, circles, and rectangles, on the screen.
+      These functions are part of the graphics.h library and can be used to
+      create simple graphical applications.
+    </p>
+
+    <h2>Description of Graphics Functions with Example</h2>
+    <p>
+      Let's explore some common graphics functions in C along with examples:
+    </p>
+
+    <h3>Example 1: Drawing a Line</h3>
+    <p>
+      This example demonstrates how to draw a line on the screen using the
+      line() function.
+    </p>
+    <div class="code"><pre>
+#include &lt;graphics.h&gt;
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    line(100, 100, 300, 200);
+
+    getch();
+    closegraph();
+    return 0;
+}
+</pre></div>
+
+    <h3>Example 2: Drawing a Circle</h3>
+    <p>
+      This example illustrates how to draw a circle on the screen using the
+      circle() function.
+    </p>
+    <div class="code"><pre>
+#include &lt;graphics.h&gt;
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    circle(200, 200, 100);
+
+    getch();
+    closegraph();
+    return 0;
+}
+</pre></div>
+
+    <h3>Example 3: Drawing a Rectangle</h3>
+    <p>
+      This example demonstrates how to draw a rectangle on the screen using the
+      rectangle() function.
+    </p>
+    <div class="code"><pre>
+#include &lt;graphics.h&gt;
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    rectangle(100, 100, 300, 200);
+
+    getch();
+    closegraph();
+    return 0;
+}</pre></div>
+
+    <h3>Example 4: Drawing an Ellipse</h3>
+    <p>
+      This example shows how to draw an ellipse on the screen using the
+      ellipse() function.
+    </p>
+    <div class="code"><pre>
+#include &lt;graphics.h&gt;
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    ellipse(300, 200, 0, 360, 100, 50);
+
+    getch();
+    closegraph();
+    return 0;
+}</pre></div>
+
+    <h3>Example 5: Drawing a Polygon</h3>
+    <p>
+      This example demonstrates how to draw a polygon on the screen using the
+      drawpoly() function.
+    </p>
+    <div class="code"><pre>
+#include &lt;graphics.h&gt;
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    int points[] = {100, 100, 200, 200, 300, 100, 200, 50, 100, 100};
+    drawpoly(5, points);
+
+    getch();
+    closegraph();
+    return 0;
+}</pre></div>
+
+    <h2>Conclusion</h2>
+    <p>
+      Developing computer graphics using C offers a powerful and versatile
+      approach to creating visual content on a computer screen. By understanding
+      the components of a Visual Display Unit, display adapters, and graphics
+      functions provided by the C programming language, developers can create
+      interactive and visually appealing applications for various purposes.
+    </p>
+  </body>
+  <script src="../common_files/innerTheme.js"></script>
+  <script src="../common_files/jsPrograms-inner.js"></script>
+</html>

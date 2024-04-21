@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+        #structimg img{
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Scalar Functions</h1>
+    <p>A scalar function is a function that returns a single value.</p>
+    <p>MySQL provides a number of scalar functions that can be used to perform various operations on data. Some of them are:</p>
+    <ul>
+      <li><span>CONCAT</span>: used to concatenate two or more strings together.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select concat(string, string,...);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/concat.PNG" alt="create database" class="box">
+        </div>
+    </li>
+      <li><span>LENGTH</span>: used to return the length of a string.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select length(string);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/length.PNG" alt="create database" class="box">
+        </div>
+    </li>
+      <li><span>LOWER</span>: used to convert a string to lowercase.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select lower(string);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/lower.PNG" alt="create database" class="hori">
+        </div>
+    </li>
+      <li><span>UPPER</span>: used to convert a string to uppercase.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select upper(string);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/upper.PNG" alt="create database" class="box">
+        </div>
+    </li>
+      <li><span>SUBSTRING</span>: used to extract a substring from a string.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select substring (string, start, end);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/substring.PNG" alt="create database" class="hori">
+        </div>
+    </li>
+      <li><span>TRIM</span>: used to remove leading or trailing spaces from a string.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select trim(string);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/trim.PNG" alt="create database" class="box">
+        </div>
+    </li>
+      <li><span>REPLACE</span>: used to replace occurrences of a substring within a string.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select replace(string, substring, new_substring);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/replace.PNG" alt="create database" class="hori">
+        </div>
+    </li>
+      <li><span>ROUND</span>: used to round a number to a specified number of decimal places.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select round(number);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/round.PNG" alt="create database" class="vert">
+        </div>
+    </li>
+      <li><span>FLOOR</span>: used to round a number down to the nearest integer.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select floor(number);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/floor.PNG" alt="create database" class="vert">
+        </div>
+    </li>
+      <li><span>CEILING</span>: used to round a number up to the nearest integer.
+        <p>Syntax :</p>
+        <div class="code">
+            mysql> select ceiling(number);
+        </div>
+        <p>Example :</p>
+        <div class="structimg">
+            <img src="../examples/mysql/Scaler_Functions/ceiling.PNG" alt="create database" class="vert">
+        </div>
+    </li>
+    </ul>
+    
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

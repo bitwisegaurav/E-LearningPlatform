@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Arrays in JavaScript</title>
+</head>
+<body>
+    <h1>Arrays in JavaScript</h1>
+
+    <p>Arrays are versatile and fundamental data structures in JavaScript that store multiple values in a single variablThey provide various methods for manipulation, iteration, and transformation, making them crucial for handling collections of data in web development.</p>
+
+    <h2>Creating Arrays</h2>
+
+    <p>Arrays in JavaScript can be created using the array literal notation <span>[ ]</span> or the <span>Array</span> constructor.</p>
+
+    <div class="code"><pre>
+let fruits = ["Apple", "Banana", "Orange"];
+let numbers = new Array(1, 2, 3, 4, 5);
+</pre></div>
+
+    <h2>Accessing Elements</h2>
+
+    <p>Individual elements in an array can be accessed using their indeRemember that array indices start at 0.</p>
+
+    <div class="code"><pre>
+let firstFruit = fruits[0]; // Accessing the first element
+let secondNumber = numbers[1]; // Accessing the second element
+</pre></div>
+
+    <h2>Modifying Arrays</h2>
+
+    <p>Arrays are mutable, meaning you can change their content by adding, modifying, or removing elements.</p>
+
+    <div class="code"><pre>
+fruits.push("Grapes"); // Adding an element to the end
+numbers[2] = 10; // Modifying the third element
+fruits.pop(); // Removing the last element
+</pre></div>
+
+    <h2>Iterating Through Arrays</h2>
+
+    <p>Looping through arrays can be done using various methods, such as <span>for</span> loops or array methods like <span>forEach</span>.</p>
+
+    <div class="code"><pre>
+// Using for loop
+for (let i = 0; i &lt; fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+// Using forEach method
+fruits.forEach(function(fruit) {
+    console.log(fruit);
+});
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding how to work with arrays is essential for effective JavaScript programminWhether creating, accessing, modifying, or iterating through arrays, these operations are foundational for handling and manipulating data in web development.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

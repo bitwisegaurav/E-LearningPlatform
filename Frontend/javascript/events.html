@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Events and Event Listeners in JavaScript</title>
+</head>
+<body>
+    <h1>Events</h1>
+
+    <p>Events are actions or occurrences that happen in the browser as a result of user interaction or other triggers.</p>
+
+    <p>Examples of events include mouse clicks, keyboard inputs, form submissions, page loads, and changes in the state of HTML elements. Events provide a way for JavaScript to respond to user interactions and trigger actions or behaviors in the web application.</p>
+
+    <h2>Event Object</h2>
+
+    <p>When an event occurs, an event object is created and passed as an argument to the event listener function. This event object contains information about the event, such as the type of event, the target element, and any additional data related to the event. Event objects allow developers to access and manipulate event-related data within event listener functions.</p>
+
+    <h2>Event Listeners</h2>
+
+    <p>Event listeners are functions that are attached to specific DOM elements and wait for particular events to occur.</p>
+    <p>Once the event occurs, the associated event listener is triggered, and the defined action or behavior is executed.</p>
+
+    <h2>Adding Event Listeners</h2>
+
+    <p>Event listeners can be added to DOM elements using JavaScript. We can add event listeners by 3 methods : </p>
+
+    <p>Here we are taking an example in which a alert will be pop up when the button is clicked.</p>
+    
+    <h3>Inline onclick</h3>
+    <p>The onclick attribute is added to the element and assigned a JavaScript function to be executed when the event occurs.</p>
+
+    <div class="code"><pre>
+&lt;button onclick="alert('Button clicked!');">Click Me&lt;button></pre>
+    </div>
+
+    <h3>onclick property</h3>
+
+    <p>The onclick property is added to the element and assigned a JavaScript function to be executed when the event occurs.</p>
+
+    <div class="code">
+        <pre>
+&lt;button id="myButton">Click Me&lt;button>
+
+let button = document.getElementById('myButton');
+button.onlcick = function() {
+    alert('Button Clicked!');
+}</pre>
+    </div>
+
+    <h3>addEventListener method</h3>
+    <p> The addEventListener method accepts three arguments: the event type, the event listener function, and an optional third parameter that specifies whether the event should be captured during the event propagation phase.</p>
+
+    <div class="code"><pre>
+let button = document.getElementById('myButton');
+button.addEventListener('click', function() {
+    console.log('Button clicked!');
+});
+</pre></div>
+
+    <p>Result : </p>
+    <button type="button" onclick="alert('Button clicked!');">Click Me</button>
+
+    <p class="note note-normal">
+        The <span>third argument</span> in the <span>addEventListener method</span> is used to specify whether the event should be <span>captured</span> or <span>bubbled</span>.
+        <br><br>
+        During the <span>capturing</span> phase, the event starts from the <span>outermost element</span> and moves towards the target element. This allows you to handle the event on <span>parent</span> elements before it reaches the target element.
+        <br><br>
+        During the <span>bubbling</span> phase, the event starts from the <span>target element</span> and moves towards the outermost element. This allows you to handle the event on the <span>target</span> element and then on its <span>parent</span> elements.
+        <br><br>
+        By default, the <span>third argument</span> of addEventListener is set to <span>false</span>, which means the event will be handled during the <span>bubbling phase</span>.
+    </p>
+
+    <h2>Removing Event Listeners</h2>
+    <p>The removeEventListener method in JavaScript is used to remove event handlers that have been attached with the addEventListener method.</p>
+
+    <p>For example : </p>
+
+    <div class="code"><pre>
+// Define the function
+function handleClick(event) {
+    console.log('Button clicked');
+}
+
+// Get the button element
+let button = document.getElementById('myButton');
+
+// Add the event listener
+button.addEventListener('click', handleClick);
+
+// Later in your code, you can remove the event listener
+button.removeEventListener('dblclick', handleClick);</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+
+    <p>Events and event listeners are fundamental concepts in web development, enabling developers to create interactive and dynamic user experiences in web applications. By understanding how to use events and event listeners effectively, developers can build applications that respond dynamically to user interactions and provide a rich and engaging user experience.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

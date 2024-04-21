@@ -1,0 +1,481 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    transition: all 0.1s ease-in-out;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+nav {
+    background-color: rgb(59, 39, 115);
+    height: 5rem;
+}
+section {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    height: calc(100% - 5rem);
+}
+aside {
+    background-color: blueviolet;
+    color: white;
+    height: 100%;
+}
+aside h1{
+    padding: 1.5rem;
+    text-align: center;
+    font-size: x-large;
+}
+aside ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+aside ul li {
+    padding: 5px 10px;
+    display: flex;
+}
+aside ul li a {
+    width: 100%;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+aside ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+aside ul li .active {
+    background-color: white !important;
+    color: blueviolet !important;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    overflow: auto;
+    height: 100%;
+}
+#nodata {
+    width: 95%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 90%;
+}
+#nodata #title {
+    font-size: 2.5rem;
+    color: rgb(171, 137, 202);
+}
+.container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: 100%;
+}
+.container .upper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .upper .title {
+    font-size: 200%;
+}
+.middle {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 2rem;
+    justify-content: space-around;
+}
+.dataBox {
+    background-color: #e3e3e3;
+    padding: 20px;
+    border-radius: 10px;
+    /* width: 25rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.data {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.label {
+    font-size: 1rem;
+}
+.lower {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.top #searchBar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    width: 100%;
+}
+
+.top a {
+    padding: 10px 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(109 82 158);
+    color: white;
+    cursor: pointer;
+    font-size: large;
+    text-decoration: none;
+}
+
+.top a:hover {
+    background-color: rgb(142, 113, 194);
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(233, 209, 255);
+    border-radius: 10px;
+    height: 100%;
+    overflow: auto;
+}
+.users .user {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center; 
+    gap: 2rem;
+    text-decoration: none;
+    color: #333;
+}
+.users .user .image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.username {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    justify-content: space-around;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(233, 209, 255);
+    overflow: auto;
+}
+
+.courses .course {
+    width: 14rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    height: max-content;
+}
+
+/* .dark .courses .course {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+} */
+
+.courses .course:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* .dark .courses .course:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+} */
+
+.courses .course a {
+    text-decoration: none;
+    color: rgb(109 82 158);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    aspect-ratio: 3/2;
+    gap: 1rem;
+}
+
+/* .dark .courses .course a {
+    color: #fff;
+} */
+
+.courses .course a .icon {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
+.courses .course a .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.courses .course a .title {
+    font-size: large;
+}
+
+.courses .course a .modules {
+    font-size: small;
+    color: rgb(171, 137, 202);
+}
+
+.courses .course .btns {
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.courses .course button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.courses .course .btns .editbtn {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    color: #777;
+}
+
+.courses .course .btns .removebtn {
+    color: rgb(255, 0, 0);
+}
+
+/* .dark .courses .course button {
+    border-top-color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 83, 83);
+} */
+
+.courses .course .editbtn:hover {
+    background-color: #777;
+    color: white;
+}
+
+.courses .course .removebtn:hover {
+    background-color: rgba(255, 0, 0, 1);
+    color: white;
+}
+
+.articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(233, 209, 255);
+    overflow: auto;
+    /* padding: 2rem 5%; */
+    /* border: 2px solid red; */
+}
+
+.articles .article {
+    display: flex;
+    width: 100%;
+    min-height: 9rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(141, 103, 218, 0.4);
+    background-color: #fff;
+    transition: all 0.1s ease-in-out;
+}
+
+/* .dark .articles .article {
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+} */
+
+.articles .article a {
+    display: flex;
+    width: calc(100% - 4rem);
+    gap: 2rem;
+    text-decoration: none;
+    color: rgb(109 82 158);
+    /* border: 2px solid red; */
+}
+
+.articles .article a .image  {
+    height: 100%;
+    max-height: 7rem;
+    border: 2px solid rgb(242, 235, 255);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.articles .article a .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articles .article a .details {
+    display: flex;
+    width: calc(100% - 10rem);
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-around;
+}
+
+.articles .article a .details h3 {
+    font-size: large;
+    color: rgb(107, 80, 158);
+}
+
+/* .dark .articles .article a .details h3 {
+    color: #fff;
+} */
+
+.articles .article a .details p {
+    color: rgb(148, 126, 194);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* .dark .articles .article a .details p {
+    color: rgba(255, 255, 255, 0.5);
+} */
+
+.articles .article a .details .user {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    height: 2.5rem;
+}
+
+.articles .article a .details .user .image {
+    height: 2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.articles .article a .details .user .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articles .article a .details .user .username {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    font-size: medium;
+}
+
+/* .dark .articles .article a .details .user .username {
+    color: #fff;
+} */
+
+.articles .article a .details .user .like {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    gap: 5px;
+}
+
+.articles .article a .details .user .like button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.articles .article a .details .user .like button span {
+    color: red;
+    transform: translateY(1px);
+}
+
+.articles .article .btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.articles .article .btns button {
+    width: 100%;
+    height: max-content;
+    padding: 5px 0.8rem;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.articles .article .btns .remove {
+    color: red;
+}
+
+.articles .article .btns .edit {
+    transform: rotateY(180deg);
+    font-size: x-large;
+    color: #222;
+}
+
+/* .dark .articles .article .btns .remove {
+    color: rgb(255, 62, 62);
+}
+
+.dark .articles .article .btns .edit {
+    color: #eee;
+} */
+
+.articles .article .btns .edit:hover {
+    color: white;
+    background-color: #555;
+}
+
+.articles .article .btns .remove:hover {
+    color: white;
+    background-color: rgb(255, 0, 0);
+}
+
+/* .dark .articles .article .btns .edit:hover {
+    color: #222;
+    background-color: rgba(255, 255, 255, 0.7);
+} */

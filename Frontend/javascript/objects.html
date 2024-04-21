@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Objects in JavaScript</title>
+</head>
+<body>
+    <h1>Objects in JavaScript</h1>
+
+    <p>In JavaScript, an object is a versatile data structure that allows the storage and manipulation of key-value pairs. Objects are fundamental to the language, providing a powerful way to organize and represent complex data.</p>
+
+    <h2>Definition and Creation</h2>
+
+    <p>An object is defined as an unordered collection of key-value pairs, where each key is a unique identifier for a value. Objects can be created using the object literal syntax:</p>
+
+    <div class="code"><pre>
+let person = {
+    name: "John Doe",
+    age: 25,
+    occupation: "Developer"
+};
+</pre></div>
+
+    <p>In this example, <span>person</span> is an object with keys (<span>name</span>, <span>age</span>, <span>occupation</span>) and their corresponding values.</p>
+
+    <h2>Accessing Object Properties</h2>
+
+    <p>You can access the values of object properties using dot notation or square bracket notation:</p>
+
+    <div class="code"><pre>
+let personName = person.name; // Using dot notation
+let personAge = person['age']; // Using square bracket notation
+</pre></div>
+
+    <h2>Adding and Modifying Properties</h2>
+
+    <p>New properties can be added or existing ones modified:</p>
+
+    <div class="code"><pre>
+person.location = "Cityville"; // Adding a new property
+person.age = 26; // Modifying an existing property
+</pre></div>
+
+    <h2>Object Methods</h2>
+
+    <p>Objects can also contain methods, which are functions associated with the object:</p>
+
+    <div class="code"><pre>
+let car = {
+    brand: "Toyota",
+    model: "Camry",
+    startEngine: function() {
+        console.log("Engine started!");
+    }
+};
+
+car.startEngine(); // Calling the method
+</pre></div>
+
+    <h2>Object Iteration</h2>
+
+    <p>Object properties can be iterated using various methods, such as <span>for...in</span> loop or <span>Object.keys()</span>:</p>
+
+    <div class="code"><pre>
+for (let key in person) {
+    console.log(key, person[key]);
+}
+
+// Alternatively
+let keys = Object.keys(person);
+for (let key of keys) {
+    console.log(key, person[key]);
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding objects is fundamental to JavaScript programming. They provide a flexible and dynamic way to structure data and represent real-world entities in your applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

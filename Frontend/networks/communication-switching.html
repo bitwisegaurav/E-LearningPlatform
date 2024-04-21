@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Communication Switching Techniques</title>
+</head>
+
+<body>
+    <h1>Communication Switching Techniques</h1>
+    <h2>Introduction</h2>
+    <p>Switching is the technique by which nodes control or switch data to transmit it between specific points on a
+        network. There are three main switching techniques used in computer networks: circuit switching, packet
+        switching, and message switching.</p>
+
+    <h2>Circuit Switching</h2>
+    <p>Circuit switching is a switching technique that establishes a dedicated path between sender and receiver.
+        Once the connection is established, the dedicated path will remain to exist until the connection is
+        terminated.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Establishes a dedicated path between sender and receiver</li>
+        <li>Used for voice transmission</li>
+        <li>Fixed data can be transferred at a time</li>
+    </ul>
+    <p>Phases : </p>
+    <ul>
+        <li>Circuit establishment or setup phase</li>
+        <li>Data transfer phase</li>
+        <li>Circuit disconnect or tear down phase</li>
+    </ul>
+    <div class="structimg img-center mt-2">
+        <img src="../examples/networks/communication-switching/circuit-switching.png" alt="Circuit Switching">
+    </div>
+
+    <h2>Packet Switching</h2>
+    <p>Packet switching is a digital networking communications method that groups all transmitted data into suitably
+        sized blocks, called packets, that are transmitted via a medium that may be shared by multiple simultaneous
+        communication sessions.</p>
+    <p>Functions:</p>
+    <ul>
+        <li>Groups all transmitted data into suitably sized blocks</li>
+        <li>Transmits via a medium that may be shared by multiple simultaneous communication sessions</li>
+    </ul>
+    <p>Types of packet switching : </p>
+    <ul>
+        <li><span>Datagram Packet Switching : </span>In this type of packet switching, each packet is treated
+            independently from all others. Even if two packets are part of the same message, they may take different
+            paths to reach the destination. This type of switching is used when the network needs to be robust and
+            survive failures of some of its parts.</li>
+        <li><span>Virtual Circuit Packet Switching : </span>This type of packet switching establishes a dedicated
+            path for data transmission before sending the packets, which helps reduce delays and improve
+            performance. It is similar to circuit switching in that a dedicated path is established before any data
+            transmission occurs. However, unlike circuit switching, the path is virtual rather than physical.</li>
+    </ul>
+    <div class="structimg img-center mt-2">
+        <img src="../examples/networks/communication-switching/packet-switching.png" alt="Packet Switching">
+    </div>
+
+    <h2>Message Switching</h2>
+    <p>Message switching was a precursor of packet switching, where messages were routed in their entirety, one hop
+        at a time. It was originally developed for the telegraph networks, and later for early computer networking.
+    </p>
+    <p>Functions:</p>
+    <ul>
+        <li>Messages are routed in their entirety, one hop at a time</li>
+        <li>Originally developed for the telegraph networks, and later for early computer networking</li>
+    </ul>
+    <div class="structimg img-center mt-2 green-purple">
+        <img src="../examples/networks/communication-switching/message-switching.png" alt="Message Switching">
+    </div>
+
+</body>
+<script src="../common_files/innerTheme.js"></script>
+
+</html>

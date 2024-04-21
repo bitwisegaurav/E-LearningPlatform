@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>ES6+ Features in JavaScript</title>
+</head>
+<body>
+    <h1>ES6+ Features in JavaScript</h1>
+
+    <p>ECMAScript 6 (ES6), also known as ECMAScript 2015, introduced many new features and enhancements to JavaScript that improve developer productivity and make the language more powerful and expressive. Subsequent versions of ECMAScript have continued to add new features, collectively referred to as ES6+ or ESNext.</p>
+
+    <h2>1. Arrow Functions</h2>
+
+    <p>Arrow functions provide a more concise syntax for writing function expressions. They also inherit the <code>this</code> value from the surrounding lexical context, eliminating the need to use <code>.bind()</code>, <code>.call()</code>, or <code>.apply()</code>.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of arrow function
+const add = (a, b) => a + b;
+console.log(add(2, 3)); // Output: 5
+</pre></div>
+
+    <h2>3. Template Literals</h2>
+
+    <p>Template literals provide a convenient way to create strings with embedded expressions. They are enclosed in backticks (<code>``</code>) and allow placeholders (<code>${...}</code>) for inserting dynamic values.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of template literals
+const name = 'Alice';
+console.log(`Hello, ${name}!`); // Output: Hello, Alice!
+</pre></div>
+
+    <h2>5. Destructuring Assignment</h2>
+
+    <p>Destructuring assignment allows you to extract values from arrays or objects and assign them to variables using a syntax similar to array literals or object literals.</p>
+
+    <h2>6. Example:</h2>
+
+    <div class="code"><pre>
+// Example of destructuring assignment
+const person = { name: 'Alice', age: 30 };
+const { name, age } = person;
+console.log(name, age); // Output: Alice 30
+</pre></div>
+
+    <h2>7. Conclusion</h2>
+
+    <p>ES6+ features have significantly improved the JavaScript language by introducing new syntax and functionalities. By adopting these features, developers can write cleaner, more expressive code and take advantage of modern JavaScript capabilities.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

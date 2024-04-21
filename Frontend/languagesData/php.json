@@ -1,0 +1,55 @@
+{
+    "name": "PHP",
+    "folder": "php",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction to Php",
+            "file": "introduction"
+        },
+        {
+            "name": "Web Applications",
+            "file": "webapp"
+        },
+        {
+            "name": "PHP Basics",
+            "file": "basics"
+        },
+        {
+            "name": "Control Structures",
+            "file": "controlStructures"
+        },
+        {
+            "name": "Functions",
+            "file": "functions"
+        },
+        {
+            "name": "String Handling",
+            "file": "strings"
+        },
+        {
+            "name": "Arrays",
+            "file": "arrays"
+        },
+        {
+            "name": "Forms",
+            "file": "form"
+        },
+        {
+            "name": "PHP with Databases",
+            "file": "database"
+        },
+        {
+            "name": "Cookies",
+            "file": "cookies"
+        },
+        {
+            "name": "Sessions",
+            "file": "session"
+        },
+        {
+            "name": "File System",
+            "file": "files"
+        }
+    ]
+}

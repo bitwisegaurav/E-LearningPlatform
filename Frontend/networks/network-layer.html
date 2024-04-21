@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Network Layer - Codevengers</title>
+</head>
+<body>
+    <!-- 
+        Topics :- 
+        Network Layer intro
+        Functions
+        Design issue
+        virtual circut approach
+        datagram apporach
+        difference b/w both
+        ipv4 addressing (format, classful and classless addressing, subnetting, subnet mask)
+        limitations of ipv4
+        ipv6 addressing 
+        routing algos (static and dynamic)
+        flooding
+        flow based routing
+        dynamic routing algos -> distance vector, split horizon, link state
+        igmp,rpf,rpb,rpm
+        broadcacsting and types
+        congestion (leaky and token bucket)
+        connecting devices (passive hub, repeater, bridge, rotuer, gateways)
+        firewalls
+     -->
+    <h1>Network Layer</h1>
+    <p>Network layer is responsible for the source to desitnation delivery of a packet across multiple networks.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/network.png"
+            alt="Networking on network layer image"></div>
+    <h2>Functions of Network Layer</h2>
+    <ol>
+        <li><span>Internetworking : </span>It provides logical connection between deifferent networks.</li>
+        <li><span>Logical Addressing : </span>In order to identify each device uniquely and universally, network layer
+            defines an addressing scheme.</li>
+        <li><span>Routing : </span>The network layer protocols determine which route or path is best from source to
+            destination.
+            <p class="note note-normal">Routing is process/method to design a routing table. Switching is a method to
+                send the data to the destination/next router.</p>
+        </li>
+        <li><span>Packetizing : </span>the process in which network layer creates its own packets by encapsulating the
+            data from the upper layer.</li>
+        <li><span>Fragmentation : </span>Framgmentation means dividing the larger packets into small fragments to make
+            it transportable for the physical medium.</li>
+    </ol>
+    <h2>Design Issues in Network Layer</h2>
+    <ul>
+        <li><span>Addressing:</span> Assigning unique addresses to devices in a network to enable proper routing and communication.</li>
+        <li><span>Routing:</span> Determining the optimal path for data packets to reach their destination.</li>
+        <li><span>Forwarding:</span> Transferring data packets from an incoming interface to the appropriate outgoing interface based on the routing table.</li>
+        <li><span>Fragmentation and Reassembly:</span> Handling data packets that are larger than the maximum transmission unit (MTU) of the underlying network.</li>
+        <li><span>Quality of Service (QoS):</span> Considering specific performance requirements for applications in the network layer design.</li>
+        <li><span>Security:</span> Addressing security concerns, such as preventing unauthorized access and protecting against network attacks.</li>
+        <li><span>Scalability:</span> Designing the network layer to accommodate a growing number of devices and increasing network traffic.</li>
+        <li><span>Interoperability:</span> Ensuring that network layer protocols and designs are interoperable with other networking technologies and standards.</li>
+        <li><span>Error Handling and Recovery:</span> Including mechanisms for error detection, error handling, and recovery in the network layer design.</li>
+        <li><span>Network Management:</span> Considering network management aspects, such as monitoring network performance and troubleshooting network issues.</li>
+    </ul>
+        
+
+    <h2>IPv4 Addressing</h2>
+    <p>Each host and router on the Internet is assigned a unique 32-bit logical address known as <span>IP
+            address</span>.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/ipv4.png" alt=""></div>
+    <ul>
+        <li><span>VER : </span>It stores the version number in bits (4 or 6).</li>
+        <li><span>HLEN : </span>It stores the length of the header upto to 15 bytes. To get the actual header length, we
+            need to multiply the hlen by 4.</li>
+        <li><span>Service : </span>
+            <ul>
+                <li><span>Precedence : </span>It is used to prioritize the packets.</li>
+                <li><span>Delay : </span>It is used to minimize the delay.</li>
+                <li><span>Throughput : </span>It is used to maximize the throughput.</li>
+                <li><span>Reliability : </span>It is used to maximize the reliability.</li>
+                <li><span>Cost : </span>It is used to minimize the cost.</li>
+            </ul>
+        </li>
+        <li><span>Total Length : </span>It stores the total length of the packet.</li>
+        <li><span>Identification : </span>It is used to identify the packet and to detect the duplication of the packet.
+        </li>
+        <li><span>Flags : </span>
+            <ul>
+                <li><span>Reserved : </span>It is used to store the flags.</li>
+                <li><span>Don't Fragment : </span>It is used to indicate that the packet can't be fragmented.</li>
+                <li><span>More Fragments : </span>It is used to indicate that the packet has more fragments.</li>
+            </ul>
+        </li>
+        <li><span>Fragment Offset : </span>It is used to indicate the offset of the fragment.</li>
+        <li><span>Time to Live : </span>It is used to indicate the number of routers that the packet can traverse.</li>
+        <li><span>Protocol : </span>It is used to identify the protocol used in the packet.</li>
+        <li><span>Header Checksum : </span>It is used to verify the integrity of the header.</li>
+        <li><span>Source Address : </span>It is used to store the source IP address.</li>
+        <li><span>Destination Address : </span>It is used to store the destination IP address.</li>
+        <li><span>Options or padding : </span>It is used to store the options or to manage the length in the form of
+            2<sup>p</sup>. It can be used for end of option, record route, timestamp, etc.</li>
+    </ul>
+    <p>IPv4 addresses are fundamental for identifying devices in a network. Key aspects include:</p>
+    <ul>
+        <li><span>Address Format : </span>IPv4 addresses are 32-bit numerical labels divided into four octets, typically
+            represented in dotted-decimal format.</li>
+        <li><span>Classful and Classless Addressing : </span>IPv4 addressing can follow classful or classless schemes,
+            impacting address assignment strategies.</li>
+        <li><span>Subnetting : </span>Subnetting involves dividing an IP network into sub-networks for better resource
+            management and security.</li>
+        <li><span>Subnet Mask : </span>A subnet mask is used in conjunction with an IP address to define the network and
+            host portions.</li>
+    </ul>
+    <h2>Classful addressing</h2>
+    <p>IP addressing supports five different address classes : A, B, C, D and E. Only classes A, B and C are available
+        for commercial use.</p>
+    <div class="structimg img-center mt-2 green-purple"><img src="../examples/networks/network-layer/classful.png"
+            alt="Classful addresing"></div>
+    <h2>Subnetting</h2>
+    <p>Subnetting is a process of dividing an IP network into smaller networks. Each of these subnets has its own
+        specific address.</p>
+    <p>Subnetting works by dividing an IP address into two parts: the network address and the host address. The network
+        address identifies the network itself, while the host address identifies a specific device (or “host”) within
+        that network.
+    </p>
+    <p>
+        Subnetting further divides the host portion of the IP address into smaller units, which can then be assigned to
+        various devices within the network. This is done using a technique called the subnet mask.
+    </p>
+    <p>
+        The subnet mask is a 32-bit number that separates the network address from the host address. In the subnet mask,
+        bits that correspond to the network address are set to 1, and bits that correspond to the host address are set
+        to 0.</p>
+    <p>A subnet adderss is created by borrowing bits from the host field and designating them as subnet field.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/subnetting.webp"
+            alt="Subnetting image"></div>
+    <p><span>Advantages : </span>It improves the security and the maintenance and administration is easy.</p>
+    <p><span>Limitations : </span>Identification of station is difficult and not possible to directed broadcast from
+        outside network.</p>
+    <h2>Subnet Mask</h2>
+    <p>Subnet masking is the process of using a subnet mask to divide a large network into smaller networks, called
+        subnets. The subnet mask is a 32-bit number that is used to identify the network and host portions of an IP
+        address. </p>
+    <p>
+        The subnet mask is a bitmask that is used to extract the network and host portions of an IP address. The first n
+        bits of the subnet mask are set to 1, where n is the number of bits used for the
+        network portion of the address. The remaining bits are set to 0.</p>
+    <p></p>
+    For example, a subnet mask of 255.255.255.0 has 24 bits set to 1, which means that the first 24
+    bits of the IP address are used for the network portion and the last 8 bits are used for the host
+    portion.</p>
+    <p></p>
+    The subnet mask is used by routers to determine which network a packet belongs to. When a
+    router receives a packet, it compares the destination IP address of the packet to the subnet masks
+    of all of the networks that it is connected to. If the destination IP address matches the subnet mask
+    of one of the networks, the router forwards the packet to that network. If the destination IP address
+    does not match any of the subnet masks, the router drops the packet.</p>
+    <p>
+        Subnet masking is a fundamental concept in IP networking. It is used to improve the efficiency of
+        IP addressing, to improve network security, and to make it easier to manage networks.</p>
+    <h2>Limitations of IPv4</h2>
+    <ul>
+        <li><span>Getting scarce</span></li>
+        <li><span>Security related issues</span></li>
+        <li><span>There is a need for simpler configuration</span></li>
+        <li><span>Quality of Service</span></li>
+        <li><span>Flat routing infrastructure</span></li>
+        <li><span>Prioritized delivery</span></li>
+        <li><span>Mobility</span></li>
+    </ul>
+    <h2>Classless Addressing</h2>
+    <p>To overcome the problem of address depletion and give more organization acccess to internet, classless addressing was designed and implemented.</p>
+    <p>When an entity, small or large, needs to be connevted to Internet, it is granted a block or range of addresses. The size of the block (the number of addresses) varies based on the nature and size of the entity. For e.g. a household may be given only 2 addresses, a large organization may be given thousands of addresses.</p>
+    <p>To simplify the handling of addresses, the Internet authorities impose three restrictions on classless address block : </p>
+    <ol>
+        <li>The addresses in a block must be contiguous, one after the other.</li>
+        <li>The number of addresses in a block must be a power of 2.</li>
+        <li>The first address mst be evenly divisible by the number of address.</li>
+    </ol>
+    <div class="structimg img-center mt-2 img-75 img-large"><img src="../examples/networks/network-layer/classless.png" alt="Classless Addressing"></div>
+
+    <h2>IPv6 Addressing</h2>
+    <p>IPv6 addresses aim to overcome the limitations of IPv4.</p>
+    <p>IPV6 is also known as IPng (Internetworking Protocol, next generation).</p>
+    <div class="structimg img-center mt-2 img-large img-75"><img src="../examples/networks/network-layer/ipv6.avif" alt="IPV6 header"></div>
+    <div class="structimg img-center mt-2 img-large img-50"><img src="../examples/networks/network-layer/ipv6-addressing.png" alt="IPV6"></div>
+    
+    <p>Key features include : </p>
+    <ul>
+        <li><span>128-bit Address : </span>IPv6 employs a 128-bit address format, vastly expanding the available address
+            space.</li>
+        <li><span>Hexadecimal Representation : </span>IPv6 addresses are often represented in hexadecimal format for
+            conciseness.</li>
+        <li><span>Packet Format : </span>
+            IPv6 uses a 128-bit header format, which is similar to IPv4's 32-bit header format.
+        </li>
+    </ul>
+    <h2>Routing Algorithms</h2>
+    <p>Routing algorithms are essential for determining the most efficient paths for data transmission.</p>
+    <p>A routing alogrithm should possess some desirable properties like <span>correctness, simplicity, robustness, stability, fairness and optimality</span>.</p>
+
+    <h3>Types of Routing Algorithm</h3>
+    <h4>On the basis of working</h4>
+    <ul>
+        <li>
+            <span>Non-Adaptive/Static Routing Algorithms : </span>
+                The route from source to destination is calculated in advance and is downloaded to the routers, when the network is initialized.
+        </li>
+        <li>
+            <span>Adaptive/Dynamic Routing Algorithms : </span>
+                The adaptive algorithms continuously update their information about the network and base their routing decisions on the current state of the network.
+        </li>
+    </ul>
+
+    <h4>On the basis of transmission technique</h4>
+    <ol>
+        <li>
+            <span>Unicast Routing Algorithms : </span>
+            The packets are routed to a single destination which means the communication is one to one.
+        </li>
+        <li>
+            <span>Multicast Routing Algorithms : </span>
+            The packets are routed to multiple destinations which means the communication is one to many.
+        </li>
+    </ol>
+
+    <h3>Optimality Principle</h3>
+    <h4>Static Routing</h4>
+    <p>In static routing, predetermined paths are configured manually. While simple, it lacks adaptability to dynamic network changes.</p>
+    <ol>
+        <li><span>Shortest Path Routing : </span>
+            The shortest path routing algorithm is the most simple and widely used routing algorithm. It is based on the idea that the shortest path between two nodes is the fastest path.
+        </li>
+        <li><span>Flooding : </span>Flooding is a routing technique where a router sends a copy of a received packet to all of its neighbors except the source.</li>
+        <li><span>Flow-Based Routing : </span>This routing approach considers the characteristics of data flows, allowing for more intelligent routing decisions.</li>
+    </ol>
+    <h4>Dynamic Routing</h4>
+    <p>Dynamic routing employs algorithms that adjust to changing network conditions, optimizing data flow dynamically.</p>
+    <ol>
+        <li><span>Distance Vector : </span>This algorithm calculates the distance or cost to reach each destination and makes routing decisions accordingly. In this method, routers tells the their neighbours what they know about the internet means they share their information about internet to their neighbours periodically or on triggering. RIP is the exact implementation of this method.
+            <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/distance-vector.png" alt="Distance vector image"></div>
+        </li>
+        <li><span>Split Horizon : </span>In this strategy, instead of flooding the table through each interface, each node sends only part of its table through each interface. It corrects the Tow node loop instability problem in distance vector.</li>
+        <li><span>Link State : </span>Link-state routing algorithms build a comprehensive map of the network and use this information to determine optimal routes. In this method, routers share information about their neighbours to all the routers by broadcasting the message. OSPF is the exact implementation of this method.
+            <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/link-state-procedure.png" alt="Link state procedure image"></div>
+            <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/link-state.png" alt="Link state image"></div>
+        </li>
+    </ol>
+    <table>
+        <thead>
+            <tr>
+                <th>Criteria</th>
+                <th>Distance Vector Routing</th>
+                <th>Link State Routing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span>Information Exchange</span></td>
+                <td>Periodic sharing of routing tables with neighbors.</td>
+                <td>Sharing information about neighbors with all routers by broadcasting.</td>
+            </tr>
+            <tr>
+                <td><span>Routing Decision</span></td>
+                <td>Based on the accumulated distance or cost to reach each destination.</td>
+                <td>Builds a comprehensive map of the network and determines optimal routes based on this information.</td>
+            </tr>
+            <tr>
+                <td><span>Message Overhead</span></td>
+                <td>Higher due to periodic updates and sharing with neighbors.</td>
+                <td>Lower due to broadcasting messages only when there are changes in the network.</td>
+            </tr>
+            <tr>
+                <td><span>Network Map</span></td>
+                <td>Routers have a limited view of the network.</td>
+                <td>Each router has a complete map of the network.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>IGMP</h2>
+    <p>IGMP is a group management protocol that mainly manages the group membership in a multicast network.</p>
+    <p>The multicast routers which are used to route packets to all the members of a particular group use the information from IFMP to determine which hosts are having membership of which group.</p>
+
+    <p>A multicast router generally receives thousands of multicast packets that have to be transimitted to various groups. If a router has no knowledge about the group membership, it will broadcast packet and this will increase the load on the network.</p>
+
+    <p>In order to save the network from such a problem, a list of groups is maintained when members of the group are present in netwrok. Thus, IGMP helps the multicast router to create and update this list.</p>
+
+    <p>This protocol uses three different messages : query message, membership report and leave report.</p>
+
+    <h2>RPF</h2>
+    <p>RPF is a process for Distance Vector Multicast Routing Protocol (DVMRP) algorithms.</p>
+    <p>In this strategy, the router only forwards those packets that have traveled the shortest path from source to destination. To achieve this, the router pretends that it has a packet to send to the source. In this way, the shortest path to the sender is computed. If the same router is followed by the received packet then it will be forwarded to the next router, otherwise it will be discarded.</p>
+
+    <h2>RPB</h2>
+    <p>RPB is a process for Link State Multicast Routing Protocol (LSMRP) algorithms.</p>
+    <p>RPF guarantees that each network receives a copy of the multicast packet without the formation of loops. However, RPF does not guarantee that each network receives only one copy , a network may receive two or more copies. The reason is that RPF is not based on the destination address (a group address) , and forwarding is based on the source address.</p>
+
+    <p>To solve this problem, RPB is used in which one parent router is defined for each network. The network could accept the mulitcast packets from this parent router only. This router sends packets to those ports for which it is designated as parent. RPB further guarantees that the packet reaches every network and that every network receives only one copy.</p>
+
+    <p>The designated parent router can be a router with the shortest path to the source. Because routers periodically send updating packets to each other (in RIP), they can easily determine which router in the neighborhood has the shortest path to the source (when interpreting the source as the destination). If more than one router qualifies, then the router with the smallest IP address is selected.</p>
+
+    <h2>RPM</h2>
+    <p>RPM is a process for RIP algorithms.</p>
+    <p>RPB does not multicast the packet, it broadcasts it. This is not efficient.</p>
+    <p>To increase the efficiency, the multicast packet must reach only those networks that have active members for that particular group. This is called reverse path multicasting (RPM). To convert the broadcasting to multicasting , the protocol uses two procedures, pruning and grafting. This is a type of multicasting technique</p>
+    <ul>
+        <li><span>Pruning : </span>A router can send a prune message to its upstream router whenever it finds that its network is not interested in a multicast packet. In this way a router prunes (cuts) its network from multicasting.
+            <p>If a router receives prune message from all the downstram routers, it in turn, sends a prune message to its upstream router.</p>
+        </li>
+        <li><span>Grafting : </span>A router can also send a graft message to its upstream router if it finds that its network is again interested in receiving the multicast packet.</li>
+    </ul>
+
+    <h2>Broadcasting and Types</h2>
+    <p>Broadcasting plays a vital role in network communication. Different types of broadcasting include:</p>
+    <ul>
+        <li><span>Unicast : </span>Communication from one source to one destination.</li>
+        <li><span>Broadcast : </span>Communication from one source to all destinations in the network.
+            <ul>
+                <li><span>Limited Broadcast : </span>Transmitting data from one source host to all other hosts residing in the same network is called as limited broadcast. Limited Broadcast Address for any network is All 32 bits set to 1.</li>
+                <li><span>Direct Broadcast : </span>Transmitting data from one source host to all other hosts residing in some other network is called as direct broadcast.Direct Broadcast Address for any network is the IP Address where, Network ID is the IP Address of the network where all the destination hosts are present and Host ID bits are all set to 1.</li>
+            </ul>
+        </li>
+        <li><span>Multicast : </span>Communication from one source to multiple specific destinations.</li>
+    </ul>
+    <h2>Congestion</h2>
+    <p>Congestion is a situation in which the performance of network is degraded due to the presence of too many packates in the subnet or when the load on the network is greater than the capacity of the network.</p>
+
+    <h2>Congestion Control</h2>
+    <p>Congestion control mechanisms are divided into two categories: </p>
+    <h3>Open Loop Congestion Control</h3>
+    <p>
+        In this method, policies are used to prevent the congestion before it happens.
+    </p>
+    <p>Various methods are : </p>
+    <ul>
+        <!-- retransmission, window, acknowledgment, discarding, admission -->
+        <li><span>Retransmission Policy : </span>Retransmitting packets when they fail to reach their intended recipient(s).</li>
+        <li><span>Window Policy : </span>Adjusting the size of the window based on the number of packets that can be sent in a given time.</li>
+        <li><span>Acknowledgment Policy : </span>It may slow down the sender if every packet is not acknowledge.</li>
+        <li><span>Discarding Policy : </span>Discarding packets that are not required/less sensitive.</li>
+        <li><span>Admission Policy : </span>It may slow down the sender if the network is overloaded.</li>
+    </ul>
+
+    <h3>Closed Loop Congestion Control</h3>
+    <p>Closed loop congestion control mechanisms try to remove the congestion after it happens.</p>
+    <p>Various methods are : </p>
+    <ul>
+        <!-- backpressure, choke packet -->
+        <li><span>Backpressure Policy : </span>It is a node-to-node congestion control that starts with a node and propagates, in the opposite direction of data flow. This technique can be applied only to virtual circuit networks.</li>
+        <li><span>Choke Packet Policy : </span>In this method of congestion control congested router or node sends a special type of packet called <span>Choke packet</span> to the source to inform it about the congestion.</li>
+        <li><span>Implicit signaling : </span>There is no communication between the congested node or nodes and the source.</li>
+        <li><span>Explicit signaling : </span>The congested node explicitly sneds a signal to the source or destination to inform about the congestion.</li>
+    </ul>
+
+    <h2>Congestion Control Algorithms</h2>
+    <h3>Leaky Bucket Algorithm</h3>
+    <p>
+        The leaky bucket algorithm is a congestion control algorithm used in computer networks. It is designed to control the rate at which data is transmitted from a source to a destination. The algorithm works by imagining a leaky bucket that can hold a certain amount of data. As data is added to the bucket, it leaks out at a constant rate. If the bucket overflows, the excess data is discarded. This helps regulate the flow of data and prevent congestion in the network.
+    </p>
+    <p><span>Implementation : </span>Each host is connected to the netwrok by an interface containing a leaky bucket which is implemented by using a queue that holds the packet. If the queue is full and a new packet arrives, it is discarded. The algorithm uses a clock tick to remove packets from the queue. If the traffic consists of fixed-size packets, a fixed number of packets are removed at each tick. If the packet sizes vary, a fixed number of bytes are removed at each tick. This helps regulate the flow of data and prevent network congestion.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/leaky-bucket.webp" alt="Leaky Bucket image"></div>
+
+    <h3>Token Bucket Algorithm</h3>
+    <p>
+        The token bucket algorithm is another congestion control algorithm used in computer networks. It is designed to control the rate at which data is transmitted by using tokens. The algorithm works by imagining a bucket that holds tokens. Each token represents a fixed amount of data. As data is transmitted, tokens are consumed from the bucket. If the bucket is empty, no more data can be transmitted until new tokens are added. This helps regulate the flow of data and prevent congestion in the network.
+    </p>
+    <p>
+        <span>Implementation : </span>The token bucket is implemented by using a counter that keeps track of the available tokens. When data needs to be transmitted, the algorithm checks if there are enough tokens in the bucket. If there are, the tokens are consumed and the data is transmitted. If there are not enough tokens, the data transmission is delayed until new tokens are added to the bucket. This helps regulate the data transmission rate and prevent network congestion.
+    </p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/network-layer/token-bucket.png" alt="Token Bucket image"></div>
+
+    <h2>Connecting Devices</h2>
+    <p>Various connecting devices play distinct roles in network architecture:</p>
+    <ul>
+        <li><span>Passive Hub : </span>A device that connects multiple devices but does not amplify or regenerate
+            signals.</li>
+        <li><span>Repeater : </span>Amplifies and retransmits signals, extending the network's reach.</li>
+        <li><span>Bridge : </span>Connects two network segments and operates at the data link layer.</li>
+        <li><span>Router : </span>Facilitates communication between different networks by forwarding data packets.</li>
+        <li><span>Gateways : </span>Act as interfaces between different networks, translating protocols if needed.</li>
+    </ul>
+    <h2>Firewalls</h2>
+    <p>To prevent confidential information from leaking out and to prevent the entry of virus and other pests, firewalls are used. Firewalls are designed to filter teh packets before passing the traffic outside and all incoming packets destined for a specific host or a server.</p>
+
+    <p>It consists two components : Two routers (packet filters) and application gateway.</p>
+
+    <h3>Types of Firewalls</h3>
+
+    <h4>Packet-filter Firewall</h4>
+    <p>A packet-filter firewall is a firewall that filters packets based on the destination IP address. It is used to forward or block packets on the basis of nmber of factors such as source and destination IP address, port number, type of protocol.</p>
+    <p>It maintainsa filtering table that decides which packets are to be forwared or discarded. It filters at network or transport layer.</p>
+
+    <h4>Proxy Firewall</h4>
+    <p>Proxy firewall operates at application layer. It is used when we want to filter a message on the basis of information contained in message itself.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

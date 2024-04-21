@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Currying in JavaScript</title>
+</head>
+<body>
+    <h1>Currying in JavaScript</h1>
+
+    <p>Currying is a functional programming technique in JavaScript that allows you to transform a function with multiple arguments into a sequence of nested unary functions, each taking a single argument. This technique enables more flexible and reusable function composition and partial application.</p>
+
+    <h2>1. Currying Definition</h2>
+
+    <p>Currying is the process of converting a function that takes multiple arguments into a sequence of functions, each taking a single argument. This transformation allows for greater flexibility and composability when working with functions.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of currying
+function add(a) {
+    return function(b) {
+        return a + b;
+    };
+}
+
+const add5 = add(5); // Returns a function that adds 5 to its argument
+console.log(add5(3)); // Output: 8
+</pre></div>
+
+    <h2>3. Benefits of Currying</h2>
+
+    <p>Currying offers several benefits in JavaScript programming:</p>
+    <ul>
+        <li><strong>Partial Application:</strong> You can create specialized versions of functions by pre-filling some of their arguments.</li>
+        <li><strong>Function Composition:</strong> Curried functions are composable, allowing you to easily combine and chain them together.</li>
+        <li><strong>Readability and Maintainability:</strong> Curried functions promote a more modular and declarative coding style, enhancing code readability and maintainability.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Currying is a powerful functional programming technique that promotes code reuse, composability, and readability. By understanding and applying currying in JavaScript, developers can write more expressive and flexible code that is easier to maintain and extend.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Some Arrays Methods in JavaScript</title>
+</head>
+<body>
+    <h1>Some Arrays Methods in JavaScript</h1>
+
+    <p>JavaScript provides a variety of array methods that offer functionalities beyond Map, Filter, and ReducThese methods are essential for manipulating and working with arrays efficiently in web development.</p>
+
+    <h2>join(separator)</h2>
+
+    <p>The <span>join</span> method creates and returns a string by concatenating all the elements of an array separated by a specified separator.</p>
+
+    <div class="code"><pre>
+let fruits = ["Apple", "Banana", "Orange"];
+let joinedString = fruits.join(", ");
+
+// Result: "Apple, Banana, Orange"
+</pre></div>
+
+    <h2>reverse()</h2>
+
+    <p>The <span>reverse</span> method reverses the order of the elements in an array.</p>
+
+    <div class="code"><pre>
+let numbers = [1, 2, 3, 4, 5];
+numbers.reverse();
+
+// Result: [5, 4, 3, 2, 1]
+</pre></div>
+
+    <h2>indexOf(element)</h2>
+
+    <p>The <span>indexOf</span> method returns the first index at which a specified element is found in an arraIf the element is not present, it returns -1.</p>
+
+    <div class="code"><pre>
+let fruits = ["Apple", "Banana", "Orange"];
+let index = fruits.indexOf("Banana");
+
+// Result: 1
+</pre></div>
+
+    <h2>isArray()</h2>
+
+    <p>The <span>isArray</span> method checks if a given value is an array.</p>
+
+    <div class="code"><pre>
+let isArrayCheck = Array.isArray(fruits);
+
+// Result: true
+</pre></div>
+
+    <h2>fill(value, start, end)</h2>
+
+    <p>The <span>fill</span> method fills all the elements of an array with a specified value from a start index to an end index.</p>
+
+    <div class="code"><pre>
+let numbers = [1, 2, 3, 4, 5];
+numbers.fill(0, 2, 4);
+
+// Result: [1, 2, 0, 0, 5]
+</pre></div>
+
+    <h2>includes(element)</h2>
+
+    <p>The <span>includes</span> method checks if an array includes a certain element and returns a boolean value.</p>
+
+    <div class="code"><pre>
+let includesCheck = fruits.includes("Mango");
+
+// Result: false
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>These additional array methods offer further versatility in array manipulation in JavaScripWhether it's joining elements into a string, reversing the array, or checking for the presence of an element, these methods enhance the capabilities of array operations.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

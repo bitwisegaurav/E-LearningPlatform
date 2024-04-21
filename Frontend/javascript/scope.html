@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Global and Local Scope of Variables</title>
+</head>
+<body>
+    <h1>Global and Local Scope of Variables</h1>
+
+    <p>In JavaScript, variable scope refers to the region or context in which a variable is declared and can be accessed. Understanding the concept of scope is crucial for writing efficient and bug-free code.</p>
+
+    <h2>Global Scope</h2>
+
+    <p>Variables declared outside of any function or block have global scope. This means they can be accessed from anywhere in the code, including within functions.</p>
+
+    <div class="code"><pre>
+// Global scope variable
+let globalVar = "I am a global variable";
+
+function exampleFunction() {
+    console.log(globalVar); // Accessible within the function
+}</pre></div>
+
+    <h2>Local Scope</h2>
+
+    <p>Variables declared inside a function or block have local scope. They are only accessible within that specific function or block.</p>
+
+    <div class="code"><pre>
+function exampleFunction() {
+    // Local scope variable
+    let localVar = "I am a local variable";
+    console.log(localVar); // Accessible within the function
+}</pre></div>
+
+    <h2>Shadowing</h2>
+
+    <p>When a local variable shares the same name as a global variable, the local variable "shadows" the global variable within its scope. This is known as variable shadowing.</p>
+
+    <div class="code"><pre>
+let shadowVar = "I am a global variable";
+
+function exampleFunction() {
+    let shadowVar = "I am a local variable"; // Local variable shadows the global variable
+    console.log(shadowVar); // Outputs the local variable value
+}</pre></div>
+
+    <h2>Block Scope (ES6 and beyond)</h2>
+
+    <p>With the introduction of <span>let</span> and <span>const</span> in ES6, JavaScript gained block-scoped variables. Variables declared with <span>let</span> and <span>const</span> are only accessible within the block they are declared.</p>
+
+    <div class="code"><pre>
+if (true) {
+    // Block scope variable
+    let blockVar = "I am a block-scoped variable";
+    console.log(blockVar); // Accessible within the block
+}</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding the scope of variables is crucial for writing maintainable and error-free JavaScript code. Whether a variable has global or local scope affects its accessibility and potential impact on other parts of the program. As you continue learning JavaScript, mastering variable scope will enhance your ability to design effective and efficient programs.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

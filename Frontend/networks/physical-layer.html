@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Physical Layer</title>
+</head>
+<body>
+    <h1>Physical Layer</h1>
+
+    <h2>Integrated Services Digital Network (ISDN)</h2>
+<p>ISDN is a set of communication standards for simultaneous digital transmission of voice, video, data, and other network services over the digitalised circuits of the public switched telephone network. It is a set of protocols that combines digital telephony and data transport services.</p>
+<div class="structimg img-center mt-2"><img src="../examples/networks/physical-layer/isdn.jpeg" alt="Types of Transmission media"></div>
+
+<h3>Principles of ISDN</h3>
+<p>The principles of ISDN as per ITU-T recommendation are:</p>
+<ol>
+    <li>To support switched and non-switched applications</li>
+    <li>To support voice and non-voice applications</li>
+    <li>Reliance on 64-kbps connections</li>
+    <li>Intelligence in the network</li>
+    <li>Layered protocol architecture</li>
+    <li>Variety of configurations</li>
+</ol>
+
+<h3>ISDN devices and reference points</h3>
+<p>ISDN specifies a number of reference points that define logical interfaces between functional groups, such as Terminal Adapters (TAs) and Network Termination 1 (NT1) devices. ISDN reference points include the following:</p>
+<ul>
+    <li><span>R (Rate) :</span> The reference point between non-ISDN equipment and a TA.</li>
+    <li><span>S (System) :</span> The reference point between user terminals and the NT2.</li>
+    <li><span>T (Terminal) :</span> The reference point between NT1 and NT2 devices.</li>
+</ul>
+
+<h3>ISDN channels</h3>
+<p>ISDN generally contains three types of channels i.e., B-channel (Bearer channel), D-channel (Data Channel), and H-channel (Hybrid Channel). The B channels operate at a maximum of 64 Kbps while the D channel operates at a maximum of 16 Kbps.</p>
+
+<h3>ISDN services</h3>
+<p>ISDN provides a fully integrated digital service to users. These services fall into 3 categories:</p>
+<ul>
+    <li><span>Bearer Services : </span> Transfer of information (voice, data, and video) between users without the network manipulating the content of that information.</li>
+    <li><span>Teleservices : </span> In these types of services, the network may change the contents of the data. It includes telephony, telebox, fax, and teleconferencing etc.</li>
+    <li><span>Supplementary Services : </span> It provides additional functionality to the bearer services and teleservices. Some of the examples of supplementary services are reverse charging, call waiting, and message handling.</li>
+</ul>
+
+<h3>ISDN specifications</h3>
+<p>Several standards are associated with ISDN, but the most common standards are as follows:</p>
+<ul>
+    <li>BRI Physical Layer</li>
+    <li>PRI Physical Layer</li>
+    <li>ISDN Data Link Layer Specification</li>
+    <li>Call-Control and Signaling Specification</li>
+</ul>
+
+    <h2>Multiplexing</h2>
+
+    <p>Multiplexing is a technique used in communication systems to transmit multiple signals or streams of information simultaneously over a single communication channel. The primary goal of multiplexing is to efficiently utilize a scarce resource, which in this case is a physical transmission medium.</p>
+    <div class="structimg img-center green-purple mb-0"><img src="../examples/networks/physical-layer/multiplexing.png" alt="Multiplexing"></div>
+
+    <p class="note note-normal">
+        Imagine there are multiple stations, each generating its own data signal. These signals could be voice, video, or any other type of information. The data signals from the stations are then passed through modulators. The modulator prepares the signals for transmission by converting them into a suitable format. It's like putting each signal into a standardized package. After modulation, the signals are combined into a single merged signal. It's like gathering all the packaged signals together into one big bundle. The merged signal then enters the multiplexer. The multiplexer takes the combined signal and organizes it for transmission over a shared communication channel. It's like a traffic controller that manages the flow of signals.
+    </p>
+
+    <h2>Types of Multiplexing</h2>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/physical-layer/multiplexing-types.png" alt="Types of multiplexing"></div>
+    
+    <h3>Frequency Division Multiplexing (FDM)</h3>
+    
+    <p>Frequency Division Multiplexing (FDM) is a type of multiplexing where the total bandwidth of a communication medium is divided into a series of non-overlapping frequency bands, each of which is used to carry a separate signal. Each signal is transmitted at a different frequency, thus enabling simultaneous transmission of multiple signals. FDM is commonly used in radio and television broadcasting, where multiple channels are transmitted at different frequencies over the airwaves.</p>
+    <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/physical-layer/fdm.webp" alt="Types of multiplexing"></div>
+    
+    <h3>Wavelength Division Multiplexing (WDM)</h3>
+    
+    <p>Wavelength Division Multiplexing (WDM) is a technology used in fiber-optic communications, which multiplexes a number of optical carrier signals onto a single optical fiber by using different wavelengths (i.e., colors) of laser light. This technique enables bidirectional communications over a single strand of fiber, as well as multiplication of capacity. WDM is used to increase the capacity of optical fiber by transmitting multiple optical signals simultaneously over a single optical fiber, each with a different wavelength.</p>
+    <div class="structimg img-center mt-2 img-50"><img src="../examples/networks/physical-layer/wdm.jpeg" alt="Types of multiplexing"></div>
+    
+    <h3>Time Division Multiplexing (TDM)</h3>
+    
+    <p>Time Division Multiplexing (TDM) is a method of transmitting and receiving independent signals over a common signal path by means of synchronized switches at each end of the transmission line. In TDM, incoming signals are divided into equal fixed-length time slots. After multiplexing, these signals are transmitted over a shared medium and reassembled into their original format after de-multiplexing. TDM is used when the data transmission rate of the medium is greater than that of the source.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/physical-layer/tdm.png" alt="Types of multiplexing"></div>
+    <h4>Types of TDM</h4>
+    <h5>Synchronous TDM</h5>
+    <p>In synchronous TDM, each device is given same time slot to transmit the data, irrespective of the fact that the device has any data to transmit or not.</p>
+    <p>Each device gets its turn in fixed order and for fixed amount of time. This process is known as <span>interleaving</span>.</p>
+    <h5>Asynchronous TDM</h5>
+    <p>Asynchronous TDM is called so because in this type of multiplexing, time slots are not fixed. Also known as <span>statistical time division multiplexing</span>.</p>
+
+    <h2>Modem</h2>
+    <p>Modem is derived from the words <span>MO</span>dulator and <span>DEM</span>odulator. Thus a modem contains a modulator as well as a demodulator.</p>
+    <p>A modulator converts a digital signal into an analog signal and demodulator converts an analog signal into a digital signal.</p>
+    <p>When an analog facility is used for data communication between two digital devices called <span>Data Terminal Equipment</span> (DTE).</p>
+    <p class="note note-normal">The modem converts digital data into an analog signal through modulation. This analog signal is transmitted over a communication channel. At the receiving end, the analog signal is converted back into a digital signal through demodulation. Error correction techniques are used to ensure accurate data transmission. The digital data is then delivered to the receiving device for processing.</p>
+    <div class="structimg img-center"><img src="../examples/networks/physical-layer/modem.webp" alt="Modem"></div>
+    
+    <h3>Types of Modem</h3>
+    <p>Categorization is usually based on the following basic modem features : </p>
+    <ol>
+        <li><span>Directional capacity : </span> half duplex modem and full duplex modem.</li>
+        <li><span>Connection to the line : </span>2-wire modem and 4-wire modem.</li>
+        <li><span>Transmission mode : </span>asynchronous modem and synchronous modem.</li>
+    </ol>
+    
+    <h2>Telephone System</h2>
+    <p>Telephone networks were developed late 1800s for transmittion voice in form of analog signals. It is also known as PSTN (Public Switched Telephone Network).</p>
+    <p>Telephone networks use circuit switching.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/physical-layer/telephone-system.png" alt="Modem"></div>
+    
+    <h3>Major Components</h3>
+    <p>The major components of telephone network are : </p>
+
+    <h4>Local Loop</h4>
+    <p>It is a twisted pair cable that is used to connect the subscriber telephone to the nearest end office or local central office. Local loops uses category 3 twisted pairs.</p>
+
+    <h4>Trunks</h4>
+    <p>Trunks are transmission media that handle the communication between offices. It can handle large number of connections (in thousands) using multiplexing. The media user is either optical fiber (wired) and satellite links (wireless).</p>
+
+    <h4>Switching offices</h4>
+    <p>Switches are used to conncet local loops and trunks and these switches move the calls from one trunk to another. Thus these switching offices prevents the use of having a permanent physical connection between any two subscibers. The media used between switching offices are coaxial cables, microwaves and optical fibers.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

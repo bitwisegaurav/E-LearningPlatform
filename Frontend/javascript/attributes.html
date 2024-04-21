@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>DOM Elements Attributes in JavaScript</title>
+</head>
+<body>
+    <h1>DOM Elements Attributes in JavaScript</h1>
+
+    <p>In JavaScript, DOM elements have various attributes that define their characteristics and behavior. These attributes can be accessed, modified, or removed dynamically using JavaScript, allowing developers to create interactive and dynamic web pages.</p>
+
+    <h2>Accessing Attributes</h2>
+
+    <p>DOM elements have properties that correspond to their attributes. For example, the <span>id</span>, <span>class</span>, <span>href</span>, and <span>src</span> properties allow developers to access the corresponding attributes of elements.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+let link = document.getElementById('myLink');
+
+// Accessing the id attribute
+let id = link.id; 
+
+// Accessing the class attribute
+let classes = link.classList; 
+
+// Accessing the href attribute
+let href = link.href; 
+
+// Accessing the src attribute
+let src = link.src; 
+
+// Access any attribute
+let attribute = link.getAttribute('attributeName');
+</pre>
+    </div>
+
+    <h2>Modifying Attributes</h2>
+
+    <p>Attributes of DOM elements can be modified using their properties or by using the <span>setAttribute()</span> method. This allows developers to dynamically change the attributes of elements based on user interactions or other events.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+let link = document.getElementById('myLink');
+link.setAttribute("attributeName", value);
+link.setAttribute("href", "bitwisegaurav.github.io");</pre>
+    </div>
+
+    <h2>Removing Attributes</h2>
+
+    <p>Attributes of DOM elements can be removed using the <span>removeAttribute()</span> method. This allows developers to remove attributes from elements when they are no longer needed or to reset the state of elements.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let paragraph = document.getElementById('myParagraph');
+paragraph.removeAttribute('class');
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>DOM elements in JavaScript have various attributes that define their characteristics and behavior. By accessing, modifying, and removing these attributes dynamically, developers can create interactive and dynamic web pages that respond to user interactions and events.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

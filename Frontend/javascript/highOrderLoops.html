@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Map, Filter, and Reduce in JavaScript</title>
+</head>
+<body>
+    <h1>Map, Filter, and Reduce in JavaScript</h1>
+
+    <p>Map, Filter, and Reduce are powerful array methods in JavaScript that facilitate concise and efficient operations on arrayThey allow for transforming, filtering, and aggregating data, providing a functional programming approach to array manipulation.</p>
+
+    <h2>Map</h2>
+
+    <p>The <span>map</span> method creates a new array by applying a function to each element of the original array.</p>
+
+    <div class="code"><pre>
+let numbers = [1, 2, 3, 4, 5];
+
+let squaredNumbers = numbers.map(function(number) {
+    return number ** 2;
+});
+
+// Result: [1, 4, 9, 16, 25]
+</pre></div>
+
+    <h2>Filter</h2>
+
+    <p>The <span>filter</span> method creates a new array with elements that satisfy a specified condition.</p>
+
+    <div class="code"><pre>
+let evenNumbers = numbers.filter(function(number) {
+    return number % 2 === 0;
+});
+
+// Result: [2, 4]
+</pre></div>
+
+    <h2>Reduce</h2>
+
+    <p>The <span>reduce</span> method reduces an array to a single value by applying a function to each element and accumulating the result.</p>
+
+    <div class="code"><pre>
+let sum = numbers.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+}, 0);
+
+// Result: 15
+</pre></div>
+
+    <h2>Chaining Methods</h2>
+
+    <p>These methods can be chained together for more complex operations in a single line.</p>
+
+    <div class="code"><pre>
+let result = numbers
+    .map(function(number) { return number * 2; })
+    .filter(function(number) { return number > 5; })
+    .reduce(function(accumulator, currentValue) { return accumulator + currentValue; }, 0);
+
+// Result: 18
+</pre></div>
+
+    <h2>Arrow Functions with Map, Filter, and Reduce</h2>
+
+    <p>Arrow functions provide a concise syntax for these methods.</p>
+
+    <div class="code"><pre>
+let squaredNumbers = numbers.map(number => number ** 2);
+let evenNumbers = numbers.filter(number => number % 2 === 0);
+let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Map, Filter, and Reduce are integral parts of modern JavaScript programming, offering elegant solutions for manipulating and transforming arrayWhether you're mapping values, filtering elements, or reducing to a single result, these methods contribute to cleaner and more maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>String Handling in PHP</title>
+</head>
+<body>
+    <h1>String Handling in PHP</h1>
+
+    <h2>Creating and Accessing Strings</h2>
+    <p>
+        In PHP, you can create strings using single quotes ('') or double quotes (""). Accessing characters in a string is done using square brackets.
+    </p>
+    <div class="code">
+        <pre>
+$singleQuoted = 'This is a single-quoted string';
+$doubleQuoted = "This is a double-quoted string";
+
+$character = $doubleQuoted[0];
+echo "character is $character";</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-create.png" alt="">
+    </div>
+
+    <h2>Interpolation with Curly Braces</h2>
+    <p>
+        You can interpolate variables and expressions within double-quoted strings using curly braces ({}) for readability.
+    </p>
+    <div class="code">
+        <pre>
+$name = "Alice";
+$greeting = "Hello, {$name}!";
+echo $greeting;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-curly.png" alt="">
+    </div>
+
+    <h2>Characters and String Indexes</h2>
+    <p>
+        PHP treats strings as arrays of characters, allowing you to access individual characters by index.
+    </p>
+    <div class="code">
+        <pre>
+$str = "PHP";
+$firstChar = $str[0]; // 'P'
+echo "first character is $firstChar";</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-index.png" alt="">
+    </div>
+
+    <h2>String Operators</h2>
+    <p>
+        PHP provides various string operators for concatenation and manipulation, such as :
+    </p>
+    <ul>
+        <li><span>Concatenation : </span> 
+            <span>+</span> and <span>.</span> are used for concatenation.
+            <div class="code">
+                <pre>
+$str1 = "Hello";
+$str2 = "World";
+$combined = $str1 . " " . $str2;
+echo $combined;</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/string-concat.png" alt="">
+            </div>
+        </li>
+        <li><span>Concatenation assignment : </span>
+            <span>+=</span> and <span>.=</span> are used for concatenation assignment.
+            <div class="code">
+                <pre>
+$str1 = "Hello";
+$str2 = "World";
+$str1 .= " " . $str2;
+echo $str1;</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/string-concatassign.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>Heredoc</h2>
+    <p>
+        Heredoc is a way to define multi-line strings in PHP without the need for escape characters. It is particularly useful when you need to create large blocks of text or HTML content.
+    </p>
+    <div class="code">
+        <pre>
+$variable = "PHP";
+$heredocString = &lt;&lt;&lt;EOT
+This is a Heredoc string. &lt;br>
+It supports multiple lines and variables: {$variable}
+EOT;
+echo $heredocString;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-heredoc.png" alt="">
+    </div>
+
+    <h2>String Functions</h2>
+    <p>
+        PHP provides a wide range of string functions to manipulate, format, and search within strings. Here are some commonly used string functions:
+    </p>
+    <ul>
+        <li><span>strlen($str)</span>: Returns the length of the string.
+            <div class="code">
+                <pre>
+$length = strlen("Hello, PHP!"); // 11</pre>
+        </div>
+        </li>
+        <li><span>strtoupper($str)</span>: Converts the string to uppercase.
+            <div class="code">
+                <pre>
+$uppercase = strtoupper("Hello, PHP!"); // "HELLO, PHP!"</pre>
+        </div>
+        </li>
+
+    <li><span>strtolower($str)</span>: Converts the string to lowercase.</li>
+    <li><span>ucfirst($str)</span>: Converts the first character of the string to uppercase.</li>
+    <li><span>substr($str, $start, $length)</span>: Extracts a substring from the given string.</li>
+    <li><span>strpos($haystack, $needle)</span>: Searches for the position of a substring within a string.</li>
+    <li><span>str_replace($search, $replace, $str)</span>: Replaces all occurrences of a search string with a replacement string.</li>
+</ul>
+
+    <h2>Formatting Strings</h2>
+    <p>
+        You can format strings using functions like <span>printf</span> and <span>sprintf</span> to control the output's appearance.
+    </p>
+    <div class="code">
+        <pre>
+$name = "Alice";
+$age = 25;
+$message = sprintf("Name: %s, Age: %d", $name, $age);
+echo $message;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-format.png" alt="">
+    </div>
+
+    <h2>Comparing and Searching Strings</h2>
+    <p>
+        PHP provides functions for comparing and searching within strings, such as <span>strcmp</span>, <span>strstr</span>, <span>strpos</span> and <span>str_replace</span>.
+    </p>
+    <div class="code">
+        <pre>
+$haystack = "Hello, PHP!";
+$needle = "PHP";
+$position = strpos($haystack, $needle);
+echo "Position = $position";</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/string-compare.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        String handling is a fundamental part of PHP programming, and understanding how to create, manipulate, and format strings is essential for building dynamic web applications. With the wide range of string functions available in PHP, you can perform various operations on strings to meet your application's requirements.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

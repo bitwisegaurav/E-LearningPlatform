@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Getter and Setter in JavaScript</title>
+</head>
+<body>
+    <h1>Getter and Setter in JavaScript</h1>
+
+    <p>Getter and setter methods are special functions that are used to get and set the values of an object's properties, respectively. They provide a way to control access to object properties and add additional behavior when getting and setting values.</p>
+
+    <h2>1. Getter Methods</h2>
+
+    <p>Getter methods are used to retrieve the value of a property. They are defined using the <code>get</code> keyword followed by the method name. When the property is accessed, the getter method is automatically invoked.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of getter method
+class Circle {
+    constructor(radius) {
+        this.radius = radius;
+    }
+
+    get area() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+const circle = new Circle(5);
+console.log(circle.area); // Output: 78.53981633974483
+</pre></div>
+
+    <h2>3. Setter Methods</h2>
+
+    <p>Setter methods are used to set the value of a property. They are defined using the <code>set</code> keyword followed by the method name. When the property is assigned a new value, the setter method is automatically invoked.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of setter method
+class Square {
+    constructor(side) {
+        this.side = side;
+    }
+
+    get area() {
+        return this.side * this.side;
+    }
+
+    set area(value) {
+        this.side = Math.sqrt(value);
+    }
+}
+
+const square = new Square(4);
+console.log(square.area); // Output: 16
+square.area = 25;
+console.log(square.side); // Output: 5
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Getter and setter methods provide a way to control access to object properties and add additional behavior when getting and setting values. By leveraging getter and setter methods, developers can create more flexible and robust object-oriented code in JavaScript.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

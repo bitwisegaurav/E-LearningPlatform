@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+	background-color: rgba(109, 82, 158, 0.2);
+}
+
+.dark {
+	background-color: #2e2b52;
+}
+
+nav {
+    height: 5rem;
+    background-color: blueviolet;
+}
+
+main {
+    /* border: 2px solid blueviolet; */
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5%;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    max-width: 50rem;
+    /* border: 2px solid green; */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 2rem 2rem;
+    border-radius: 15px;
+    gap: 1.5rem;
+}
+
+.dark main .container {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+main .container .upper {
+    display: flex;
+    /* justify-content: center; */
+    /* border: 2px solid red; */
+    width: 100%;
+}
+
+main .container .upper h1{
+    width: calc(100% - 7rem);
+    text-align: center;
+    color: rgb(72, 54, 105);
+}
+
+.dark main .container .upper h1 {
+    color: #fff;
+}
+
+main .container .upper button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(109 82 158);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.dark .container .upper button {
+    color: #2e2b52;
+    background-color: #fff;
+}
+
+main .container .upper button:hover {
+    background-color: rgb(76, 56, 114);
+}
+
+.dark main .container .upper button:hover {
+    background-color: #eee;
+}
+
+main .container #errorbox {
+    color: red;
+    font-size: large;
+}
+
+main .container #errorbox.success {
+    color: #00b100;
+}
+
+.dark main .container #errorbox {
+    color: #ff7676;
+}
+
+.dark main .container #errorbox.success {
+    color: #00ff00;
+}
+
+main .container form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    /* padding: 1rem; */
+    border-radius: 5px;
+}
+
+main .container form .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    /* padding: 1rem; */
+    border-radius: 5px;
+}
+
+main .container form .data {
+    flex: 0 1 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+main .container form .data label {
+    font-weight: bold;
+    color: rgb(75, 56, 110);
+}
+
+.dark main .container form .data label {
+    color: #fff;
+}
+
+main .container form .data input,
+main .container form .data textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* font-size: 1rem; */
+    color: #333;
+}
+
+main .container form .data textarea {
+    resize: none;
+}
+
+.dark main .container form .data input,
+.dark main .container form .data textarea {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .container form .data input:focus, 
+main .container form .data textarea:focus {
+    outline: none;
+    border-color: #2e2b52;
+}
+
+.dark main .container form .data input:focus, 
+.dark main .container form .data textarea:focus {
+    border-color: #fff;
+}
+
+main .container form button {
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(109 82 158);
+    color: #fff;
+    font-size: 100%;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.dark main .container form button {
+    color: #2e2b52;
+    background-color: #fff;
+}
+
+main .container form button:hover {
+    background-color: rgb(87, 64, 129);
+}
+
+.dark main .container form button:hover {
+    background-color: #eee;
+}
+
+.dark a {
+    color: rgb(217, 179, 252);
+}

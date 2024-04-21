@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Access Specifiers in Java</title>
+</head>
+<body>
+    <h1>Access Specifiers in Java</h1>
+
+    <h2>Introduction to Access Specifiers</h2>
+    <p>
+        In Java, access specifiers (also known as access modifiers) are keywords used to control the visibility and accessibility of classes, methods, fields, and other members within a Java program. They define the scope and who can access certain elements of a class or interface. Java provides four main access specifiers:
+    </p>
+    <ul>
+        <li><strong>Public:</strong> The most permissive access specifier. Members declared as public are accessible from any other class or package.</li>
+        <li><strong>Private:</strong> The most restrictive access specifier. Members declared as private are accessible only within the same class.</li>
+        <li><strong>Protected:</strong> Members declared as protected are accessible within the same class, the same package, and subclasses outside the package.</li>
+        <li><strong>Default (no modifier):</strong> Also known as package-private. Members with no access specifier are accessible within the same class and the same package but not outside the package.</li>
+    </ul>
+
+    <h2>Using Public Access Specifier</h2>
+    <p>
+        When a member is declared as public, it can be accessed from anywhere in the program. Here's an example of a public method:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MyClass {
+    public void myPublicMethod() {
+        // Code here
+    }
+}</pre>
+    </div>
+
+    <h2>Using Private Access Specifier</h2>
+    <p>
+        Members declared as private are only accessible within the same class. Here's an example of a private field:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MyClass {
+    private int myPrivateField;
+}</pre>
+    </div>
+
+    <h2>Using Protected Access Specifier</h2>
+    <p>
+        Members declared as protected are accessible within the same class, the same package, and subclasses outside the package. Here's an example of a protected method:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MyBaseClass {
+    protected void myProtectedMethod() {
+        // Code here
+    }
+}</pre>
+    </div>
+
+    <h2>Using Default (Package-Private) Access Specifier</h2>
+    <p>
+        Members with no access specifier (default) are accessible within the same class and the same package but not outside the package. Here's an example of a default (package-private) field:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+class MyPackageClass {
+    int myPackageField; // Default access specifier
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Access specifiers in Java provide control over the visibility and accessibility of class members. Choosing the appropriate access specifier is crucial for encapsulation, security, and maintaining the integrity of your Java programs.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

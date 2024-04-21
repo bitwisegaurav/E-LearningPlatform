@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Cookies in JavaScript</title>
+</head>
+<body>
+    <h1>Cookies in JavaScript</h1>
+
+    <p>Cookies are small pieces of data stored on the user's device by the web browser. They are commonly used for various purposes, such as session management, user tracking, and personalization. In JavaScript, cookies can be set, read, and deleted using the <code>document.cookie</code> property.</p>
+
+    <h2>1. Creating Cookies</h2>
+
+    <p>To create a cookie in JavaScript, you can assign a string value to the <code>document.cookie</code> property. Cookies are typically formatted as key-value pairs separated by semicolons. You can also specify additional attributes such as expiration date, path, and domain.</p>
+
+    <h2>2. Reading Cookies</h2>
+
+    <p>To read cookies in JavaScript, you can access the <code>document.cookie</code> property, which returns a string containing all the cookies associated with the current document. You can then parse this string to extract individual cookie values.</p>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of setting and reading cookies
+document.cookie = 'username=john_doe; expires=Thu, 18 Dec 2022 12:00:00 UTC; path=/';
+const cookies = document.cookie.split(';');
+console.log('Cookies:', cookies);
+</pre></div>
+
+    <h2>4. Deleting Cookies</h2>
+
+    <p>To delete a cookie in JavaScript, you can set its expiration date to a past date. This instructs the browser to remove the cookie from its storage. You must specify the same path and domain that were used when the cookie was created.</p>
+
+    <h2>5. Considerations</h2>
+
+    <p>While cookies are a useful tool for storing small amounts of data locally on the user's device, they have limitations and considerations to keep in mind:</p>
+    <ul>
+        <li><strong>Size Limitation:</strong> Cookies are typically limited to a few kilobytes in size, so they are not suitable for storing large amounts of data.</li>
+        <li><strong>Security:</strong> Cookies are transmitted between the client and server with each HTTP request, so sensitive information should be encrypted or stored securely on the server.</li>
+        <li><strong>Privacy Concerns:</strong> Users have control over their browser's cookie settings and may choose to block or delete cookies, so applications should respect user privacy preferences.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Cookies are a fundamental mechanism in web development for storing data on the user's device. By understanding how to create, read, and delete cookies in JavaScript, developers can implement features such as session management, user tracking, and personalization while ensuring compliance with privacy and security standards.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

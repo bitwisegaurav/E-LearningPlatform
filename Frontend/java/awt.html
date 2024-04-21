@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>AWT in Java</title>
+</head>
+<body>
+    <h1>AWT in Java</h1>
+    <p>
+        AWT (Abstract Window Toolkit) is a set of classes in Java that provides the foundation for creating graphical user interfaces (GUIs). AWT allows you to create windows, frames, components, and layout managers for building interactive Java applications.
+    </p>
+
+    <h2>Some Important AWT Classes</h2>
+    <p>
+        AWT provides a wide range of components, including buttons, text fields, text areas, labels, checkboxes, and more. These components are used to create the user interface of Java applications.
+    </p>
+
+    <h3>Components</h3>
+    <p><span>Component</span> class is a fundamental class that represents a graphical component in a user interface. It is the base class for all AWT components, including buttons, text fields, labels, checkboxes, and more. Here's an example of creating a Button component</p>
+    <div class="code">
+        <pre>
+Button button = new Button("Click Me");</pre>
+    </div>
+
+    <h3>Containers</h3>
+    <p>
+        Containers are used to hold and organize AWT components. Key container classes include <span>Window</span>, <span>Frame</span>, and <span>Panel</span>. They can contain other other awt components inside them.
+    </p>
+    <!-- Example: Creating a frame -->
+    <div class="code">
+        <pre>
+Frame frame = new Frame("My Frame");</pre>
+    </div>
+
+    <h3>Buttons, Text Fields, and Text Areas</h3>
+    <p>
+        AWT includes classes for buttons, text fields, and text areas. These components allow users to interact with the application and input data.
+    </p>
+    <!-- Example: Creating a text field -->
+    <div class="code">
+        <pre>
+Button button = new Button("Click Me");
+TextField textField = new TextField("Type here");
+TextArea textArea = new TextArea("Type here");</pre>
+    </div>
+
+    <h3>Labels, Checkboxes, and Checklists</h3>
+    <p>
+        <span>Label</span> class is used to display a short text string or an image in a user interface. Labels are often used to provide descriptive text for other components, such as buttons or text fields.
+    </p>
+    <div class="code">
+        <pre>
+Label label = new Label("Name:");</pre>
+    </div>
+    <p><span>Checkbox</span> class is used to create a checkbox component that allows users to select one or more options from a list of choices. Checkboxes are often used in forms and dialog boxes to allow users to select options or indicate preferences.</p>
+    <div class="code">
+        <pre>
+Checkbox checkbox1 = new Checkbox("Option 1");</pre>
+    </div>
+    <p><span>List</span> class is used to create a checklist component that allows users to select one or more options from a list of choices. Checklists are often used in forms and dialog boxes to allow users to select options or indicate preferences.</p>
+    <!-- Example: Creating a label -->
+    <div class="code">
+        <pre>
+List list = new List(3, true);</pre>
+    </div>
+
+    <h2>Layout Managers</h2>
+    <p>
+        AWT provides layout managers such as <span>BorderLayout</span>, <span>GridLayout</span>, <span>FlowLayout</span>, and <span>NullLayout</span> to control how components are arranged within containers. Here's an example of setting the layout manager as <span>BorderLayout</span> manager.
+    </p>
+    <!-- Example: Using BorderLayout -->
+    <div class="code">
+        <pre>
+frame.setLayout(new BorderLayout());</pre>
+    </div>
+
+    <h2>Some Layout Managers</h2>
+    <p>Common layout managers include:</p>
+    <ul>
+        <li><strong>BorderLayout:</strong> Components are arranged in north, south, east, west, and center positions.</li>
+        <li><strong>GridLayout:</strong> Components are organized in a grid of rows and columns.</li>
+        <li><strong>FlowLayout:</strong> Components are placed in a single row or column.</li>
+        <li><strong>NullLayout:</strong> No specific layout manager; components are positioned manually.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        AWT is a foundational part of Java for building GUI applications. By using AWT classes and layout managers, developers can create interactive and user-friendly Java programs.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>DOM Elements Properties in JavaScript</title>
+</head>
+<body>
+    <h1>DOM Elements Properties in JavaScript</h1>
+
+    <p>DOM elements in JavaScript expose various properties that allow developers to access and manipulate different aspects of the elements. These properties provide information about the element's attributes, dimensions, content, and more.</p>
+
+    <h2>Accessing Attributes</h2>
+
+    <p>DOM elements have properties that correspond to their attributes. For example, the <span>id</span>, <span>class</span>, <span>href</span>, and <span>src</span> properties allow developers to access the corresponding attributes of elements.</p>
+
+    <div class="code">
+        <pre>
+// Accessing the id attribute of an element
+let link1 = document.getElementById('myLink');
+
+// Accessing the class attribute of an element
+let link2 = document.getElementsByClasses('myLink');
+
+// Accessing the href attribute of an element
+let link3 = document.querySelector('[href="example.com"]');
+
+// Accessing the src attribute of an element
+let link4 = document.querySelector('[src="example.com"]');
+
+console.log(link1, link2, link3, link4);</pre>
+    </div>
+
+    <h2>Element Content</h2>
+
+    <p>Properties like <span>textContent</span>, <span>innerHTML</span>, and <span>innerText</span> provide access to the content of elements. These properties allow developers to retrieve and modify the text and HTML content of elements.</p>
+
+    <p>Difference between them is : </p>
+    <ul>
+        <li><span>innerHTML</span> property sets or returns the HTML content of an element.</li>
+        <li><span>innerText</span> property sets or returns the text content of an element which is visible to the user.</li>
+        <li><span>textContent</span> property sets or returns the text content of an element whether it is visible or not.</li>
+    </ul>
+
+    <p>For example : In html code</p>
+    <div class="code">
+        <pre>
+&lt;p>
+    JavaScript 
+    &lt;span style="display: none;">, often abbreviated as JS&lt;/span>
+&lt;/p></pre>
+    </div>
+
+    <p>In js code : </p>
+    <div class="code"><pre>
+let p = document.querySelector('p');
+console.log(`- innerHTML = "${p.innerHTML}"`);
+console.log(`- innerText = "${p.innerText}"`);
+console.log(`- textContent = "${p.textContent}"`);</pre>
+    </div>
+
+    <p>Result : </p>
+    <div class="result">
+        <pre>
+- innerHTML = "JavaScript 
+&lt;span style="display: none;">, often abbreviated as JS&lt;/span>"
+- innerText = "JavaScript"
+- textContent = "JavaScript , often abbreviated as JS"
+</pre>
+    </div>
+
+    <h2>Element Dimensions</h2>
+
+    <p>Properties such as <span>clientWidth</span>, <span>clientHeight</span>, <span>offsetWidth</span>, and <span>offsetHeight</span> provide information about the dimensions of elements. These properties are useful for determining the size and position of elements on the page.</p>
+
+    <div class="structimg"><img src="../examples/javascript/properties/element_dimensionsl.svg" alt="Dom element properties"></div>
+
+    <h2>Other Properties</h2>
+
+    <p>DOM elements may expose additional properties depending on their type and attributes. For example, input elements have properties like <span>value</span>, <span>checked</span>, and <span>disabled</span>, while image elements have properties like <span>naturalWidth</span> and <span>naturalHeight</span>.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let input = document.getElementById('myInput');
+console.log(input.value);
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>DOM elements expose a wide range of properties that provide access to different aspects of the elements. By leveraging these properties, developers can retrieve information about element attributes, content, dimensions, and more, enabling them to create dynamic and interactive web applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

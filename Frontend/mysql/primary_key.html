@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+</head>
+<body>
+    <h1>Primary Key</h1>
+    <p>A primary key is a column or a set of columns in a table that uniquely identifies each row in the table. It is used to enforce entity integrity, which ensures that each row in a table can be uniquely identified.</p>
+    <p>Syntax :</p>
+    <div class="code">
+        mysql>  create table table_name (col_name datatype primary key, col_name datatype,... );
+    </div>
+    <p>or</p>
+    <div class="code">
+        mysql>  create table table_name (col_name datatype, col_name datatype,... , primary key (col_name) );
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/Primary_Key/primary_key.PNG" alt="create database" class="hori">
+    </div>
+   
+    <h3>Benefits of Using a Primary Key</h3>
+    <br>
+    <ul>
+      <li>Enforces entity integrity</li>
+      <li>Provides a unique identifier for each row</li>
+      <li>Improves query performance</li>
+      <li>Allows for efficient indexing of the table</li>
+    </ul>
+    <h3>Conclusion</h3>
+    <p>Using a primary key in your MySQL tables is an important aspect of database design. It ensures entity integrity and provides a unique identifier for each row in the table. By understanding the benefits of using a primary key, you can design more efficient and effective database schemas.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

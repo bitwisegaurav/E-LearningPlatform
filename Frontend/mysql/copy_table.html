@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Copy table with data</title>
+</head>
+<body>
+    <h1>Copy table with data</h1>
+
+    <p>You can copy a table with data by using the <span>CREATE TABLE</span> statement with the <span>SELECT</span> statement.</p>
+    <p>Syntax :</p>
+    <div class="code">
+        mysql> create table new_table_name as select * from old_table_name;
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/Copy_Table/copy_table.PNG" alt="create database" class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

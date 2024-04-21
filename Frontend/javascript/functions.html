@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Functions in JavaScript</title>
+</head>
+<body>
+    <h1>Functions in JavaScript</h1>
+
+    <p>Functions in JavaScript are reusable blocks of code that perform a specific task or return a valuThey help organize code, promote reusability, and enable modular developmenUnderstanding how to define, call, and work with functions is fundamental to JavaScript programming.</p>
+
+    <h2>Function Declaration</h2>
+
+    <p>A function declaration defines a named function with a specified set of parameterIt allows you to create a function that can be invoked later in the code.</p>
+
+    <div class="code"><pre>
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+// Calling the function
+greet("John");
+</pre></div>
+
+    <h2>Function Expression</h2>
+
+    <p>A function expression defines a function as part of an expressioIt can be named or anonymous and assigned to a variablFunction expressions are often used for creating anonymous functions or passing functions as arguments.</p>
+
+    <div class="code"><pre>
+let multiply = function(x, y) {
+    return x * y;
+};
+
+// Calling the function
+let result = multiply(5, 3);
+console.log("Multiplication result: " + result);
+</pre></div>
+
+    <h2>Return Statement</h2>
+
+    <p>The <span>return</span> statement is used to specify the value that a function should returIt ends the function's execution and sends the specified value back to the calling code.</p>
+
+    <div class="code"><pre>
+function square(number) {
+    return number * number;
+}
+
+// Calling the function
+let squaredValue = square(6);
+console.log("Squared value: " + squaredValue);
+</pre></div>
+
+    <h2>Function Parameters and Arguments</h2>
+
+    <p>Parameters are variables listed in the function definition, while arguments are the values passed to the function when it is calleFunctions can have multiple parameters, and they can accept any data type.</p>
+
+    <div class="code"><pre>
+function greetPerson(firstName, lastName) {
+    console.log("Hello, " + firstName + " " + lastName + "!");
+}
+
+// Calling the function with arguments
+greetPerson("Jane", "Doe");
+</pre></div>
+
+    <h2>Working of functions</h2>
+    <p>When a function is called, the JavaScript engine performs the following steps : </p> 
+    <ol>
+        <li>The JavaScript engine pushes the function in the stack.</li>
+        <li>A new execution context is created for the function.</li>
+        <li>The function executes the code inside it.</li>
+        <li>If the function has a return statement, the value is returned to the calling code.</li>
+        <li>Otherwise, undefined is returned.</li>
+        <li>The execution context is removed from the stack.</li>
+    </ol>
+
+    <div class="structimg img-center"><img src="../examples/javascript/env/functon_execution.jpg" alt="Js runtime environment"></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Functions are the building blocks of JavaScript applications, allowing developers to create modular and reusable codWhether using function declarations, expressions, or arrow functions, mastering the concept of functions is essential for effective and organized programming.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

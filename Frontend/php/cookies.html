@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Cookies in PHP</title>
+</head>
+<body>
+    <h1>Cookies in PHP</h1>
+    <p>
+        Cookies are small pieces of data that can be stored on a user's device by a web server. They are commonly used to track user sessions, personalize content, and remember user preferences.
+    </p>
+
+    <h2>Setting Cookies</h2>
+    <p>
+        You can set cookies in PHP using the <span>setcookie()</span> function. Cookies have a name, value, and optional attributes such as expiration time and path. Syntax for setting cookie is :
+    </p>
+    <div class="code">
+        <pre>
+setcookie(name, value, expire, path, domain, secure, httponly);</pre>
+    </div>
+    <p>For example :</p>
+    <div class="code">
+        <pre>
+setcookie("username", "john_doe", time() + 7 * 24 * 3600, "/");</pre>
+    </div>
+    <p>Set a cookie with a name, value, and expiration time (e.g., 7 days)</p>
+
+    <h2>Retrieving Cookies</h2>
+    <p>
+        To retrieve cookies in PHP, you can use the <span>$_COOKIE</span> super global variable.
+    </p>
+    <div class="code">
+        <pre>
+if (isset($_COOKIE["username"])) {
+    $username = $_COOKIE["username"];
+    echo "Welcome back, $username!";
+} else {
+    echo "Welcome, guest!";
+}</pre>
+    </div>
+    <p>Output :</p>
+    <p>if cookie is not set then,</p>
+    <div class="output">
+        <img src="../examples/php/cookieNotSet.png" alt="">
+    </div>
+    <p>if cookie is set then,</p>
+    <div class="output">
+        <img src="../examples/php/cookieSet.png" alt="">
+    </div>
+
+    <h2>Managing Cookies</h2>
+    <p>
+        Cookies can be modified or deleted using the <span>setcookie()</span> function with updated values or by setting an expiration time in the past.
+    </p>
+    <div class="code">
+        <pre>
+// Update a cookie's value
+setcookie("username", "new_value", time() + 7 * 24 * 3600, "/");
+
+// Delete a cookie by setting an expiration time in the past
+setcookie("username", "", time() - 3600, "/");</pre>
+    </div>
+    <p>Output for cookie updation :</p>
+    <div class="output">
+        <img src="../examples/php/cookieUpdate.png" alt="">
+    </div>
+
+    <h2>Example: User Authentication</h2>
+    <p>
+        Cookies are often used for user authentication. Here's a simplified example of using cookies for user login/logout:
+    </p>
+    <div class="code">
+        <pre>
+if (isset($_POST["login"])) {
+    // Check user credentials (e.g., username and password)
+    if (valid_credentials($_POST["username"], $_POST["password"])) {
+        // Set a cookie to remember the user
+        setcookie("authenticated", "yes", time() + 7 * 24 * 3600, "/");
+    }
+}
+
+if (isset($_POST["logout"])) {
+    // Delete the authentication cookie
+    setcookie("authenticated", "", time() - 3600, "/");
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Cookies play a crucial role in web development, enabling websites to remember user preferences and maintain user sessions. Understanding how to set, retrieve, and manage cookies in PHP is essential for building interactive and personalized web applications.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

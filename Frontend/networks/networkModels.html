@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Network Reference Models</title>
+</head>
+<body>
+    <h1>Network Reference Models</h1>
+
+    <h2>OSI Reference Model</h2>
+    <p>The Open Systems Interconnection (OSI) model is a conceptual model that characterizes the communication functions of a communication system without regard to the underlying network technology. It is a conceptual model that is developed by the International Organization for Standardization (ISO) and is used as a standard for the design of communication systems in the United States.</p>
+
+    <h2>Layers of OSI Model</h2>
+    <p>
+        There are seven layers in OSI reference model :
+    </p>
+    <div class="structimg img-center mt-2">
+        <img src="../examples/networks/networkModels/osi.png" alt="OSI Model">
+    </div>
+
+    <h3>Physical Layer</h3>
+    <p>The physical layer is responsible for the transmission of raw bits between the devices. It is responsible for the electrical and mechanical aspects of data transmission.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Transforming bits into signals</li>
+        <li>Bit synchronization</li>
+        <li>Provides physica characteristics of interfaces and medium</li>
+        <li>Bit rate control</li>
+        <li>Line configuration</li>
+        <li>Transmission mode</li>
+        <li>Physical topologies</li>
+        <li>Multiplexing</li>
+        <li>Circuit switching</li>
+    </ul>
+    <h3>Data Link Layer</h3>
+    <p>The data link layer provides error-free transmission of frames from one node to another over the physical layer, allowing layers above it to assume virtually error-free transmission over the link.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Frame synchronization</li>
+        <li>Error control</li>
+        <li>Flow control</li>
+        <li>Physical addressing</li>
+        <li>Access control</li>
+    </ul>
+
+    <h3>Network Layer</h3>
+    <p>The network layer controls the operation of the subnet, deciding which physical path the data should take.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Logical addressing</li>
+        <li>Routing</li>
+        <li>Network congestion control</li>
+        <li>Fragmentation and reassembly</li>
+    </ul>
+
+    <h3>Transport Layer</h3>
+    <p>The transport layer ensures that messages are delivered error-free, in sequence, and with no losses or duplications. It relieves the higher layer protocols from any concern with the transfer of data between them and their peers.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Service-point addressing</li>
+        <li>Segmentation and reassembly</li>
+        <li>Connection control</li>
+        <li>Flow control</li>
+        <li>Error control</li>
+    </ul>
+
+    <h3>Session Layer</h3>
+    <p>The session layer allows session establishment between processes running on different stations.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Dialog control</li>
+        <li>Synchronization</li>
+    </ul>
+
+    <h3>Presentation Layer</h3>
+    <p>The presentation layer formats the data to be presented to the application layer. It can be viewed as the translator for the network.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Translation</li>
+        <li>Encryption</li>
+        <li>Compression</li>
+    </ul>
+
+    <h3>Application Layer</h3>
+    <p>The application layer enables the user, whether human or software, to access the network. It provides user interfaces and support for services such as email, shared database management and other types of distributed information services.</p>
+    <p>Functions : </p>
+    <ul>
+        <li>Network virtual terminal</li>
+        <li>File transfer, access and management</li>
+        <li>Mail services</li>
+        <li>Directory services</li>
+    </ul>
+
+    <h2>TCP/IP Model</h2>
+    <p>
+        The TCP/IP model is a concise version of the OSI model. It contains four layers, unlike seven layers in the OSI model. The layers are: Network Interface, Internet, Transport, and Application.
+    </p>
+    <div class="structimg img-center green-purple">
+        <img src="../examples/networks/networkModels/tcpip.webp" alt="TCP/IP Model">
+    </div>
+    <h3>Host to Network Layer</h3>
+    <p>
+        This layer is equivalent to the combination of physical layer and data link layer in osi model. This layer is responsible for sending and receiving data packets over a physical network. It includes protocols such as Ethernet and protocols that operate on a wireless network.
+    </p>
+    <h3>Internet Layer</h3>
+    <p>
+        The internet layer is equivalent to the network layer in the OSI model. It handles the movement of packets around the network. The primary protocol used in this layer is the Internet Protocol (IP).
+    </p>
+    <h3>Transport Layer</h3>
+    <p>
+        The transport layer is responsible for end-to-end communication over the network. It uses protocols such as TCP and UDP.
+    </p>
+    <h3>Application Layer</h3>
+    <p>
+        The application layer of the TCP/IP model handles high-level protocols, issues of representation, encoding, and dialog control. Common examples of application layer protocols include HTTP, FTP, and SMTP.
+    </p>
+    <h2>Drawbacks of TCP/IP model</h2>
+    <ul>
+        <li>The TCP/IP model is not generic, it was created to suite the needs of the TCP/IP protocols suite.</li>
+        <li>The model cannot be used to describe any other network stack.</li>
+        <li>The model does not clearly separate the concepts of services, interfaces, and protocols.</li>
+        <li>The model lacks the session and presentation layers of the OSI model.</li>
+    </ul>
+
+    <h2>Difference between OSI and TCP/IP Model</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Parameters</th>
+            <th>OSI Model</th>
+            <th>TCP/IP Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span>Full Form</span>
+            </td>
+            <td>
+              OSI stands for Open Systems Interconnection.
+            </td>
+            <td>
+              TCP/IP stands for Transmission Control Protocol/Internet
+                Protocol.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Layers</span>
+            </td>
+            <td>It has 7 layers.</td>
+            <td>It has 4 layers.</td>
+          </tr>
+          <tr>
+            <td>
+              <span>Usage</span>
+            </td>
+            <td>
+              It is low in usage.
+            </td>
+            <td>It is mostly used.</td>
+          </tr>
+          <tr>
+            <td>
+              <span>Approach</span>
+            </td>
+            <td>
+              It is vertically approached.
+            </td>
+            <td>
+              It is horizontally approached.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Delivery</span>
+            </td>
+            <td>
+              Delivery of the package is guaranteed in OSI Model.
+            </td>
+            <td>
+              Delivery of the package is not guaranteed in TCP/IP Model.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Replacement</span>
+            </td>
+            <td>
+              Replacement of tools and changes can easily be done in this model.
+            </td>
+            <td>
+              Replacing the tools is not easy as it is in OSI Model.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Reliability</span>
+            </td>
+            <td>
+              It is less reliable than TCP/IP Model.
+            </td>
+            <td>
+              It is more reliable than OSI Model.
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <div class="structimg img-center mt-2">
+      <img src="../examples/networks/networkModels/osi&tcpip.png" alt="Osi v/s Tcp Ip">
+    </div>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

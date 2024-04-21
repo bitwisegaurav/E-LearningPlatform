@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>matches, closest, and contains in JavaScript</title>
+</head>
+<body>
+    <h1>matches, closest, and contains in JavaScript</h1>
+
+    <p>In JavaScript, the <span>matches()</span>, <span>closest()</span>, and <span>contains()</span> methods provide convenient ways to work with DOM elements based on their relationships with other elements.</p>
+
+    <h2>matches()</h2>
+
+    <p>The <span>matches()</span> method is used to check if an element matches a specified CSS selector. It returns <span>true</span> if the element matches the selector, and <span>false</span> otherwise. This method is useful for conditionally applying styles or behaviors to elements based on their attributes or classes.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+let element = document.getElementById('myElement');
+if (element.matches('.highlight')) {
+    console.log('Element matches .highlight selector');
+}</pre>
+    </div>
+
+    <h2>closest()</h2>
+
+    <p>The <span>closest()</span> method is used to find the closest ancestor of an element that matches a specified CSS selector. It traverses up the DOM tree from the current element, testing each ancestor until a match is found or the top of the DOM tree is reached. This method is useful for finding parent elements or navigating the DOM hierarchy.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code">
+        <pre>
+let parent = element.closest('.parent');
+if (parent) {
+    console.log('Closest parent with class .parent found');
+}</pre>
+    </div>
+
+    <h2>contains()</h2>
+
+    <p>The <span>contains()</span> method is used to check if one DOM element is a descendant of another element. It returns <span>true</span> if the specified element is a descendant of the calling element, and <span>false</span> otherwise. This method is useful for checking if an element contains specific content or child elements.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let container = document.getElementById('container');
+let child = document.getElementById('child');
+if (container.contains(child)) {
+    console.log('container contains child element');
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>The <span>matches()</span>, <span>closest()</span>, and <span>contains()</span> methods provide convenient ways to work with DOM elements based on their relationships with other elements. By leveraging these methods, developers can easily query and manipulate the DOM to create dynamic and interactive web applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

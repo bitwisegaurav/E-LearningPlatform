@@ -1,0 +1,875 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth;
+    transition: color 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+:root {
+    --a: rgb(81, 70, 178);
+    --b: rgb(30 27 66);
+    --c: #2e2b52;
+    --d: rgba(44, 27, 90, 0.953);
+    --e: rgb(10, 7, 31);
+    --f: rgb(81, 65, 226);
+    --g: rgba(35, 13, 98, 0.855);
+}
+html{
+    scroll-padding-top: 4rem;
+}
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Navbar */
+header{
+    background: rgb(148, 126, 194);
+    width: 100%;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.dark header{
+    /* background: rgb(27, 21, 81); */
+    background: rgb(30, 27, 66);
+    color: white;
+}
+
+header nav{
+    height: 100%;
+    width: 85%;
+    /* border: 2px solid red; */
+}
+
+nav ul{
+    display: flex;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+    align-items: center;
+    /* width: 50%; */
+    height: 100%;
+}
+nav ul li{
+    list-style: none;
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+    font-size: 1.5rem;
+    height: 100%;
+}
+nav ul li #logo{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav ul li #logo img{
+    /* width: 100%; */
+    height: 100%;
+    border-radius: 50%;
+    margin: 10px;
+    filter: hue-rotate(15deg);
+}
+nav ul .navigation{
+    display: flex;
+    gap: 3rem;
+}
+nav ul .navigation a{
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 1rem;
+    border: none;
+    color: white;
+    background-color: rgb(109 82 158);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+nav ul .navigation button{
+    padding: 5px 10px;
+    border: none;
+    background-color: rgb(109 82 158);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.dark header nav ul .navigation a {
+    color: rgb(48, 28, 119);
+    background-color: #f1f1f1;
+}
+
+.dark header nav ul .navigation button {
+    color: rgb(48, 28, 119);
+    background-color: #f1f1f1;
+}
+
+nav ul .navigation a:hover{
+    transform: scale(1.1);
+}
+
+nav ul .navigation #profilebtn {
+    display: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+nav ul .navigation #profilebtn .image{
+    height: 2.5rem;
+    aspect-ratio: 1/1;
+    padding: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+nav ul .navigation #profilebtn .image img{
+    height: 100%;
+}
+
+nav ul .navigation #profilebtn:hover{
+    transform: none;
+}
+
+.comname{
+    /* border: 2px solid green; */
+    cursor: pointer;
+}
+.comname a{
+    text-decoration: none;
+    /* color: rgb(27, 21, 81); */
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.dark .comname a{
+    color: white;
+}
+
+/* Name Section */
+main{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 4.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: rgba(29, 15, 71, 0.705); */
+    background-color: rgba(66, 0, 246, 0.225);
+}
+main::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1029%26quot%3b)' fill='none'%3e%3cpath d='M302.41 423.92 a136.09 136.09 0 1 0 272.18 0 a136.09 136.09 0 1 0 -272.18 0z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1172.729238039418 132.1901143285109L1057.2590719018822 167.49288690988448 1208.0320106207917 247.66028046604671z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M735.96 190.64 a135.53 135.53 0 1 0 271.06 0 a135.53 135.53 0 1 0 -271.06 0z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M920.845%2c455.892C951.304%2c453.282%2c974.448%2c430.855%2c988.764%2c403.843C1002.06%2c378.757%2c1003.962%2c349.411%2c990.539%2c324.392C976.327%2c297.904%2c950.86%2c278.902%2c920.845%2c277.252C887.739%2c275.432%2c854.611%2c288.162%2c836.482%2c315.923C816.588%2c346.388%2c810.472%2c386.349%2c829.254%2c417.511C847.569%2c447.898%2c885.495%2c458.921%2c920.845%2c455.892' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M316.38 512.37 a157.07 157.07 0 1 0 314.14 0 a157.07 157.07 0 1 0 -314.14 0z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1206.3284059888408 270.90712329808025L1274.8518346477117 179.97346213664997 1183.9181734862814 111.45003347777907 1115.3947448274105 202.38369463920935z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M118.36801715098754 241.00002639877L134.13290124572666 353.1730053633726 246.3058802103293 337.4081212686335 230.5409961155902 225.2351423040309z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M988.5974846891813 434.86585522804205L894.3411500241915 346.9704011888988 806.4456959850481 441.2267358538886 900.7020306500381 529.1221898930319z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M567.315%2c425.931C604.715%2c425.643%2c629.787%2c391.423%2c647.279%2c358.365C663.391%2c327.915%2c669.946%2c292.689%2c653.965%2c262.17C636.82%2c229.428%2c604.208%2c207.877%2c567.315%2c205.661C526.009%2c203.18%2c480.021%2c214.044%2c460.545%2c250.554C441.744%2c285.798%2c464.42%2c325.492%2c485.192%2c359.611C504.803%2c391.823%2c529.604%2c426.221%2c567.315%2c425.931' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1213.1994321923182 167.21671377453364L1325.904299787267 317.0780648691245 1392.5745865503723 167.33414907245054z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1422.8360772374008 207.88996966611455L1359.69466327329 142.50512145067853 1294.309815057854 205.6465354147894 1357.4512290219648 271.03138363022543z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1057.8631818134777 529.2142289181619L1139.4510799429522 501.1212626819196 1029.7702155772354 447.62633078868737z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1114.0579622949886 492.11264529027153L1244.456437414965 561.6062314744214 1242.2021836462593 432.4601195592815z' fill='rgba(50%2c 17%2c 105%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1029'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+.dark main{
+    background-color: rgba(35, 13, 98, 0.853);
+}
+.dark main::before{
+    opacity: 1;
+    filter: hue-rotate(50deg);
+}
+
+main .container{
+    width: 85%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    color: #47336a;
+}
+.dark main .container {
+    color: white;
+}
+main .container #image{
+    width: 45%;
+    height: 100%;
+    /* aspect-ratio: 1; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid green; */
+}
+main .container #image img{
+    width: 120%;
+    aspect-ratio: 1;
+    filter: hue-rotate(-15deg);
+}
+main .container .maincont{
+    width: 45%;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main .container .maincont p{
+    text-align: center;
+    line-height: 1.5rem;
+    transition: all 0.1s ease-in-out;
+}
+main .container .maincont #coursebtn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #6d529e;
+    color: #f1f1f1;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.dark main .container .maincont #coursebtn {
+    color: rgb(48, 28, 119);
+    background-color: #f1f1f1;
+}
+main .container .maincont #coursebtn:hover{
+   transform: scale(1.1);
+}
+main .container .maincont .name{
+    font-size: 4rem; 
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1rem;
+    transition: all 0.1s ease-in-out;
+}
+
+/* Language Section */
+section{
+    width: 100%;
+    min-height: calc(100vh - 4.5rem);
+    padding: 2rem 0;
+    display: grid;
+    place-items: center;
+    background-color: #f1f1f1;
+}
+
+.dark section {
+    background-color: #2e2b52;
+}
+#courseSection .courseCont{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+#courseSection .courseCont #courses{
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    color: rgb(109 82 158);
+    border: 2px solid rgb(109 82 158);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+.dark #courseSection .courseCont #courses {
+    color: #eee;
+    border-color: #aaa;
+}
+
+#courseSection .courseCont .carousel{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+#courseSection .courseCont .boxes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* border: 2px solid red; */
+    padding: 4rem 0;
+    gap: 2rem;
+}
+#courseSection .courseCont .boxes .box{
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    max-width: 15rem;
+    width: 100%;
+    /* height: 30rem; */
+    padding: 1rem;
+    background: #f1f1f1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.dark #courseSection .courseCont .boxes .box{
+    background: rgba(255,255,255,0.2);
+}
+
+#courseSection .courseCont .boxes .box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    /* border: 1px solid rgb(48, 28, 119); */
+}
+
+#courseSection .courseCont .carousel .boxes .box .langname{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 1rem 0;
+    color: rgb(48, 28, 119);
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+.dark #courseSection .courseCont .carousel .boxes .box .langname{
+    color: #ddd;
+}
+#courseSection .courseCont .boxes .box .langlogo{
+    width: 100%;
+    height: 7rem;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#courseSection .courseCont .boxes .box .langlogo img{
+    height: 100%;
+    max-width: 100%;
+}
+#java .langlogo img, #cpp .langlogo img,  #css .langlogo img,  #discrete .langlogo img, #roadmaps .langlogo img
+{
+    height: 80% !important;
+}
+#html .langlogo img,  #js .langlogo img{
+    height: 70% !important;
+}
+
+#cg .langlogo img {
+    transform: scale(1.3);
+}
+
+.dark #mysql .langlogo img {
+    /* background-color: #f1f1f1; */
+    filter: brightness(1.4) hue-rotate(-10deg) saturate(5);
+    /* filter: ; */
+}
+
+#discrete .langname, #cn .langname, #networks .langname {
+    font-size: 1.1rem !important;
+}
+#courseSection .courseCont .boxes .box #startbtn{
+    height: 1.8rem;
+    width: 8rem;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    background: rgba(43, 11, 158, 0.842);
+    color: white;
+    position: absolute;
+    bottom: 5%;
+}
+#courseSection .courseCont .boxes .box #startbtn a{
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+#courseSection .courseCont .boxes .box #startbtn a:hover .bodbot{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    animation: motion 0.5s ease-in-out 1;
+    background-color: white;
+}
+
+/* About Section */
+#about {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    min-height: calc(100vh - 4.5rem);
+    background-color: rgb(213 198 253);
+}
+
+.dark #about {
+    background-color: rgba(44, 27, 90, 0.953);
+}
+  
+#about .innerAbout {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    height: 100%;
+}
+#about .innerAbout #aboutTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    color: #41396e;
+    border: 2px solid #6d529e;
+}
+.dark #about .innerAbout #aboutTitle {
+    color: #eee;
+    border: 2px solid #aaa;
+}
+
+#about .innerAbout #aboutCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 2rem;
+    padding: 3rem 0;
+}
+
+#about .innerAbout #aboutCont .aboutImg {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#about .innerAbout #aboutCont .aboutImg img {
+    width: 85%; 
+    border-radius: 5px;
+}
+
+#about .innerAbout #aboutCont .aboutText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: justify;
+    line-height: 2rem;
+    padding: 2rem;
+    border-radius: 5px;
+    height: max-content;
+    color: rgb(27, 21, 81);
+    background-color: rgb(250 250 250 / 91%);
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.2);
+}
+
+.dark #about .innerAbout #aboutCont .aboutText {
+    color: #aaa;
+    background-color: #301b5a;
+    box-shadow: none;
+}
+
+/* Contact Section */
+#contact .innerContact{
+    padding: 0 2rem;
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#contact #contactTitle{
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    color: rgb(109 82 158);
+    border: 2px solid rgb(109 82 158);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+.dark #contact #contactTitle {
+    color: #eee;
+    border-color: #aaa;
+}
+
+#contact form {
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    color: rgb(109 82 158);
+}
+.dark #contact form {
+    color: #ddd;
+}
+
+#contact form label {
+    font-family: Arial, sans-serif;
+    margin-bottom: 1rem;
+}
+  
+#contact form input, #contact form textarea {
+    padding: 10px;
+    border: 1px solid rgba(109,82,158,0.5);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    transition: none;
+}
+
+.dark #contact form input, .dark #contact form textarea {
+    background: rgba(255,255,255,0.1);
+    color: #eee;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#contact form input:focus, #contact form textarea:focus,
+#contact form input:active, #contact form textarea:active 
+{
+    border: 2px solid rgba(109,82,158,1);
+    outline: none;
+}
+.dark #contact form input:focus, .dark #contact form textarea:focus,
+.dark #contact form input:active, .dark #contact form textarea:active 
+{
+    border: 2px solid #aaa;
+    outline: none;
+}
+
+#contact form textarea{
+    height: 10rem;
+    resize: none;
+}
+
+#contact form input[type="submit"] {
+    background-color: rgb(109 82 158);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+  
+#contact form input[type="submit"]:hover {
+    background-color: rgb(148 126 194);
+}
+.dark #contact form input[type="submit"]{
+    background-color: rgba(255,255,255,1);
+    color: #301b5a;
+}
+
+.dark #contact form input[type="submit"]:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+
+#contact p{
+    opacity: 0.7;
+}
+
+/* Footer Section */
+footer{
+    width: 100%;
+    height: 10rem;
+    /* background: rgba(13, 33, 97); */
+    background: rgb(213 198 253);
+    color: rgb(109 82 158);
+    display: grid;
+    place-items: center;
+}
+.dark footer {
+    color: white;
+    background: rgb(10, 7, 31);
+}
+
+footer .foot{
+    width: 85%;
+    height: 4rem;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer .foot .left{
+    /* width: 30%; */
+    height: 100%;
+    /* border: 2px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+footer .foot .left .logo{
+    height: 80%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+footer .foot .left .logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    filter: hue-rotate(15deg);
+}
+footer .foot .left .name{
+    text-decoration: none;
+    color: rgb(17, 13, 60);
+    font-size: 200%;
+    font-family: 'JetBrains Mono', monospace;
+}
+.dark footer .foot .left .name {
+    color: #f1f1f1;
+}
+
+footer .foot .socials{
+    height: 50%;
+    width: 15%;
+    min-width: max-content;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 1rem;
+}
+footer .foot .socials a{
+    height: 100%;
+    aspect-ratio: 1;
+    /* border: 2px solid gold; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: transform 0.2s ease-in-out;
+}
+footer .foot .socials a:hover{
+    transform: scale(1.1);
+}
+footer .foot .socials #github{
+    background-color: white;
+}
+footer .foot .socials #github img{
+    height: 80%;
+}
+footer .foot .socials #twitter{
+    background-color: black;
+}
+footer .foot .socials a img{
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+/* Media Queries */
+@media screen and (max-width: 950px) {
+    main .container{
+        flex-direction: column;
+        justify-content: center;
+        /* background-color: green; */
+    }
+    .container .maincont{
+        width: 100% !important;
+    }
+    .container #image{
+        width: 80% !important;
+        height: 70% !important;
+    }
+    main .container #image img{
+        height: 100%;
+        aspect-ratio: 1;
+    }
+    #about .innerAbout #aboutCont{
+        padding: 1rem 0;
+        flex-direction: column;
+        align-items: center;
+    }
+    #about .innerAbout #aboutCont .aboutImg img {
+        width: 100%;
+    }
+    #about .innerAbout #aboutCont .aboutImg{
+        width: 55%;
+    }
+    #contact .innerContact{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 900px){
+    .container .maincont .name{
+        font-size: 2.4rem !important;
+    }
+    .container .maincont p{
+        line-height: 1.2rem;
+        font-size: 0.9rem;
+    }
+    nav ul .navigation{
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .comname a{
+        font-size: 1.3rem;
+    }
+    .container .maincont .name{
+        font-size: 2rem !important;
+    }
+    .container .maincont p{
+        line-height: 1.2rem;
+        font-size: 0.9rem;
+    }
+    .buttons span{
+        cursor: pointer;
+        height: 100%;
+        margin: 0;
+        font-size: 1.3rem;
+        padding: 0.4rem 0.9rem;
+    }
+    /* .box{
+        background: rgba(43, 11, 158, 0.1);
+    } */
+    section .courseCont #courses{
+        font-size: 1.5rem;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    .aboutlang{
+        display: flex;
+        flex-wrap: wrap;
+        letter-spacing: 0.5px;
+        line-height: 1.4rem;
+        font-size: 0.8rem;
+        margin-top: 0.6rem;
+    }
+    section .courseCont .boxes .box .langname{
+        font-size: 1.4rem;
+    }
+    nav ul .navigation a{
+        padding: 5px 15px;
+        font-size: 0.8rem;
+    }
+    footer {
+        height: 14rem;
+    }
+    footer .foot{
+        flex-direction: column;
+        gap: 1rem;
+        height: 60%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    footer .foot .left{
+        height: 4rem;
+        justify-content: center;
+    }
+    footer .foot .socials{
+        width: 30%;
+        height: 1.7rem;
+    }
+}
+@media screen and (max-width: 600px){
+    section .courseCont .boxes .box .aboutlang{
+        line-height: 1.2rem;
+        font-size: 0.9rem;
+    }
+    nav ul .navigation .navigatebtn {
+        display: none;
+    }
+    #about .innerAbout{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px){
+    header{
+        height: 3rem;
+    }
+    #theme {
+        font-size: x-small;
+    }
+    main .container .maincont p{
+        font-size: x-small;
+        line-height: 1rem;
+    }
+    main .container .maincont #coursebtn{
+        padding: 5px 10px;
+        font-size: small;
+        margin-top: 1.2rem;
+        border-radius: 7px;
+    }
+    main .container .maincont .name{
+        font-size: 1.7rem !important;
+    }
+    .box{
+        background: rgba(43, 11, 158, 0.06);
+    }
+    .comname a{
+        font-size: 1rem;
+    }
+    section .courseCont .boxes .box .aboutlang{
+        letter-spacing: 0.3px;
+        line-height: 1.2rem;
+        font-size: 0.8rem;
+    }
+    section .courseCont .boxes .box .langname{
+        font-size: 1.3rem;
+    }
+    footer {
+        height: 8rem;
+    }
+    footer .foot{
+        height: 70%;
+    }
+    footer .foot .left{
+        height: 3rem;
+        gap: 1rem;
+    }
+    footer .foot .left .name{
+        font-size: 150%;
+    }
+    footer .foot .socials{
+        height: 1.3rem;
+    }
+}
+@media screen and (max-width: 350px) {
+    
+    .container .maincont .name{
+        font-size: 1.7rem;
+    }
+    .container .maincont p{
+        line-height: 1rem;
+        font-size: 0.8rem;
+    }
+    .buttons{
+        flex-wrap: wrap;
+    }
+    .buttons span{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        cursor: pointer;
+        height: 100%;
+        margin: 0;
+        font-size: 1rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: 0;
+    }
+}

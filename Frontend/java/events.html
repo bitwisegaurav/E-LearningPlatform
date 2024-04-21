@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Event Handling in Java</title>
+</head>
+<body>
+    <h1>Event Handling in Java</h1>
+    <p>
+        Event handling is the mechanism through which we can handle the user acitvity perform on an object. Event is known as ac which is done by the user on a particular object. To handle the events, the language give us various event handlers/listeners. Event listeners are present in the form of interfaces in java. All the event listeners are present in a package <span>java.awt.event</span>. Every event listener is having one or more than one function which the programmer can override depending upon the action.
+    </p>
+
+    <h2>Steps to implement Event Listener</h2>
+    <ol>
+        <li>Implements the listener.</li>
+        <li>Override all the functions.</li>
+        <li>Register object to listener.</li>
+        <li>Write action performed on that particular event.</li>
+    </ol>
+
+    <h2>Common Event Listeners</h2>
+
+    <h3>Action Listener</h3>
+    <p>
+        The <span>ActionListener</span> interface is used to handle actions, such as button clicks or menu selections.
+    </p>
+    <!-- Example: Registering an Action Listener -->
+    <div class="code">
+        <pre>
+button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        // Action handling code here
+    }
+});</pre>
+    </div>
+
+    <h3>Mouse Listener</h3>
+    <p>
+        The <span>MouseListener</span> interface is used to handle mouse-related events like clicks and movement.
+    </p>
+    <!-- Example: Registering a Mouse Listener -->
+    <div class="code">
+        <pre>
+component.addMouseListener(new MouseAdapter() {
+    public void mouseClicked(MouseEvent e) {
+        // Mouse click handling code here
+    }
+});</pre>
+    </div>
+
+    <h3>Key Listener</h3>
+    <p>
+        The <span>KeyListener</span> interface is used to handle keyboard events, including key presses and key releases.
+    </p>
+    <!-- Example: Registering a Key Listener -->
+    <div class="code">
+        <pre>
+component.addKeyListener(new KeyAdapter() {
+    public void keyTyped(KeyEvent e) {
+        // Key press handling code here
+    }
+});</pre>
+    </div>
+
+    <h3>Window Listener</h3>
+    <p>
+        The <span>WindowListener</span> interface is used to handle window-related events, such as window closing or activation.
+    </p>
+    <!-- Example: Registering a Window Listener -->
+    <div class="code">
+        <pre>
+frame.addWindowListener(new WindowAdapter() {
+    public void windowClosing(WindowEvent e) {
+        // Window closing handling code here
+    }
+});</pre>
+    </div>
+
+    <h2>Adapter Classes</h2>
+    <p>
+        Adapter classes in Java provide default implementations for listener interfaces, making it easier to work with specific listeners. Common adapter classes include <span>ActionAdapter</span>, <span>MouseAdapter</span>, <span>KeyAdapter</span>, and <span>WindowAdapter</span>.
+    </p>
+    <!-- Example: Using an Adapter Class -->
+    <div class="code">
+        <pre>
+button.addActionListener(new ActionAdapter() {
+    public void actionPerformed(ActionEvent e) {
+        // Action handling code here
+    }
+});</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Event handling is a fundamental aspect of Java GUI development. By using event listeners and adapter classes, developers can efficiently respond to user actions and system events in Java applications.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

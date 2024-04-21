@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Analysis of Algorithms</title>
+</head>
+<body>
+    <h1>Analysis of Algorithms</h1>
+    <h2>Introduction</h2>
+    <p>Algorithm analysis is an essential aspect of computer science that involves studying the efficiency and performance characteristics of algorithms. It helps us understand how algorithms behave and make informed decisions about their usage in various applications.
+    </p>
+
+    <h2>Types of Analysis</h2>
+    <p>There are different types of analyses performed on algorithms:</p>
+    <ol>
+        <li><strong>Time Complexity Analysis:</strong> Measures the amount of time an algorithm takes to complete as a
+            function of the input size.</li>
+        <li><strong>Space Complexity Analysis:</strong> Evaluates the amount of memory space an algorithm requires in
+            relation to the input size.</li>
+    </ol>
+
+    <h2>Functions for Computer Science</h2>
+
+    <h3>Floor Function</h3>
+    <p>The floor function of any number means greatest integer which is less than or equal to that number. It is denoted by &lfloor;x&rfloor;. For example &lfloor;3.14&rfloor; = 3.</p>
+
+    <h3>Ceiling Function</h3>
+    <p>The ceiling function of any number means least integer which is greater than or equal to that number. It is denoted by &lceil;x&rceil;. For example &lceil;3.14&rceil; = 4.</p>
+
+    <h3>Integer Function</h3>
+    <p>The integer function is a function that maps any real number to an integer. It is denoted by INT(x). For example INT(3.14) = 3.</p>
+
+    <h3>Absolute Value Funciton</h3>
+    <p>The absolute value function is a function that maps any real number to its absolute value. It is denoted by |x| or ABS(x). For e.g |-5.1| = 5.1.</p>
+
+    <h3>Characterstic Function</h3>
+    <p>The characteristic function of a set is a function that maps each element of the set to a boolean value. It is denoted by c<sub>S</sub> : A &rightarrow; {0,1} be defined by : </p>
+    <div class="code">
+        <pre>c<sub>S</sub>(x) = {
+    1 if x &isin; S,
+    0 if x &notin; S
+}</pre>
+    </div>
+    
+    <h2>Special Notations for growth functions</h2>
+
+    <h3>Big-O</h3>
+    <p>Big-O notation is a mathematical notation that describes the <span>upper bound or worst-case</span> scenario of the growth rate of a function as the size of the input increases. It provides an estimate of the maximum number of key operations required by an algorithm.</p>
+
+    <h3>Big-omega(Ω)</h3>
+    <p>Big-Ω notation is a mathematical notation that describes the <span>lower bound or best-case</span> scenario of the growth rate of a function as the size of the input increases. It provides an estimate of the minimum number of key operations required by an algorithm.</p>
+
+    <h3>Big-Theta(Θ)</h3>
+    <p>Big-Θ notation is a mathematical notation that describes <span>both the upper and lower bounds</span>, providing a tight range of the growth rate of a function as the size of the input increases. It gives a more precise estimate of the number of key operations required by an algorithm.</p>
+
+    <h2>Growth Rate Function</h2>
+    <p>The time efficiency of almost all of the algorithms can be characterized by only a few growth rate functions : </p>
+    <ol>
+        <li><strong>Constant Time:</strong> The growth rate of a function is constant if it is a straight line. It is denoted by <strong>O(1)</strong>.</li>
+        <li><strong>Linear Time:</strong> The growth rate of a function is linear if it is a straight line. It is denoted by <strong>O(n)</strong>.</li>
+        <li><strong>Quadratic Time:</strong> The growth rate of a function is quadratic if it is a parabola with a positive slope. It is denoted by <strong>O(n<sup>2</sup>)</strong>.</li>
+        <li><strong>Cubic Growth Rate Function:</strong> The growth rate of a function is cubic if it is a parabola with a positive slope. It is denoted by <strong>O(n<sup>3</sup>)</strong>.</li>
+        <li><strong>Exponential Time:</strong> The growth rate of a function is exponential if it is a parabola with a negative slope. It is denoted by <strong>O(2<sup>n</sup>)</strong>.</li>
+        <li><strong>Logarithmic Time:</strong> The growth rate of a function is logarithmic if it is a parabola with a negative slope. It is denoted by <strong>O(log n)</strong>.</li>
+        <li><strong>Factorial Time:</strong> The growth rate of a function is factorial if it is a parabola with a negative slope. It is denoted by <strong>O(n!)</strong>.</li>
+        <li><strong>Polynomial Growth Rate Function:</strong> The growth rate of a function is polynomial if it is a parabola with a negative slope. It is denoted by <strong>O(n<sup>k</sup>)</strong>.</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>Algorithm analysis is crucial for making informed decisions in software development, choosing the right algorithms for specific tasks, and optimizing the overall performance of computer systems.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

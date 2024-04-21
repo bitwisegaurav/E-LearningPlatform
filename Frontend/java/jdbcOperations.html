@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>JDBC Operations in Java</title>
+</head>
+<body>
+    <h1>JDBC Operations in Java</h1>
+
+    <h2>INSERT Operation</h2>
+    <p>
+        The INSERT operation is used to add new records to a database. Here's an example of inserting a new user into a database.
+    </p>
+    <!-- Example: INSERT Operation -->
+    <div class="code">
+        <pre>
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+String insertQuery = "INSERT INTO users (username, password) VALUES (?, ?)";
+PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+preparedStatement.setString(1, "newuser");
+preparedStatement.setString(2, "newpassword");
+int rowsInserted = preparedStatement.executeUpdate();
+preparedStatement.close();
+</pre>
+    </div>
+
+    <h2>SELECT Operation</h2>
+    <p>
+        The SELECT operation is used to retrieve data from a database. Here's an example of selecting users from a database.
+    </p>
+    <!-- Example: SELECT Operation -->
+    <div class="code">
+        <pre>
+import java.sql.Statement;
+import java.sql.ResultSet;
+
+Statement statement = connection.createStatement();
+String selectQuery = "SELECT * FROM users";
+ResultSet resultSet = statement.executeQuery(selectQuery);
+while (resultSet.next()) {
+    // Process results
+}
+resultSet.close();
+statement.close();
+</pre>
+    </div>
+
+    <h2>UPDATE Operation</h2>
+    <p>
+        The UPDATE operation is used to modify existing records in a database. Here's an example of updating a user's password.
+    </p>
+    <!-- Example: UPDATE Operation -->
+    <div class="code">
+        <pre>
+String updateQuery = "UPDATE users SET password = ? WHERE username = ?";
+PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
+updateStatement.setString(1, "newpassword");
+updateStatement.setString(2, "newuser");
+int rowsUpdated = updateStatement.executeUpdate();
+updateStatement.close();
+</pre>
+    </div>
+
+    <h2>DELETE Operation</h2>
+    <p>
+        The DELETE operation is used to remove records from a database. Here's an example of deleting a user from a database.
+    </p>
+    <!-- Example: DELETE Operation -->
+    <div class="code">
+        <pre>
+String deleteQuery = "DELETE FROM users WHERE username = ?";
+PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery);
+deleteStatement.setString(1, "newuser");
+int rowsDeleted = deleteStatement.executeUpdate();
+deleteStatement.close();
+</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        These JDBC operations in Java cover basic database operations: INSERT, SELECT, UPDATE, DELETE, and sorting. Understanding and mastering these operations is essential for working with databases in Java applications.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Media access control Sublayer</title>
+</head>
+<body>
+    <!-- intro, channel allocation, multiplex access protocols, IEEE Standards -->
+    <h1>Media access control Sublayer</h1>
+
+    <h2>Introduction</h2>
+    <p>
+        The media access control sublayer is responsible for allocating and managing the resources needed to transmit data over a network.
+    </p>
+
+    <h2>Sub-Layers of the Data Link Layer</h2>
+
+    <h4>Logical Link Control (LLC):</h4> 
+    <p>
+        The Logical Link Control (LLC) sublayer is a crucial component of the Data Link layer responsible for handling multiplexing, managing the flow of data among different applications and services. It ensures the proper and reliable transmission of data between the sender and receiver.
+    </p>
+    <h4>Media Access Control (MAC):</h4> 
+    <p>
+        The Media Access Control (MAC) sublayer is another essential sublayer within the Data Link layer. Its primary functions include managing the interaction of devices in a network, addressing frames to facilitate proper delivery, and controlling access to the physical communication media. The MAC sublayer plays a key role in coordinating the use of shared communication channels and preventing data collisions.
+    </p>
+
+    <h2>Channel Allocation Problem</h2>
+    <p>In broadcast or multicast network, single channel is shared by several stations. This channel can be allocated only to one transmitting user at a time.</p>
+    <p>There are two different methods of channel allocation : </p>
+    <ol>
+        <li>Static Channel allocation</li>
+        <li>Dynamic Channel allocation</li>
+    </ol>
+
+    <h3>Static Channel Allocation</h3>
+    <p>In static channel allocation method, a single channel is divided amongst various users either on the basis of frequency or time. Therefore they either uses FDM or TDM. In FDM, fixed frequency is statically assigned to each user, whereas in TDM, a fixed time slot or slice is allocated to each user.</p>
+
+    <h5>Problem</h5>
+    <p>In case of FDM, if there are n users, it means there will be n frequency bands. If at a particular time, just two or three users are transmitting data then majority of the channel bandwidth is wasted. Also, in TDM if user does not transmit data druing its time slot, it goes empty leading to wastage of channel time.</p>
+    <p>And if more than n users want to use channel, some of the users will be denied the access because of lack of bandwidth.</p>
+
+    <h3>Dynamic Channel Allocation</h3>
+    <p>In dynamic channel allocation method, none of the users in assigned fixed frequency or fixed time slot. Following assumpotions are made in order to implement this method : </p>
+    <ol>
+        <li><span>Station Model : </span>The model consists of N independent stations, each station has a program or a user that generates frames. Once the frames has generated, the station is blocked and does nothing until the frame has been successfully transmitted.</li>
+        <li><span>Single channel : </span>All stations can transmit on a single channel and all can receive from it.</li>
+        <li><span>Collision : </span>If two stations transmit frames simultaneously then these frames will overlap and collid. All stations can detect collision and collided frame must be transmitted again later.</li>
+        <li><span>Continuous time : </span>There is no master clock that divdes the time and frame transmission can begin at anytime.</li>
+        <li><span>Slotted time : </span>The time is divided into slots so that frame transmission begin at the start of slot. If there are more than one frame in a slot, it indicates a collision.</li>
+        <li><span>Carrier sense : </span>Stations sense the channel before transmission, and if the channel is busy then no station will transmit frame until it becomes idle.</li>
+        <li><span>No carrier sense : </span>They simply transmit without checking the channel.</li>
+    </ol>
+
+    <h2>Multiple Access Protocols</h2>
+    <p>Many formal protocols have been defined to handle the access to shared link.</p>
+    <p>They are organised in groups : </p>
+    <ol>
+        <li>Random Access Protocols</li>
+        <li>Controlled Access Protocols</li>
+        <li>Channelization Protocols</li>
+    </ol>
+    <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/access-control/mutliple-access.jpg" alt="Mutliple access control" ></div>
+
+    <h2>Random Access Protocols</h2>
+    <p>It is also known as <span>contention method</span>.</p>
+    <p>In this method, there is no control station or administrative, so any station can send the data when the channel is idle. It is called random access because ther eisno scheduled time for a station to transmit and the stations can transmit in random order.</p>
+    <p>The various random access methods are : ALOHA, CSMA, CSMA/CD and CSMA/CA.</p>
+
+    <h3>ALOHA</h3>
+    <p>In this method, stations share a common channel and when two stations transmit simultaneously then collision occures and frames are destroyed. It was used for ground based radio broadcasting.</p>
+
+    <h4>Pure ALOHA</h4>
+    <p>In pure aloha, whenever any station transmits a frame, it expects the acknowledgement from the receiver. And if collision happen, it retransmits the frame after waiting for random time.</p>
+    <div class="structimg img-center mt-2 orange-purple img-small"><img src="../examples/networks/access-control/pure-aloha-flowchart.webp" alt="pure aloha flowchart"></div>
+    <div class="structimg img-center"><img src="../examples/networks/access-control/pure-aloha.png" alt="pure aloha"></div>
+
+    <h4>Slotted ALOHA</h4>
+    <p>In slotted aloha, the time of the shared channel is divided into discrete intervals called <span>slots</span>. The stations can send a frame only at the beginning of the slot and only one frame is sent in each slot. Thats how slotted aloha reduces the possibilites of collision than pure aloha.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/access-control/slotted-aloha.png" alt="Slotted aloha"></div>
+
+    <h3>CSMA</h3>
+    <p>In CSMA, the station senses the carrier or channel before transmitting frame. Although it reduces the chances of collision but it cannot eliminate it completely. The chances of collision still exist because of propagation delay.</p>
+
+    <h4>1-persistent CSMA</h4>
+    <p>In this method, station that wants to transmit data continuously senses the channel and when it detects an idle-channel, it immmediately transmits the frame with probability 1.</p>
+    <h5>Problem</h5>
+    <p>This method has the highest chance of collision because two or more stations may find channel to be idle at the same time and transmit their frames.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/access-control/1-persistent.png" alt="1-persistent"></div>
+
+    <h4>Non-persistent CSMA</h4>
+    <p>In this method, station senses the carrier or channel. If channel is idle, it sends immmediately. If the channel is busy, it waits a random amount of time and then senses the channel again.</p>
+    <h5>Problem</h5>
+    <p>It reduces the efficiency of network because the channel remains idle when there may be stations with frames to send.</p>
+    <div class="structimg img-center mt-2 green-purple"><img src="../examples/networks/access-control/non-persistent.png" alt="non persistent"></div>
+    
+    <h4>P-persistent CSMA</h4>
+    <p>This method is used when channel has time slots such that the time slot duration is equal to ro greater than the maximum propagation delay time.</p>
+    <p>In this method, station continuously senses the channel and when the channel is idle it sends one frame with probability p and wait for a time slot and then again sense the channel and if channel is idle then transmits next frame.</p>
+    <div class="structimg img-center mt-2 green-purple"><img src="../examples/networks/access-control/p-persistent.png" alt="p persistent"></div>
+
+    <h3>CSMA/CD</h3>
+    <p>This is same as CSMA but the additional feature in CSMA/CA is that the stations can detect the collisions. A station monitors the medium after it sends a frame to see if the transmission was successful. If so, the station is finished. If collision is detected, the station aborts its transmission and waits for predetermined  amount of time and then sends its data again.</p>
+    <p>As soon as a collision id detected, the transmittion station releases a jam signal. Jam signal will alert the other stations. The stations are not supposed to transmit immediately after teh collision has occured.  After some back-off delay time the stations will retry the transmission and if collision occurs again then the back off delay time is increased progressively.</p>
+    <h5>Problem</h5>
+    <p>This method only works for wired networks because it is difficult to detect collisions in wireless medium.</p>
+    <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/access-control/csma-cd.png" alt="csma cd"></div>
+
+    <h3>CSMA/CA</h3>
+    <p>This protocol is used in wireless networks because they cannot detect the collision so the only is collision avoidance.</p>
+    <p>It avoids the collisions using three basic techniques : </p>
+    <ol>
+        <li>
+          <span>Interframe spacing</span>
+          <p>
+            Interframe spacing is a technique used to prevent collisions by ensuring that the time between two frames is greater than the maximum propagation delay time. It introduces a gap between frames to allow for proper transmission and reception.
+          </p>
+        </li>
+        <li>
+          <span>Contention window</span>
+          <p>
+            The contention window is a technique used to prevent collisions by ensuring that the time between two frames is less than the maximum propagation delay time. It involves randomizing the waiting time before transmitting a frame to reduce the chances of collisions.
+          </p>
+        </li>
+        <li>
+          <span>Acknowledgements</span>
+          <p>
+            Acknowledgements are a technique used to prevent collisions by ensuring that the time between two frames is less than the maximum propagation delay time. It involves the receiver sending an acknowledgment signal to the sender to confirm successful reception of a frame.
+          </p>
+        </li>
+      </ol>
+
+      <h2>Controlled Access Protocol</h2>
+      <p>In this method, stations consult each other to find which station has a right to send</p>
+      <h3>Reservation</h3>
+      <p>Reservation is a technique used in access control protocols where a device reserves a specific time slot or bandwidth in advance to transmit its data. This ensures that the reserved resources are exclusively available for the transmitting device during the reserved time period, reducing the chances of collisions.</p>
+      <div class="structimg img-center mt-2"><img src="../examples/networks/access-control/reservation.jpeg" alt="Reservation"></div>
+      
+      <h3>Polling</h3>
+      <p>Polling is a technique used in access control protocols where a central device, known as the master, controls the communication by sequentially polling the connected devices to check if they have data to transmit. The master device grants permission to the polled device to transmit its data, ensuring orderly access to the communication channel.</p>
+      <div class="structimg img-center mt-2"><img src="../examples/networks/access-control/polling.jpeg" alt="Polling"></div>
+
+      <h3>Token Passing</h3>
+      <p>Token passing is an example of a centralized access control protocol. In a token passing network, a token circulates among devices, granting the device holding the token the right to transmit data. This ensures controlled and orderly access to the channel.</p>
+      <div class="structimg img-center"><img src="../examples/networks/access-control/token-passing.gif" alt="Token Passing"></div>
+
+      <h2>Channelization Protocols</h2>
+      <p>Channelization is a multiple access method in which the available bandwidth of a link is shared in time, frequency or through code between different stations.</p>
+
+    <h3>Frequency Division Multiple Access (FDMA)</h3>
+    <p>FDMA is a channelization protocol that divides the available frequency spectrum into multiple non-overlapping frequency bands. Each device is assigned a specific frequency band for communication, ensuring that devices operate on separate frequencies and do not interfere with each other.</p>
+
+    <h3>Time Division Multiple Access (TDMA)</h3>
+    <p>TDMA is a channelization protocol that divides the available time slots within a given time frame into multiple time slots. Each device is assigned a specific time slot for communication, allowing devices to transmit data sequentially within their allocated time slots.</p>
+
+    <h3>Code Division Multiple Access (CDMA)</h3>
+    <p>CDMA is a channelization protocol that assigns a unique code to each device. Instead of dividing the frequency or time, CDMA allows multiple devices to transmit simultaneously by encoding their data using different codes. The receiver can then decode the specific data intended for it using the corresponding code.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/access-control/channelization.webp" alt="Channelization of all the 3 types"></div>
+
+    <h2>IEEE Standards</h2>
+    <p>The Institution of Electrical and Electronic Engineers (IEEE) has developed several standards for LANs.</p>
+    <h4>The various IEEE 802 standards</h4>
+    <p>802.1 Network management and Internetworking</p>
+    <p>802.2 Logical Link Control</p>
+    <p>802.3 Ethernet or CSMA/CD</p>
+    <p>802.4 Token Bus</p>
+    <p>802.5 Token Ring</p>
+    <p>802.6 MAN or Distributes Queue Dual Bus (DQDB)</p>
+    <p>802.7 Band pass Technical Advisory Group</p>
+    <p>802.8 Fiber Optic Technical Advisory Group</p>
+    <p>802.9 Integrated Data and Voice Network</p>
+    <p>802.10 Security Working Group</p>
+    <p>802.11 Wireless LAN</p>
+
+    <h2>IEEE 802.3 : Ethernet</h2>
+    <p>
+      Introduced commercially in 1980 and first standardized as IEEE 802.3 in 1983, Ethernet has undergone numerous
+      refinements to support higher bit rates and extended link distances, replacing other LAN technologies like token
+      ring, FDDI, and ARCNET.
+    </p>
+  <p>
+    Initially utilizing coaxial cables as a shared medium, modern Ethernet variations have adopted twisted pair and
+    fiber optic links, coupled with hubs or switches, to facilitate communication and data transfer within LANs and
+    MANs.
+  </p>
+  <p>
+    Over its evolution, Ethernet has boosted data transfer rates from an initial 2.94 Mbit/s to a remarkable 100
+    Gbit/s, offering several wirings and signaling options as part of the OSI physical layer in sync with Ethernet
+    standards.
+  </p>
+
+  <p>Data is segmented into "frames" that carry source and destination addresses along with errorchecking data, facilitating the detection and discarding of damaged frames, and enabling higherlayer protocols to trigger the retransmission of lost frames.</p>
+<p>
+  Wi-Fi, a wireless protocol standardized as IEEE 802.11, serves as a prominent alternative to
+  Ethernet in contemporary Local Area Networks (LANs).
+</p>
+<p>
+  Operates using a Bus topology, connecting all devices to a common communication line;
+  acknowledgments are not inherently used, but can be incorporated as data packets if necessary;
+  utilizes Manchester encoding techniques for data transmission.
+</p>
+<p>Connectionless and Unreliable Service : </p>
+<ul>
+  <li>
+    Each frame sent is independent of the previous or next frame. Ethernet has no connection
+    establishment or connection termination phases.
+  </li>
+<li>
+  Ethernet is also unreliable, if a frame is corrupted during transmission and the receiver finds
+  out about the corruption, the receiver drops the frame silently.
+</li>
+<li>In case of requirement ack can be sent separately at data packets.</li>
+</ul>
+
+<h3>Frame Format</h3>
+<div class="structimg img-center mt-2"><img src="../examples/networks/access-control/ethernet.png" alt="Ethernet Frame"></div>
+<ul>
+  <li>
+      <p><strong>Preamble</strong>: It is the starting field that provides alert and timing pulse for transmission. In
+          case of classic Ethernet it is an 8 byte field and in case of IEEE 802.3 it is of 7 bytes.</p>
+  </li>
+  <li>
+      <p><strong>Start of Frame Delimiter</strong>: It is a 1 byte field in a IEEE 802.3 frame that contains an
+          alternating pattern of ones and zeros ending with two ones.</p>
+  </li>
+  <li>
+      <p><strong>Destination Address</strong>: It is a 6 byte field containing physical address of destination
+          stations.</p>
+  </li>
+  <li>
+      <p><strong>Source Address</strong>: It is a 6 byte field containing the physical address of the sending station.
+      </p>
+  </li>
+  <li>
+      <p><strong>Length</strong>: It a 7 bytes field that stores the number of bytes in the data field.</p>
+  </li>
+  <li>
+      <p><strong>Data</strong>: This is a variable sized field carries the data from the upper layers. The maximum
+          size of data field is 1500 bytes.</p>
+  </li>
+  <li>
+      <p><strong>Padding</strong>: This is added to the data to bring its length to the minimum requirement of 46
+          bytes.</p>
+  </li>
+  <li>
+      <p><strong>CRC</strong>: CRC stands for cyclic redundancy check. It contains the error detection information.</p>
+  </li>
+</ul>
+
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

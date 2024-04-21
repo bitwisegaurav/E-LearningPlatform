@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dual Table</h1>
+    <p>The DUAL is special one row, one column table present by default in all Oracle databases. The owner of DUAL is
+        SYS (SYS owns the data dictionary, therefore DUAL is part of the data dictionary.) but DUAL can be accessed by
+        every user. The table has a single VARCHAR2(1) column called DUMMY that has a value of 'X'. MySQL allows DUAL to
+        be specified as a table in queries that do not need data from any tables. In SQL Server DUAL table does not
+        exist, but you could create one.
+        The DUAL table was created by Charles Weiss of Oracle corporation to provide a table for joining in internal
+        views.
+
+    </p>
+    <p>The SELECT statement with DUAL table is useful in situations where we need to execute functions like SYSDATE() or
+        VERSION() without selecting any particular table.</p>
+    <ul>
+        <li><span>SYSDATE()</span> function returns the current date and time.</li>
+        <li><span>VERSION()</span> function returns the version number of MySQL database.</li>
+    </ul>
+    <p>Syntax :</p>
+    <div class="code">
+        mysql> select function from dual;
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/Dual_Table/dual_table.PNG" alt="create database" class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

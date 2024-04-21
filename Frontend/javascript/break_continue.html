@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Break and Continue in JavaScript</title>
+</head>
+<body>
+    <h1>Break and Continue in JavaScript</h1>
+
+    <p>The <span>break</span> and <span>continue</span> statements are control flow statements in JavaScript that are used within loops to alter the default execution flow. They provide flexibility and control over loop behavior in various scenarios.</p>
+
+    <h2>Break Statement</h2>
+
+    <p>The <span>break</span> statement is used to exit a loop prematurely based on a certain conditioIt is often used with the <span>if</span> statement to check for a specific condition and terminate the loop accordingly.</p>
+
+    <div class="code"><pre>
+for (let i = 0; i &lt; 5; i++) {
+    if (i === 3) {
+        console.log("Breaking at iteration: " + i);
+        break;
+    }
+    console.log("Iteration: " + i);
+}
+</pre></div>
+
+    <p>In the example above, the loop will terminate when <span>i</span> is equal to 3.</p>
+
+    <h2>Continue Statement</h2>
+
+    <p>The <span>continue</span> statement is used to skip the rest of the code inside a loop for a particular iteration and move to the next iteratioIt is commonly employed when specific conditions should be skipped but not necessarily exit the entire loop.</p>
+
+    <div class="code"><pre>
+for (let i = 0; i &lt; 5; i++) {
+    if (i === 2) {
+        console.log("Skipping iteration: " + i);
+        continue;
+    }
+    console.log("Iteration: " + i);
+}
+</pre></div>
+
+    <p>In this example, the code inside the loop will be skipped when <span>i</span> is equal to 2.</p>
+
+    <h2>Practical Examples</h2>
+
+    <p>Break and continue statements are especially useful in scenarios where certain conditions or exceptional cases need to be handled within loops, enhancing the overall control flow of your code.</p>
+
+    <div class="code"><pre>
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let num of numbers) {
+    if (num % 2 === 0) {
+        console.log("Even number: " + num);
+    } else {
+        continue; // Skip the odd numbers
+    }
+    // Additional code for even numbers
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>The <span>break</span> and <span>continue</span> statements are valuable tools for controlling the flow of loops in JavaScripProper usage of these statements enhances code readability and allows for more efficient handling of specific conditions within loops.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

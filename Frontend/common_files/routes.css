@@ -1,0 +1,55 @@
+aside {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+aside .routes {
+    display: flex;
+    height: max-content;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 7px;
+    gap: 1rem;
+    width: 100%;
+}
+
+.dark aside .routes {
+    background-color: #403c69;
+    color: #fff;
+}
+
+aside .routes a {
+    width: 100%;
+    padding: 1rem 2rem;
+    /* background-color: #eee; */
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(91, 67, 136);
+    transition: none;
+}
+
+.dark aside .routes a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+aside .routes a:hover {
+    background-color: rgba(137, 74, 255, 0.137);
+    /* color: white; */
+}
+
+.dark aside .routes a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+aside .routes .active {
+    background-color: rgb(107, 80, 158) !important;
+    color: white !important;
+}
+
+.dark aside .routes .active {
+    background-color: rgb(30 27 66) !important;
+}

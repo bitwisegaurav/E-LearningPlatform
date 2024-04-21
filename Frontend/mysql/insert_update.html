@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Database</title>
+</head>
+<body>
+    <h1>Insert and Update rows</h1>
+
+    <h3>Insert single row</h3>
+    <p>Syntax : </p>
+    <div class="code">
+        mysql> insert into table_name (first_column_name,second_column_name,...) values (first value, second value,...);
+    </div>
+    <p>or</p>
+    <div class="code">
+        mysql> insert into table_name values (first value, second value,...);
+    </div>
+    <p>Example : </p>
+    <div class="structimg">
+        <img src="../examples/mysql/insert/single_value.PNG" alt="create database" class="hori">
+    </div>
+    
+    <h3>Inserting multiple rows</h3>
+    <p>Syntax :</p>
+    <div class="code">
+        mysql> insert into table_name values (first value, second value,...) , (first value, second value,...);
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/insert/multiple_values.PNG" alt="create database" class="hori">
+    </div>
+
+    <h3>Updating row</h3>
+    <p>Syntax :</p>
+    <div class="code">
+        mysql> update table_name set col_name=value, col_name=value,... where condition;
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/insert/update.PNG" alt="create database" class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

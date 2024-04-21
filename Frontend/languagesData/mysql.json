@@ -1,0 +1,91 @@
+{
+    "name": "MySQL",
+    "folder": "mysql",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction",
+            "file": "introduction"
+        },
+        {
+            "name": "DataTypes",
+            "file": "datatypes"
+        },
+        {
+            "name": "Database",
+            "file": "database"
+        },
+        {
+            "name": "Table",
+            "file": "table"
+        },
+        {
+            "name": "Alter Table",
+            "file": "alter_table"
+        },
+        {
+            "name": "Insert and Update rows",
+            "file": "insert_update"
+        },
+        {
+            "name": "Select data",
+            "file": "select"
+        },
+        {
+            "name": "Delete rows",
+            "file": "delete_rows"
+        },
+        {
+            "name": "Clause",
+            "file": "clause"
+        },
+        {
+            "name": "Operators (is, in, not in, between, like)",
+            "file": "operators"
+        },
+        {
+            "name": "Copy Table",
+            "file": "copy_table"
+        },
+        {
+            "name": "Group Functions",
+            "file": "group_function"
+        },
+        {
+            "name": "Primary Key",
+            "file": "primary_key"
+        },
+        {
+            "name": "Foreign Key",
+            "file": "foreign_key"
+        },
+        {
+            "name": "Constraints",
+            "file": "constraints"
+        },
+        {
+            "name": "Dual Table",
+            "file": "dual_table"
+        },
+        {
+            "name": "Scalar Functions",
+            "file": "scalar_functions"
+        },
+        {
+            "name": "Date Functions",
+            "file": "date_functions"
+        },
+        {
+            "name": "Views",
+            "file": "views"
+        },
+        {
+            "name": "Subquery",
+            "file": "subquery"
+        },
+        {
+            "name": "Joins",
+            "file": "joins"
+        }
+    ]
+}

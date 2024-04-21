@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Conditional Statements in JavaScript</title>
+</head>
+<body>
+    <h1>Conditional Statements in JavaScript</h1>
+
+    <p>Conditional statements in JavaScript allow you to control the flow of your code based on specified conditions. These statements make decisions and execute different code blocks depending on whether a condition evaluates to true or false.</p>
+
+    <h2>If Statement</h2>
+
+    <p>The <span>if</span> statement is the most basic conditional statement. It executes a block of code if the specified condition is true.</p>
+
+    <div class="code"><pre>
+let num = 10;
+
+if (num > 0) {
+    console.log("The number is positive.");
+}
+</pre></div>
+
+    <h2>Else Statement</h2>
+
+    <p>The <span>else</span> statement is used in conjunction with <span>if</span> to execute a different block of code if the initial condition is false.</p>
+
+    <div class="code"><pre>
+let num = -5;
+
+if (num > 0) {
+    console.log("The number is positive.");
+} else {
+    console.log("The number is non-positive.");
+}
+</pre></div>
+
+    <h2>Else if Statement</h2>
+
+    <p>The <span>else if</span> statement allows you to specify multiple conditions to check in sequence. The code block associated with the first true condition is executed.</p>
+
+    <div class="code"><pre>
+let num = 0;
+
+if (num > 0) {
+    console.log("The number is positive.");
+} else if (num &lt; 0) {
+    console.log("The number is negative.");
+} else {
+    console.log("The number is zero.");
+}
+</pre></div>
+
+    <h2>Switch Statement</h2>
+
+    <p>The <span>switch</span> statement provides a way to handle multiple conditions in a more concise manner than a series of <span>else if</span> statements.</p>
+
+    <div class="code"><pre>
+let day = "Monday";
+
+switch (day) {
+    case "Monday":
+        console.log("It's the start of the week.");
+        break;
+    case "Friday":
+        console.log("It's almost the weekend.");
+        break;
+    default:
+        console.log("It's a regular day.");
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Conditional statements are essential for building dynamic and responsive programs. Whether making simple decisions with <span>if</span> statements or handling multiple conditions with <span>switch</span>, mastering these constructs is fundamental to effective JavaScript programming.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

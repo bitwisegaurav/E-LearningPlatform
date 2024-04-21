@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Flexbox in CSS</title>
+</head>
+
+<body>
+    <h1>Flexbox in CSS</h1>
+
+    <p>Flexbox (Flexible Box Layout) is a layout model that allows you to design complex layouts more efficiently. It provides an easier way to distribute space and align items in a container, even when their sizes are unknown or dynamic.</p>
+
+    <h2>1. Flex Container and Flex Items:</h2>
+
+    <p>To use Flexbox, you need to define a flex container and its child elements become flex items. Apply `display: flex;` to the container:</p>
+
+    <div class="code"><pre>
+.container {
+    display: flex;
+}</pre>
+    </div>
+
+    <h2>2. Main Axis and Cross Axis:</h2>
+
+    <p>Flexbox works along two axes: the main axis and the cross axis. The main axis is defined by the `flex-direction` property, and the cross axis is perpendicular to the main axis.</p>
+
+    <div class="code"><pre>
+.container {
+    display: flex;
+    flex-direction: row; /* or column for vertical main axis */
+}</pre>
+    </div>
+
+    <h2>3. Justify Content and Align Items:</h2>
+
+    <p>Flexbox provides properties like `justify-content` to align items along the main axis and `align-items` to align items along the cross axis.</p>
+
+    <div class="code"><pre>
+.container {
+    display: flex;
+    justify-content: space-between; /* Align items with space between them */
+    align-items: center; /* Center items along the cross axis */
+}</pre>
+    </div>
+
+    <h2>4. Flex Items Flexibility:</h2>
+
+    <p>Each flex item can grow or shrink to accommodate available space. The `flex` property sets the flex grow, flex shrink, and flex basis values.</p>
+
+    <div class="code"><pre>
+.item {
+    flex: 1 0 auto; /* Flex grow: 1, Flex shrink: 0, Flex basis: auto */
+}</pre>
+    </div>
+
+    <h2>5. Flexbox Responsive Layout:</h2>
+
+    <p>Flexbox is excellent for creating responsive layouts. Use media queries to adjust flex properties based on screen size:</p>
+
+    <div class="code"><pre>
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Switch to a column layout on smaller screens */
+    }
+}</pre>
+    </div>
+
+    <p>Flexbox simplifies complex layouts, making it an essential tool for modern web development. It is particularly useful for creating navigation bars, grids, and flexible content areas.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

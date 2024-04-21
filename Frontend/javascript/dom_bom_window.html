@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../common_files/inner.css" />
+    <title>Introduction to DOM, BOM, and Window Object</title>
+  </head>
+  <body>
+    <h1>Introduction to DOM, BOM, and Window Object</h1>
+
+    <p>
+      In JavaScript, the Document Object Model (DOM), Browser Object Model
+      (BOM), and Window object collectively provide a foundation for building
+      dynamic and interactive web applications. Let's explore each of these
+      concepts:
+    </p>
+
+    <h2>Document Object Model (DOM)</h2>
+
+    <p>
+      The Document Object Model represents the structure of an HTML or XML
+      document as a tree-like structure of objects. Each element in the
+      document, such as <span>&lt;div&gt;</span>, <span>&lt;p&gt;</span>, or
+      <span>&lt;img&gt;</span>, is represented as a node in the DOM tree.
+      JavaScript can interact with and manipulate these nodes to dynamically
+      change the content, structure, and style of a web page.
+    </p>
+
+    <p>
+      A more detailed version will be covered in the next chapter on
+      <span><a href="dom.html" target="sidesec">DOM</a></span
+      >.
+    </p>
+
+    <h2>Browser Object Model (BOM)</h2>
+
+    <p>
+      The Browser Object Model extends the capabilities of JavaScript beyond the
+      scope of the document. It provides access to browser-specific features and
+      functionality, such as controlling the browser window or tab, managing
+      browser history, interacting with the browser's location bar, and handling
+      browser events. The Window object is the top-level object in the BOM
+      hierarchy and represents the browser window or tab that contains the
+      document.
+    </p>
+
+    <h2>Window Object (with Additional Information and Examples)</h2>
+    <p>
+      The Window object is the top-level object in the Browser Object Model
+      (BOM) hierarchy and represents the browser window or tab. It serves as a
+      crucial component for manipulating the browser window, controlling
+      navigation, and interacting with the user. Furthermore, the Window object
+      functions as the global object for JavaScript in a browser environment,
+      meaning that global variables and functions are properties of the Window
+      object.
+    </p>
+    <h3>Properties and Methods</h3>
+    <p>
+      The Window object offers a wide range of properties and methods to work
+      with:
+    </p>
+    <h4>Properties</h4>
+    <ul>
+      <li>
+        <span>Window.innerWidth : </span> The inner width of the browser window in
+        pixels.
+      </li>
+      <li>
+        <span>Window.innerHeight : </span> The inner height of the browser window in
+        pixels.
+      </li>
+      <li>
+        <span>Window.location : </span> An object that contains information about the
+        current URL and provides methods to change it.
+      </li>
+      <li>
+        <span>Window.document : </span> The Document object, representing the HTML
+        document currently loaded in the browser window.
+      </li>
+      <li>
+        <span>Window.navigator : </span> The Navigator object, containing information
+        about the user's browser and operating system.
+      </li>
+      <li>
+        <span>Window.history : </span> The History object, providing access to the
+        user's browsing history.
+      </li>
+    </ul>
+    <h4>Methods</h4>
+    <ul>
+      <li><span>Window.alert() : </span> Displays a message in a modal dialog box.</li>
+      <li>
+        <span>Window.prompt() : </span> Displays a dialog box that prompts the user to
+        input a value.
+      </li>
+      <li>
+        <span>Window.confirm() : </span> Displays a dialog box with a message and two
+        buttons, OK and Cancel.
+      </li>
+      <li>
+        <span>Window.open() : </span> Opens a new browser window or tab with a specified
+        URL.
+      </li>
+      <li><span>Window.close() : </span> Closes the current browser window or tab.</li>
+      <li>
+        <span>Window.scroll() : </span> Scrolls the content of the window to a specified
+        position.
+      </li>
+    </ul>
+    <h3>JavaScript Global Object</h3>
+    <p>
+      In JavaScript, global variables and functions are automatically attached
+      to the Window object, making them global in the browser environment.
+      However, it is considered good practice to avoid using global variables
+      due to potential naming conflicts and the lack of encapsulation.
+    </p>
+    <h3>Example Using the Window Object</h3>
+    <p>
+      The following example demonstrates how to use some properties and methods
+      of the Window object:
+    </p>
+    <div class="code"><pre>
+// Display the inner width and height of the browser window 
+console.log(`Inner width: ${Window.innerWidth}, Inner height: ${Window.innerHeight}`); 
+
+// Display the current URL 
+console.log(`Current URL: ${Window.location.href}`); 
+
+// Display the user agent (browser information) 
+console.log(`User agent: ${Window.navigator.userAgent}`); 
+
+// Open a new window 
+Window.open('https://www.example.com'); 
+
+// Display a simple alert dialog box 
+Window.alert('This is an alert box!');</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+
+    <p>
+      Understanding the Document Object Model, Browser Object Model, and Window
+      object is fundamental for developing modern web applications with
+      JavaScript. These concepts enable developers to create dynamic,
+      interactive, and responsive user experiences by manipulating the
+      structure, content, and behavior of web pages.
+    </p>
+  </body>
+  <script src="../common_files/innerTheme.js"></script>
+  <script src="../common_files/jsPrograms-inner.js"></script>
+</html>

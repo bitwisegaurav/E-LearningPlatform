@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Web Workers in JavaScript</title>
+</head>
+<body>
+    <h1>Web Workers in JavaScript</h1>
+
+    <p>Web Workers are a JavaScript feature that allows developers to run scripts in the background, separate from the main execution thread of the web page. This enables concurrent execution of tasks, improves responsiveness, and prevents blocking the UI thread during heavy computations or long-running operations.</p>
+
+    <h2>1. Types of Web Workers</h2>
+
+    <p>There are two main types of Web Workers:</p>
+    <ul>
+        <li><strong>Classic Web Workers:</strong> These are dedicated workers that run in separate threads and have access to a subset of the browser's APIs, excluding DOM manipulation and interaction.</li>
+        <li><strong>Shared Web Workers:</strong> These are workers that can be shared among multiple browsing contexts, allowing communication and coordination between different pages or tabs.</li>
+    </ul>
+
+    <h2>2. Creating and Using Web Workers</h2>
+
+    <p>To create a Web Worker, you typically define a separate JavaScript file containing the worker's logic and instantiate it from the main script using the <code>Worker</code> constructor. You can communicate with the worker using the <code>postMessage</code> method and handle messages using the <code>onmessage</code> event listener.</p>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of creating and using a Web Worker
+// main.js
+const worker = new Worker('worker.js');
+
+worker.postMessage('Hello from the main script!');
+
+worker.onmessage = function(event) {
+    console.log('Message from worker:', event.data);
+};
+
+// worker.js
+self.onmessage = function(event) {
+    console.log('Message from main script:', event.data);
+    self.postMessage('Hello from the worker!');
+};
+</pre></div>
+
+    <h2>4. Benefits of Web Workers</h2>
+
+    <p>Web Workers offer several benefits in JavaScript development:</p>
+    <ul>
+        <li><strong>Improved Performance:</strong> Web Workers enable parallel execution of tasks, allowing heavy computations to run in the background without blocking the main thread.</li>
+        <li><strong>Responsive User Interface:</strong> By offloading tasks to Web Workers, you can keep the UI responsive and prevent it from becoming unresponsive or frozen during long-running operations.</li>
+        <li><strong>Enhanced Scalability:</strong> Web Workers support concurrent processing, making them suitable for applications with computationally intensive or time-consuming tasks.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Web Workers are a valuable tool in JavaScript development for running scripts in the background and improving the performance and responsiveness of web applications. By leveraging Web Workers effectively, developers can create faster, more scalable, and more responsive web experiences for users.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

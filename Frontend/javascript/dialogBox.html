@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Dialog Box Methods</title>
+</head>
+<body>
+    <h1>Dialog Box Methods</h1>
+
+    <p>Alerts, prompts, and confirms are simple yet effective ways to interact with users in a JavaScript-based web application. They allow you to display messages, gather input, and confirm actions.</p>
+
+    <h2>Alert</h2>
+
+    <p>The <span>alert()</span> function displays a dialog box with a specified message and an "OK" button. It is commonly used for informational messages or notifications to users:</p>
+
+    <div class="code"><pre>
+alert("Hello, World!");
+</pre></div>
+
+    <p>When this code is executed, a dialog box will appear with the message "Hello, World!" and an "OK" button for the user to acknowledge the message.</p>
+
+    <h2>Prompt</h2>
+
+    <p>The <span>prompt()</span> function prompts the user to enter some input. It takes two parameters: the message to display and an optional default value. The user's input is then returned by the function:</p>
+
+    <div class="code"><pre>
+let userName = prompt("Please enter your name:", "John Doe");
+
+// The variable userName now contains the user's input
+</pre></div>
+
+    <p>In this example, the user is prompted to enter their name, and the default value is set to "John Doe."</p>
+
+    <h2>Confirm</h2>
+
+    <p>The <span>confirm()</span> function displays a dialog box with a specified message and "OK" and "Cancel" buttons. It is commonly used to confirm or cancel an action, and it returns a Boolean value based on the user's choice:</p>
+
+    <div class="code"><pre>
+let userConfirmation = confirm("Are you sure you want to proceed?");
+
+// The variable userConfirmation will be true if the user clicks "OK" and false if they click "Cancel"
+</pre></div>
+
+    <p>Here, the user is asked if they want to proceed, and the variable <span>userConfirmation</span> will be <span>true</span> if the user clicks "OK" and <span>false</span> if they click "Cancel."</p>
+
+    <h2>clusion</h2>
+
+    <p>Alerts, prompts, and confirms are basic but useful tools for interacting with users in JavaScript. They provide a simple way to communicate information and gather input within the context of a web application.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

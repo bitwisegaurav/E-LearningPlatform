@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Forms and Input Elements</title>
+</head>
+
+<body>
+    <h1>Forms and Input Elements</h1>
+
+    <p>HTML forms play a crucial role in collecting user input on a website. Forms are used for various purposes, such as user registration, search functionality, and feedback submission. Understanding how to create forms and utilize different input elements is essential for building interactive and user-friendly web applications.</p>
+
+    <h2>Form Structure:</h2>
+    <p>The basic structure of an HTML form involves the use of the <span>&lt;form&gt;</span> element:</p>
+
+    <div class="code">
+        <pre>
+&lt;form action="/submit_form" method="post"&gt;
+    &lt;!-- Form elements go here --&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</pre>
+    </div>
+
+    <p>The <span>action</span> attribute specifies the URL to which the form data should be submitted, and the <span>method</span> attribute defines the HTTP method (e.g., "post" or "get").</p>
+
+    <h2>Difference Between GET and POST Methods:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Aspect</th>
+                <th>GET Method</th>
+                <th>POST Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data in URL</td>
+                <td>Appended to the URL</td>
+                <td>Not appended to the URL</td>
+            </tr>
+            <tr>
+                <td>Visibility</td>
+                <td>Visible in the URL</td>
+                <td>Not visible in the URL</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>Less secure, suitable for non-sensitive data</td>
+                <td>More secure, suitable for sensitive information</td>
+            </tr>
+            <tr>
+                <td>Data Size</td>
+                <td>Limited by the browser (maximum URL length)</td>
+                <td>Can handle larger amounts of data</td>
+            </tr>
+            <tr>
+                <td>Caching</td>
+                <td>Can be cached</td>
+                <td>Usually not cached</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Common Input Elements:</h2>
+    <p>Various input elements can be used within a form to capture different types of data.  Here are some examples:</p>
+
+    <h3>Text</h3>
+    <p>The <span>text</span> input element is used to capture a single line of text from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="username"&gt;Username:&lt;/label&gt;
+&lt;input type="text" id="username" name="username" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </form>
+    </div>
+
+    <h3>Password</h3>
+    <p>The <span>password</span> input element is used to capture a password from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="password"&gt;Password:&lt;/label&gt;
+&lt;input type="password" id="password" name="password" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </form>
+    </div>
+
+    <h3>Email</h3>
+    <p>The <span>email</span> input element is used to capture an email address from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email" name="email" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </form>
+    </div>
+
+    <h3>Number</h3>
+    <p>The <span>number</span> input element is used to capture a numeric input from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="age"&gt;Age:&lt;/label&gt;
+&lt;input type="number" id="age" name="age" min="18" max="99" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="99" required>
+        </form>
+    </div>
+
+    <h3>Checkbox</h3>
+    <p>The <span>checkbox</span> input element is used to capture a binary choice from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="subscribe"&gt;Subscribe to newsletter:&lt;/label&gt;
+&lt;input type="checkbox" id="subscribe" name="subscribe"&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe">
+        </form>
+    </div>
+
+    <h3>Telephone</h3>
+    <p>The <span>tel</span> input element is used to capture a telephone number from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+&lt;input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        </form>
+    </div>
+
+    <h3>URL</h3>
+    <p>The <span>url</span> input element is used to capture a URL from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="website"&gt;Website:&lt;/label&gt;
+&lt;input type="url" id="website" name="website" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" required>
+        </form>
+    </div>
+
+    <h3>File</h3>
+    <p>The <span>file</span> input element is used to allow the user to upload files.</p>
+    <div class="code">
+        <pre>
+&lt;label for="file"&gt;Upload File:&lt;/label&gt;
+&lt;input type="file" id="file" name="file" accept=".pdf,.doc,.docx" required&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="file">Upload File:</label>
+            <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" required>
+        </form>
+    </div>
+
+    <h3>Radio Buttons</h3>
+    <p>The <span>radio</span> input element is used to allow the user to select one option from a set of options.</p>
+    <div class="code">
+        <pre>
+&lt;label for="option1"&gt;Option 1:&lt;/label&gt;
+&lt;input type="radio" id="option1" name="option" value="option1"&gt;
+
+&lt;label for="option2"&gt;Option 2:&lt;/label&gt;
+&lt;input type="radio" id="option2" name="option" value="option2"&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="option1">Option 1:</label>
+            <input type="radio" id="option1" name="option" value="option1">
+
+            <label for="option2">Option 2:</label>
+            <input type="radio" id="option2" name="option" value="option2">
+        </form>
+    </div>
+
+    <h3>Textarea</h3>
+    <p>The <span>textarea</span> element is used to capture multi-line text input from the user.</p>
+    <div class="code">
+        <pre>
+&lt;label for="message"&gt;Message:&lt;/label&gt;
+&lt;textarea id="message" name="message" rows="4" cols="50" required&gt;&lt;/textarea&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="message">Message:</label> <p></p>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+        </form>
+    </div>
+
+    <h3>Select</h3>
+    <p>The <span>select</span> element is used to create a dropdown selection menu.</p>
+    <div class="code">
+        <pre>
+&lt;label for="country"&gt;Country:&lt;/label&gt;
+&lt;select id="country" name="country" required&gt;
+    &lt;option value="usa"&gt;United States&lt;/option&gt;
+    &lt;option value="canada"&gt;Canada&lt;/option&gt;
+    &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+&lt;/select&gt;</pre>
+    </div>
+    <p>Output:</p>
+    <div class="code">
+        <form action="#" method="post">
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </form>
+    </div>
+
+    <p>In these examples, various input types include text, password, email, number, and checkbox. The <span>required</span> attribute ensures that users must fill in the corresponding fields.</p>
+
+    <h2>Form Submission and Server-side Processing:</h2>
+    <p>The form data is typically sent to a server for processing. Server-side technologies such as PHP, Node.js, or Python can handle form submissions and perform necessary actions, such as storing data in a database.</p>
+
+    <p>Remember to validate user input on both the client and server sides to ensure data integrity and security.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

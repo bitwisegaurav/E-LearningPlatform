@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Network Security</title>
+</head>
+<body>
+        <h1>Network Security</h1>
+        <h2>Introduction</h2>
+        <p>Computer Security means to protect information or Protecting information system from unintended access.</p>
+
+        <h2>Network Security Threats</h2>
+        <p>Network Security threats falls into two categories : </p>
+        <div class="structimg img-center"><img src="../examples/networks/security/security-threats.jpeg" alt="Security Threats"></div>
+        <ol>
+            <li><span>Passive Threats : </span>Passive threats, sometimes referred to as eavesdropping dropping, involve attempts by an attacker to obtain information relating to communication.
+                <ol type="a">
+                    <li><span>Release of message contents</span>
+                        <ul>
+                            <li>A telephone conversation, an e-mail message and a transferred file may contain sensitive or confidential information.</li>
+                            <li>We would like to prevent the opponent from learning the content of these transmissions.</li>
+                        </ul>
+                    </li>
+                    <li><span>Traffic analysis</span>
+                        <ul>
+                            <li>It is a kind of attack done on encrypted messages.</li>
+                            <li>The opponent might be able to observe the pattern of such encrypted message.</li>
+                            <li>The opponent could determine the location and identity of communicating hosts and could observe the frequency and length of messages being exchanged .</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li><span>Active Threats : </span>Active threats involve some modification of the data stream or the creation of a false stream.
+                <ol type="a">
+                    <li><span>Masquerade</span>
+                        <ul>
+                            <li>It takes place when one entity pretends to be a different entity.</li>
+                            <li>A masquerade attack usually includes one of the other forms of active attack.</li>
+                            <li>For e.g. authentication sequences can be captured and replayed after a valid authentication sequence has taken place, thus enabling an authorized entity with few privileges to obtain extra privileges by impersonating an entity that has those privileges.</li>
+                        </ul>
+                    </li>
+                    <li><span>Replay</span>
+                        <ul>
+                            <li>It involves the passive capture of a data unit and its subsequent retransmission to produce an unauthorized effect.</li>
+                        </ul>
+                    </li>
+                    <li><span>Modification of message contents</span>
+                        <ul>
+                            <li>It means that some position of a message is altered, or that messages are delayed or rendered, to produce an unauthorized effect.</li>
+                        </ul>
+                    </li>
+                    <li><span>Denial of service</span>
+                        <ul>
+                            <li>A denial of service attack takes place when the availability to a resource is intentionally blocked or degraded by an attacker. </li>
+                            <li>In this way the normal use or management of communication facilities is inhibited.</li>
+                            <li>This attack may have a specific target. For e.g. an entity may suppress all messages directed to a particular destination.</li>
+                            <li>Another form of service denial is the disruption of an entire network, either by disabling the network or by overloading it with messages so as to degrade performance.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+
+        <h2>Network Services</h2>
+        <p>Network Security can provide the following services related to a message and entity</p>
+        <ul>
+            <li>Message confidentiality</li>
+            <li>Message Integrity</li>
+            <li>Message Authentication</li>
+            <li>Message non-reproduction</li>
+            <li>Entity Authentication</li>
+        </ul>
+
+<h3>Message confidentiality</h3>
+<p>It means that the content of a message when transmitted across a network must remain confidential, i.e. only the intended receiver and no one else should be able to read the message.</p>
+
+<p>The users; therefore, want to encrypt the message they send so that an eavesdropper on the network will not be able to read the contents of the message.</p>
+
+<h3>Message Integrity</h3>
+<p>It means the data must reach the destination without any adulteration i.e. exactly as it was sent.</p>
+
+<p>There must be no changes during transmission, neither accidentally nor maliciously.</p>
+
+<p>Integrity of a message is ensured by attaching a checksum to the message.</p>
+
+<p>The algorithm for generating the checksum ensures that an intruder cannot alter the checksum or the message.</p>
+
+<h3>Message Authentication</h3>
+<p>In message authentication the receiver needs to be .sure of the sender’s identity i.e. the receiver has to make sure that the actual sender is the same as claimed to be.</p>
+
+<p>There are different methods to check the genuineness of the sender :</p>
+<ul>
+    <li>The two parties share a common secret code word. A party is required to show the secret code word to the other for authentication.</li>
+    
+    <li>Authentication can be done by sending digital signature.</li>
+    
+    <li>A trusted third party verifies the authenticity. One such way is to use digital certificates issued by a recognized certification authority.</li>
+</ul>
+
+
+<h3>Message non-reproduction</h3>
+<p>Non-repudiation means that a sender must not be able to deny sending a message that it actually sent.</p>
+
+<p>The burden of proof falls on the receiver.</p>
+
+<p>Non-reproduction is not only in respect of the ownership of the message; the receiver must prove that the contents of the message are also the same as the sender sent.</p>
+
+<p>Non-repudiation is achieved by authentication and integrity mechanisms.</p>
+
+<h3>Entity Authentication</h3>
+<p>In entity authentication (or user identification) the entity or user is verified prior to access to the system resources .</p>
+
+<h2>Cryptography</h2>
+<p>It is an art and science of transforming messages so as to make them secure and immune to attacks.Cryptography involves the process of encryption and decryption.</p>
+
+<p>The terminology used in cryptography is given below:</p>
+<ol>
+    <li><span>Plaintext : </span> The original message or data that is fed into the algorithm as input is called plaintext.</li>
+    
+    <li><span>Encryption algorithm : </span> The encryption algorithm is the algorithm that performs various substitutions and transformations on the plaintext. Encryption is the process of changing plaintext into cipher text.</li>
+    
+    <li><span>Ciphertext : </span> Ciphertext is the encrypted form the message. It is the scrambled message produced as output. It depends upon the plaintext and the key.</li>
+    
+    <li><span>Decryption algorithm : </span> The process of changing Ciphertext into plain text is known as decryption. Decryption algorithm is essentially the encryption algorithm run in reverse. It takes the Ciphertext and the key and produces the original plaintext.</li>
+    
+    <li><span>Key : </span> It also acts as input to the encryption algorithm. The exact substitutions and transformations performed by the algorithm depend on the key. Thus a key is a number or a set of number that the algorithm uses to perform encryption and decryption.</li>
+</ol>
+
+<p>There are two different approaches to attack an encryption scheme : </p>
+<ol>
+    <li>Cryptanalysis</li>
+    <li>Brute-force attack</li>
+</ol>
+
+<h2>Data Encryption Methods or Traditional Ciphers</h2>
+<p>The traditional ciphers are character-oriented and are organized into two categories : </p>
+<ol>
+    <li><span>Substitution ciphers : </span>Each letter or group of letters is replaced by another letter or group. They are of 2 types : 
+        <ul>
+            <li>Monoalphabetic</li>
+            <li>Polyalphabetic</li>
+        </ul>
+    </li>
+    <li><span>Transposition ciphers : </span>It does not subsitute a character with another character, rather it reorders the letters to change their locations.</li>
+</ol>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

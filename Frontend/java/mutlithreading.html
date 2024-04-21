@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Multithreading in Java</title>
+</head>
+<body>
+    <h1>Multithreading in Java</h1>
+    <p>
+        Multithreading is a feature in Java that allows concurrent execution of two or more threads. A thread is a lightweight process, and multithreading is a way to improve the performance of your programs by executing multiple tasks concurrently.
+    </p>
+    <p>Main is also known as parent thread because all execution starts from their and all other threads are child threads of main thread.</p>
+    <p>Qualified name of thread class is <span>java.lang.Thread</span>.</p>
+
+    <h2>Creating and Managing Threads</h2>
+    <p>
+        In Java, there are two ways to create threads: 
+        <ol>
+            
+            <li><span>By implementing the Runnable interface :</span>
+                <p>If we user Runnable interface, then we have to override a function, that is run function. Whenever a thread is executed, then it always execute the run function.</p>
+                <p>To override the run function, we will use the following syntax : </p>
+                <div class="code">
+                    <pre>public void run() {</pre>
+                </div>
+                <p>For example :</p>
+                <!-- Example: Implementing Runnable Interface -->
+    <div class="code">
+        <pre>
+class MyRunnable implements Runnable {
+    public void run() {
+        // Code to be executed in the new thread
+    }
+}
+
+// Creating and starting a thread
+Thread thread = new Thread(new MyRunnable());
+thread.start();</pre>
+    </div>
+            </li>
+            <li><span>By extending the Thread class :</span>
+                <p>If we implements Runnable interface then we have to create threads using <span>Thread</span> class which can takes objects of a class which implements Runnable as argunments.</p>
+                <p>And to run a thread, we used to call a function known as <span>start</span>. And we cannot call <span>run</span> function directly.</p>
+                <p>For example :</p>
+                <!-- Example: Extending Thread Class -->
+    <div class="code">
+        <pre>
+class MyThread extends Thread {
+    public void run() {
+        // Code to be executed in the new thread
+    }
+}
+
+// Creating and starting a thread
+MyThread thread = new MyThread();
+thread.start();</pre>
+    </div>
+            </li>
+        </ol>
+    </p>
+    
+    <h2>Commonly Used Functions in Multithreading</h2>
+
+    <h3>1. start()</h3>
+    <p>
+        The <span>start()</span> method is used to begin the execution of a thread. It invokes the <span>run()</span> method on the thread, and the new thread begins its life cycle.
+    </p>
+    <div class="code">
+        <pre>
+MyThread thread = new MyThread();
+thread.start();</pre>
+    </div>
+
+    <h3>2. join()</h3>
+    <p>
+        The <span>join()</span> method is used to wait for a thread to finish its execution before moving on to the next step. It ensures that the current thread waits until the specified thread completes.
+    </p>
+    <div class="code">
+        <pre>
+Thread thread = new Thread(new MyRunnable());
+thread.start();
+try {
+    thread.join();
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}</pre>
+    </div>
+
+    <h3>3. sleep()</h3>
+    <p>
+        The <span>sleep()</span> method is used to pause the execution of a thread for a specified duration. It allows other threads to run during the sleep period.
+    </p>
+    <div class="code">
+        <pre>
+try {
+    Thread.sleep(1000); // Sleep for 1 second
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}</pre>
+    </div>
+
+    <h3>4. yield()</h3>
+    <p>
+        The <span>yield()</span> method is used to temporarily pause the execution of the currently running thread, allowing other threads of the same priority to run.
+    </p>
+    <div class="code">
+        <pre>
+Thread.yield();</pre>
+    </div>
+
+    <h3>5. isAlive()</h3>
+    <p>
+        The <span>isAlive()</span> method is used to check whether a thread is still alive (has started and not yet terminated) or not.
+    </p>
+    <div class="code">
+        <pre>
+Thread thread = new Thread(new MyRunnable());
+thread.start();
+boolean aliveStatus = thread.isAlive();</pre>
+    </div>
+
+    <h3>6. setPriority()</h3>
+    <p>
+        The <span>setPriority()</span> method is used to set the priority of a thread. Threads with higher priority get more preference in execution.
+    </p>
+    <div class="code">
+        <pre>
+MyThread highPriorityThread = new MyThread();
+highPriorityThread.setPriority(Thread.MAX_PRIORITY);
+
+MyThread lowPriorityThread = new MyThread();
+lowPriorityThread.setPriority(Thread.MIN_PRIORITY);</pre>
+    </div>
+
+    <h2>Synchronization</h2>
+    <p>
+        In multithreading, synchronization is crucial to ensure that threads don't interfere with each other. The <span>synchronized</span> keyword is used to achieve synchronization.
+    </p>
+    <!-- Example: Synchronization -->
+    <div class="code">
+        <pre>
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int getCount() {
+        return count;
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Multithreading is a powerful feature in Java that enables concurrent execution. Understanding how to create and manage threads, along with synchronization techniques, is essential for building efficient and responsive applications.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

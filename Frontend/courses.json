@@ -1,0 +1,63 @@
+[
+    {
+        "name": "html",
+        "image": "html.png"
+    },
+    {
+        "name": "css",
+        "image": "css.png"
+    },
+    {
+        "name": "js",
+        "image": "js.png"
+    },
+    {
+        "name": "mysql",
+        "title": "MySQL",
+        "image": "mysql.png"
+    },
+    {
+        "name": "plsql",
+        "title": "PL/SQL",
+        "image": "plsql.svg"
+    },
+    {
+        "name": "php",
+        "image": "php.png"
+    },
+    {
+        "name": "java",
+        "image": "java.png"
+    },
+    {
+        "name": "javaPrograms",
+        "title": "Java Programs",
+        "url": "http://javaprograms.great-site.net/",
+        "image": "javaPrograms.png"
+    },
+    {
+        "name": "cpp",
+        "title": "C++",
+        "image": "cpp.png"
+    },
+    {
+        "name": "discrete",
+        "title": "Discrete Mathematics",
+        "image": "discrete.png"
+    },
+    {
+        "name": "networks",
+        "title": "Computer Networks",
+        "image": "computerNetworks.png"
+    },
+    {
+        "name": "eCommerce",
+        "title": "E Commerce",
+        "image": "e-commerce.png"
+    },
+    {
+        "name": "roadmaps",
+        "url": "roadmaps.html",
+        "image": "roadmaps.png"
+    }
+]

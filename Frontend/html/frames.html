@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Frames</title>
+</head>
+<body>
+    <h1>Frames </h1>
+
+    <p>Frames are HTML elements used for dividing a web page into multiple sections and embedding content from other sources. While iframes are still widely used for embedding external content, the use of frames is largely discouraged due to various issues, including accessibility concerns.</p>
+
+    <h2>Frameset:</h2>
+    <p>The <span>&lt;frameset&gt;</span> element was used to define a set of frames within a web page. Each frame could contain a separate HTML document:</p>
+
+    <div class="code"><pre>
+&lt;frameset cols="25%, 75%"&gt;
+    &lt;frame src="frame1.html" name="frame1"&gt;
+    &lt;frame src="frame2.html" name="frame2"&gt;
+&lt;/frameset&gt;</pre>
+    </div>
+
+    <h2>Iframe:</h2>
+    <p>The <span>&lt;iframe&gt;</span> element is commonly used to embed content from another source, such as a video, map, or external webpage:</p>
+
+
+    <div class="code">
+        <pre>
+&lt;h2&gt;Embedding Google iframe&lt;/h2&gt;
+&lt;iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3486.594566229145!2d76.779594!3d30.758885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed821ab72bb9%3A0x268493e9a24a518c!2sPost%20Graduate%20Government%20College!5e1!3m2!1sen!2sus!4v1708040881003!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;</pre>
+    </div>
+
+    <p>Output : </p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3486.594566229145!2d76.779594!3d30.758885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed821ab72bb9%3A0x268493e9a24a518c!2sPost%20Graduate%20Government%20College!5e1!3m2!1sen!2sus!4v1708040881003!5m2!1sen!2sus" width="100%" height="450" title="Google Map" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <p>Remember to use iframes responsibly and consider the impact on usability and accessibility when embedding external content.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

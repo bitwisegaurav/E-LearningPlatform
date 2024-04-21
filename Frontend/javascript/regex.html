@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Regular Expressions in JavaScript</title>
+</head>
+<body>
+    <h1>Regular Expressions in JavaScript</h1>
+
+    <p>Regular Expressions, often abbreviated as regex or regexp, are powerful patterns used for matching character combinations in strings. They provide a concise and flexible means of searching, replacing, and validating text data in JavaScript.</p>
+
+    <h2>1. Basic Syntax</h2>
+
+    <p>A regular expression is defined by a pattern enclosed within forward slashes (<code>/pattern/</code>). Patterns can include literal characters, metacharacters, character classes, and quantifiers.</p>
+
+    <h2>2. Creating Regular Expressions</h2>
+
+    <p>Regular Expressions can be created using the <code>RegExp</code> constructor or using the literal syntax with forward slashes. For example:</p>
+
+    <div class="code"><pre>
+// Using literal syntax
+const regex = /pattern/;
+
+// Using RegExp constructor
+const regex = new RegExp('pattern');
+</pre></div>
+
+    <h2>3. Matching Patterns</h2>
+
+    <p>Regular Expressions provide methods like <code>test()</code> and <code>exec()</code> for matching patterns in strings and extracting matched substrings.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of using regular expressions
+const regex = /hello/;
+const str = 'hello world';
+
+console.log(regex.test(str)); // Output: true
+console.log(regex.exec(str)); // Output: ['hello', index: 0, input: 'hello world', groups: undefined]
+</pre></div>
+
+    <h2>5. Common Use Cases</h2>
+
+    <p>Regular Expressions are commonly used for:</p>
+    <ul>
+        <li>Validating input data, such as email addresses, phone numbers, or passwords</li>
+        <li>Searching and replacing text patterns in strings</li>
+        <li>Extracting data from structured text formats, such as CSV or JSON</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Regular Expressions are a fundamental tool in JavaScript for working with text data. By mastering regular expressions, developers can perform powerful text processing tasks efficiently and effectively.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

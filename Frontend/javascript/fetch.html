@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Fetch API in JavaScript</title>
+</head>
+<body>
+    <h1>Fetch API in JavaScript</h1>
+
+    <p>The Fetch API provides a modern interface for fetching resources (such as JSON, XML, or HTML) across the network. It offers a more powerful and flexible way to make HTTP requests compared to traditional methods like XMLHttpRequest.</p>
+
+    <h2>1. Fetch Function</h2>
+
+    <p>The Fetch API is centered around the <code>fetch</code> function, which takes a URL as its parameter and returns a promise that resolves to the Response object representing the response to the request.</p>
+
+    <h2>2. Fetch Options</h2>
+
+    <p>The <code>fetch</code> function accepts an optional second parameter, an object containing options for the request such as method, headers, body, mode, cache, credentials, and more. These options provide fine-grained control over the behavior of the request.</p>
+
+    <h2>3. Response Handling</h2>
+
+    <p>Once a fetch request is made, you can handle the response using promise-based methods such as <code>then</code> and <code>catch</code>. These methods allow you to process the response, extract data, handle errors, and chain additional asynchronous operations.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of using Fetch API to make an API request
+fetch('https://api.example.com/data')
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log('Data fetched successfully:', data);
+    })
+    .catch((error) => {
+        console.error('Error fetching data:', error);
+    });
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>The Fetch API is a powerful and flexible tool for making HTTP requests in JavaScript. By leveraging the Fetch API, developers can create web applications that interact with remote servers, fetch data, and provide rich and dynamic user experiences.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

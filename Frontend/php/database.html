@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Integrating PHP and Databases</title>
+</head>
+<body>
+    <h1>Integrating PHP and Databases</h1>
+
+    <h2>Database Operations</h2>
+    <p>
+        Databases support a range of operations for managing data efficiently. Common database operations include:
+    </p>
+    <ul>
+        <li><strong>Insertion:</strong> Adding new records to a database table.
+        </li>
+        <li><strong>Selection:</strong> Retrieving data from the database using queries.
+        </li>
+        <li><strong>Updation:</strong> Modifying existing records in the database.
+        </li>
+        <li><strong>Deletion:</strong> Removing records from the database.
+        </li>
+        <li><strong>Sorting:</strong> Arranging data in a specific order, such as ascending or descending.
+        </li>
+    </ul>
+    <p>
+        These operations are essential for maintaining and manipulating data in a database-driven application.
+    </p>
+
+    <h2>Database Packages</h2>
+    <p>
+        PHP offers support for various database systems through extensions like MySQLi and PDO (PHP Data Objects). These packages provide functions and classes to interact with databases, including popular database systems such as:
+    </p>
+    <ul>
+        <li><strong>MySQL:</strong> An open-source relational database management system known for its performance and ease of use.
+        </li>
+        <li><strong>SQL Server:</strong> A database management system developed by Microsoft, commonly used in enterprise environments.
+        </li>
+        <li><strong>Oracle:</strong> A widely used, enterprise-level database management system known for its robustness and scalability.
+        </li>
+    </ul>
+
+    <h2>MySQL with PHP</h2>
+    <p>
+        MySQL is one of the most popular open-source relational database management systems. It is known for its performance, scalability, and ease of use. MySQL can be seamlessly integrated with PHP to create dynamic web applications. Here are some key points about using MySQL with PHP:
+    </p>
+    <ul>
+        <li><strong>Database Connectivity:</strong> PHP provides extensions like MySQLi (MySQL Improved) and PDO (PHP Data Objects) that allow you to establish connections to MySQL databases.</li>
+        <li><strong>Query Execution:</strong> You can execute SQL queries from your PHP code to interact with the MySQL database. This includes operations like selecting, inserting, updating, and deleting records.</li>
+        <li><strong>Fetching Data:</strong> PHP provides various functions to fetch data returned by database queries. You can use functions like <span>mysqli_fetch_assoc()</span> to retrieve data in an associative array format.</li>
+        <li><strong>Security:</strong> When working with MySQL and PHP, it's essential to implement security practices such as prepared statements and input validation to prevent SQL injection attacks.</li>
+        <li><strong>Database Administration:</strong> MySQL databases can be administered using tools like phpMyAdmin, which provide a web-based interface for managing databases, tables, and data.</li>
+    </ul>
+    <p>
+        The combination of PHP and MySQL is widely used in web development due to its flexibility, performance, and robust community support. It enables the creation of dynamic, data-driven websites and applications.
+    </p>
+
+    <h2>Connecting to a Database</h2>
+    <p>
+        To connect to a database, you need to provide connection details such as the host, username, password, and database name. The connection can be established using functions like <span>mysqli_connect()</span> or <span>PDO</span>.
+    </p>
+    <div class="code">
+        <pre>
+// Using MySQLi
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mydb";
+$conn = mysqli_connect($host, $username, $password, $dbname);
+if($conn) {
+    echo "Connected to database";
+} else {
+    echo "Error: " . mysqli_connect_error();
+}</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/database-connecting.png" alt="">
+    </div>
+
+    <h2>Creating a Database and Table</h2>
+    <p>
+        You can use SQL queries to create databases and tables. For example, to create a database named "mydb" and a table named "users," you can execute SQL statements like:
+    </p>
+    <div class="code">
+        <pre>
+// Create database
+$sql = "CREATE DATABASE mydb";
+
+// Create table
+$sql = "CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY, 
+username VARCHAR(50),
+email VARCHAR(100)
+)";</pre>
+    </div>
+
+    <h2>Making and Executing Queries</h2>
+    <p>
+        PHP allows you to execute SQL queries to interact with the database. For example, to insert data into the "users" table:
+    </p>
+    <div class="code">
+        <pre>
+$query = "INSERT INTO users (username, email) VALUES ('john_doe', 'john@example.com')";
+
+if(mysqli_query($conn, $query)){
+    echo "Record inserted successfully";
+} else {
+    echo "Error: " . mysqli_error($conn);
+}</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/database-query.png" alt="">
+    </div>
+
+    <h2>Fetching Data Sets</h2>
+    <p>
+        You can retrieve data from the database using queries and fetch methods provided by MySQLi or PDO. For example:
+    </p>
+    <div class="code">
+        <pre>
+$query = "SELECT * FROM users";
+$result = mysqli_query($conn, $query);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "Username: " . $row["username"] . ", Email: " . $row["email"];
+}</pre>
+    </div>
+
+    <h2>Integrating Forms and Databases</h2>
+    <p>
+        You can create forms to collect user data and then use PHP to validate and store that data in the database. Here's a simplified example:
+    </p>
+    <div class="code">
+        <pre>
+&lt;form action="process.php" method="post">
+    &lt;label for="username">Username:&lt;/label>
+    &lt;input type="text" id="username" name="username">
+    
+    &lt;label for="email">Email:&lt;/label>
+    &lt;input type="email" id="email" name="email">
+    
+    &lt;input type="submit" value="Submit">
+&lt;/form></pre>
+    </div>
+    <p>In process.php file :</p>
+    <div class="code">
+        <pre>
+&lt;?php
+
+// Configure database credentials
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mydb";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Create database if not exists
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+if (mysqli_query($conn, $sql)) {
+    // Database created successfully
+} else {
+    echo "Error creating database: " . mysqli_error($conn);
+} 
+
+// Select database
+mysqli_select_db($conn, $dbname); 
+
+// Create users table if not exists 
+$sql = "CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100)
+)";
+
+if (mysqli_query($conn, $sql)) {
+    // Table created successfully
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+// Check if form is submitted
+if (isset($_POST['username']) && isset($_POST['email'])) {
+    
+    // Get form data
+    $username =  $_POST['username'];
+    $email = $_POST['email'];
+
+    // Insert query
+    $sql = "INSERT INTO users (username, email) VALUES ('$username', '$email')";
+
+    // Execute query
+    if (mysqli_query($conn, $sql)) {
+    echo "Record inserted successfully";
+    } else {
+    echo "Error inserting record: " . mysqli_error($conn);
+    }
+
+}
+
+// Close connection
+mysqli_close($conn);
+
+?&gt;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/database-integrating.png" alt="">
+        <img src="../examples/php/database-integrating2.png" alt="">
+        <img src="../examples/php/database-integrating3.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Integrating PHP and databases is fundamental for creating dynamic web applications. Understanding database operations, connection methods, SQL queries, and integrating forms with databases is essential for building robust and data-driven web solutions.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

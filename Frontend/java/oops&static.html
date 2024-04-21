@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>OOPS and Static Keyword</title>
+</head>
+<body>
+    <h1>Object-Oriented Programming (OOP)</h1>
+    <p>
+        Object-Oriented Programming (OOP) is a programming paradigm that uses objects and classes to structure code. In Java, OOP is based on four key principles:
+    </p>
+    <ul>
+        <li><strong>Encapsulation:</strong> Wrapping data (attributes) and methods (functions) into a single unit called an object. Access to data is controlled through access modifiers.</li>
+        <li><strong>Inheritance:</strong> Creating new classes (subclasses or derived classes) based on existing classes (superclasses or base classes) to inherit their properties and behaviors.</li>
+        <li><strong>Polymorphism:</strong> The ability of objects of different classes to respond to the same method call in a way that is specific to their class. This is achieved through method overriding and method overloading.</li>
+        <li><strong>Abstraction:</strong> Defining the essential characteristics of an object while hiding the unnecessary details. Abstraction is achieved through abstract classes and interfaces.</li>
+    </ul>
+
+    <h2>The Static Keyword in Java</h2>
+    <p>
+        In Java, the <span>static</span> keyword is used to create class-level members that belong to the class itself, rather than to instances (objects) of the class. Static members are shared among all instances of the class. There are several uses of the <span>static</span> keyword in Java, including:
+    </p>
+    <ul>
+        <li><strong>Static Variables (Class Variables):</strong> Variables declared with the <span>static</span> keyword are shared by all instances of the class.</li>
+        <li><strong>Static Methods:</strong> Methods declared as static belong to the class and can be called using the class name, without creating an instance of the class.</li>
+        <li><strong>Static Blocks:</strong> Static blocks are used to initialize static variables or perform one-time class-level initialization.</li>
+    </ul>
+
+    <h2>Creating Objects in Java</h2>
+    <ul>
+        <li>In java, every object is anonymous.</li>
+        <li>Objects must be declared in head or dynamically.</li>
+        <li>Reference object get the reference of actual address, it cannot directly access actual memory</li>
+    </ul>
+    <p>
+        Here's an example of creating an object and understanding memory allocation:
+    </p>
+    <div class="code">
+        <pre>
+class Car {
+    String brand;
+    String model;
+    void startEngine() {
+        System.out.println("Engine started.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        // Creating an object of the Car class
+        Car myCar = new Car();
+        // Memory allocation for the object myCar
+        // Attributes: brand (null), model (null)
+        // Method: startEngine()
+    }
+}</pre>
+    </div>
+    <p>Memory which is not accessed by anyone or cannot be accessed because of lost of reference is known as <span>Dereference object memory</span> and in this situation, <span>Garbage collector</span> collects all the dereference memory and deallocat its memory.</p>
+
+    <h2>Using Static Members</h2>
+    <p>
+        Here's an example of using static members in Java:
+    </p>
+    <div class="code">
+        <pre>
+class Counter {
+    static int count = 0; // Static variable
+    static void increment() { // Static method
+        count++;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Counter.increment();
+        System.out.println("Count: " + Counter.count);
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Object-Oriented Programming (OOP) is a fundamental concept in Java that promotes code organization and reusability through classes and objects. The <span>static</span> keyword in Java allows you to create class-level members that are shared among all instances of a class, providing utility and efficiency in various programming scenarios.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

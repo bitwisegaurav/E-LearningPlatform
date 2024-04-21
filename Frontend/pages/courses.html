@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <link rel="stylesheet" href="../common_files/routes.css">
+    <link rel="stylesheet" href="../common_files/header.css">
+    <link rel="stylesheet" href="../common_files/courses.css">
+    <title>Courses - Codevengers</title>
+</head>
+<body>
+    <nav></nav>
+    <main>
+        <div class="container">
+            <aside>
+              <div class="routes">
+                <a href="../index.html" id="homeroutes">Home</a>
+                <a href="profile.html" id="profileroutes">Profile</a>
+                <a href="courses.html" id="coursesroutes"  class="active">Courses</a>
+                <a href="../languages/roadmaps.html" id="roadmaproutes">Roadmaps</a>
+                <a href="articles.html" id="articlesroutes">Articles</a>
+                <a href="search.html" id="searchroutes">Search User</a>
+                <a href="settings.html" id="searchroutes">Settings</a>
+              </div>
+            </aside>
+            <div class="innercontainer">
+                <div class="upper">
+                    <div class="searchBox">
+                        <input type="search" name="searchBox" id="searchBox" placeholder="Enter Course Name">
+                        <button type="button">Search</button>
+                    </div>
+                </div>
+                <section>
+                    <div class="courses">
+                        <div class="course">
+                            <a href="#">
+                                <div class="image">
+                                    <img src="../images/js.png" alt="js image">
+                                </div>
+                                <div class="title">Javascript</div>
+                            </a>
+                            <button type="button" class="remove">&minus;</button>
+                        </div>
+                        <div class="course">
+                            <a href="#">
+                                <div class="image">
+                                    <img src="../images/js.png" alt="js image">
+                                </div>
+                                <div class="title">Javascript</div>
+                            </a>
+                            <button type="button">+</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../common_files/api.js"></script>
+<script src="../common_files/theme.js"></script>
+<script src="../common_files/courseConversion.js"></script>
+<script src="../common_files/courses.js"></script>
+</html>

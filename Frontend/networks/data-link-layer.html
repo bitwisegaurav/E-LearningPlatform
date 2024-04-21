@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Data Link Layer - Codevengers</title>
+</head>
+<body>
+    <h1>Data Link Layer</h1>
+    <h2>Introduction</h2>
+    <p>The data link layer is the second layer from the bottom in the OSI (Open System Interconnection) network architecture model. It is responsible for the node-to-node delivery of data.</p>
+
+    <h2>Functions of the Data-link Layer</h2>
+    <h3>Framing</h3>
+    <p>
+        The packet received from the Network layer is known as a <span>frame</span> in the Data link layer.
+    </p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/data-link-layer/frame.png" alt="Frame"></div>
+    <ul>
+        <li><span>Process:</span> The packet received from the Network layer is encapsulated into a frame. This frame typically includes additional information such as frame synchronization bits, address information, and error-checking bits.</li>
+        <li><span>Purpose:</span> Ensures proper delineation of frames on the communication channel. Provides a way to distinguish the beginning and end of each frame. Enables error detection by using frame check sequences.</li>
+        <li><span>Frame Structure:</span>
+            <ul>
+                <li><span>Start Delimiter:</span> Marks the beginning of the frame.</li>
+                <li><span>Address:</span> Specifies the address of the destination device.</li>
+                <li><span>Data:</span> Contains the actual payload (packet) from the Network layer.</li>
+                <li><span>Frame Check Sequence (FCS):</span> Used for error detection.</li>
+                <li><span>End Delimiter:</span> Indicates the end of the frame.</li>
+            </ul>
+        </li>
+        <li><span>Types of Framing:</span>
+            <ul>
+                <li><span>Character Count:</span> Frame begins with a count of the number of characters (or bytes) in the frame.</li>
+                <li><span>Flag Bytes:</span> Frame starts and ends with special flag bytes.</li>
+                <li><span>Byte Stuffing:</span> Special byte is used to indicate the start and end of a frame.</li>
+                <li><span>Bit Stuffing:</span> Special bits are inserted into the frame to indicate the start and end.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h3>Addressing</h3>
+    <p>
+        In the realm of computer networking, addressing plays a pivotal role in facilitating communication between devices within a network. Addressing involves the assignment of unique identifiers to network elements to ensure seamless and efficient data exchange. There are two primary types of addressing:
+    </p>
+
+    <div class="structimg img-center mt-2"><img src="../examples/networks/data-link-layer/addressing.jpeg" alt="Addressing"></div>
+
+    <!-- Types of Addressing -->
+    <ul>
+        <li>
+            <span>1. MAC Address (Media Access Control):</span>
+            <p>
+                The MAC address is a hardware address associated with the network interface card (NIC) of a device. It serves as a unique identifier at the Data Link layer. MAC addresses are crucial for local network communication, ensuring that data reaches the intended device within the same network segment.
+            </p>
+        </li>
+        <li>
+            <span>2. IP Address (Internet Protocol):</span>
+            <p>
+                IP addresses operate at the Network layer and provide a logical identifier to devices participating in a network. There are two versions of IP addresses - IPv4 and IPv6. IPv4 uses a 32-bit address scheme, while IPv6 employs a 128-bit address scheme to accommodate the growing number of connected devices on the internet.
+            </p>
+        </li>
+    </ul>
+
+    <!-- Importance of Addressing -->
+    <p>
+        <span>Importance of Addressing:</span> Efficient addressing is crucial for routing and delivering data accurately. MAC addresses enable local communication, while IP addresses facilitate global connectivity. Addressing ensures that data packets are directed to the correct destination, forming the foundation of effective network communication.
+    </p>
+
+    <!-- Dynamic Address Assignment -->
+    <p>
+        <span>Dynamic Address Assignment:</span> In many networks, addresses are assigned dynamically. DHCP (Dynamic Host Configuration Protocol) is commonly used to automatically assign IP addresses to devices upon network entry. This dynamic assignment streamlines network management and conserves address space.
+    </p>
+
+    <!-- Address Resolution Protocol (ARP) -->
+    <p>
+        <span>Address Resolution Protocol (ARP):</span> ARP is employed to map an IP address to its corresponding MAC address. When a device needs to communicate with another device on the same local network, ARP resolves the MAC address associated with the target IP address.
+    </p>
+
+    <!-- Subnetting -->
+    <p>
+        <span>Subnetting : </span> Subnetting involves dividing a larger network into smaller, manageable sub-networks. It enhances network performance, security, and management. Subnetting is often used in conjunction with IP addressing to optimize network architecture.
+    </p>
+
+    <h3>Error Control</h3>
+    <p>
+        Data integrity is a critical aspect of reliable communication in computer networks. The Data Link layer incorporates error control mechanisms to detect and correct errors that may occur during data transmission. Various factors, including noise, attenuation, and interference, can contribute to data corruption. Therefore, error control techniques play a vital role in ensuring the accuracy of transmitted data.
+    </p>
+
+    <!-- Causes of Data Corruption -->
+    <p>
+        <span>Causes of Data Corruption:</span> Data corruption can arise from multiple sources, such as noise introduced during signal transmission, signal attenuation over long distances, and external interference. Error control is essential to identify and rectify these issues.
+    </p>
+
+    <!-- Error Detection -->
+    <p>
+        <span>Error Detection:</span> The data link layer employs error detection techniques to identify whether transmitted data has been corrupted. Common methods include the following:
+        <ul>
+            <li><span>Checksums:</span> A sum or hash of data is calculated and transmitted along with the data. The receiver recalculates the checksum and compares it with the transmitted value to detect errors.
+            <div class="structimg img-center mt-2"><img src="../examples/networks/data-link-layer/checksum.jpeg" alt="Checksum"></div>
+            </li>
+            <li><span>Parity Bits:</span> One additional bit is added to each byte to make the total number of set bits (either 0 or 1) even or odd. Discrepancies indicate errors.
+            <div class="structimg img-center mt-2 green-purple"><img src="../examples/networks/data-link-layer/partiy-bit.png" alt="Parity Bits"></div>
+            </li>
+            <li><span>Cyclic Redundancy Checks (CRC):</span> A polynomial function is applied to the data, producing a remainder that is transmitted along with the data. The receiver performs the same calculation and checks for discrepancies.
+            <div class="structimg img-center mt-2 green-purple"><img src="../examples/networks/data-link-layer/crc.jpeg" alt="CRC"></div>
+            </li>
+        </ul>
+    </p>
+
+    <!-- Error Correction -->
+    <p>
+        <span>Error Correction:</span> In situations where errors are detected, error correction mechanisms come into play. Common approaches include the following:
+        <ul>
+            <li><span>Automatic Repeat reQuest (ARQ) Protocols:</span> Examples include Stop-and-Wait, Go-Back-N, and Selective Repeat. These protocols involve retransmitting lost or corrupted packets.</li>
+            <li><span>Forward Error Correction (FEC):</span> Redundant information is added to transmitted data, allowing the receiver to correct errors without retransmission. Reed-Solomon codes are an example of FEC.</li>
+        </ul>
+    </p>
+
+    <!-- Automatic Repeat reQuest (ARQ) Protocols -->
+    <p>
+        <span>Automatic Repeat reQuest (ARQ) Protocols:</span> ARQ protocols enhance data reliability by retransmitting lost or corrupted packets. Each protocol has specific advantages in different network scenarios:
+        <ul>
+            <li><span>Stop-and-Wait:</span> The sender waits for an acknowledgment from the receiver before sending the next packet.
+            </li>
+            <li><span>Go-Back-N:</span> The sender can have multiple unacknowledged packets in transit. If an acknowledgment is not received, the sender retransmits all unacknowledged packets.
+            </li>
+            <li><span>Selective Repeat:</span> The sender can have multiple unacknowledged packets, but only the corrupted ones are retransmitted.
+            </li>
+        </ul>
+    </p>
+    
+    <!-- Forward Error Correction (FEC) -->
+    <p>
+        <span>Forward Error Correction (FEC):</span> FEC is another approach to error correction, where redundant information is added to transmitted data to allow the receiver to correct errors without the need for retransmission. Reed-Solomon codes are an example of FEC.
+    </p>
+
+    <h3>Flow Control</h3>
+    <p>
+        Flow control is a crucial aspect of data communication in computer networks. It involves mechanisms to manage the rate of data transmission between sender and receiver, preventing issues such as buffer overflow and data loss when there is a significant difference in processing speeds.
+    </p>
+    
+    <!-- Need for Flow Control -->
+    <p>
+        <span>Need for Flow Control:</span> Flow control becomes necessary when the sender's sending speed exceeds the receiver's receiving speed. Without adequate flow control, the receiver's buffer may overflow, leading to the loss of frames and potential data corruption.
+    </p>
+    
+    <!-- Types of Flow Control -->
+    <p>
+        <span>Types of Flow Control:</span> There are two primary types of flow control: <span>Stop-and-Wait</span> and <span>Sliding Window.</span>
+    </p>
+    
+    <!-- Stop-and-Wait Flow Control -->
+    <p>
+        <span>Stop-and-Wait Flow Control:</span> In this approach, the sender sends a single frame and waits for an acknowledgment from the receiver before sending the next frame. While simple, it can result in lower efficiency, especially in high-latency networks.
+        <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/data-link-layer/stop-and-wait.png" alt="Stop and wait"></div>
+    </p>
+    
+    <!-- Sliding Window Flow Control -->
+    <p>
+        <span>Sliding Window Flow Control:</span> Sliding Window is a more advanced flow control mechanism that allows the sender to transmit multiple frames before receiving acknowledgments. It includes two main types: <span>Go-Back-N</span> and <span>Selective Repeat.</span>
+        <ul>
+            <li><span>Go-Back-N:</span> The sender can have multiple unacknowledged frames in transit. If an acknowledgment is not received, the sender retransmits all unacknowledged frames.
+                <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/data-link-layer/go-back-n.jpeg" alt="Go back N"></div>
+            </li>
+            <li><span>Selective Repeat:</span> The sender can have multiple unacknowledged frames, but only the corrupted or lost ones are retransmitted.
+                <div class="structimg img-center mt-2 img-large"><img src="../examples/networks/data-link-layer/selective-repeat.jpeg" alt="Selective Repeat"></div>
+            </li>
+        </ul>
+    </p>
+
+    <!-- Importance of Flow Control -->
+    <p>
+        <span>Importance of Flow Control:</span> Flow control ensures a balance in data transmission rates between sender and receiver, preventing overwhelming the receiver and potential data loss. It is a vital component for maintaining the reliability and integrity of the communication process.
+    </p>
+
+    <!-- Buffer Management -->
+    <p>
+        <span>Buffer Management:</span> Buffers are used in flow control to temporarily store incoming data. Proper buffer management is essential to prevent overflow and ensure efficient data processing. Buffers help in accommodating variations in data transmission rates.
+    </p>
+
+    <!-- Flow Control in Practice -->
+    <p>
+        <span>Flow Control in Practice:</span> In practical scenarios, protocols like <span>Transmission Control Protocol (TCP)</span> incorporate sophisticated flow control mechanisms to optimize data transmission, adapt to network conditions, and ensure reliable communication between devices.
+    </p>
+
+    <h3>Access Control</h3>
+    <p>
+        Access control is a crucial aspect of the Data Link layer, especially in shared communication channels where multiple devices contend for access. The primary responsibility of the Data Link Layer (DLL) is to manage and control access to the communication channel efficiently.
+    </p>
+
+    <!-- Need for Access Control -->
+    <p>
+        <span>Need for Access Control:</span> In scenarios where multiple devices share the same communication channel, there is a high probability of collision. Access control mechanisms are essential to determine which device has control over the channel at any given time.
+    </p>
+
+    <!-- Types of Access Control -->
+    <p>
+        <span>Types of Access Control:</span> Access control mechanisms can be broadly categorized into <span>Centralized</span> and <span>Distributed</span>.
+    </p>
+
+    <!-- Centralized Access Control -->
+    <p>
+        <span>Centralized Access Control:</span> In centralized access control, a central authority or device coordinates access to the channel. It helps in avoiding collisions and ensures a more organized communication process. Protocols like <span>Token Passing</span> are examples of centralized access control.
+    </p>
+
+    <!-- Distributed Access Control -->
+    <p>
+        <span>Distributed Access Control:</span> Distributed access control allows devices to make decisions locally regarding channel access. The devices follow predefined protocols to avoid collisions and manage access. <span>Carrier Sense Multiple Access with Collision Detection (CSMA/CD)</span> is an example of distributed access control.
+    </p>
+
+    <!-- Collision Detection -->
+    <p>
+        <span>Collision Detection:</span> In shared communication channels, collisions can occur when multiple devices attempt to transmit data simultaneously. Collision detection mechanisms help identify these collisions, triggering appropriate actions to manage the situation and retransmit the data if needed.
+    </p>
+
+    <!-- Importance of Access Control -->
+    <p>
+        <span>Importance of Access Control:</span> Access control is vital for optimizing the utilization of the communication channel, preventing data collisions, and ensuring fair and efficient access for all devices sharing the channel. It plays a key role in minimizing data retransmissions and optimizing network performance.
+    </p>
+
+    <h2>Design issues in Data Link Layer</h2>
+    <ul>
+        <li><span>Addressing:</span> One of the design issues in the data link layer is addressing. It involves assigning unique addresses to devices in a network to enable proper routing and communication.</li>
+        <li><span>Flow Control:</span> Flow control is essential in managing the pace of data transmission between devices. The data link layer needs to ensure that the sender doesn't overwhelm the receiver with too much data.</li>
+        <li><span>Error Detection and Correction:</span> Detecting and correcting errors in the transmitted data is a critical aspect of the data link layer's design. Various techniques, such as checksums and parity bits, are used for this purpose.</li>
+        <li><span>Media Access Control (MAC):</span> MAC is responsible for controlling access to the shared communication channel when multiple devices are connected. Protocols like Ethernet use MAC to manage access efficiently.</li>
+        <li><span>Reliability:</span> Ensuring reliable communication is a key design consideration. The data link layer employs mechanisms to guarantee the accurate delivery of data, including acknowledgments and retransmission of lost or corrupted frames.</li>
+        <li><span>Frame Synchronization:</span> Frame synchronization is crucial for proper interpretation of data. The data link layer includes synchronization patterns in frames to facilitate the correct extraction of data at the receiver's end.</li>
+        <li><span>Protocols:</span> The design of protocols for communication between devices is a significant concern. Protocols define the rules and conventions for data exchange, framing, error handling, and other essential aspects.</li>
+        <li><span>Duplexing:</span> The data link layer needs to support either half-duplex or full-duplex communication, depending on the requirements of the network. Half-duplex allows communication in one direction at a time, while full-duplex enables bidirectional communication simultaneously.</li>
+        <li><span>Error Recovery:</span> In addition to error detection and correction, the data link layer should have mechanisms for error recovery. Automatic Repeat reQuest (ARQ) protocols are commonly used for this purpose.</li>
+        <li><span>Link Management:</span> Managing the link between connected devices involves establishing, maintaining, and terminating connections. Link management protocols handle these tasks efficiently.</li>
+    </ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

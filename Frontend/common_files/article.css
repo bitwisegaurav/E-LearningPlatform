@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: color 0s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+body {
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+/* This will change the width of the scrollbar */
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(121, 101, 163);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(109 82 158);
+}
+
+.dark {
+	background-color: #2e2b52;
+    color: white;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    height: 5rem;
+    background-color: rgb(148, 126, 194);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+main .container {
+    width: 90%;
+    max-width: 60rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* border: 2px solid red; */
+}
+
+main .container .upper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+main .container .upper .top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+main .container .upper .top h1 {
+    font-size: 250%;
+}
+
+main .container .upper .top .owner {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    /* padding-left: 3rem; */
+    gap: 1rem;
+    text-decoration: none;
+}
+
+main .container .upper .top .owner .owners-image {
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+main .container .upper .top .owner .owners-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .container .upper .top .owner .username {
+    color: black;
+}
+
+main .container .upper .top .owner .name {
+    color: #947ec2;
+}
+.dark main .container .upper .top .owner .username {
+    color: #d6ceff;
+}
+
+.dark main .container .upper .top .owner .name {
+    color: #ac9bffe0;
+}
+
+main .container .upper .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+main .container .upper .image img {
+    width: 100%;
+    height: auto;
+}
+
+main .container .lower {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .container .lower .content {
+    line-height: 150%;
+}
+
+main .container .lower .content img {
+    width: 100%;
+    height: auto;
+}
+
+main .container .lower .content a {
+    color: #6f4dc9;
+}
+
+.dark main .container .lower .content a {
+    color: #b99fff;
+}
+
+main .container .lower .content * {
+    background-color: transparent !important;
+}
+
+main .container .lower .content ul, ol {
+    padding-left: 1rem;
+}
+
+.dark main .container .lower .content * {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark main .container .lower .content h1, h2, h3, h4, h5, h6, bold, strong {
+    color: rgba(255, 255, 255, 0.9) !important;
+}

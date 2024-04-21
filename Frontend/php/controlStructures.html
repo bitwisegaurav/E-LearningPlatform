@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Control Structures in PHP</title>
+</head>
+<body>
+    <h1>Control Structures in PHP</h1>
+
+    <h2>Conditional Statements</h2>
+    <p>
+        Conditional statements in PHP allow you to make decisions in your code based on certain conditions. PHP supports several conditional statements:
+    </p>
+    <ul>
+        <li><strong>If else Statement:</strong> Executes code if a specified condition is true otherwise else will be executed. Only if can be used. Example:
+            <div class="code">
+                <pre>
+$age = 22;
+if ($age &lt; 18) {
+    echo "You are under 18.";
+} else if ($age &lt; 30) {
+    echo "You are under 30.";
+} else {
+    echo "You are 18 or older.";
+}</pre>
+            </div>
+
+            <p>Output :</p>
+    
+            <div class="output">
+                <img src="../examples/php/control-if.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>Switch Statement:</strong> Evaluates a value against multiple possible cases. Example:
+            <div class="code">
+                <pre>
+$day = "Monday";
+switch ($day) {
+    case "Monday":
+        echo "It's Monday!";
+        break;
+    case "Tuesday":
+        echo "It's Tuesday!";
+        break;
+    // Other cases...
+}</pre>
+            </div>
+
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/control-switch.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>Looping Statements</h2>
+    <p>
+        Looping statements in PHP allow you to execute a block of code repeatedly. PHP supports several looping statements:
+    </p>
+    <ul>
+        <li><strong>For Loop:</strong> Executes code a specified number of times. Example:
+            <div class="code">
+                <pre>
+for ($i = 0; $i &lt; 5; $i++) {
+    echo "Iteration: $i &lt;br>";
+}</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/control-for.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>While Loop:</strong> Executes code while a specified condition is true. Example:
+            <div class="code">
+                <pre>
+$counter = 0;
+while ($counter &lt; 3) {
+    echo "Iteration: $counter &lt;br>";
+    $counter++;
+}</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/control-while.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>Do-While Loop:</strong> Executes code at least once and continues as long as a specified condition is true. Example:
+            <div class="code">
+                <pre>
+$counter = 0;
+do {
+    echo "Iteration: $counter &lt;br>";
+    $counter++;
+} while ($counter &lt; 6);</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/control-dowhile.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>Foreach Loop:</strong> Iterates over elements in an array or other iterable objects. Example:
+            <div class="code">
+                <pre>
+$colors = array("red", "green", "blue");
+foreach ($colors as $color) {
+    echo "Color: $color &lt;br>";
+}</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/control-foreach.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>File Inclusion Statements</h2>
+    <p>
+        File inclusion statements in PHP allow you to include external PHP files into your current script. This can be useful for modularizing code and reusing functions and variables.
+    </p>
+    <ul>
+        <li><strong>Include Statement:</strong> Includes a file and continues execution even if the file is not found. Example:
+            <div class="code">
+                <pre>
+include("header.php");
+include("footer.php");</pre>
+            </div>
+        </li>
+
+        <li><strong>Require Statement:</strong> Includes a file and terminates execution if the file is not found. Example:
+            <div class="code">
+                <pre>
+require("config.php");
+require("functions.php");</pre>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        Control structures are essential elements of PHP programming that allow you to make decisions, repeat tasks, and include external code. By mastering conditional statements, looping statements, and file inclusion statements, you gain the ability to create dynamic and interactive web applications. Understanding when and how to use these control structures is a fundamental skill for PHP developers.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

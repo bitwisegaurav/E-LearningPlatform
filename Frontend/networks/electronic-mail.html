@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Electronic Mail</h1>
+    <p>Electronic mail is a method of communication that uses the Internet to send messages. <span>Sender</span> sends
+        the mail to the <span>recipient</span> with informations like receivers address, message, etc.</p>
+
+    <h2>Services of Email</h2>
+    <ol>
+        <li><span>Composition : </span>Process of creating messages and answers.</li>
+        <li><span>Transfer : </span>Moving/Seding message.</li>
+        <li><span>Reporting : </span>Confirmation of delivey of message.</li>
+        <li><span>Displaying : </span>Presenting the message in user readable form.</li>
+        <li><span>Disposition : </span>What the receipent does with the message.</li>
+    </ol>
+
+    <h2>Components of Email</h2>
+    <ol>
+        <!-- user agent, mta, mail box, spool file -->
+        <li><span>User Agent : </span>The software that is used to send and receive messages. It is sometimes called a
+            mail reader.</li>
+        <li><span>MTA : </span>Mail Transfer Agent. It is the software that transfers messages from one mail server to
+            another.</li>
+        <li><span>Mail Box : </span>A storage area for messages.</li>
+        <li><span>Spool File : </span>A temporary file that stores messages before they are sent.</li>
+    </ol>
+    <p class="note note-normal">
+        Imagine you're sending an email. You open your email software, also known as the User Agent. It's like a magical
+        tool that helps you send and receive messages.<br><br>
+        When you compose your email, the User Agent prepares it for sending. It's like packaging your message with the
+        recipient's address and the content.<br><br>
+        Now, your email is ready to embark on a journey. The Mail Transfer Agent (MTA) takes over, acting as a
+        messenger. It transfers your email from your email server to the recipient's email server. It's like a magical
+        courier navigating through the internet.<br><br>
+        Finally, your email arrives at the recipient's email server, where it's stored in their Mailbox. It's like
+        reaching the gates of a castle, waiting to be retrieved.<br><br>
+        When the recipient opens their email software, their User Agent connects to their email server and retrieves the
+        message from their Mailbox. It's like opening a treasure chest to reveal your email.<br><br>
+        And that's how the components of an email work together. The User Agent helps you compose and send messages, the
+        MTA transports them, and the Mailbox stores and retrieves them. It's like a magical journey connecting people
+        through digital messages.
+    </p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/electronic-mail/architecture.png"
+            alt="architecture of email"></div>
+
+    <h2>Email Addresses</h2>
+    <p>Email addresses are used to identify the sender and the recipient of a message.</p>
+    <p>The format of e-mail address is : </p>
+    <div class="code">
+        <pre>User @ domain-name</pre>
+    </div>
+    <ol>
+        <li><span>User</span> part identfies the mail box of the user in the domain. The user part is unique within the
+            domain.</li>
+        <li><span>Domain-name</span> part identifies the organization or host machine and it is unique globally.</li>
+    </ol>
+
+    <h2>Mail Format</h2>
+    <p>The mail format is a set of rules that defines how the message is composed and sent.</p>
+    <p>The mail format is composed of the following parts:</p>
+    <ol>
+        <!-- header, envelope, body -->
+        <li><span>Header : </span> The header contains:
+            <ul>
+                <li><span>To : </span> The recipient(s) of the email.</li>
+                <li><span>CC : </span> Additional recipients who receive a copy of the email.</li>
+                <li><span>BCC : </span> Blind Carbon Copy, recipients who receive a copy without others knowing.</li>
+                <li><span>From : </span> The sender of the email.</li>
+                <li><span>Sender : </span> The actual sender of the email, if different from the "From" field.</li>
+                <li><span>Received : </span> Information about the servers that handled the email during transmission.
+                </li>
+                <li><span>Return Path : </span> The email address to which bounced or undeliverable emails are sent.
+                </li>
+            </ul>
+        </li>
+        <li><span>Envelope : </span> The envelope encapsulates the message and contains all the information needed for
+            transporting the message, such as destination address, priority and security level. This emvelope is used be
+            MTAs for routing the message.</li>
+        <li><span>Body : </span> The body contains the actual message.</li>
+    </ol>
+
+    <h2><span>SMTP</span></h2>
+    <p>SMTP is an application layer protocol. The client who wants to send the mail opens a TCP connection to the SMTP
+        server and then sends the mail across the
+        connection. The SMTP server is an always-on listening mode. As soon as it listens for a TCP connection from any
+        client, the SMTP process initiates a connection through port 25. After successfully establishing a TCP
+        connection the client process sends the mail instantly.</p>
+    <h2>SMTP Protocol</h2>
+    <p>The SMTP model is of two types:</p>
+    <ol>
+        <li><span>End-to-end method : </span>The end-to-end model is used to communicate between different organizations
+            whereas the store and forward method
+            is used within an organization. An SMTP client who wants to send the mail will contact the destination’s
+            host
+            SMTP directly, in order to send the mail to the destination. The SMTP server will keep the mail to itself
+            until it is successfully copied to the receiver’s SMTP.</li>
+        <li><span>Store-and-forward method : </span>The client SMTP is the one that initiates the session so let us call
+            it the client-SMTP and the server SMTP is
+            the one that responds to the session request so let us call it receiver-SMTP. The client-SMTP will start the
+            session and the receiver SMTP will respond to the request.</p>
+        </li>
+    </ol>
+    <h2><span>Model of SMTP System</span>
+        <p></p>
+        <p>
+    </h2>
+    <p>In the SMTP model user deals with the user agent (UA), for example, Microsoft Outlook, Netscape, Mozilla, etc. In
+        order to exchange the mail using TCP, MTA is used. The user sending the mail doesn’t have to deal with MTA as it
+        is the responsibility of the system admin to set up a local MTA. The MTA maintains a small queue of mail so that
+        it can schedule repeat delivery of mail in case the receiver is not available. The MTA delivers the mail to the
+        mailboxes and the information can later be downloaded by the user agents.
+    </p>
+    <div class="structimg img-center mt-2 orange-purple"><img src="../examples/networks/electronic-mail/smtp.png"
+            alt="smtp"></div>
+
+    <h2>Components of SMTP</h2>
+    <ol>
+        <li><span>Mail User Agent (MUA) : </span>It is a computer application that helps you in sending and retrieving
+            mail. It is responsible for creating email messages for transfer to the mail transfer agent(MTA).</li>
+        <li><span>Mail Submission Agent (MSA) : </span>It is a computer program that basically receives mail from a
+            Mail User Agent(MUA) and interacts with the Mail Transfer Agent(MTA) for the transfer of the mail.</li>
+        <li><span>Mail Transfer Agent (MTA) : </span>It is basically software that has the work to transfer mail from
+            one system to another with the help of SMTP.</li>
+        <li><span>Mail Delivery Agent (MDA) : </span>Delivery agent or Local Delivery Agent is basically a system
+            that helps in the delivery of mail to the local system.</li>
+    </ol>
+
+    <h2>MIME</h2>
+    <p>Electronic mail has a simple structure. Its simplicity, however, comes at a price. It can send messages only in
+        NVT 7-bit ASCII format.
+    </p>
+    <p>In other words, it has some limitations. For example, it cannot be used for languages that are not supported by
+        7-bit ASCII characters (such as Hindi, French, German, Hebrew, Russian, Chinese, and Japanese).
+    </p>
+    <p>
+        Also, it cannot be used to send binary files or video or audio data.</p>
+    <p>Multipurpose Internet Mail Extensions (MIME) is a supplementary protocol that allows non-ASCII data to be sent
+        through e-mail.</p>
+    <p>
+        MIME transforms non-ASCII data at the sender site to NVT ASCII data and delivers them to the client MTA to be
+        sent through the Internet. </p>
+    <p>The message at the receiving side is transformed back to the original data.</p>
+
+    <h2>Post Office Protocol, version 3 (POP3)</h2>
+    <ul>
+        <li>The client POP3 software is installed on the recipient computer; the server POP3 software is installed on
+            the mail server.</li>
+        <li>Mail access starts with the client when the user needs to download e-mail from the mailbox on the mail
+            server. The client opens a connection to the server on TCP port 110. It then sends its user name and
+            password to access the mailbox.</li>
+        <li>The user can then list and retrieve the mail messages, one by one. POP3 has two modes: the delete mode and
+            the keep mode. In the delete mode, the mail is deleted from the mailbox after each retrieval. In the keep
+            mode, the mail remains in the mailbox after retrieval.</li>
+        <li>The delete mode is normally used when the user is working at her permanent computer and can save and
+            organize the received mail after reading or replying.</li>
+        <li>The keep mode is normally used when the user accesses her mail away from her primary computer (e.g., a
+            laptop). The mail is read but kept in the system for later retrieval and organizing.</li>
+    </ul>
+
+    <h2>Internet Mail Access Protocol, version 4 (IMAP4)</h2>
+    <ul>
+        <li>IMAP4 is similar to POP3, but it has more features and is more powerful and complex.</li>
+        <li>POP3 does not allow the user to organize mail on the server or have different folders on the server (folders
+            can be created on the user's computer).</li>
+        <li>IMAP4 provides extra functions:
+            <ul>
+                <li>A user can check the email header before downloading.</li>
+                <li>A user can search the email contents for a specific string of characters before downloading.</li>
+                <li>A user can partially download email, which is useful when bandwidth is limited or when the email
+                    contains high-bandwidth multimedia.</li>
+                    <li>A user can create, delete, or rename mailboxes on the mail server.</li>
+                    <li>A user can create a hierarchy of mailboxes in a folder for email storage.</li>
+                </ul>
+            </li>
+    </ul>
+
+    <p class="note note-normal">• The first and the second stages of mail delivery use SMTP. However, SMTP is not involved in the third
+        stage because SMTP is a push protocol; it pushes the message from the client to the server. <br>
+        • On the other hand, the third stage needs a pull protocol; the client must pull messages from the server. <br>
+        • The third stage uses a message access agent. Currently two message access protocols are available:
+        Post Office Protocol, version 3 (POP3) and Internet Mail Access Protocol, version 4 (IMAP4).</p>
+
+        <h2>Email Security</h2>
+        <p>Email security is crucial for safeguarding sensitive information in electronic communication. Two widely used techniques for email security are PGP (Pretty Good Privacy) and PEM (Privacy-Enhanced Mail).</p>
+        
+        <h3>PGP (Pretty Good Privacy)</h3>
+        <p>PGP is a data encryption and decryption program that provides cryptographic privacy and authentication for data communication. It uses a combination of symmetric-key and public-key cryptography to secure emails. In PGP, each user has a pair of keys: a public key that is shared openly and a private key that is kept confidential. The sender uses the recipient's public key to encrypt the message, and the recipient uses their private key to decrypt it. PGP ensures the confidentiality and integrity of email content.</p>
+        <h4>Key management</h4>
+        <ol>
+            <li>Public key ring</li>
+            <li>Private key ring</li>
+        </ol>
+        <div class="structimg img-center mt-2"><img src="../examples/networks/electronic-mail/pgp.jpeg" alt="pgp"></div>
+        
+        <h3>PEM (Privacy-Enhanced Mail)</h3>
+        <p>PEM is a security standard for securing electronic mail and other types of data. It uses a combination of encryption, digital signatures, and certificate-based key management to enhance the privacy and security of email communications. PEM supports the encoding of certificates, private keys, and other cryptographic information. It is particularly useful for securing email communication in a public-key infrastructure (PKI) environment. PEM provides a standardized way to exchange secure email messages.</p>
+        
+        <p>Implementing these security measures helps protect against unauthorized access, tampering, and eavesdropping, ensuring that sensitive information remains confidential and secure during email transmission.</p>
+        
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

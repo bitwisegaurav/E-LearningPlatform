@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>CSS Variables and Custom Properties</title>
+</head>
+
+<body>
+    <h1>CSS Variables and Custom Properties</h1>
+
+    <p>CSS variables, also known as custom properties, allow you to define reusable values in your stylesheets. They provide a way to store and reuse values, making it easier to maintain consistency and make global changes.</p>
+
+    <h2>1. Declaring CSS Variables:</h2>
+<p>Define a CSS variable using the `--` prefix:</p>
+
+    <div class="code"><pre>
+:root {
+    --primary-color: #3498db;
+    --font-size: 16px;
+}
+
+body {
+    color: var(--primary-color);
+    font-size: var(--font-size);
+}</pre>
+    </div>
+
+    <h2>2. Scope of Variables:</h2>
+
+    <p>Variables declared in the `:root` selector have a global scope and can be accessed anywhere in your stylesheet. However, you can also declare variables within specific selectors:</p>
+
+    <div class="code"><pre>
+.header {
+    --background-color: #2ecc71;
+    background-color: var(--background-color);
+}
+
+.footer {
+    background-color: var(--background-color);
+}</pre>
+    </div>
+
+    <h2>3. Dynamic Value Changes:</h2>
+<p>Update variable values dynamically using JavaScript, allowing for theme changes or user preferences:</p>
+
+    <div class="code"><pre>
+document.documentElement.style.setProperty('--primary-color', '#ff6347');</pre>
+    </div>
+
+    <h2>4. Using Variables in Animations:</h2>
+
+    <p>Utilize variables in animations to create dynamic effects with consistent values:</p>
+
+    <div class="code"><pre>
+@keyframes color-change {
+    0% {
+        background-color: var(--primary-color);
+    }
+    100% {
+        background-color: #ffffff;
+    }
+}</pre>
+    </div>
+
+    <p>CSS variables enhance maintainability, promote consistency, and enable dynamic styling. Experiment with them to see how they can improve your stylesheet structure.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

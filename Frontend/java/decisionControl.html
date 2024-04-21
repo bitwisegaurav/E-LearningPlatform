@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Decision Control Structures in Java</title>
+</head>
+<body>
+    <h1>Decision Control Structures in Java</h1>
+    <p>
+        Decision control structures in Java allow you to control the flow of your program based on specific conditions. They enable you to make decisions and execute different blocks of code depending on whether a condition is true or false. The primary decision control structures in Java are:
+    </p>
+    <ul>
+        <li><strong>If statement:</strong> Executes a block of code if a specified condition is true.</li>
+        <li><strong>If-else statement:</strong> Executes one block of code if a condition is true and another block if it is false.</li>
+        <li><strong>If-else if-else statement:</strong> Allows you to check multiple conditions and execute different code blocks accordingly.</li>
+        <li><strong>Switch statement:</strong> Enables you to choose one of several code blocks to execute based on the value of an expression.</li>
+    </ul>
+
+    <h2>Using the if Statement</h2>
+    <p>
+        The <span>if</span> statement is used for simple decision making. It executes a block of code if a specified condition is true. Here's an example:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+int age = 20;
+if (age >= 18) {
+    System.out.println("You are an adult.");
+}</pre>
+    </div>
+
+    <h2>Using the if-else Statement</h2>
+    <p>
+        The <span>if-else</span> statement allows you to execute one block of code if a condition is true and another block if it is false. Here's an example:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+int marks = 75;
+if (marks >= 50) {
+    System.out.println("You passed the exam.");
+} else {
+    System.out.println("You failed the exam.");
+}</pre>
+    </div>
+
+    <h2>Using the if-else if-else Statement</h2>
+    <p>
+        The <span>if-else if-else</span> statement is used when you need to check multiple conditions and execute different code blocks accordingly. Here's an example:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+int score = 85;
+if (score >= 90) {
+    System.out.println("A grade");
+} else if (score >= 80) {
+    System.out.println("B grade");
+} else if (score >= 70) {
+    System.out.println("C grade");
+} else {
+    System.out.println("D grade");
+}</pre>
+    </div>
+
+    <h2>Using the switch Statement</h2>
+    <p>
+        The <span>switch</span> statement allows you to choose one of several code blocks to execute based on the value of an expression. Here's an example:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Other day");
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Decision control structures in Java are essential for writing programs that can make informed choices and adapt their behavior based on specific conditions. By using <span>if</span>, <span>if-else</span>, <span>if-else if-else</span>, and <span>switch</span> statements, you can create versatile and flexible Java applications.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

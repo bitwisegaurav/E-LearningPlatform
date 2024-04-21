@@ -1,0 +1,255 @@
+{
+    "name": "JavaScript",
+    "folder": "javascript",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction",
+            "file": "introduction"
+        },
+        {
+            "name": "Inline, Internal and External",
+            "file": "methods"
+        },
+        {
+            "name": "Variables",
+            "file": "variables"
+        },
+        {
+            "name": "Global and local scope of Variables",
+            "file": "scope"
+        },
+        {
+            "name": "Datatypes",
+            "file": "datatypes"
+        },
+        {
+            "name": "Hoisting",
+            "file": "hoisting"
+        },
+        {
+            "name": "Datatypes Conversion",
+            "file": "conversion"
+        },
+        {
+            "name": "Stack and Heap memory",
+            "file": "memory"
+        },
+        {
+            "name": "Operators",
+            "file": "operators"
+        },
+        {
+            "name": "Coniditional Statements",
+            "file": "conditions"
+        },
+        {
+            "name": "Loops",
+            "file": "loops"
+        },
+        {
+            "name": "Break and Continue",
+            "file": "break_continue"
+        },
+        {
+            "name": "Functions",
+            "file": "functions"
+        },
+        {
+            "name": "Immediately Invoked Functions",
+            "file": "iife"
+        },
+        {
+            "name": "Strings",
+            "file": "strings"
+        },
+        {
+            "name": "Some Strings Methods",
+            "file": "stringMethods"
+        },
+        {
+            "name": "Arrays",
+            "file": "arrays"
+        },
+        {
+            "name": "Map, Filter and Reduce",
+            "file": "highOrderLoops"
+        },
+        {
+            "name": "Some Arrays Methods",
+            "file": "arrayMethods"
+        },
+        {
+            "name": "Objects",
+            "file": "objects"
+        },
+        {
+            "name": "Some Important Objects",
+            "file": "someObjects"
+        },
+        {
+            "name": "Number",
+            "file": "number"
+        },
+        {
+            "name": "Alert, Prompt and Confirm",
+            "file": "dialogBox"
+        },
+        {
+            "name": "Console methods",
+            "file": "console"
+        },
+        {
+            "name": "Introduction to DOM, BOM and Window Object",
+            "file": "dom_bom_window"
+        },
+        {
+            "name": "DOM",
+            "file": "dom"
+        },
+        {
+            "name": "Children, Parent and Siblings of an element",
+            "file": "dom_hierarchy"
+        },
+        {
+            "name": "Events and Event Listeners",
+            "file": "events"
+        },
+        {
+            "name": "matches, closet and contains",
+            "file": "dom_query"
+        },
+        {
+            "name": "DOM Elements Properties",
+            "file": "properties"
+        },
+        {
+            "name": "DOM Elements Attributes",
+            "file": "attributes"
+        },
+        {
+            "name": "Creation, Insertion, Edition and Deletion of DOM Elements",
+            "file": "elements"
+        },
+        {
+            "name": "setTimeout, setInterval  and setImmediate",
+            "file": "settimeout_interval"
+        },
+        {
+            "name": "BOM",
+            "file": "bom"
+        },
+        {
+            "name": "Callbacks",
+            "file": "callbacks"
+        },
+        {
+            "name": "Callback Hell and Pyramid of Doom",
+            "file": "hell_doom"
+        },
+        {
+            "name": "Promises",
+            "file": "promises"
+        },
+        {
+            "name": "Async and Await",
+            "file": "async_await"
+        },
+        {
+            "name": "API Request and V8 Engine",
+            "file": "api_v8"
+        },
+        {
+            "name": "Fetch API",
+            "file": "fetch"
+        },
+        {
+            "name": "Error Handling",
+            "file": "error"
+        },
+        {
+            "name": "Closures",
+            "file": "closures"
+        },
+        {
+            "name": "Currying",
+            "file": "currying"
+        },
+        {
+            "name": "Debouncing and Throttling",
+            "file": "debounce"
+        },
+        {
+            "name": "Event Delegation",
+            "file": "event_delegation"
+        },
+        {
+            "name": "Local Storage",
+            "file": "localStorage"
+        },
+        {
+            "name": "Cookies",
+            "file": "cookies"
+        },
+        {
+            "name": "Web Workers",
+            "file": "web_workers"
+        },
+        {
+            "name": "Service Workers",
+            "file": "service_workers"
+        },
+        {
+            "name": "Regular Expressions",
+            "file": "regex"
+        },
+        {
+            "name": "Modules",
+            "file": "modules"
+        },
+        {
+            "name": "OOPS",
+            "file": "oops"
+        },
+        {
+            "name": "Classes",
+            "file": "classes"
+        },
+        {
+            "name": "Getter and Setter",
+            "file": "getter_setter"
+        },
+        {
+            "name": "Inheritance",
+            "file": "inheritance"
+        },
+        {
+            "name": "Prototype",
+            "file": "prototype"
+        },
+        {
+            "name": "This keyword",
+            "file": "this"
+        },
+        {
+            "name": "ES6+ Features",
+            "file": "es6"
+        },
+        {
+            "name": "Memory managemenet and Performance Optimization",
+            "file": "optimization"
+        },
+        {
+            "name": "Debugging Tools",
+            "file": "debugging"
+        },
+        {
+            "name": "Unit Testing",
+            "file": "unit_testing"
+        },
+        {
+            "name": "Javscript Frameworks and Libraries",
+            "file": "frameworks_library"
+        }
+    ]
+}

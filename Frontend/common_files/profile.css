@@ -1,0 +1,506 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    height: 100vh;
+    /* border: 2px solid blue; */
+}
+
+.dark {
+	background-color: #2e2b52;
+}
+
+nav {
+    background-color: rgb(148, 126, 194);
+    /* height: 60px; */
+}
+
+main .coverImage {
+    position: absolute;
+    width: 100%;
+    height: 15rem;
+    z-index: -1;
+}
+
+main .coverImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+    position: relative;
+    height: calc(100% - 5rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .maincontent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 18rem 1fr;
+    gap: 2rem;
+    margin-top: 7rem;
+    padding: 2rem 12%;
+}
+
+main .maincontent .innercontainer{
+    height: 100%;
+    width: 100%;
+    /* max-width: calc(100vh - 2rem); */
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-rows: 14rem 1fr;
+    gap: 2rem;
+}
+
+main .maincontent article {
+    display: flex;
+    width: 100%;
+    gap: max(15%, 2rem);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 1rem 5rem;
+}
+
+.dark main .maincontent article {
+    background-color: #403c69;
+    color: #fff;
+}
+
+main .maincontent article .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* padding: 20px 2rem; */
+}
+
+main .maincontent article .profile .profile-pic {
+    width: 150px;
+    aspect-ratio: 1/1;
+    border: 2px solid rgb(242, 235, 255);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.dark main .maincontent article .profile .profile-pic {
+    border-color: rgb(109 82 158);
+}
+
+main .maincontent article .profile .profile-pic img {
+    width: 100%;
+    height: 100%;
+}
+
+main .maincontent article .profile .profile-username {
+    text-align: center;
+}
+
+main .maincontent article .profile .profile-username p {
+    font-size: large;
+    color: rgb(107, 80, 158);
+}
+
+.dark main .maincontent article .profile .profile-username p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+main .maincontent article .right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+main .maincontent article .right .btns {
+    display: flex;
+    gap: 1rem;
+}
+
+main .maincontent article .right .btns button, main .maincontent article .right .btns a {
+    flex-grow: 1;
+    max-width: 12rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(109 82 158);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+}
+
+.dark main .maincontent article .right .btns button, .dark main .maincontent article .right .btns a {
+    background-color: #fff;
+    color: #2e2b52;
+}
+
+main .maincontent article .right .btns button:hover,
+main .maincontent article .right .btns a:hover {
+    background-color: rgb(148, 126, 194);
+}
+
+.dark main .maincontent article .right .btns button:hover,
+.dark main .maincontent article .right .btns a:hover {
+    background-color: rgb(202, 184, 238);
+}
+
+main .maincontent article .profile-details {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 20px;
+}
+
+main .maincontent article .profile-details .data {
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 0.8rem;
+}
+
+main .maincontent article .profile-details label {
+    font-weight: bold;
+    color: rgb(91, 67, 136);
+}
+
+.dark main .maincontent article .profile-details label {
+    color: #fff;
+}
+
+main .maincontent article .profile-details p {
+    color: rgb(148, 126, 194);
+}
+
+.dark main .maincontent article .profile-details p {
+    color: rgb(202, 184, 238);
+}
+
+main .maincontent section {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+main .maincontent section .top {
+    background-color: #fff;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark main .maincontent section .top {
+    background-color: #403c69;
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+
+main .maincontent section .top a {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px 0;
+    text-decoration: none;
+    color: rgb(148, 126, 194);
+}
+
+.dark main .maincontent section .top a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: background-color 0.1s ease-in-out;
+}
+
+main .maincontent section .top .active {
+    color: rgb(109 82 158);
+    border-bottom: 2px solid rgb(109 82 158);
+}
+
+main .maincontent section .top #questions {
+    display: none;
+}
+
+.dark main .maincontent section .top .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+main .maincontent section .top a:hover {
+    background-color: rgb(246, 241, 255);
+}
+
+.dark main .maincontent section .top a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .maincontent section .bottom {
+    height: calc(100% - 4rem);
+    width: 100%;
+    overflow: auto;
+    background-color: white;
+}
+
+.dark main .maincontent section .bottom {
+    background-color: #403c69;
+}
+
+main .maincontent section .bottom .content {
+    display: flex;
+    gap: 2rem;
+    height: calc(100% - 25%);
+}
+
+main .maincontent section .bottom .content .center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+main .maincontent section .bottom .content .center p {
+    color: rgb(148, 126, 194);
+}
+
+.dark main .maincontent section .bottom .content .center p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+main .maincontent section .bottom .courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+    justify-content: space-around;
+}
+
+main .maincontent section .bottom .courses .course {
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.dark main .maincontent section .bottom .courses .course {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+main .maincontent section .bottom .courses .course:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark main .maincontent section .bottom .courses .course:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .maincontent section .bottom .courses .course a {
+    text-decoration: none;
+    color: rgb(109 82 158);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    aspect-ratio: 3/2;
+    gap: 1rem;
+}
+
+.dark main .maincontent section .bottom .courses .course a {
+    color: #fff;
+}
+
+main .maincontent section .bottom .courses .course a .icon {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
+main .maincontent section .bottom .courses .course a .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .maincontent section .bottom .courses .course button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
+.dark main .maincontent section .bottom .courses .course button {
+    border-top-color: rgba(255, 255, 255, 0.3);
+    color: rgb(255, 83, 83);
+}
+
+main .maincontent section .bottom .courses .course button:hover {
+    background-color: rgba(255, 0, 0, 1);
+    color: white;
+}
+
+main .maincontent section .bottom .articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+main .maincontent section .bottom .articles .article {
+    display: flex;
+    width: 100%;
+    height: 6.5rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dark main .maincontent section .bottom .articles .article {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+main .maincontent section .bottom .articles .article:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark main .maincontent section .bottom .articles .article:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .maincontent section .bottom .articles .article a {
+    display: flex;
+    width: calc(100% - 4rem);
+    gap: 1rem;
+    text-decoration: none;
+    color: rgb(109 82 158);
+}
+
+.dark main .maincontent section .bottom .articles .article a {
+    color: #fff;
+}
+
+main .maincontent section .bottom .articles .article a .image  {
+    height: 100%;
+    border: 1px solid rgb(242, 235, 255);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dark main .maincontent section .bottom .articles .article a .image {
+    border-color: rgb(109 82 158);
+}
+
+main .maincontent section .bottom .articles .article a .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .maincontent section .bottom .articles .article a .details {
+    display: flex;
+    width: calc(100% - 6rem);
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+main .maincontent section .bottom .articles .article a .details h3 {
+    font-size: large;
+    color: rgb(107, 80, 158);
+}
+
+.dark main .maincontent section .bottom .articles .article a .details h3 {
+    color: rgb(202, 184, 238);
+}
+
+main .maincontent section .bottom .articles .article a .details p {
+    color: rgb(148, 126, 194);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dark main .maincontent section .bottom .articles .article a .details p {
+    color: rgb(156, 133, 204);
+}
+
+main .maincontent section .bottom .articles .article .btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+main .maincontent section .bottom .articles .article .btns button {
+    width: 100%;
+    height: max-content;
+    padding: 5px 0.8rem;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+main .maincontent section .bottom .articles .article .btns .remove {
+    color: red;
+}
+
+main .maincontent section .bottom .articles .article .btns .edit {
+    transform: rotateY(180deg);
+    color: #222;
+}
+
+.dark main .maincontent section .bottom .articles .article .btns .remove {
+    color: rgb(255, 62, 62);
+}
+
+.dark main .maincontent section .bottom .articles .article .btns .edit {
+    color: #eee;
+}
+
+main .maincontent section .bottom .articles .article .btns .edit:hover {
+    color: white;
+    background-color: #555;
+}
+
+main .maincontent section .bottom .articles .article .btns .remove:hover {
+    color: white;
+    background-color: rgb(255, 0, 0);
+}
+
+.dark main .maincontent section .bottom .articles .article .btns .edit:hover {
+    color: #222;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#adminroutes {
+    display: none;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Hoisting in JavaScript</title>
+</head>
+<body>
+    <h1>Hoisting in JavaScript</h1>
+
+    <p>Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase. Understanding hoisting is essential for avoiding unexpected behavior in your code.</p>
+
+    <h2>Variable Hoisting</h2>
+
+    <p>When a variable is declared using <span>var</span>, the declaration is hoisted to the top of its scope. However, only the declaration is hoisted, not the initialization.</p>
+
+    <div class="code"><pre>
+console.log(x); // Outputs: undefined
+var x = 5;
+</pre></div>
+
+    <p>The above code is equivalent to:</p>
+
+    <div class="code"><pre>
+var x;
+console.log(x); // Outputs: undefined
+x = 5;
+</pre></div>
+
+    <h2>Function Hoisting</h2>
+
+    <p>Function declarations are also hoisted to the top of their scope. This means you can call a function before it's declared in the code.</p>
+
+    <div class="code"><pre>
+sayHello(); // Outputs: "Hello, World!"
+
+function sayHello() {
+    console.log("Hello, World!");
+}
+</pre></div>
+
+    <p>Function expressions, however, are not hoisted in the same way. Only the variable declaration is hoisted, not the function itself.</p>
+
+    <div class="code"><pre>
+sayHi(); // Throws an error
+
+var sayHi = function() {
+    console.log("Hi!");
+};
+</pre></div>
+
+    <h2>Let and Const Declarations</h2>
+
+    <p>Variables declared with <span>let</span> and <span>const</span> are hoisted to the top of their block scope, but they are not initialized. This is known as the "temporal dead zone."</p>
+
+    <div class="code"><pre>
+console.log(y); // Throws an error
+let y = 10;
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding hoisting is crucial for writing predictable and error-free JavaScript code. Whether you're working with variables or functions, being aware of how hoisting behaves will help you structure your code in a way that avoids potential issues.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

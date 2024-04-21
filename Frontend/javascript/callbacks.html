@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Callbacks in JavaScript</title>
+</head>
+<body>
+    <h1>Callbacks in JavaScript</h1>
+
+    <p>A callback function is a function passed as an argument to another function, which is then invoked inside the outer function. Callbacks are commonly used in asynchronous programming to handle tasks that depend on the completion of other operations, such as fetching data from an API or responding to user interactions.</p>
+
+    <h2>1. Synchronous Callbacks</h2>
+
+    <p>In synchronous callbacks, the callback function is executed immediately after being passed as an argument to the outer function. This type of callback is commonly used for tasks that do not involve asynchronous operations and need to be executed sequentially.</p>
+
+    <h2>2. Asynchronous Callbacks</h2>
+
+    <p>In asynchronous callbacks, the callback function is invoked at a later time, typically after the completion of an asynchronous operation such as fetching data from a server or reading a file. Asynchronous callbacks are essential for handling tasks that involve waiting for I/O operations or network requests.</p>
+
+    <h2>3. Error-First Callbacks</h2>
+
+    <p>Error-first callbacks are a convention in JavaScript where the first parameter of the callback function is reserved for an error object. If an error occurs during the execution of the asynchronous operation, the error object is passed to the callback. Otherwise, the first parameter is null or undefined.</p>
+
+    <h2>Examples:</h2>
+
+    <div class="code"><pre>
+// Example of a synchronous callback
+function greet(name, callback) {
+    console.log('Hello, ' + name + '!');
+    callback();
+}
+
+function sayGoodbye() {
+    console.log('Goodbye!');
+}
+
+greet('John', sayGoodbye);
+
+// Example of an asynchronous callback
+function fetchData(url, callback) {
+    // Simulate asynchronous operation
+    setTimeout(() => {
+        callback('Data fetched successfully');
+    }, 2000);
+}
+
+fetchData('https://api.example.com/data', (data) => {
+    console.log(data);
+});
+
+// Example of error-first callback
+function readFile(path, callback) {
+    if (path === '') {
+        callback(new Error('Invalid file path'));
+    } else {
+        // Simulate reading file
+        setTimeout(() => {
+            callback(null, 'File contents');
+        }, 1000);
+    }
+}
+
+readFile('', (err, data) => {
+    if (err) {
+        console.error('Error:', err.message);
+    } else {
+        console.log('File contents:', data);
+    }
+});
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Callbacks are a fundamental concept in JavaScript for handling asynchronous operations and enabling non-blocking I/O. By understanding how to use synchronous and asynchronous callbacks effectively, developers can create responsive and efficient web applications that meet user expectations.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

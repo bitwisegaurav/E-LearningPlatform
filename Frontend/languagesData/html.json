@@ -1,0 +1,63 @@
+{
+    "name": "Html",
+    "folder": "html",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction",
+            "file": "introduction"
+        },
+        {
+            "name": "Document Structure",
+            "file": "document_structure"
+        },
+        {
+            "name": "Elements and Tags",
+            "file": "elements_and_tags"
+        },
+        {
+            "name": "Links and Navigation",
+            "file": "links_&_navigation"
+        },
+        {
+            "name": "Lists",
+            "file": "lists"
+        },
+        {
+            "name": "Tables",
+            "file": "tables"
+        },
+        {
+            "name": "Forms",
+            "file": "forms"
+        },
+        {
+            "name": "Frames",
+            "file": "frames"
+        },
+        {
+            "name": "MultiMedia in Html",
+            "file": "multimedia"
+        },
+        {
+            "name": "Semantic Tags",
+            "file": "semantic"
+        },
+        {
+            "name": "Meta Tags",
+            "file": "metatags"
+        },
+        {
+            "name": "Html5 Features",
+            "file": "html5"
+        },
+        {
+            "name": "Best Practices",
+            "file": "bestPractices"
+        },
+        {
+            "name": "SEO Best Practices",
+            "file": "seo"
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Forms in PHP</title>
+</head>
+
+<body>
+    <h1>Forms in PHP</h1>
+
+    <h2>Form Controls</h2>
+    <p>
+        Forms in PHP allow users to submit data to a web server for processing. Common form controls include text
+        fields, checkboxes, radio buttons, and buttons.
+    </p>
+    <div class="code">
+        <pre>
+&lt;form action="process.php" method="post">
+    &lt;label for="name">Name:&lt;/label>
+    &lt;input type="text" id="name" name="name">
+    
+    &lt;label for="email">Email:&lt;/label>
+    &lt;input type="email" id="email" name="email">
+    
+    &lt;input type="submit" value="Submit">
+&lt;/form></pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/form-controls.png" alt="">
+    </div>
+
+    <h2>Super Global Variables and Arrays</h2>
+    <p>
+        PHP uses super global arrays to access form data and other server variables. Common super global arrays include:
+    </p>
+    <ul>
+        <li><strong>$_GET:</strong> Contains data sent via HTTP GET method.
+            <div class="code">
+                <pre>
+// URL: example.com/index.php?name=John
+$name = $_GET["name"]; // "John"</pre>
+            </div>
+        </li>
+
+        <li><strong>$_POST:</strong> Contains data sent via HTTP POST method.
+            <div class="code">
+                <pre>
+// Form: &lt;input type="text" name="name">
+$name = $_POST["name"]; // User input</pre>
+            </div>
+        </li>
+
+        <li><strong>$_REQUEST:</strong> Contains data from both GET and POST methods.
+            <div class="code">
+                <pre>
+$name = $_REQUEST["name"]; // User input from GET or POST</pre>
+            </div>
+        </li>
+    </ul>
+    <p>
+        You can use array functions like <span>isset()</span> and <span>empty()</span> to check if elements exist in
+        these arrays.
+    </p>
+    <div class="code">
+        <pre>
+if (isset($_POST["name"])) {
+    $name = $_POST["name"];
+    // Process the input
+}</pre>
+    </div>
+    </ul>
+
+    <h2>Importing and Accessing User Input</h2>
+    <p>
+        Importing and accessing user input from forms is a crucial part of web development. However, it's essential to
+        validate and sanitize data to ensure security and data integrity.
+    </p>
+    <p>
+        Here are steps to import and access user input safely:
+    </p>
+    <ol>
+        <li><strong>Check if the input exists:</strong> Before using user input, check if it exists in the super global
+            arrays to prevent undefined variable errors.
+        </li>
+        <li><strong>Sanitize and validate:</strong> Sanitize user input to remove potentially harmful characters, and
+            validate it to ensure it meets expected criteria (e.g., email format, numeric values).
+        </li>
+    </ol>
+    <div class="code">
+        <pre>
+if (isset($_POST["name"]) && isset($_POST["email"])) {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    
+    // Sanitize and validate email
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Process the validated input
+    } else {
+        // Handle invalid email
+    }
+} else {
+    // Handle missing input
+}</pre>
+    </div>
+    <p>
+        Implementing these checks ensures that your PHP scripts handle user input securely and reliably.
+    </p>
+
+
+    <h2>Conclusion</h2>
+    <p>
+        Forms are essential for user interaction on websites. PHP provides super global variables and arrays to easily
+        handle and process user input. Understanding form controls and how to work with form data is crucial for
+        building interactive web applications.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+
+</html>

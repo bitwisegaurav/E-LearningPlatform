@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>PHP Basics</title>
+</head>
+<body>
+    <h1>PHP Basics</h1>
+
+    <h2>Tokens</h2>
+    <p>
+        PHP code consists of various tokens, including keywords, identifiers, constants, strings, and operators. These tokens are the building blocks of PHP scripts.
+    </p>
+
+    <h2>Variables</h2>
+    <p>
+        Variables in PHP are used to store data. They start with a dollar sign (<span>$</span>) followed by an identifier. PHP variables are case-sensitive.
+    </p>
+    <div class="code">
+        <pre>
+$variable_name = "Hello, PHP!";</pre>
+    </div>
+
+    <h2>Scope of Variables</h2>
+    <p>
+        PHP variables have different scopes:
+    </p>
+    <ul>
+        <li><span>Local scope:</span> Variables declared within a function.</li>
+        <li><span>Global scope:</span> Variables declared outside functions.</li>
+        <li><span>Static scope:</span> Variables within a function that retain their values between function calls.</li>
+    </ul>
+
+    <h2>Constants</h2>
+    <p>
+        Constants are used to store values that cannot be changed. They are defined using the <span>define()</span> function.
+    </p>
+    <div class="code">
+        <pre>
+define("PI", 3.14159);</pre>
+    </div>
+
+    <h2>Operators</h2>
+    <p>
+        PHP supports various operators, including arithmetic, assignment, comparison, logical, and more.
+    </p>
+    <div class="code">
+        <pre>
+$x = 10;
+$y = 5;
+$sum = $x + $y; // Addition operator</pre>
+    </div>
+
+    <h2>Data Types</h2>
+    <p>
+        In PHP, data types specify the type of data that can be stored in a variable. PHP supports several data types, each designed for handling specific types of information. Here are some of the most common data types in PHP:
+    </p>
+
+    <ul>
+        <li><strong>Integer:</strong> Integer data type represents whole numbers. Example:
+            <div class="code">
+                <pre>$age = 30;</pre>
+            </div>
+        </li>
+
+        <li><strong>Float:</strong> Float data type, also known as floating-point or double, represents numbers with decimal points. Example:
+            <div class="code">
+                <pre>$price = 19.99;</pre>
+            </div>
+        </li>
+
+        <li><strong>String:</strong> String data type represents sequences of characters, such as text. Example:
+            <div class="code">
+                <pre>$name = "John";</pre>
+            </div>
+        </li>
+
+        <li><strong>Array:</strong> Array data type is used to store collections of values, such as lists or associative arrays. Example:
+            <div class="code">
+                <pre>$fruits = array("apple", "banana", "cherry");</pre>
+            </div>
+        </li>
+
+        <li><strong>Object:</strong> Object data type is used to create custom data structures and classes. Example:
+            <div class="code">
+                <pre>
+class Person {
+    public $name;
+    public $age;
+}
+
+$person = new Person();
+$person->name = "Alice";
+$person->age = 25;</pre>
+            </div>
+        </li>
+
+        <li><strong>Boolean:</strong> Boolean data type represents true or false values. Example:
+            <div class="code">
+                <pre>$flag = true;</pre>
+            </div>
+        </li>
+    </ul>
+
+    <p>
+        Understanding and correctly using data types in PHP is essential for effective programming and data manipulation in your web applications.
+    </p>
+
+    <h2>Number Handling</h2>
+    <p>
+        PHP provides functions for number handling, such as <span>intval()</span> and <span>floatval()</span> for converting between data types.
+    </p>
+    <div class="code">
+        <pre>
+$number = "123";
+$int_number = intval($number); // Convert to integer</pre>
+    </div>
+
+    <h2>Comments</h2>
+    <p>
+        Comments in PHP can be used to explain code and are not executed. Single-line comments start with <span>//</span>, and multi-line comments are enclosed in <span>/* */</span>.
+    </p>
+    <div class="code">
+        <pre>
+// This is a single-line comment
+
+/*
+    This is a multi-line comment
+    It can span multiple lines
+*/</pre>
+    </div>
+
+    <h2>Echo and Print Statements</h2>
+    <p>
+        PHP uses <span>echo</span> and <span>print</span> statements to output data to the browser.
+    </p>
+    <div class="code">
+        <pre>
+$name = "Duniya";
+echo "Namaste " . $name;</pre>
+    </div>
+
+    <p>Output :</p>
+    
+    <div class="output">
+        <img src="../examples/php/basics-echo.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        This webpage has provided an overview of essential PHP basics, including tokens, variables, scope of variables, constants, operators, data types, number handling, comments, and the use of echo and print statements. Understanding these fundamental concepts is crucial for building dynamic and interactive web applications with PHP. As you continue your PHP journey, you'll explore more advanced topics and gain proficiency in web development.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

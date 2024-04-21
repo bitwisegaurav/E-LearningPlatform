@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Recursion and Recurrence Relations</h1>
+
+    <h2>Sequence</h2>
+    <p>A sequence is a set of numbers that are related to each other by a rule.</p>
+    <p>For example 1, 2, 3, 4, ... etc. Here a<sub>n</sub> = n.</p>
+
+    <h2>Recursion</h2>
+    <p>Recursion is a method where the solution to a problem depends on solutions to smaller instances of the same
+        problem.</p>
+    <p class="text-center">or</p>
+    <p>A technique of defining a function, a set or an algorithm in terms of itself is a recursion.</p>
+    <p>For example 0, 1, 1, 2, 3, 5, 8, ... etc. Here a<sub>n+1</sub> = a<sub>n</sub> + 1.</p>
+
+    <h2>Recurrence Relation</h2>
+    <p>A recurrence relation is an equation that recursively defines a sequence where the next term is a function of the previous terms.</p>
+    <p class="text-center">or</p>
+    <p>A relation which is recursive in nature is known as recurrence relation.</p>
+    <p class="note note-normal">A recurrence relation is also called a <span>difference equation</span>.</p>
+
+    <h2>Important Terms</h2>
+    <ul>
+        <li><span>Base Case : </span> The first term of a sequence.</li>
+        <li><span>Boundary Conditions : </span>Given values of functions.</li>
+        <li><span>Induction Step : </span>The step by which a sequence is built.</li>
+        <li><span>Order : </span> The order of a recurrence relation is the difference between highest and lowest
+            subscript.</li>
+        <li><span>Characteristic Equation : </span>It is an equation whose roots are the values of n for which the
+            recurrence relation holds.
+            <p>For example: a<sub>n</sub> = 2a<sub>n-1</sub> + 1, the characteristic equation is r<sup>2</sup> - 2r - 1
+                = 0.</p>
+        </li>
+        <li><span>General Solution : </span>A general solution of a recurrence relation is a sequence of numbers such
+            that the recurrence relation holds for all the terms of the sequence and the values of the constants in the
+            recurrence relation are known. For example: a<sub>n</sub> = 2a<sub>n-1</sub> + 1, the general solution is 1,
+            2, 4, 8, 1
+            <p>The general solution is also called the <span>general term</span>.</p>
+        </li>
+        <!-- linear, homogeneous realtions, particular, total solution -->
+        <li><span>Particular Solution : </span>A particular solution of a recurrence relation is a solution that
+            satisfies the recurrence relation and the initial conditions. It is obtained by solving the recurrence
+            relation with the given initial conditions.</li>
+        <li><span>Total Solution : </span>The total solution of a recurrence relation is the sum of the general solution
+            of the homogeneous equation and a particular solution of the non-homogeneous equation.</li>
+        <li><span>Linear Recurrence Relation : </span> A linear recurrence relation is a recurrence relation in which
+            every term of the sequence is a linear function of its previous terms.</li>
+        <li><span>Homogeneous Recurrence Relation : </span> A homogeneous recurrence relation is a type of recurrence
+            relation where each term is a constant multiple of its preceding term.
+            <p class="text-center">or</p>
+            If the right-hand side of the recurrence relation is zero, it is called a homogeneous recurrence relation.
+        </li>
+    </ul>
+
+    <h2>Types of Recurrence Relations</h2>
+
+    <ul>
+        <li>
+            <h3>First Order Recurrence Relation</h3>
+            <p>A linear recurrence relation of the first order with constant coefficients is defined as:</p>
+            <div class="code">
+                <pre>a<sub>n</sub> = ca<sub>n-1</sub> + f(n)</pre>
+            </div>
+            <p>where 'a' is the sequence, 'c' is a constant, and f(n) is a known function. This relation holds for n
+                greater than or equal to 1. If f(n) is equal to zero, the relation is considered homogeneous; otherwise,
+                it is non-homogeneous. For example: x<sub>n</sub> = 2x<sub>n-1</sub> - 1, a<sub>n</sub> =
+                na<sub>n-1</sub> + 1, etc.
+            </p>
+        </li>
+        <li>
+            <h3>Second Order Linear Homogeneous Recurrence Relation</h3>
+            <p>A second order linear homogeneous recurrence relation with constant coefficients is defined as:</p>
+            <div class="code">
+                <pre>c<sub>n</sub>a<sub>n</sub> + c<sub>n-1</sub>a<sub>n-1</sub> + c<sub>n-2</sub>a<sub>n-2</sub> = 0</pre>
+            </div>
+            <p>This relation holds for n greater than or equal to 2, where c<sub>n</sub>, c<sub>n-1</sub>, and
+                c<sub>n-2</sub> are real constants with c<sub>n</sub> not equal to zero.</p>
+        </li>
+    </ul>
+
+    <h2>Solving Homogeneous Recurrence Relations</h2>
+
+    <p>There are different methods to solve recurrence relations, including generating functions.</p>
+    <div class="code">
+        <pre>S<sub>k</sub> + C<sub>1</sub>S<sub>k-1</sub> + C<sub>2</sub>S<sub>k-2</sub> + ... + C<sub>n</sub>S<sub>k-n</sub> = 0</pre>
+    </div>
+
+    <h3>Steps to Solve it</h3>
+    <ol>
+        <li>Write down the characterstic equation.
+            <div class="code">
+                <pre>a<sup>n</sup> + C<sub>1</sub>a<sup>n-1</sup> + C<sub>2</sub>a<sup>n-2</sup> + ... + C<sub>n-1</sub>a<sup>1</sup> + C<sub>n</sub> = 0</pre>
+            </div>
+        </li>
+        <li>Solve equation and find its roots. Like a<sub>1</sub>,a<sub>2</sub>, ..., a<sub>n</sub>.</li>
+        <li>Solve the equation. The solutions depend on the roots of the characteristic equation associated with the
+            relation.</li>
+    </ol>
+    <h5>Cases</h5>
+    <ol>
+        <li>If the roots are real and distinct, we take the general solution.
+            <div class="code">
+                <pre>S<sub>k</sub> = b<sub>1</sub>a<sub>1</sub><sup>k</sup> + b<sub>2</sub>a<sub>2</sub><sup>k</sup> + b<sub>3</sub>a<sub>3</sub><sup>k</sup> + ... + b<sub>n</sub>a<sub>n</sub><sup>k</sup></pre>
+            </div>
+        </li>
+        <li>If the roots are real and equal, we take the general solution if a<sub>1</sub> = a<sub>2</sub> then.
+            <div class="code">
+                <pre>S<sub>k</sub> = (b<sub>1</sub> + b<sub>2</sub>)a<sub>1</sub><sup>k</sup> + b<sub>3</sub>a<sub>3</sub><sup>k</sup> + ... + b<sub>n</sub>a<sub>n</sub><sup>k</sup></pre>
+            </div>
+        </li>
+        <li>If the roots are complex, we take a<sub>n</sub> = r<sup>n</sup>(Acos(nθ) + Bsin(nθ)) as the general
+            solution.
+        </li>
+    </ol>
+
+    <h2>Solution of Non-Homogeneous Finite Order Linear Recurrence Relation</h2>
+
+    <p>A non-homogeneous finite order linear recurrence relation with constant coefficients is defined as:</p>
+    <div class="code">
+        <pre>a<sub>n</sub> = a<sub>n-1</sub> + b<sub>n</sub>f(n)</pre>
+    </div>
+    <p>where 'a' is the sequence, 'b' is a constant, and f(n) is a known function. This relation holds for n greater
+        than or equal to 1. If f(n) is equal to zero, the relation is considered homogeneous; otherwise, it is
+        non-homogeneous. For example: x<sub>n</sub> = 2x<sub>n-1</sub> - 1, a<sub>n</sub> = na<sub>n-1</sub> + 1, etc.
+    </p>
+
+    <h2>Generating Functions</h2>
+    <p>A generating function is a function that generates a sequence of numbers. It is defined as:</p>
+    <div class="code">
+        <pre>a<sub>0</sub> + a<sub>1</sub>x + a<sub>2</sub>x<sup>2</sup> +... + a<sub>n</sub>x<sup>n</sup> = 0</pre>
+        <p class="text-center">or</p>
+        <pre>G(a,x) = &Sigma;<sup>&infin;</sup><sub>n=0</sub> a<sub>n</sub>x<sup>n</sup></pre>
+    </div>
+
+
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

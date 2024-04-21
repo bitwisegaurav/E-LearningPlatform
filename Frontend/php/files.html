@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../common_files/inner.css" />
+    <link rel="stylesheet" href="../common_files/php.css" />
+    <title>Working with File System in PHP</title>
+</head>
+
+<body>
+    <h1>Working with File System in PHP</h1>
+
+    <h2>File Permissions</h2>
+    <p>
+        File permissions in PHP are essential for controlling who can access and
+        manipulate files. Permissions include read, write, and execute permissions
+        for the owner, group, and others.
+    </p>
+    <div class="code">
+        <pre>
+// Example: Setting file permissions
+chmod("file.txt", 0644);</pre>
+    </div>
+
+    <h2>File Operations</h2>
+    <p>
+        PHP provides various functions for working with files, including opening,
+        reading, writing, copying, renaming, deleting, and closing files.
+    </p>
+    <ul>
+        <li>
+            <span>Opening and Reading a File : </span>
+
+            To open and read a file in PHP, you can use the
+            <span>fopen()</span> function to open the file and
+            <span>fread()</span> function to read its contents. Here's an example:
+            <div class="code">
+                <pre>
+$file = fopen("example.txt", "r");
+$content = fread($file, filesize("example.txt"));
+echo $content;
+fclose($file);</pre>
+                </div>
+                <p>Output :</p>
+                <div class="output">
+                    <img src="../examples/php/fileRead.png" alt="">
+                </div>
+            </li>
+
+        <li>
+            <span>Writing to a File : </span>
+
+            To write data to a file in PHP, you can use the
+            <span>fopen()</span> function with the "w" mode to open the file for
+            writing and the <span>fwrite()</span> function to write data. Here's an
+            example:
+            <div class="code">
+                <pre>
+$file = fopen("output.txt", "w");
+fwrite($file, "Hello, PHP!");
+fclose($file);</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/fileWritten.png" alt="">
+            </div>
+            <p>data in the file :</p>    
+            <div class="output">
+                <img src="../examples/php/fileWrittenData.png" alt="">
+            </div>
+        </li>
+
+        <li>
+            <span>Copying Files : </span>
+
+            You can copy files in PHP using the <span>copy()</span> function. It
+            takes the source file path and the destination file path as arguments.
+            Here's an example:
+            <div class="code">
+                <pre>copy("source.txt", "destination.txt");</pre>
+            </div>
+            <p>Data in the file :</p>
+            <div class="output">
+                <img src="../examples/php/fileCopy.png" alt="">
+            </div>
+        </li>
+
+        <li>
+            <span>Renaming Files : </span>
+            To rename a file in PHP, you can use the <span>rename()</span> function.
+            It takes the current file name and the new file name as arguments.
+            Here's an example:
+            <div class="code">
+                <pre>rename("old_file.txt", "new_file.txt");</pre>
+            </div>
+        </li>
+
+        <li>
+            <span>Deleting a File : </span>
+
+            To delete a file in PHP, you can use the <span>unlink()</span> function.
+            It takes the file path as an argument. Here's an example:
+            <div class="code">
+                <pre>
+if(unlink("file_to_delete.txt")){
+    echo "File deleted successfully";
+}</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/fileDelete.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>File System Functions</h2>
+    <p>
+        PHP offers a range of file system functions to interact with files and
+        directories, including <span>file_exists()</span>, <span>is_file()</span>,
+        <span>is_dir()</span>, and more.
+    </p>
+    <div class="code">
+        <pre>
+// Example: Checking if a file exists
+if (file_exists("file.txt")) {
+    echo "File exists.";
+}</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/fileExists.png" alt="">
+    </div>
+
+    <h2>Working with Directories</h2>
+    <p>
+        PHP allows you to work with directories, create new directories, list
+        directory contents, and navigate through the file system.
+    </p>
+    <div class="code">
+        <pre>
+// Example: Creating a directory
+mkdir("new_directory");
+
+// Example: Listing directory contents
+$files = scandir("directory_path");
+foreach ($files as $file) {
+    echo $file . "&lt;br&gt;";
+}</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/fileDirCreated.png" alt="">
+    </div>
+    <p>files in the directory :</p>
+    <div class="output"><img src="../examples/php/fileDirData.png" alt=""></div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Working with the file system is an essential part of many PHP
+        applications. Understanding file permissions, file operations, file system
+        functions, and directory manipulation is crucial for building robust and
+        functional file-based applications.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

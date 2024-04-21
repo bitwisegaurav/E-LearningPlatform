@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Some Important Objects</title>
+</head>
+<body>
+    <h1>Some Important Objects</h1>
+
+    <p>JavaScript leverages built-in objects to encapsulate functionalities related to mathematical operations, date handling, and numerical values. Let's explore some of these objects and their methods : </p>
+
+    <h2>Number Object</h2>
+
+    <p>The <span>Number</span> object provides methods for numerical operations and conversions:</p>
+
+    <div class="code"><pre>
+const numberOperations = {
+    parseStringToNumber: (stringValue) => Number(stringValue),
+    formatWithDecimals: (number, decimalPlaces) => number.toFixed(decimalPlaces),
+    checkInteger: (value) => Number.isInteger(value)
+};
+
+let parsedNumber = numberOperations.parseStringToNumber("42");
+let fixedDecimal = numberOperations.formatWithDecimals(parsedNumber, 2);
+let isInteger = numberOperations.checkInteger(7.5);
+</pre></div>
+
+    <h2>Math Object</h2>
+
+    <p>The <span>Math</span> object encapsulates mathematical constants and functions:</p>
+
+    <div class="code"><pre>
+const mathOperations = {
+    generateRandomNumber: () => Math.random(),
+    raiseToPower: (base, exponent) => Math.pow(base, exponent),
+    roundNumber: (number) => Math.round(number)
+};
+
+let randomNumber = mathOperations.generateRandomNumber();
+let squaredNumber = mathOperations.raiseToPower(4, 2);
+let roundedNumber = mathOperations.roundNumber(5.67);
+</pre></div>
+
+    <h2>Math Constants</h2>
+
+    <p>The <span>Math</span> object includes constants for common mathematical calculations:</p>
+
+    <div class="code"><pre>
+const mathConstants = {
+    calculateCircumference: (radius) => 2 * Math.PI * radius,
+    calculateExponentialValue: (exponent) => Math.exp(exponent)
+};
+
+let circumference = mathConstants.calculateCircumference(5);
+let exponentialValue = mathConstants.calculateExponentialValue(2);
+</pre></div>
+
+<h2>Date Object</h2>
+
+<p>The <span>Date</span> object facilitates date and time manipulation:</p>
+
+<div class="code"><pre>
+const dateOperations = {
+getCurrentDate: () => new Date(),
+createDate: (dateString) => new Date(dateString),
+getCurrentHour: (date) => date.getHours(),
+getDayOfWeek: (date) => date.getDay()
+};
+
+let currentDate = dateOperations.getCurrentDate();
+let specificDate = dateOperations.createDate("2024-03-02");
+let hours = dateOperations.getCurrentHour(currentDate);
+let dayOfWeek = dateOperations.getDayOfWeek(currentDate);
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Encapsulating functionalities within objects like <span>Math</span>, <span>Date</span>, and <span>Number</span> promotes cleaner code organization and improves readability. These objects play a crucial role in various web development scenarios, offering powerful tools for mathematical operations, date manipulation, and numerical value handling.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

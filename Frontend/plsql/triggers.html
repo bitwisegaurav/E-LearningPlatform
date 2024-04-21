@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        pre{
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Triggers</h1>
+    <p>A trigger is a special kind of stored procedure in PL/SQL that is automatically executed in response to certain events or changes in the database. Triggers can be used to enforce complex business rules, maintain referential integrity, or perform auditing and logging of database activities.</p>
+
+    <h3>Types of Triggers :</h3> 
+    <p> There are two types of triggers in PL/SQL :</p>
+    <ul>
+        <li><span>Row-level triggers:</span> These triggers fire once for each row affected by a DML statement (INSERT, UPDATE, or DELETE). They are used to enforce complex business rules that depend on the values of individual columns in the affected rows.</li>
+        <li><span>Statement-level triggers:</span> These triggers fire once for each DML statement, regardless of the number of rows affected. They are used to perform auditing and logging of database activities.</li>
+    </ul>
+
+    <h3>Syntax :</h3> 
+    <p>The basic syntax of a trigger in PL/SQL is as follows :</p>
+    <div class="code">CREATE [ OR REPLACE ] TRIGGER trigger_name { BEFORE | AFTER } [ INSERT | UPDATE | DELETE ] [ OF column_name ] ON table_name [ REFERENCING OLD AS old NEW AS new ] [ FOR EACH ROW ] [ WHEN (condition) ]
+    </div>
+	<h3>Example:</h3>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/triggers/triggers.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Final Keyword</title>
+</head>
+<body>
+    <h1>Final Keyword</h1>
+    <p>
+        In Java, the "<span>final</span>" keyword is used to indicate that an element (variable, method, or class) is unchangeable or cannot be overridden or extended. Once marked as "final," the element's value or behavior cannot be modified or extended by subclasses.
+    </p>
+
+    <h2>Using final with Variables</h2>
+    <p>
+        When applied to a variable, the "<span>final</span>" keyword makes it a constant or read-only variable. Once assigned a value, a final variable cannot be reassigned.
+    </p>
+    <div class="code">
+        <pre>
+class Constants {
+    final int MY_CONSTANT = 42;
+}</pre>
+    </div>
+
+    <h2>Using final with Methods</h2>
+    <p>
+        When applied to a method, the "<span>final</span>" keyword prevents the method from being overridden by subclasses. It ensures that the method's behavior remains constant.
+    </p>
+    <div class="code">
+        <pre>
+class Base {
+    final void myMethod() {
+        System.out.println("This method cannot be overridden.");
+    }
+}
+class Derived extends Base {
+    // Error: Cannot override the final method myMethod()
+    void myMethod() {
+        System.out.println("This won't compile.");
+    }
+}</pre>
+    </div>
+
+    <h2>Using final with Classes</h2>
+    <p>
+        When applied to a class, the "<span>final</span>" keyword indicates that the class cannot be extended or subclassed. It is used to prevent further inheritance.
+    </p>
+    <div class="code">
+        <pre>
+final class FinalClass {
+    // Class content
+}
+// Error: Cannot inherit from final class FinalClass
+class SubClass extends FinalClass {
+    // This won't compile.
+}</pre>
+    </div>
+
+    <h2>Using final with Constructors</h2>
+    <p>
+        While you cannot declare a constructor as "<span>final</span>" directly, making a class "<span>final</span>" indirectly makes its constructors "<span>final</span>". This means that you cannot extend a final class, and therefore, you cannot create new subclasses with different constructors.
+    </p>
+    <div class="code">
+        <pre>
+final class ImmutableClass {
+    private final int value;
+    public ImmutableClass(int value) {
+        this.value = value;
+    }
+    // Getters
+}
+// No subclasses with different constructors can be created.</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        The "<span>final</span>" keyword in Java is a powerful tool for ensuring immutability, constant values, and preventing modification or extension of elements like variables, methods, and classes. It helps in creating more robust and secure Java programs.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

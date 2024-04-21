@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>DOM in JavaScript</title>
+</head>
+<body>
+    <h1>DOM in JavaScript</h1>
+
+    <p>The <span>DOM (Document Object Model)</span> is an <span>API</span> that represents and interacts with any <span>HTML</span> or <span>XML</span>-based markup language document. The DOM is a document model loaded in the browser and representing the document as a <span>node tree</span>, or <span>DOM tree</span>, where each node represents part of the document (e.g. an element, text string, or comment).</p>
+
+    <p>It allows code running in a browser to access and interact with every node in the document. Nodes can be created, moved, and changed.</p>
+    
+    <p class="note note-imp"><span>API</span> (Application Programming Interface) allows different software programs to talk to each other and share information easily. It's like a waiter taking orders between two people.</p>
+
+    <h2>DOM Tree Structure</h2>
+
+    <p>The DOM tree consists of nodes representing various elements of an HTML document, such as elements, attributes, and text. Each node in the tree can be accessed, modified, or removed using JavaScript, enabling developers to create dynamic and interactive web applications.</p>
+
+    <p>One example this is : </p>
+    <div class="code">
+        <pre>
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My title&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href="example.com"&gt;My link&lt;/a&gt;
+        &lt;h1&gt;My header&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <p>Its DOM tree structure : </p>
+
+    <div class="structimg img-center"><img src="../examples/javascript/dom/domtree.png" alt="Dom Tree"></div>
+
+    <p class="note note-imp">The DOM tree considers text, attributes, comments, and line breaks also as separate nodes.</p>
+
+    <h2>Accessing DOM Elements</h2>
+
+    <p>JavaScript provides several methods for accessing DOM elements. These methods allow developers to select and manipulate specific elements on a web page based on their IDs, classes, or other attributes.</p>
+
+    <h3>By Id</h3>
+
+    <p>The <span>getElementById()</span> method returns the element with the specified ID. This method can be used to select a single element from the DOM based on its unique ID attribute.</p>
+
+    <p>For example, the following HTML markup contains a single element with an ID of <span>my-element</span> : </p>
+
+    <div class="code">
+        <pre>
+&lt;div id="my-element"&gt;This is my element&lt;/div&gt;</pre></pre>
+    </div>
+
+    <p>The following JavaScript code selects the element with the ID of <span>my-element</span> and displays its content in console : </p>
+
+    <div class="code">
+        <pre>
+const myElement = document.getElementById('my-element');
+console.log(myElement);</pre>
+    </div>
+
+    <p class="note note-normal">It returns the element having this Id.</p>
+
+    <h3>By Class Name</h3>
+    <p>You can also access elements by their class name using the <span>getElementsByClassName()</span> method. This method returns a collection of elements that have the specified class name.</p>
+
+    <p class="note note-mostimp">In the DOM, the <span>class</span> attribute is referred to as <span>className</span>.</p>
+
+    <p>For example, the following HTML markup contains two elements with the class name of <span>my-class</span> : </p>
+    <div class="code">
+        <pre>
+&lt;div class="my-class"&gt;This is my first element&lt;/div&gt;
+&lt;div class="my-class"&gt;This is my second element&lt;/div&gt;</pre>
+    </div>
+
+    <p>The following JavaScript code selects all elements with the class name of <span>my-class</span> and displays their content in console : </p>
+
+    <div class="code">
+        <pre>
+const myElements = document.getElementsByClassName('my-class');
+console.log(myElements);
+console.log(myElements[0]);
+// Returns NodeList(2) [div, div]</pre>
+    </div>
+
+    <p class="note note-mostimp">The <span>getElementsByClassName()</span> method returns a <span>HTMLCollection</span> object, which is a collection of nodes. You can access individual elements in the collection using array-like syntax, as shown in the example above.</p>
+
+    <p class="note note-mostimp">But you cannot apply array methods(map, forEach etc. or any other loop) directly to a HTMLCollection. You can use <span>Array.from()</span> to convert HTMLCollection to an array.</p>
+    </p>
+
+    <h3>By Tag Name</h3>
+    <p>The <span>getElementsByTagName()</span> method returns a collection of elements with the specified tag name. This method can be used to select all elements of a particular type, such as <span>div</span>, <span>p</span>, or <span>span</span>.</p>
+
+    <p>For example, the following HTML markup contains two elements with the tag name of <span>p</span> : </p>
+    <div class="code">
+        <pre>
+&lt;p&gt;This is my first paragraph&lt;/p&gt;</pre>
+    </div>
+
+    <p>The following JavaScript code selects all elements with the tag name of <span>p</span> and displays their content in console : </p>
+
+    <div class="code">
+        <pre>
+const myParagraphs = document.getElementsByTagName('p');
+console.log(myParagraphs); 
+// Returns HTMLCollection(1) [p]</pre>
+    </div>
+
+    <p class="note note-normal">The <span>getElementsByTagName()</span> method also returns an <span>HTMLCollection</span> object.</p>
+
+    <h3>By Query Selector</h3>
+    <p>The <span>querySelector()</span> method returns the first element that matches the specified CSS selector and the <span>querySelectorAll</span> method returns all the elements that mathes CSS selector. These methods can be used to select elements based on their IDs, classes, attributes, or other CSS selectors.</p>
+    
+    <p>For example, the following HTML markup contains a mulitple elements with class of <span>my-elements</span> : </p>
+    <div class="code">
+        <pre>
+&lt;div class="my-elements"&gt;This is my element&lt;/div&gt;</pre>
+&lt;div class="my-elements"&gt;This is my element&lt;/div&gt;</pre>
+        </pre>
+    </div>
+
+    <p>The following JavaScript code selects the element with the ID of <span>my-element</span> and displays its content in console : </p>
+
+    <div class="code">
+        <pre>
+const myElement = document.querySelector('.my-elements');
+const myElements = document.querySelectorAll('.my-elements');
+console.log(myElement); // Returns the first element
+console.log(myElements); // Return the NodeList(2) [div, div]</pre>
+    </div>
+
+    <p class="note note-imp">To apply high order loops on a NodeList, it needs to be converted into an Array first.</p>
+
+    <h2>Modifying DOM Elements</h2>
+
+    <p>DOM elements can be modified dynamically using JavaScript. This includes changing element attributes, adding or removing classes, modifying element content, and manipulating element styles. These modifications can be triggered by user interactions, events, or programmatic logic.</p>
+
+    <h3>Changing Element Attributes</h3>
+        <p>
+            Changing element attributes allows you to modify the behavior or appearance of an element. To do this, you can access an element using the <span>getElementById()</span>, <span>querySelector()</span>, or other methods, and then modify its attributes using the <span>setAttribute()</span> method.
+        </p>
+        <p>
+            For instance, if you want to change the <span>href</span> attribute of a link element:
+        </p>
+
+        <div class="code"><pre>
+let linkElement = document.querySelector("a");
+linkElement.setAttribute("href", "https://example.com");</pre>
+        </div>
+
+        <h3>Adding or Removing Classes</h3>
+        <p>
+            Adding or removing classes can help you dynamically apply or remove styles. To add a class to an element, you can use the <span>classList.add()</span> method, and to remove a class, you can use the <span>classList.remove()</span> method.
+        </p>
+        <p>
+            For example, if you want to add or remove a class called <span>active</span> to a button element:
+        </p>
+
+        <div class="code"><pre>
+let buttonElement = document.querySelector("button");
+buttonElement.classList.add("active"); // Add the "active" class
+buttonElement.classList.remove("active"); // Remove the "active" class</pre>
+        </div>
+
+        <h3>Modifying Element Content</h3>
+        <p>
+            Modifying element content can help you update the text or HTML within an element. To change the content, you can use the <span>innerHTML</span>, <span>innerText</span> or <span>textContent</span> properties.
+        </p>
+
+        <p class="note note-imp">Difference between <span>innerHTML</span>, <span>innerText</span> and <span>textContent</span> properties is that : 
+            <br>
+            <span> - innerHTML</span> property sets or returns the HTML content of an element.
+            <br>
+            <span> - innerText</span> property sets or returns the text content of an element which is visible to the user.
+            <br>
+            <span> - textContent</span> property sets or returns the text content of an element whether it is visible or not.
+        </p>
+        <p>
+            For example, if you want to change the content of a paragraph element:
+        </p>
+
+        <div class="code"><pre>
+let paragraphElement = document.querySelector("p");
+paragraphElement.innerHTML = "This is the new content.";
+paragraphElement.textContent = "This is the new content.";</pre>
+        </div>
+
+        <h3>Manipulating Element Styles</h3>
+        <p>
+            Manipulating element styles can help you dynamically update the appearance of an element. To change the style, you can use the <span>style</span> property and access the CSS property you want to modify, such as <span>color</span> or <span>background-color</span>.
+        </p>
+        <p>
+            For example, if you want to change the background color of a div element:
+        </p>
+
+        <div class="code"><pre>
+let divElement = document.querySelector("div");
+divElement.style.backgroundColor = "red";</pre>
+        </div>
+
+        <p>
+            These modifications can be triggered by user interactions, events, or programmatic logic.
+        </p>
+
+    <h2>Handling Events</h2>
+
+    <p>JavaScript enables developers to attach event handlers to DOM elements to respond to user interactions, such as clicks, mouse movements, keyboard inputs, and form submissions. Event handling allows developers to create interactive and responsive web applications by defining how the application should respond to various user actions.</p>
+
+    <p>In our next chapter on <a href="#">Event Listeners</a>, we will provide more detailed information.</p>
+
+    <h2>Conclusion</h2>
+
+    <p>The DOM is a fundamental concept in web development, enabling JavaScript to interact with and manipulate web documents dynamically. Understanding how to access, modify, and handle events on DOM elements is essential for building modern web applications with rich user interfaces and interactive functionality.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Box Model in CSS</title>
+</head>
+
+<body>
+    <h1>Box Model in CSS</h1>
+
+    <p>The CSS box model is a fundamental concept that defines the layout of elements on a web page. It consists of content, padding, border, and margin, each contributing to the overall size and spacing of an element.</p>
+
+    <h2>1. Content:</h2>
+
+    <p>The content area is where the actual content of the element, such as text or images, is displayed. The width and height properties determine the size of this content area.</p>
+
+    <h2>2. Padding:</h2>
+
+    <p>Padding is the space between the content and the border. It can be set using the `padding` property. Padding contributes to the element's overall size, but it doesn't have a background or border.</p>
+
+    <div class="code"> <pre>
+.box {
+    padding: 20px;
+}</pre>
+    </div>
+
+    <h2>3. Border:</h2>
+
+    <p>The border surrounds the padding and content areas. It can be customized with properties like `border-width`, `border-style`, and `border-color`. Borders enhance the visual appearance of an element.</p>
+
+    <div class="code"> <pre>
+.box {
+    border: 2px solid #333;
+}</pre>
+    </div>
+
+    <h2>4. Margin:</h2>
+
+    <p>Margin is the space outside the border. It creates separation between elements. Margin can be set using the `margin` property. It does not have a background or border.</p>
+
+    <div class="code"> <pre>
+.box {
+    margin: 10px;
+}</pre>
+    </div>
+
+    <h2>Box Model Diagram:</h2>
+
+    <prepresentation of the box model:</p>
+
+    <img src="box-model.png" alt="Box Model Diagram">
+
+    <h2>How to Calculate Total Width and Height:</h2>
+
+    <p>The total width of an element is calculated as follows:</p>
+
+    <div class="code"> <pre>
+Total Width = width + 2 * padding + 2 * border</pre>
+    </div>
+
+    <p>The total height of an element is calculated as follows:</p>
+
+    <div class="code"> <pre>
+Total Height = height + 2 * padding + 2 * border</pre>
+    </div>
+
+    <p>Understanding the box model is crucial for designing layouts and spacing in web development. Its precise control over the dimensions and positioning of elements on a page.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

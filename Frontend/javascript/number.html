@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css" />
+    <title>Number Object</title>
+</head>
+<body>
+    <h1>Number Object</h1>
+
+    <p>The JavaScript Number type is a double-precision 64-bit binary format IEEE 754 value, like double in Java or C#. This means it can represent fractional values, but there are some limits to the stored number's magnitude and precision. Very briefly, an IEEE 754 double-precision number uses 64 bits to represent 3 parts : </p>
+    <ul>
+        <li>1 bit for the sign (positive or negative)</li>
+        <li>11 bits for the exponent (-1022 to 1023)</li>
+        <li>52 bits for the mantissa (representing a number between 0 and 1)</li>
+    </ul>
+
+    <h2>Number()</h2>
+    <p>
+        The Number() function converts a value to a number.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let parsedNumber = Number("42");
+// Result: 42</pre>
+    </div>
+    <p>
+        This example demonstrates the use of the parseStringToNumber method, which converts a string to a number. In this example, "42" is converted to the numeric value 42.
+    </p>
+
+    <h2>Number.toFixed()</h2>
+    <p>
+        The toFixed() method formats a number with a fixed number of decimals.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let fixedDecimal = parsedNumber.toFixed(2);
+// Result: "42.00"</pre>
+    </div>
+    <p>
+        This example demonstrates the use of the formatWithDecimals method, which formats a number with a fixed number of decimals. Here, 42 is formatted to "42.00".
+    </p>
+
+    <h2>Number.isInteger()</h2>
+    <p>
+        The isInteger() method checks if a value is an integer.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let isInteger = Number.isInteger(7.5);
+// Result: false</pre>
+    </div>
+    <p>
+        This example demonstrates the use of the checkInteger method, which checks if a value is an integer. In this case, 7.5 is not an integer, so the result is false.
+    </p>
+
+
+    <h2>Number.MAX_VALUE</h2>
+    <p>
+        The MAX_VALUE property represents the maximum numeric value that can be represented in JavaScript.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let maxNumber = Number.MAX_VALUE;
+// Result: 1.7976931348623157e+308</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.MAX_VALUE property, which represents the maximum numeric value that can be represented in JavaScript.</p>
+
+    <h2>Number.MIN_VALUE</h2>
+    <p>
+        The MIN_VALUE property represents the smallest positive numeric value greater than 0.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let minNumber = Number.MIN_VALUE;
+// Result: 5e-324</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.MIN_VALUE property, which represents the smallest positive numeric value greater than 0.</p>
+
+    <h2>Number.EPSILON</h2>
+    <p>
+        The EPSILON property represents the difference between 1 and the smallest value greater than 1 that is representable in JavaScript.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let epsilonValue = Number.EPSILON;
+// Result: 2.220446049250313e-16</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.EPSILON constant, which represents the difference between 1 and the smallest value greater than 1 that is representable in JavaScript.</p>
+
+    <h2>Number.NaN</h2>
+    <p>
+        The NaN property represents "Not-a-Number," indicating an unrepresentable or undefined value in numeric operations.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let notANumber = Number.NaN;
+// Result: NaN</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.NaN constant, which represents "Not-a-Number," indicating an unrepresentable or undefined value in numeric operations.</p>
+
+    <h2>Number.POSITIVE_INFINITY</h2>
+    <p>
+        The POSITIVE_INFINITY property represents positive infinity, used to indicate overflow in mathematical operations.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let positiveInfinity = Number.POSITIVE_INFINITY;
+// Result: Infinity</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.POSITIVE_INFINITY constant, which represents positive infinity, used to indicate overflow in mathematical operations.</p>
+
+    <h2>Number.NEGATIVE_INFINITY</h2>
+    <p>
+        The NEGATIVE_INFINITY property represents negative infinity, used to indicate overflow in negative mathematical operations.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let negativeInfinity = Number.NEGATIVE_INFINITY;
+// Result: -Infinity</pre>
+    </div>
+    <p>This example demonstrates the use of the Number.NEGATIVE_INFINITY constant, which represents negative infinity, used to indicate overflow in negative mathematical operations.</p>
+
+    <h2>Number.isNaN()</h2>
+    <p>
+        The isNaN() method checks if a value is NaN. It returns true if the argument is NaN, and false otherwise.
+    </p>
+    <h4>Example</h4>
+    <br>
+    <div class="code"><pre>
+let isNotANumber = Number.isNaN(NaN);
+// Result: true</pre>
+    </div>
+    <p>
+        This example demonstrates the use of the Number.isNaN() method, which checks if a value is NaN. In this case, NaN is checked, and the result is true.
+    </p>
+
+    <p>
+      There are multiple properties and methods in the Number object that can be used for working with numbers in JavaScript. For a detailed study of all the properties and methods in the Number object, please refer the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" rel="noopener">Number page on MDN</a>.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        The Number object is a wrapper around the primitive number type. It provides a number of useful methods that can be used to manipulate numbers.
+    </p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

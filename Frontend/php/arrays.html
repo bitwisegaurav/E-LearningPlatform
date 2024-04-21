@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Arrays in PHP</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <p>
+        An array in PHP is an ordered map that can store multiple values. Each value is associated with a unique key or index.
+    </p>
+    <div class="code">
+        <pre>
+$fruits = array("apple", "banana", "cherry");</pre>
+    </div>
+
+    <h2>Creating and Types of Arrays</h2>
+    <p>
+        PHP supports different types of arrays:
+    </p>
+    <ul>
+        <li><strong>Numeric/Indexed Arrays:</strong> Arrays with numeric keys (0, 1, 2, ...) and values. These arrays accessed by the indexes of the element.
+            <div class="code">
+                <pre>
+$numericArray = array("apple", "banana", "cherry");
+echo $numericArray[1]; </pre>
+            </div>
+            <p>Output :</p>
+
+            <div class="output">
+                <img src="../examples/php/array-index.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>Associative Arrays:</strong> Arrays with named keys and values.
+            <div class="code">
+                <pre>
+$assocArray = array("name" => "John", "age" => 30);
+echo $assocArray["name"];</pre>
+            </div>
+            <p>Output :</p>
+    
+            <div class="output">
+                <img src="../examples/php/array-associative.png" alt="">
+            </div>
+        </li>
+
+        <li><strong>Multidimensional Arrays:</strong> Arrays that contain other arrays as their elements or we can say array of arrays.
+            <div class="code">
+                <pre>
+$multidimensionalArray = array(
+    array("apple", "banana"),
+    array("cherry", "date")
+);
+echo $multidimensionalArray[1][0]; // $result will be cherry</pre>
+            </div>
+            <p>Output :</p>
+    
+            <div class="output">
+                <img src="../examples/php/array-multi.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>Accessing Arrays</h2>
+    <p>
+        You can access array elements using loops or array functions:
+    </p>
+    <ul>
+        <li><strong>Looping through Arrays:</strong> Use <span>foreach</span> to iterate through array elements.
+            <div class="code">
+                <pre>
+foreach ($fruits as $fruit) {
+    echo "Fruit: $fruit";
+}</pre>
+            </div>
+        </li>
+
+        <li><strong>Array Functions:</strong> Functions like <span>current()</span>, <span>next()</span>, <span>prev()</span>, <span>reset()</span>, and <span>end()</span> can be used to manipulate the array pointer.
+            <div class="code">
+                <pre>
+$fruits = array("apple", "banana", "cherry");
+echo current($fruits) . "&lt;br>"; // "apple"
+next($fruits); // Move pointer to the next element
+echo current($fruits); // "banana"</pre>
+            </div>
+            <p>Output :</p>
+            <div class="output">
+                <img src="../examples/php/array-functions.png" alt="">
+            </div>
+        </li>
+    </ul>
+
+    <h2>Inspecting Arrays</h2>
+    <p>
+        PHP provides functions to inspect arrays, such as <span>count()</span> and <span>array_key_exists()</span>.
+    </p>
+    <div class="code">
+        <pre>
+$fruits = array("apple", "banana", "cherry");
+$count = count($fruits); // 3
+$hasKey = array_key_exists("banana", $fruits); // true</pre>
+    </div>
+
+    <p>Output :</p>
+    
+    <div class="output">
+        <img src="../examples/php/array-inspecting.png" alt="">
+    </div>
+
+    <h2>Deleting from Arrays</h2>
+    <p>
+        You can remove elements from arrays using functions like <span>unset()</span>.
+    </p>
+    <div class="code">
+        <pre>
+$fruits = array("apple", "banana", "cherry");
+unset($fruits[1]);
+print_r($fruits);</pre>
+    </div>
+
+    <p>Output :</p>
+    
+    <div class="output">
+        <img src="../examples/php/array-delete.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Arrays are a fundamental data structure in PHP, allowing you to store and manipulate multiple values efficiently. Understanding the types of arrays, accessing and inspecting array elements, and performing array operations are essential skills for PHP developers.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

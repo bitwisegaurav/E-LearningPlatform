@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../common_files/inner.css" />
+    <title>Inline, Internal, and External CSS</title>
+  </head>
+
+  <body>
+    <h1>Methods to Use CSS</h1>
+
+    <p>
+      Cascading Style Sheets (CSS) can be applied to HTML elements in three main ways: Inline, Internal, and External. Each method has its own use cases
+      and advantages.
+    </p>
+
+    <h2>1. Inline CSS:</h2>
+
+    <p>
+      Inline CSS is applied directly to a single HTML element using the
+      <span>style</span> attribute. This method is useful for styling specific
+      elements on the fly.
+    </p>
+
+    <div class="code">
+      <pre>
+&lt;p style="color: red; font-size: 16px;"&gt;This is a red paragraph with a font size of 16px.&lt;/p&gt;</pre
+      >
+    </div>
+
+    <h2>2. Internal (Embedded) CSS:</h2>
+
+    <p>
+      Internal CSS is placed within the
+      <span>&lt;style&gt;&lt;/style&gt;</span> tag in the head section of an
+      HTML document. This method allows you to apply styles to multiple elements
+      within the same HTML file.
+    </p>
+
+    <div class="code">
+      <pre>
+&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;p&gt;This is a blue paragraph with a font size of 18px.&lt;/p&gt;
+&lt;/body&gt;</pre
+      >
+    </div>
+
+    <h2>3. External CSS:</h2>
+
+    <p>
+      External CSS involves linking an external stylesheet file to the HTML
+      document. This method is ideal for maintaining a consistent style across
+      multiple pages.
+    </p>
+
+    <div class="code">
+      <pre>
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</pre
+      >
+    </div>
+
+    <p>The content of the `styles.css` file could be similar to this:</p>
+
+    <div class="code">
+      <pre>
+/* styles.css */
+p {
+    color: green;
+    font-size: 20px;
+}</pre
+      >
+    </div>
+
+    <p>
+      External CSS files provide a modular and organized way to manage styles,
+      promoting maintainability and reusability across your website.
+    </p>
+
+    <h2>When to Use Each Method:</h2>
+
+    <ul>
+      <li>
+        Use <span>Inline CSS</span> for quick styling of individual elements.
+      </li>
+      <li>
+        Use <span>Internal CSS</span> for small-scale styling within a single
+        HTML document.
+      </li>
+      <li>
+        Use <span>External CSS</span> for large-scale projects or when styling
+        multiple pages consistently.
+      </li>
+    </ul>
+  </body>
+  <script src="../common_files/innerTheme.js"></script>
+  <script src="../common_files/jsPrograms-inner.js"></script>
+</html>

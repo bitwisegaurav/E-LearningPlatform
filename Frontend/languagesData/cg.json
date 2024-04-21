@@ -1,0 +1,83 @@
+{
+    "name": "Computer Graphics",
+    "folder": "cg",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction to Computer Graphics",
+            "file": "introduction"
+        },
+        {
+            "name": "Survey of Computer Graphics",
+            "file": "survey"
+        },
+        {
+            "name": "Overview of Graphics Systems-I",
+            "file": "overview1"
+        },
+        {
+            "name": "Overview of Graphics Systems-II",
+            "file": "overview2"
+        },
+        {
+            "name": "Computer Graphics Using Standard graphics packages",
+            "file": "autocad"
+        },
+        {
+            "name": "Developing Computer Graphics using C",
+            "file": "c"
+        },
+        {
+            "name": "Multimedia",
+            "file": "multimedia"
+        },
+        {
+            "name": "System Components",
+            "file": "system"
+        },
+        {
+            "name": "Multimedia Platforms",
+            "file": "multimedia_platform"
+        },
+        {
+            "name": "Multimedia Development Tools",
+            "file": "development_tools"
+        },
+        {
+            "name": "Images",
+            "file": "image"
+        },
+        {
+            "name": "Audio",
+            "file": "audio"
+        },
+        {
+            "name": "Video",
+            "file": "video"
+        },
+        {
+            "name": "Storage for multimedia",
+            "file": "storage"
+        },
+        {
+            "name": "Multimedia and Communication",
+            "file": "communication"
+        },
+        {
+            "name": "Mutlimedia Applicaitons",
+            "file": "multimedia_applications"
+        },
+        {
+            "name": "Photoshop",
+            "file": "photoshop"
+        },
+        {
+            "name": "Macromedia Detector",
+            "file": "macromedia"
+        },
+        {
+            "name": "File Formats",
+            "file": "formats"
+        }
+    ]
+}

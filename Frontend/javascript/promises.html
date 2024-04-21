@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <h1>Promises in JavaScript</h1>
+
+    <p>A promise in JavaScript represents the eventual completion or failure of an asynchronous operation and its resulting value. It is a cleaner and more intuitive way to work with asynchronous code compared to traditional callback-based approaches.</p>
+
+    <h2>1. States of a Promise</h2>
+
+    <p>A promise can be in one of three states:</p>
+    <ul>
+        <li><strong>Pending:</strong> Initial state, neither fulfilled nor rejected.</li>
+        <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
+        <li><strong>Rejected:</strong> The operation failed with an error.</li>
+    </ul>
+
+    <h2>2. Creating a Promise</h2>
+
+    <p>A promise is created using the <code>Promise</code> constructor, which takes a single function called the executor. The executor function accepts two arguments: <code>resolve</code> and <code>reject</code>. Inside the executor function, you perform the asynchronous operation and call <code>resolve</code> when it succeeds or <code>reject</code> when it fails.</p>
+
+    <h2>3. Chaining Promises</h2>
+
+    <p>One of the key features of promises is the ability to chain them together using <code>then</code> and <code>catch</code> methods. This allows you to handle the result or error of a promise and return another promise, enabling sequential execution of asynchronous operations.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of creating and consuming a promise
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        // Simulate asynchronous operation
+        setTimeout(() => {
+            const data = 'Data fetched successfully';
+            resolve(data);
+            // Reject example: reject(new Error('Failed to fetch data'));
+        }, 2000);
+    });
+}
+
+fetchData()
+    .then((data) => {
+        console.log(data);
+        // Return another promise
+        return processData(data);
+    })
+    .then((processedData) => {
+        console.log(processedData);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Promises provide a cleaner and more manageable way to handle asynchronous operations in JavaScript. By leveraging promises, developers can write more readable and maintainable code while avoiding the complexities of callback hell.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

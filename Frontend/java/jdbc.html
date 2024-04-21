@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>JDBC in Java</title>
+</head>
+<body>
+    <h1>Java DataBase Connectivity in Java</h1>
+    <p>
+        Java Database Connectivity (JDBC) is a mechanism in which we connect the Java API with the database.
+    </p>
+    <p>For connecting the Java API with database, we first need the database driver. Databse driver is provided by company of database.</p>
+
+    <h2>Steps for Query Execution</h2>
+    <p>
+        Executing a query in JDBC involves several steps: creating a statement, executing the query, and handling the results.
+    </p>
+    <ul>
+        <li><strong>Step 1 - Load JDBC Driver:</strong> Load the database-specific JDBC driver using <span>Class.forName()</span>. For example we use mysql as database
+            <div class="code">
+                <pre>Class.forName("com.mysql.jdbc.Driver");</pre>
+            </div>
+        </li>
+        <li><strong>Step 2 - Establish Connection:</strong> Create a connection to the database using the driver manager.
+            <div class="code">
+                <pre>Connection con = DriverManager.connection(url, username, password);</pre>
+            </div>
+        </li>
+        <li><strong>Step 3 - Create a Statement:</strong> Create a statement object to execute SQL queries.
+            <div class="code">
+                <pre>Statement st = con.createStatement();</pre>
+            </div>
+        </li>
+        <li><strong>Step 4 - Execute Query:</strong> Execute the SQL query using the statement object. For example if we execute insert query.
+            <div class="code">
+                <pre>int affectedRow = st.executeUpdate(query);</pre>
+            </div>
+        </li>
+        <li><strong>Step 5 - Process Results:</strong> Retrieve and process the results obtained from the query.
+            <div class="code">
+                <pre>
+ResultSet rs = st.executeQuery(query);
+rs.next();
+int id = rs.getInt("id");</pre>
+            </div>
+        </li>
+        <li><strong>Step 6 - Close Resources:</strong> Close the result set, statement, and connection to release resources.
+            <div class="code">
+                <pre>con.close();</pre>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Example of Establishing a Database Connection</h2>
+    <p>
+        To connect to a database using JDBC, you need to establish a connection. This involves specifying the database URL, username, and password, and then creating a connection object.
+    </p>
+    <!-- Example: Establishing a Database Connection -->
+    <div class="code">
+        <pre>
+String url = "jdbc:mysql://localhost:3306/mydb";
+String username = "user";
+String password = "password";
+Connection connection = DriverManager.getConnection(url, username, password);</pre>
+    </div>
+
+    <h2>Example of Executing SQL Queries</h2>
+    <p>
+        After establishing a connection, you can execute SQL queries on the database. This involves creating a statement, executing the query, and retrieving the results.
+    </p>
+    <!-- Example: Executing a SQL Query -->
+    <div class="code">
+        <pre>
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+while (resultSet.next()) {
+    // Process the result data
+}
+resultSet.close();
+statement.close();</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        JDBC is a fundamental technology for database interaction in Java applications. It allows developers to connect to databases, execute queries, and retrieve data seamlessly.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

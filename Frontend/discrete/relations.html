@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Relations - Codevengers</title>
+</head>
+<body>
+    <h1>Relations in Discrete Mathematics</h1>
+    
+    <h2>What is a Relation?</h2>
+    <p>A relation from A to B is a subset of A x B.</p>
+    <p>or</p>
+    <p>We can say R &subset; A x B.</p>
+
+    <h3>Domain</h3>
+    <p>
+        The domain of a relation is the set of elements from which the relation is defined.
+    </p>
+
+    <h3>Range</h3>
+    <p>The range of a relation is the set of elements that are the output or result of the relation.</p>
+    <p>In other words, it is the set of all values that the relation maps to.</p>
+
+    <h3>Co-Domain</h3>
+    <p>
+        The co-domain of a relation is the set of all possible values that the output or result of the relation can take. It represents the entire set of potential outputs, regardless of whether they are actually mapped to by the relation.
+    </p>
+
+    <h2>Types of Relations</h2>
+    <ul>
+        <li><span>Reflexive Relation : </span>A relation R on a set A is said to be reflexive if every element is related to itself. It means R is reflexive if (a, a) ∈ R for every a ∈ A. 
+            <p>For e.g. R = {(1,1),(2,2)}.</p>
+        </li>
+        <li><span>Symmetric Relation : </span>A relation R on a set A is said to be symmetric if for every (a, b) in R, (b, a) is also in R. It means R is symmetric if for all (a, b) ∈ R implies that (b, a) ∈ R.
+            <p>For e.g. R = {(1,2),(2,1)}.</p>
+        </li>
+        <li><span>Transitive Relation : </span>A relation R on a set A is said to be transitive if for every (a, b) and (b, c) in R, (a, c) is also in R. It means R is transitive if (a, b) ∈ R and (b, c) ∈ R then (a, c) ∈ R.
+            <p>For e.g. R = {(1,2),(2,3),(1,3)}.</p>
+        </li>
+        <li><span>Anti-Symmetric Relation : </span>
+            A relation R on a set A is said to be anti-symmetric if for every (a, b) in R, where a ≠ b, (b, a) is not in R. In other words, if (a, b) is in R, then (b, a) cannot be in R when a and b are distinct elements.
+        </li>
+        <li><span>Inverse Relation : </span>
+            Given a relation R on a set A, the inverse relation of R, denoted as R⁻¹, is a relation that reverses the order of the elements in R. If (a, b) is in R, then (b, a) is in R⁻¹.
+            <p>For e.g. R = {(1,2),(2,3),(1,3)} then R <sup> -1 </sup> = {(2,1),(3,2),(3,1)}.</p>
+        </li>
+        <li><span>Void Relation : </span>
+            A relation R on a set A is said to be void if it does not contain any elements. In other words, &phi; or null set.
+        </li>
+        <li><span>Universal Relation : </span>
+            A relation R on a set A is called a universal relation if it contains all possible pairs of elements from A. In other words, R is a universal set if R be the set A x A where A is any set.
+        </li>
+        <li><span>Compatible Relation : </span>
+            A relation which is reflexive and symmetric.
+        </li>
+        <li><span>Partial Order Relation : </span>
+            A relation which is reflexive and transitive.
+        </li>
+    </ul>
+    
+    <h2>Adjacency Matrix</h2>
+    <p>An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph. In the special case of a finite simple graph, the adjacency matrix is a (0,1)-matrix with zeros on its diagonal.</p>
+
+    <h2>Closures</h2>
+    <p>In mathematics, the closure of a subset S in a topological space consists of all points in S along with the limit points of S. In other words, the closure of S contains all points that are arbitrarily "close" to S. A point which is in the closure of S is a point of closure of S.</p>
+
+    <h2>Hasse Diagram / Ordering Diagram</h2>
+    <p>A Hasse diagram is a graphical representation of the partial order relation on a set. It is a drawing of the transitive reduction of the relation, meaning it shows the minimal set of direct connections that imply all the connections in the relation via transitivity.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

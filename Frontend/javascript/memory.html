@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Stack and Heap Memory in JavaScript</title>
+</head>
+<body>
+    <h1>Stack and Heap Memory in JavaScript</h1>
+
+    <p>Memory management is a critical aspect of programming, and in JavaScript, memory is divided into two main areas: the stack and the heap. Understanding how these memory areas work is essential for writing efficient and performant code.</p>
+
+    <h2>Stack Memory</h2>
+
+    <p>The stack is a region of memory that operates in a Last In, First Out (LIFO) manner. It is used for storing local variables and function call information. When a function is called, a new stack frame is created, and when the function completes, its stack frame is removed.</p>
+
+    <div class="code"><pre>
+function calculateSum(a, b) {
+    let result = a + b; // Local variable stored in the stack
+    return result;
+}
+
+let total = calculateSum(3, 7);
+</pre></div>
+
+    <p>Primitive data types, such as numbers and booleans, are usually stored directly in the stack memory.</p>
+
+    <h2>Heap Memory</h2>
+
+    <p>The heap is a region of memory that is used for dynamic memory allocation. Objects and variables that are too large to be stored on the stack, or that need to persist beyond the function call, are stored in the heap.</p>
+
+    <div class="code"><pre>
+let array = [1, 2, 3, 4, 5]; // Array stored in the heap
+let obj = { name: "John", age: 30 }; // Object stored in the heap
+</pre></div>
+
+    <p>When an object or variable is created using <span>new</span> or when it is assigned to another variable, a reference to the object is stored in the stack, while the actual data is stored in the heap.</p>
+
+    <h2>Memory Management</h2>
+
+    <p>JavaScript uses automatic garbage collection to manage memory. The garbage collector identifies and frees up memory that is no longer in use, preventing memory leaks.</p>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding how stack and heap memory work in JavaScript is crucial for optimizing code performance and preventing memory-related issues. As you develop more complex applications, being mindful of memory management will contribute to building efficient and responsive software.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

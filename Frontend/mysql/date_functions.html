@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Date Functions - Codevengers</title>
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+
+        #structimg img {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date Functions</h1>
+    <p>Date functions are used to perform operations on date values. MySQL has a number of built-in functions that can
+        be used to manipulate date and time data. Here are some of the most commonly used date functions in MySQL:</p>
+    <ul>
+        <li><span>NOW()</span> - Returns the current date and time
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select NOW() from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/now.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>DATE()</span> - Extracts the date part of a date or datetime expression
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select DATE(datetime_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/date.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>YEAR()</span> - Returns the year for a given date
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select YEAR(date_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/year.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>MONTH()</span> - Returns the month for a given date
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select MONTH(date_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/month.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>DAY()</span> - Returns the day for a given date
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select DAY(date_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/day.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>HOUR()</span> - Returns the hour for a given time or datetime expression
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select HOUR(datetime_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/hour.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>MINUTE()</span> - Returns the minute for a given time or datetime expression
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select MINUTE(datetime_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/minute.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>SECOND()</span> - Returns the second for a given time or datetime expression
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select SECOND(datetime_expression) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/second.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>DATE_ADD()</span> - Adds a time/date interval to a date and then returns the date
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select DATE_ADD(date, INTERVAL value unit) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/date_add.PNG" alt="create database" class="box">
+            </div>
+        </li>
+        <li><span>DATE_SUB()</span> - Subtracts a time/date interval from a date and then returns the date
+            <p>Syntax :</p>
+            <div class="code">
+                mysql> select DATE_SUB(date, INTERVAL value unit) from dual;
+            </div>
+            <p>Example :</p>
+            <div class="structimg">
+                <img src="../examples/mysql/date_functions/date_sub.PNG" alt="create database" class="box">
+            </div>
+        </li>
+    </ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

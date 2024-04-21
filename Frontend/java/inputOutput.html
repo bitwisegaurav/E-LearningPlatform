@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Input and Output</title>
+</head>
+<body>
+    <h1>Input and Output in Java</h1>
+    <p>
+        Input and Output (I/O) operations are essential for interacting with external data sources, such as files, the console, or network connections. Java provides various classes and methods for performing I/O operations.
+    </p>
+    <p>In java, I/O classes are divided into two categories :</p>
+    <ol>
+        <li><strong>Byte Oriented Classes : </strong> In these classes, the data would be read or write in the form of blocks or bytes (any size).
+            <p>The topmost B.O classes are InputStream and OutputStream. Both classes are abstract classes and present in <span>java.io</span> package.</p>
+        </li>
+        <li><strong>Character Oriented Classes : </strong>In these classes, the data would be read or write in the form of characters or strings.
+            <p>The topmost B.O classes are Reader and Writer. Both classes are abstract classes and present in <span>java.io</span> package.</p>
+        </li>
+    </ol>
+
+    <p>We cannot take input from keyboard without using a object named as <span>System.in</span>.</p>
+
+    <h2>Reading Data from the Console</h2>
+    <p>
+        You can read data from the console using the <span>System.in</span> stream and <span>InputStreamReader</span> class for character input. Here's an example of reading a line of text from the console:
+    </p>
+    <div class="code">
+        <pre>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ConsoleInputExample {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter a line of text: ");
+        String input = reader.readLine();
+        System.out.println("You entered: " + input);
+        reader.close();
+    }
+}</pre>
+    </div>
+
+    <h2>Writing Data to the Console</h2>
+    <p>
+        You can write data to the console using the <span>System.out</span> stream and <span>PrintWriter</span> class for character output. Here's an example of printing a message to the console:
+    </p>
+    <div class="code">
+        <pre>
+import java.io.PrintWriter;
+
+public class ConsoleOutputExample {
+    public static void main(String[] args) {
+        PrintWriter writer = new PrintWriter(System.out);
+        writer.println("Hello, Java I/O!");
+        writer.flush(); // Flush the output
+        writer.close();
+    }
+}</pre>
+    </div>
+
+    <h2>Working with Files</h2>
+    <p>
+        Java provides classes like <span>File</span>, <span>FileInputStream</span>, <span>FileOutputStream</span>, <span>BufferedReader</span>, and <span>BufferedWriter</span> for working with files. Here's an example of reading and writing data to a text file:
+    </p>
+    <div class="code">
+        <pre>
+public class FileInputOutputExample {
+    public static void main(String[] args) throws java.io.IOException {
+        // Writing to a file
+        java.io.BufferedWriter writer = new java.io.BufferedWriter(new java.io.FileWriter("example.txt"));
+        writer.write("This is a sample text.");
+        writer.close();
+
+        // Reading from a file
+        java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader("example.txt"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        reader.close();
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Input and Output operations are fundamental for interacting with data in Java applications. Whether you need to read from the console or work with files, Java provides classes and methods to handle various I/O tasks efficiently.
+    </p>
+
+    
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</body>
+</html>

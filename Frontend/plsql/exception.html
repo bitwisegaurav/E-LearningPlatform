@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        pre{
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exception Handling</h1>
+    <p>PL/SQL provides a powerful mechanism to handle errors and exceptions that occur in a program. Exception handling allows you to handle run-time errors gracefully without terminating the program abruptly. It helps in debugging, tracing errors, and providing meaningful error messages to the user.</p>
+
+	<h3>Types of Exceptions:</h3>
+	<ul>
+		<li><span>Predefined Exceptions :</span> PL/SQL provides several predefined exceptions that are raised when a run-time error occurs. These exceptions are divided into two categories: internally defined and user-defined exceptions.</li>
+		<li><span>User-Defined Exceptions :</span> PL/SQL allows you to define your own exceptions to handle specific errors that may occur in your program. User-defined exceptions are declared in the declaration section of the PL/SQL block.</li>
+		<li><span>Unhandled Exceptions :</span> If an exception occurs and there is no exception handler to handle it, the program terminates abnormally, and an error message is displayed.</li>
+	</ul>
+    
+    <h3>Syntax :</h3>
+	<pre class="code">
+BEGIN
+    -- code block
+EXCEPTION
+    WHEN exception1 THEN
+        -- handler code block
+    WHEN exception2 THEN
+        -- handler code block
+    -- additional exception handlers
+END;</pre>
+	<p>In the above syntax, we have a code block followed by an exception block. The exception block contains one or more exception handlers that handle different types of exceptions. Each exception handler is associated with an exception name.</p>
+
+	<h3>Example:</h3>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/exception/exception.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

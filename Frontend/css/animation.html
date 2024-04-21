@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Transitions and Animations in CSS</title>
+</head>
+
+<body>
+    <h1>Transitions and Animations in CSS</h1>
+
+    <p>Transitions and animations bring life to web interfaces, providing smooth and engaging visual effects. CSS offers properties to control the transition between states and create dynamic animations.</p>
+
+    <h2>1. CSS Transitions:</h2>
+
+    <p>Transitions enable smooth changes between property values. Define the transition with the `transition` property:</p>
+
+    <div class="code"><pre>
+.button {
+    background-color: #3498db;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}</pre>
+    </div>
+
+    <h2>2. Transition Properties:</h2>
+
+    <p>Control the timing function, duration, delay, and property being transitioned:</p>
+
+    <div class="code"><pre>
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #2ecc71;
+    transition: width 1s ease-in-out 0.5s, height 1s ease-in-out 0.5s;
+}
+
+.box:hover {
+    width: 150px;
+    height: 150px;
+}</pre>
+    </div>
+
+    <h2>3. CSS Animations:</h2>
+
+    <p>Animations offer more complex and dynamic effects. Define keyframes and apply them with the `animation` property:</p>
+
+    <div class="code"><pre>
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide {
+    animation: slide-in 1s ease-in-out;
+}</pre>
+    </div>
+
+    <h2>4. Animation Properties:</h2>
+
+    <p>Adjust animation properties like duration, timing function, delay, and iteration count:</p>
+
+    <div class="code"><pre>
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}</pre>
+    </div>
+<p>Transitions and animations enhance the user experience by adding visual interest and feedback to interactions. Use them wisely to create a more engaging and dynamic web presence.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

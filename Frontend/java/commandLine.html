@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Command Line Arguments in Java</title>
+</head>
+<body>
+    <h1>Command Line Arguments in Java</h1>
+
+    <h2>Introduction to Command Line Arguments</h2>
+    <p>
+        In Java, command line arguments are values provided to a Java program when it is invoked from the command line or terminal. These arguments allow you to pass information to your Java program before it starts execution. Command line arguments are commonly used for configuration, customization, or input data for Java applications.
+    </p>
+
+    <h2>How to Pass Command Line Arguments</h2>
+    <p>
+        To pass command line arguments to a Java program, follow these steps:
+    </p>
+    <ol>
+        <li>Open a command prompt or terminal window.</li>
+        <li>Navigate to the directory where your Java program (.class file) is located.</li>
+        <li>Use the following syntax to run the Java program with arguments:<br>
+            <div class="code">
+                <!-- <button type="button" class="copybtn">Copy</button> -->
+                <pre>$ java YourClassName arg1 arg2 arg3 ...</pre>
+            </div>
+        </li>
+        <li>Replace <span>YourClassName</span> with the name of your Java class that contains the <span>main</span> method.</li>
+        <li>You can pass one or more arguments separated by spaces after the class name.</li>
+    </ol>
+
+    <h2>Accessing Command Line Arguments in Java</h2>
+    <p>
+        Inside your Java program, you can access command line arguments through the <span>args</span> parameter of the <span>main</span> method. The <span>args</span> parameter is an array of strings containing the command line arguments.
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MyProgram {
+    public static void main(String[] args) {
+        for (String arg : args) {
+            System.out.println("Argument: " + arg);
+        }
+    }
+}</pre>
+    </div>
+
+    <h2>Example Usage</h2>
+    <p>
+        Let's say you have a Java program named <span>MyProgram</span>, and you want to pass two arguments, <span>arg1</span> and <span>arg2</span>. You would run it as follows:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>$ java MyProgram arg1 arg2 ...</pre>
+    </div>
+
+    <p>
+        In this example, the program would access and print the values of <span>arg1</span> and <span>arg2</span>.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        Command line arguments provide a way to customize and configure Java programs by passing input data from the command line. Java programs can access and process these arguments through the <span>main</span> method's <span>args</span> parameter.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

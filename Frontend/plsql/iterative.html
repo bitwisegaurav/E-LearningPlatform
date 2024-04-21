@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+</head>
+
+<body>
+    <h1>Iterative Control Structures</h1>
+    <p>Iterative control structures in PL/SQL are used to repeat a block of code until a certain condition is met. There are three types of iterative control structures in PL/SQL:</p>
+	<ul>
+		<li><span>SIMPLE loop :</span> It is mainly used for infinite loops.</li>
+		<li><span>FOR loop :</span> It is used to iterate over a specified range of numbers or a collection.</li>
+		<li><span>WHILE loop :</span> It is used to repeat a block of code until a certain condition is met.</li>
+	</ul>
+
+    <h3>SIMPLE loop</h3>
+	<p>The syntax of a SIMPLE loop is as follows:</p>
+	<pre class="code">LOOP
+    -- Statements to be executed
+END LOOP;</pre>
+	<p>We can also terminate loop using  <span>exit</span> </p>
+    <pre class="code">exit when condition;</pre>
+	<p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/iterative/simple.PNG" alt="procedure"
+        class="hori">
+    </div>
+
+	<h3>FOR loop</h3>
+	<p>The syntax of a FOR loop is as follows:</p>
+	<pre class="code">FOR loop_counter IN [REVERSE] lower_bound..upper_bound LOOP
+    -- Statements to be executed
+END LOOP;</pre>
+	<p>Here, <span>loop_counter</span> is a variable used to count the iterations, <span>lower_bound</span> is the starting value of the loop counter, <span>upper_bound</span> is the ending value of the loop counter, and <span>REVERSE</span> is an optional keyword used to reverse the direction of the loop.</p>
+	<p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/iterative//for.PNG" alt="procedure"
+        class="hori">
+    </div>
+
+	<h3>WHILE loop</h3>
+	<p>The syntax of a WHILE loop is as follows:</p>
+	<pre class="code">WHILE condition LOOP
+    -- Statements to be executed
+END LOOP;</pre>
+	<p>The <span>condition</span> is a Boolean expression that is evaluated at the beginning of each iteration. If the condition evaluates to TRUE, the loop continues. If the condition evaluates to FALSE, the loop terminates.</p>
+	<p>Example :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/iterative/while.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+
+</html>

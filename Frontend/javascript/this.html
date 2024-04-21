@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>This keyword in JavaScript</title>
+</head>
+<body>
+    <h1>This keyword in JavaScript</h1>
+
+    <p>The <code>this</code> keyword in JavaScript refers to the object on which a function is being executed. The value of <code>this</code> depends on how a function is called, and it can have different values depending on the context in which it is used.</p>
+
+    <h2>1. Global Context</h2>
+
+    <p>In the global context, outside of any function, <code>this</code> refers to the global object, which is the <code>window</code> object in web browsers and the global object in Node.js.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of this in global context
+console.log(this === window); // Output: true
+
+function sayHello() {
+    console.log(this === window); // Output: true
+}
+
+sayHello();
+</pre></div>
+
+    <h2>3. Function Context</h2>
+
+    <p>In the context of a function, <code>this</code> refers to the object that is calling the function. If a function is called as a method of an object, <code>this</code> refers to that object.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of this in function context
+const person = {
+    name: 'Alice',
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+person.greet(); // Output: Hello, my name is Alice
+</pre></div>
+
+    <h2>5. Event Handlers</h2>
+
+    <p>In event handlers, such as those attached to DOM elements, <code>this</code> refers to the DOM element that triggered the event.</p>
+
+    <h2>6. Example:</h2>
+
+    <div class="code"><pre>
+// Example of this in event handler
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+    console.log(this === button); // Output: true
+});
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>The <code>this</code> keyword in JavaScript allows functions to access and manipulate the object that is calling them. By understanding how <code>this</code> works in different contexts, developers can write more flexible and maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

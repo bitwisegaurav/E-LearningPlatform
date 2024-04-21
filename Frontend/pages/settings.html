@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <link rel="stylesheet" href="../common_files/settings.css" />
+    <title>Settings</title>
+</head>
+
+<body>
+    <div class="imageFormContainer close">
+        <div class="main">
+            <form action="#" id="imageForm" method="post" enctype="multipart/form-data">
+                <label for="image" class="file-upload">
+                    <input type="file" name="avatar" id="image" accept=".jpg,.jpeg,.png,.svg,.gif" required>
+                    <div class="box">
+                        <p>Choose a file</p>
+                        <img src="" alt="">
+                        <div class="wrapper"></div>
+                    </div>
+                </label>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Settings</h2>
+            <ul>
+                <li><a href="#edit-data" id="editUser" class="active">Edit Data</a></li>
+                <!-- Add more options if needed -->
+            </ul>
+        </nav>
+        <main class="content">
+            <section class="change-coverimage">
+                <div class="image editimage" id="coverImage">
+                    <img src="http://res.cloudinary.com/dujd69tub/image/upload/v1709444869/oy1gqqnuidkbr9v1tmh1.jpg" alt="">
+                </div>
+            </section>
+            <div class="innerContent">
+                <article id="user-details">
+                    <section id="edit-data">
+                        <h2>Edit Data</h2>
+                        <form action="#" id="userdetails" method="POST">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username" />
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name"/>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email"/>
+                            <div class="btns">
+                                <button type="submit">Save Changes</button>
+                                <button type="button" id="resetbtn">Reset</button>
+                            </div>
+                        </form>
+                    </section>
+                    <div class="change-avatar">
+                        <div class="image editimage" id="avatar">
+                            <img src="http://res.cloudinary.com/dujd69tub/image/upload/v1709444868/sf25kufqpcrur6ccxgqn.jpg" alt="">
+                        </div>
+                    </div>
+                </article>
+                <section id="change-password">
+                    <h2>Change Your Password</h2>
+                    <form action="#" id="userpassword" method="POST">
+                        <label for="password">Current Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter your current password" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-enter your current password" required>
+                        <label for="newPassword">New Password</label>
+                        <input type="password" name="newPassword" id="newPassword" placeholder="Enter your new password" required>
+                        <div class="btns">
+                            <button type="submit">Save Changes</button>
+                            <button type="reset">Reset</button>    
+                        </div>
+                    </form>
+                </section>
+                <section id="delete-account">
+                    <button type="button" id="deletebtn">Delete Account</button>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="../common_files/theme.js"></script>
+<script src="../common_files/api.js"></script>
+<script src="../common_files/settings.js"></script>
+</html>

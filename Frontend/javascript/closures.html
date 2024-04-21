@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Closures in JavaScript</title>
+</head>
+<body>
+    <h1>Closures in JavaScript</h1>
+
+    <p>Closures are a powerful and fundamental concept in JavaScript that allow functions to maintain access to variables from their lexical scope, even after the outer function has finished executing. They play a crucial role in creating encapsulated and private variables, as well as enabling higher-order functions and callbacks.</p>
+
+    <h2>1. Lexical Scope</h2>
+
+    <p>Lexical scope refers to the scope of variables determined by their location within the source code. When a function is defined, it retains access to variables in its lexical environment, even after the function has returned.</p>
+
+    <h2>2. Closure Definition</h2>
+
+    <p>A closure is the combination of a function and the lexical environment within which that function was declared. It allows the function to access variables from its outer scope, even after the outer function has finished executing.</p>
+
+    <h2>3. Practical Example:</h2>
+
+    <div class="code"><pre>
+// Example of closure
+function outerFunction() {
+    let outerVariable = 'I am outer';
+
+    function innerFunction() {
+        console.log(outerVariable); // Access outerVariable from the outer scope
+    }
+
+    return innerFunction;
+}
+
+const innerFunc = outerFunction();
+innerFunc(); // Output: I am outer
+</pre></div>
+
+    <h2>4. Use Cases</h2>
+
+    <p>Closures are commonly used in JavaScript for various purposes, including:</p>
+    <ul>
+        <li>Creating private variables and encapsulation.</li>
+        <li>Implementing function factories and currying.</li>
+        <li>Managing asynchronous code with callbacks.</li>
+        <li>Creating memoization and caching techniques.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Closures are a fundamental concept in JavaScript that enables powerful programming patterns and techniques. By understanding how closures work and how to leverage them effectively, developers can write more expressive, modular, and maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

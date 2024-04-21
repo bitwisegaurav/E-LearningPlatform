@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Operators in JavaScript</title>
+</head>
+<body>
+    <h1>Operators in JavaScript</h1>
+
+    <p>Operators in JavaScript are symbols that perform various operations on variables and values, allowing for mathematical calculations, logical comparisons, and more. Understanding the different types of operators is crucial for writing expressive and effective code.</p>
+
+    <h2>Arithmetic Operators</h2>
+
+    <p>Arithmetic operators perform mathematical operations on numeric values. These include:</p>
+
+    <ul>
+        <li><span>Addition</span> (+) : Adds two operands.</li>
+        <li><span>Subtraction</span> (-) : Subtracts the right operand from the left operand.</li>
+        <li><span>Multiplication</span> (*) : Multiplies two operands.</li>
+        <li><span>Division</span> (/) : Divides the left operand by the right operand.</li>
+    </ul>
+
+    <div class="code"><pre>
+let num1 = 10;
+let num2 = 5;
+
+let sum = num1 + num2; // 10 + 5 = 15
+let difference = num1 - num2; // 10 - 5 = 5
+let product = num1 * num2; // 10 * 5 = 50
+let quotient = num1 / num2; // 10 / 5 = 2
+</pre></div>
+
+    <h2>Comparison Operators</h2>
+
+    <p>Comparison operators compare two values and return a boolean result. Common comparison operators include:</p>
+
+    <ul>
+        <li><span>Equality</span> (==) : Checks if two values are equal, performing type coercion if necessary.</li>
+        <li><span>Strict Equality</span> (===) : Checks if two values are equal without type coercion.</li>
+        <li><span>Inequality</span> (!=) : Checks if two values are not equal, performing type coercion if necessary.</li>
+        <li><span>Strict Inequality</span> (!==) : Checks if two values are not equal without type coercion.</li>
+    </ul>
+
+    <div class="code"><pre>
+let isEqual = (num1 === num2); // Strict equality check
+let isNotEqual = (num1 !== num2); // Strict inequality check
+</pre></div>
+
+    <h2>Logical Operators</h2>
+
+    <p>Logical operators perform logical operations and return a boolean result. These include:</p>
+
+    <ul>
+        <li><span>Logical AND</span> (&&) : Returns true if both operands are true.</li>
+        <li><span>Logical OR</span> (||) : Returns true if at least one operand is true.</li>
+        <li><span>Logical NOT</span> (!) : Returns the opposite of the operand's truthiness.</li>
+    </ul>
+
+    <div class="code"><pre>
+let logicalAnd = (true && false); // false (AND operator)
+let logicalOr = (true || false); // true (OR operator)
+let logicalNot = !true; // false (NOT operator)
+</pre></div>
+
+    <h2>Assignment Operators</h2>
+
+    <p>Assignment operators assign values to variables. The basic assignment operator is:</p>
+
+    <ul>
+        <li><span>Assignment</span> (=) : Assigns the value on the right to the variable on the left.</li>
+    </ul>
+
+    <div class="code"><pre>
+let x = 5;
+x += 3; // Equivalent to x = x + 3
+</pre></div>
+
+    <h2>5. Unary Operators</h2>
+
+    <p>Unary operators operate on a single operand. Common unary operators include:</p>
+
+    <ul>
+        <li><span>Increment</span> (++) : Increases the value of a variable by 1.</li>
+        <li><span>Decrement</span> (--) : Decreases the value of a variable by 1.</li>
+    </ul>
+
+        <div class="code"><pre>
+let counter = 10;
+counter++; // Increment by 1
+counter--; // Decrement by 1
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Operators are fundamental to JavaScript programming, enabling a wide range of operations on variables and values. Whether performing arithmetic calculations, logical comparisons, or assignments, using operators effectively enhances the expressiveness and functionality of your code.</p>
+    </body>
+    <script src="../common_files/innerTheme.js"></script>
+    <script src="../common_files/jsPrograms-inner.js"></script>
+    </html>

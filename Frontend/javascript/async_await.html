@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Async and Await in JavaScript</title>
+</head>
+<body>
+    <h1>Async and Await in JavaScript</h1>
+
+    <p>Async functions and the <code>await</code> keyword provide a more concise and synchronous-like syntax for working with promises in JavaScript. They allow you to write asynchronous code that looks and behaves like synchronous code, making it easier to understand and maintain.</p>
+
+    <h2>1. Async Functions</h2>
+
+    <p>An async function is a function declared with the <code>async</code> keyword. It allows you to define asynchronous operations within the function body using the <code>await</code> keyword. Async functions always return a promise, which resolves with the function's return value or rejects with an error thrown within the function.</p>
+
+    <h2>2. Await Keyword</h2>
+
+    <p>The <code>await</code> keyword can only be used within an async function. It pauses the execution of the async function until the awaited promise is resolved or rejected. This allows you to write asynchronous code that appears synchronous and follows the natural flow of control.</p>
+
+    <h2>3. Error Handling</h2>
+
+    <p>Async functions and <code>await</code> simplify error handling compared to traditional promise-based code. You can use try-catch blocks to handle errors synchronously within the async function, making it easier to manage and propagate errors.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of using async function and await keyword
+async function fetchData() {
+    try {
+        const data = await fetch('https://api.example.com/data');
+        const json = await data.json();
+        console.log(json);
+        return json;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+}
+
+// Call async function
+fetchData()
+    .then((data) => {
+        console.log('Data fetched successfully:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Async and await provide a more intuitive and readable way to work with asynchronous code in JavaScript. By using async functions and the await keyword, developers can write asynchronous operations that resemble synchronous code, leading to cleaner, more maintainable, and error-resistant code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

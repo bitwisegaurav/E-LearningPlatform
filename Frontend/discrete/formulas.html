@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Discrete Mathematics - Codevengers</title>
+</head>
+<body>
+    <h1>Important Formulas and Points</h1>
+
+    <h2>Set Theory</h2>
+    <ol>
+        <li>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</li>
+        <li>(A ∪ B)' = A' ∩ B'</li>
+        <li>n(A &Union; B) = n(A) + n(B) - n(A &Intersection; B)</li>
+        <li>n(A) = n(A-B) + n(A &Intersection; B)</li>
+        <li>n(B) = n(B-A) + n(A &Intersection; B)</li>
+        <li>n(A &Union; B &Union; C) = n(A) + n(B) + n(C) - n(A &Intersection; B) - n(A &Intersection; C) - n(B &Intersection; C) + n(A &Intersection; B &Intersection; C)</li>
+        <li>n(A' &Union; B') = n((A &Intersection; B)') = n(U) - n(A &Intersection; B)</li>
+        <li>n(A' &Intersection; B') = n((A &Union; B)') = n(U) - n(A &Union; B)</li>
+    </ol>
+    <p>If B<sub>1</sub> and B<sub>2</sub> are two sets then</p>
+    <p>Minterms are B<sub>1</sub> &Intersection; B<sub>2</sub>, B<sub>1</sub> &Intersection; B<sub>2</sub>', B<sub>1</sub>' &Intersection; B<sub>2</sub>, B<sub>1</sub>' &Intersection; B<sub>2</sub>'</p>
+    <p>Maxterms are B<sub>1</sub> &Union; B<sub>2</sub>, B<sub>1</sub> &Union; B<sub>2</sub>', B<sub>1</sub>' &Union; B<sub>2</sub>, B<sub>1</sub>' &Union; B<sub>2</sub>'</p>
+
+    <h2>Relations</h2>
+    <p>Reflexive -> (a,a)</p>
+    <p>Symmetric -> if (a,b) then (b,a)</p>
+    <p>Transitive -> if (a,b) and (b,c) then (a,c)</p>
+    <p>Equivalence -> Reflexive, Symmetric and Transitive</p>
+    <p>Partial Order -> Reflexive, Anti-Symmetric and Transitive</p>
+
+    <h2>Functions</h2>
+    <p>Injective -> one to one : distinct outputs</p>
+    <p>Surjective -> onto : co-domain = range</p>
+    <p>Bijective -> Injective and Surjective</p>
+
+    <h2>Graphs</h2>
+    <p>&Sigma;<sup>n</sup><sub>i=0</sub> deg(v<sub>i</sub>) = 2e</p>
+    <p>R = E - V + 2</p>
+
+    <h2>Automata</h2>
+    <p>Kleene Closure : Σ<sup>*</sup> = U<sup>&infin;</sup><sub>i=0</sub> {x : |x| = i}
+    </p>
+    <p>Positive Closure : Σ<sup>+</sup> = U<sup>&infin;</sup><sub>i=1</sub> {x : |x| = i}
+    </p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        pre {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Functions</h1>
+    <p>Functions are named PL/SQL blocks that can be called with arguments. They return a single value, which can be of
+        any PL/SQL datatype. Functions are similar to procedures, but they return a value and can be used in SQL
+        statements.</p>
+    <ul>
+        <li><span>Named Functions:</span> These functions are defined in a PL/SQL block and can be called in the same
+            block or from other blocks. They can have parameters and return values.</li>
+        <li><span>Stored Functions:</span> These functions are stored in the database and can be called from anywhere in
+            the database. They can have parameters and return values.</li>
+    </ul>
+
+    <h3>Syntax of Named Function</h3>
+    <p>A named function has the following syntax:</p>
+    <div class="code">CREATE OR REPLACE FUNCTION function_name (parameter1 datatype, parameter2 datatype, ...) RETURN
+    return_datatype IS <br>
+    BEGIN <br>
+    &emsp;&emsp; -- function code goes here <br>
+    END function_name;</div>
+
+   
+    <h3>Syntax of Stored Function</h3>
+    <p>A stored function has the following syntax:</p>
+    <div class="code">CREATE OR REPLACE FUNCTION function_name (parameter1 datatype, parameter2 datatype, ...) RETURN
+    return_datatype IS <br>
+    BEGIN <br>
+    &emsp;&emsp;-- function code goes here <br>
+    END function_name;</div>
+
+    <h3>Example :</h3>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/function/function.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Introduction to Computer Networks</title>
+</head>
+<body>
+    <h1>Introduction to Computer Networks</h1>
+
+    <h2>Data Communication</h2>
+    <p>
+        Data communication refers to the transmission of digital or analog data between two or more devices. It involves the exchange of information through transmission media such as cables or wireless channels.
+    </p>
+    <p>There are three main characteristics of efficient data communication system :</p>
+    <ul>
+        <li>Reliable Delivery</li>
+        <li>Accuracy</li>
+        <li>Timely Delivery</li>
+    </ul>
+
+    <p>Components of data communication system : </p>
+    <ul>
+        <li>Message</li>
+        <li>Sender</li>
+        <li>Receiver</li>
+        <li>Transimission medium</li>
+        <li>Protocols</li>
+    </ul>
+    <div class="structimg img-center">
+        <img src="../examples/networks/introduction/communicationComponents.png" alt="Components image">
+    </div>
+
+    <h2>Computer Network</h2>
+    <p>
+        A <span>network</span> is a set of devices or nodes that are connected via communication media or channel.
+    </p>
+    <p>Criteria for effective communication for network : </p>
+    <ol>
+        <li>Performance : Various factors are
+            <ul>
+                <li>Transit time</li>
+                <li>Response time</li>
+                <li>Throughput</li>
+            </ul>
+        </li>
+        <li>Reliability</li>
+        <li>Security</li>
+    </ol>
+    
+
+    <h2>Network Computing Models</h2>
+    <p>
+        Network model describes the organization of nodes in the network. It refers to the way in which the different nodes are interconnected.
+    </p>
+    <p>The different network computing models are : </p>
+    <ul>
+        <li><span>Centralized computing : </span>
+            Centralized computing is the computing model in which multiple computers/clients/nodes are joined to one powerful mainframe computer/server. It is also known as client-server computing.
+            <div class="structimg img-small img-center mt-2">
+                <img src="../examples/networks/introduction/centeralized.webp" alt="Centralized computing">
+            </div>
+        </li>
+        <li><span>Distributed computing : </span>
+            Distributed computing means hat the task is divided among multiple computers. Distributed computing interconnects one or more personal computers or workstations.
+        </li>
+        <li><span>Collaborative/Hybrid computing : </span>
+            It is the combination of centralized and distributed computing and in this computing, the nodes are able to serve the basic needs of their users but they are dependent on some other computers for processing some specific request.
+        </li>
+    </ul>
+
+    <h2>Data Transmission</h2>
+    <p>
+        Data transmission involves the movement of data between devices.
+    </p>
+    <p>Types of Data Transmission : </p>
+    <ul>
+        <li><span>Parallel Transmission : </span>
+            Parallel transmission is the transmission of data in parallel (all the bits of data are transmitted simultaneously on separate comunication lines).
+            <div class="structimg img-small img-center mt-2">
+                <img src="../examples/networks/introduction/parallel_transmission.jpeg" alt="Parallel transmission">
+            </div>
+        </li>
+        <li><span>Serial Transmission : </span>
+            Serial transmission is the transmission of data in serial (all the bits of data are transmitted one after the other). There is only one communication line rather than n lines.
+            <p><span>Types of Serial Transmission : </span></p>
+            <ul>
+                <li><span>Asynchronous Transmission : </span>
+                    Synchronous transmission uses start and stop bits for <span>Bit synchronization</span>. There is gap between every byte in data stream because it sends on byte at a time.
+                    <div class="structimg img-center mt-2">
+                        <img src="../examples/networks/introduction/asynchronous_transmission.png" alt="Synchronous transmission">
+                    </div>
+                </li>
+                <li><span>Synchronous Transmission : </span>
+                    Synchronous transmission does not use start and stop bits. There is no gap between various bytes in data stream.
+                    <div class="structimg img-center mt-2"><img src="../examples/networks/introduction/synchronous-transmission.jpeg" alt="Synchronous transmission"></div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Transmission Modes</h2>
+    <p>
+        Transmission modes define the direction of data flow between two devices. It can be simplex (one-way communication), half-duplex (two-way, but not simultaneously), or full-duplex (two-way simultaneous communication).
+    </p>
+    <ul>
+        <li><span>Simplex : </span>
+            In simplex mode, the data is transmitted only in one direction.
+        </li>
+        <li><span>Half-duplex : </span>
+            In half-duplex mode, the data is transmitted in both directions but only in one direction at a time.
+        </li>
+        <li><span>Full-duplex : </span>
+            In full-duplex mode, the data is transmitted in both directions simultaneously.
+        </li>
+    </ul>
+    <div class="structimg img-center">
+        <img src="../examples/networks/introduction/transmission_modes.png" alt="Transmission modes">
+    </div>
+
+    <h2>Line Configuration</h2>
+    <p>
+        Line configuration refers to the way data is transferred between devices. It can be point-to-point or multipoint, depending on the number of devices connected.
+    </p>
+    <ul>
+        <li><span>Point-to-Point : </span>
+            It uses dedicated link between the devices.
+            <div class="structimg img-center">
+                <img src="../examples/networks/introduction/point-to-point.webp" alt="Transmission modes">
+            </div>
+        </li>
+        <li><span>Multipoint : </span>
+            It uses shared links between the devices. And these networks known as <span>Broadcast Networks</span>.
+            <div class="structimg img-small img-center mt-2">
+                <img src="../examples/networks/introduction/multipoint.png" alt="Transmission modes">
+            </div>
+        </li>
+    </ul>
+    
+    <h2>Network Hardware</h2>
+    <p>
+        Networks are classified on the basis of : 
+    </p>
+    <ul>
+        <li><span>Scale : </span>
+            Networks can also be classified based on the physical size of processors and the inter-processor distance.
+        </li>
+        <li><span>Geographical : </span>
+            <ul>
+                <li><span>PAN (Personal Area Network) : </span>
+                    PANs are networks that are local to a single person or a small group of people. They are typically used to connect computers, printers, and
+                </li>
+                <li><span>LAN (Local Area Network) : </span>
+                    LANs are networks that are local to a single building or a small group of buildings. It is used to link devices in single office, building or a campus.
+                </li>
+                <li><span>MAN (Metropolitan Area Network) : </span>
+                    MANs are networks that are local to a single city or a small group of cities. Example like Telephone company network.
+                </li>
+                <li><span>WAN (Wide Area Network) : </span>
+                    WANs are networks that covers a large geographic area such a country, continent or even whole of the world. Example like Internet.
+            </ul>
+        </li>
+        <li><span>Relationship : </span>
+            <ul>
+                <li><span>Client-Server Model : </span>
+                    In such networks, there exists a central controller called <span>server</span>(which controls the network resources and provides services to other computers). All other computers in the network are called <span>clients</span>.
+                    <div class="structimg img-small img-center mt-2">
+                        <img src="../examples/networks/introduction/client_server.png" alt="Client server model">
+                    </div>
+                </li>
+                <li><span>Peer-to-Peer Model : </span>
+                    In such networks, there is no central controller/master/server. All computers in the network are called <span>peers</span>. Each device is responsible for setting up and maintaining its own security.
+                    <div class="structimg img-small img-center mt-2">
+                        <img src="../examples/networks/introduction/Peer-to-Peer.jpeg" alt="Peer to Peer model">
+                    </div>
+                </li>
+                <li><span>Hybrid Model : </span>
+                    Hybrid networks are the networks that are based on both peer-to-peer and client-server relationship.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Network Software</h2>
+    <p>
+        Network software involves the layers and protocols used for communication. The OSI model defines seven layers, each responsible for specific functions, and protocols ensure standardized communication between devices.
+    </p>
+    <ul>
+
+        <li><span>Layers : </span>
+            The seven layers of the OSI model are: Physical, Data Link, Network, Transport, Session, Presentation, and Application. Each layer has a specific role in the process of communication over a network. Data is passed from one layer to the next, starting at the Application layer in one station, and proceeding to the Physical layer, then passing through the layers in reverse order at the receiving station.
+        </li>
+        <li><span>Protocols : </span>
+            Protocols are sets of rules that govern communication. Protocols exist for several different applications, including for email (POP and SMTP), file transfer (FTP), and web browsing (HTTP).
+        </li>
+        <li><span>Interfaces : </span>
+            An interface is a shared boundary across which two separate components of a computer network exchange information. The exchange can be between software, computer hardware, peripheral devices, humans, and combinations of these.
+        </li>
+        <li><span>Services : </span>
+            Network services are applications hosted by servers on a computer network, to provide some functionality for members or users of the network, or to help the network itself to operate.
+        </li>
+        <li><span>Encapsulation : </span>
+            Encapsulation is a method of designing modular communication protocols in which logically separate functions in the network are abstracted from their underlying structures by inclusion or information hiding within higher level objects.
+        </li>
+    </ul>
+
+    <h2>Types of Services Offered by Layers</h2>
+    <p>The layers can offer two types of services:</p>
+
+    <h3>Connection Oriented Service</h3>
+    <p> A dedicated route is established between the sender and receiver.</p>
+    <p>or</p>
+    <p>A Connection Oriented Service is a technique that is typically used to transport and send data at the session layer. The data streams or packets are transferred or delivered to the receiver in a similar order in which they have been transferred by the sender. It is actually a data transfer method among two devices or computers in a different network, that is designed and developed after the telephone system. Whenever a network implements this service, it sends or transfers data or message from the sender or source to the receiver or destination in the correct order and manner.</p>
+    <p>There are two ways in which connection-oriented services can be done:</p>
+    <ul>
+        <li><strong>Circuit-Switched Connection</strong> : A dedicated route is established between the sender and receiver, and the whole data or message is sent through it.</li>
+        <li><strong>Virtual Circuit-Switched Connection</strong> : A preplanned route or path is established before data or messages are transferred or sent.</li>
+    </ul>
+
+    <h3>Connectionless Service</h3>
+    <p>A Connectionless Service is a technique that is used in data communications to send or transfer data or message at the Transport Layer of the Open System Interconnection model. This service does not require a session connection between the sender or source and the receiver or destination. The sender starts transferring or sending data or messages to the destination. In other words, we can say that connectionless service simply means that a node can transfer or send data packets or messages to its receiver even without a session connection to the receiver.</p>
+    <p>Some of the protocols for connectionless services are : </p>
+    <ul>
+        <li><strong>Internet Protocol (IP)</strong> : All packets in an IP network are routed independently. They might not go through the same route.</li>
+        <li><strong>User Datagram Protocol (UDP)</strong> : This protocol does not establish any connection before transferring data. It just sends data that’s why UDP is known as connectionless.</li>
+        <li><strong>Internet Control Message Protocol (ICMP)</strong> : ICMP is called connectionless simply because it does not need any hosts to handshake before establishing any connection.</li>
+        <li><strong>Internetwork Packet Exchange (IPX)</strong> : IPX is called connectionless as it doesn’t need any consistent connection that is required to be maintained while data packets or messages are being transferred from one system to another.</li>
+    </ul>
+
+    <h2>Network Topology</h2>
+    <p>
+        Network topology defines the physical or logical arrangement of devices in a network. Common topologies include Bus, Ring, Star, Mesh, Tree, and Hybrid.
+    </p>
+    <h3>Bus Topology</h3>
+    <p>
+        In a bus topology, all devices are connected to a central cable, called the bus or backbone. Bus networks are relatively inexpensive and easy to install for small networks.
+        <div class="structimg img-center mt-2">
+            <img src="../examples/networks/introduction/bus.png" alt="Bus Topology">
+        </div>
+    </p>
+    <h3>Ring Topology</h3>
+    <p>
+        In a ring topology, every device has exactly two neighbors for communication purposes. All messages travel through a ring in the same direction.
+        <div class="structimg img-small img-center mt-2">
+            <img src="../examples/networks/introduction/ring.svg" alt="Ring Topology">
+        </div>
+    </p>
+    <h3>Star Topology</h3>
+    <p>
+        In a star topology, every device is connected to a central hub. The hub acts as a repeater for data flow.
+        <div class="structimg img-center mt-2">
+            <img src="../examples/networks/introduction/star.png" alt="Star Topology">
+        </div>
+    </p>
+    <h3>Mesh Topology</h3>
+    <p>
+        In a mesh topology, every device is connected to every other device on the network. Therefore, it can handle high amounts of traffic and re-routing around links that have failed.
+        <div class="structimg img-center mt-2">
+            <img src="../examples/networks/introduction/mesh.jpeg" alt="Mesh Topology">
+        </div>
+    </p>
+    <h3>Tree Topology</h3>
+    <p>
+        Tree topology is a variation of star topology where the hubs of many individual star networks are connected by a linear bus.
+        <div class="structimg img-center mt-2">
+            <img src="../examples/networks/introduction/tree.png" alt="Tree Topology">
+        </div>
+    </p>
+    <h3>Hybrid Topology</h3>
+    <p>
+        Hybrid topology is an integration of two or more different topologies to form a resultant topology which has many advantages (as well as disadvantages) of all the constituent basic topologies rather than having characteristics of one specific topology.
+        <div class="structimg img-center mt-2">
+            <img src="../examples/networks/introduction/hybrid.jpeg" alt="Tree Topology">
+        </div>
+    </p>
+
+    <h2>Advantages of Computer Networks</h2>
+    <p>
+        Computer networks offer numerous advantages, making them essential in modern computing:
+    </p>
+    <ul>
+        <li><span>Resource Sharing: </span>
+            Networks enable the sharing of resources like files, printers, and internet connections among connected devices.
+        </li>
+        <li><span>Improved Communication: </span>
+            Efficient communication is facilitated through networks, enabling seamless exchange of information.
+        </li>
+        <li><span>Cost Savings: </span>
+            Sharing resources reduces costs, making networked systems more economical.
+        </li>
+        <li><span>Reliability: </span>
+            Network redundancy and backup systems enhance reliability and data integrity.
+        </li>
+        <li><span>Scalability: </span>
+            Networks can easily expand to accommodate additional devices and users.
+        </li>
+    </ul>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

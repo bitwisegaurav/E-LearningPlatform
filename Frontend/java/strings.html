@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Strings in Java</title>
+</head>
+<body>
+    <h1>Strings in Java</h1>
+    <p>
+        Strings in Java are sequences of characters used to represent text. Strings is a inbuilt class in java present in package <span>java.lang</span>.
+    </p>
+    <p>When we create a object of an String, that object is <span>immutable</span> which means whenever we assign a value in the string object, that value is not overwritted in the same object instead new memory is allovated with a new assignment of a value.</p>
+
+    <h2>String Memory and Accessibility</h2>
+    <p>
+        In Java, strings are stored in the string pool, a special area of memory. Strings are immutable, which means their values cannot be changed after creation. This immutability ensures that strings are thread-safe.
+    </p>
+    <p>
+        String objects can be created in several ways:
+    </p>
+    <ul>
+        <li><strong>String Literal:</strong> String literals, such as <span>Hello, Java!</span>, are stored in the string constant pool and are automatically reused if the same literal is encountered. And the object reference of that will refer to the memory in the string constant pool.</li>
+        <li><strong>Using the <span>new</span> Keyword:</strong> The <span>new</span> keyword creates a new string object in the heap memory, even if an identical string already exists in the string pool. And the object reference of string refers to the memory present in the heap.</li>
+    </ul>
+
+    <h2>String Creation and Accessibility</h2>
+    <p>
+        Here's an example of creating and accessing strings in Java:
+    </p>
+    <div class="code">
+        <pre>
+String literal1 = "Hello, Java!"; // Stored in the string pool
+String literal2 = "Hello, Java!"; // Reuses the existing string in the pool
+String newString = new String("Hello, Java!"); // Creates a new string object in heap memory
+
+System.out.println(literal1 == literal2); // true (same reference)
+System.out.println(literal1 == newString); // false (different references)</pre>
+    </div>
+
+    <h2>The StringBuffer Class</h2>
+    <p>
+        The <span>StringBuffer</span> class is a mutable sequence of characters that allows you to modify the content of a string without creating new string objects. It is more efficient for extensive string manipulation. By default, capacity of StringBuffer object is 16 characters. If the number of characters exceeds the capacity, the capacity is automatically increased at runtime.
+    </p>
+
+    <h2>Example of Using StringBuffer</h2>
+    <p>
+        Here's an example of using the <span>StringBuffer</span> class to concatenate strings:
+    </p>
+    <div class="code">
+        <pre>
+public class StringBufferExample {
+    public static void main(String[] args) {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Hello, ");
+        buffer.append("Java!");
+        String result = buffer.toString(); // Convert StringBuffer to String
+        System.out.println(result); // Output: Hello, Java!
+    }
+}</pre>
+    </div>
+
+    <h2>Object Class</h2>
+    <p>In java, there is a topmost class named as <span>Object</span> present in <span>java.lang</span>. All the classes in java, by default inherits the object class. This class contains around 11 functions in which the difference between <span>String</span> and <span>StringBuffer</span> class is of <span>equals</span> function.</p>
+    <p><span>==</span> (equals to operator) checks the reference of the objects.</p>
+    <p><span>equals</span> function in <span>StringBuffer</span> checkts the reference while in <span>String</span> class, it checks the values.</p>
+
+    <h2>Conclusion</h2>
+    <p>
+        Strings are a fundamental data type in Java, used for representing text and manipulating character data. Understanding string memory and accessibility, as well as using the <span>StringBuffer</span> class, is important for efficient string handling in Java.
+    </p>
+
+    
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</body>
+</html>

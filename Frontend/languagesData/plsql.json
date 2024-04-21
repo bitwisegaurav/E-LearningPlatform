@@ -1,0 +1,51 @@
+{
+    "name": "PL/SQL",
+    "folder": "plsql",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction",
+            "file": "introduction"
+        },
+        {
+            "name": "DataTypes",
+            "file": "datatypes"
+        },
+        {
+            "name": "Operators",
+            "file": "operators"
+        },
+        {
+            "name": "Procedures",
+            "file": "procedeures"
+        },
+        {
+            "name": "Decision Control Structures",
+            "file": "decision"
+        },
+        {
+            "name": "Iterative Control Structures",
+            "file": "iterative"
+        },
+        {
+            "name": "Cursor",
+            "file": "cursor"
+        },
+        {
+            "name": "Functions",
+            "file": "functions"
+        },
+        {
+            "name": "Packages",
+            "file": "package"
+        },
+        {
+            "name": "Exception Handling",
+            "file": "exception"
+        },
+        {
+            "name": "Triggers",
+            "file": "triggers"
+        }
+    ]
+}

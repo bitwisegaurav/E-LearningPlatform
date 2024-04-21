@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Inheritance in JavaScript</title>
+</head>
+<body>
+    <h1>Inheritance in JavaScript</h1>
+
+    <p>Inheritance is a fundamental concept in object-oriented programming (OOP) that allows objects to inherit properties and methods from other objects. In JavaScript, inheritance is achieved through prototype chaining.</p>
+
+    <h2>1. Prototype Chain</h2>
+
+    <p>Every object in JavaScript has a prototype, which is another object that it inherits properties and methods from. When a property or method is accessed on an object, JavaScript first checks if it exists on the object itself. If not, it looks up the prototype chain until it finds the property or method.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of prototype chain
+class Animal {
+    speak() {
+        console.log('Animal speaks');
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        console.log('Dog barks');
+    }
+}
+
+const dog = new Dog();
+dog.bark(); // Output: Dog barks
+dog.speak(); // Output: Animal speaks
+</pre></div>
+
+    <h2>3. Prototypal Inheritance</h2>
+
+    <p>In JavaScript, objects inherit properties and methods from their prototypes. You can define a class (constructor function) and use the <code>prototype</code> property to add methods and properties that will be inherited by objects created from that class.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of prototypal inheritance
+function Animal(name) {
+    this.name = name;
+}
+
+Animal.prototype.speak = function() {
+    console.log(`${this.name} makes a sound`);
+}
+
+function Dog(name) {
+    Animal.call(this, name);
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function() {
+    console.log(`${this.name} barks`);
+}
+
+const dog = new Dog('Buddy');
+dog.bark(); // Output: Buddy barks
+dog.speak(); // Output: Buddy makes a sound
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Inheritance is a powerful mechanism in JavaScript that allows objects to inherit properties and methods from other objects. By leveraging prototypal inheritance, developers can create more flexible and reusable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Graphs</title>
+    <style>
+        .symbol{
+            display: inline;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graphs</h1>
+    <h2>Introduction</h2>
+    <p>Graphs are a very important data structure. They are used in many applications. They are also used to represent the connections between different objects.</p>
+    <p>Graphs are made up of nodes and edges. Nodes are the vertices of the graph and edges are the links between the vertices.</p>
+    or
+    <p>Graphs are the mathematical structures which are combination of vertices and edges.</p>
+
+    <h2>Some Important Terms</h2>
+    <ol>
+        <li><span>Self Loop : </span>A loop in a graph where a node is connected to itself.</li>
+        <li><span>Proper Edge : </span>A edge which is not self loop</li>
+        <li><span>Paralled/Multi Edge : </span>
+            A edge which is present in a graph more than once.
+        </li>
+        <li><span>Incidence : </span>
+            The number of edges incident to a vertex.
+            <p>or</p>
+            The number of edges which are connected to a vertex.
+        </li>
+        <li><span>Adjacency : </span>
+            The number of vertices which are connected to a vertex.
+        </li>
+        <li><span>Degree of Vertex : </span>
+            The number of edges incident to a vertex.
+        </li>
+        <li><span>Isolated Vertex : </span>
+            A vertex which is not connected to any other vertex.
+        </li>
+        <li><span>Pendant Vertex : </span>
+            A vertex which is connected to only one vertex.
+        </li>
+        <li><span>Order of Graph : </span>
+            The number of vertices in a graph.
+        </li>
+    </ol>
+
+    <h2>Types of Graphs</h2>
+    <ol>
+        <li><span>Trivial Graph : </span>A graph which has only one node and no edges.</li>
+        <li><span>Null Graph : </span>A graph which has n vertices but no edge is present.</li>
+        <li><span>Directed Graph : </span>A graph which has edges which are directed from one node to another <p>or</p> graph whose edges contains any direction.</li>
+        <li><span>Undirected Graph : </span>A graph which has edges which are directed from one node to another and also from another node to another <p>or</p> graph which does not contain any direction therefore we by default consider it as bidirectional.</li>
+        <li><span>Weighted Graph : </span>A graph which has edges which are directed from one node to another and also from another node to another and also have a weight associated with it.</li>
+        <li><span>Simple Graph : </span> A graph whose any node does not contain any self loop or parallel edge.</li>
+        <li><span>Multi Graph : </span>A graph which has either self loop or paralled edge.</li>
+        <li><span>Pseduo Graph : </span>A graph which contain both self loop and parallel edge.</li>
+        <li><span>Connected Graph : </span>For any two nodes in a connected graph, there exists a sequence of edges that can be traversed to reach one node from the other. The path can include other vertices also.</li>
+        <li><span>Complete Graph : </span>A graph which has all the nodes connected to each other and also has all the edges.</li>
+        <li><span>Regular Graph : </span>A graph whose every vertex/node has same degree. And these types of graphs also represent as <span>k-regular graph </span> where <span>k </span> is the degree of every node.</li>
+        <li><span>Finite Graph : </span>A graph which contains finite no. of vertices.</li>
+        <li><span>Infinite Graph : </span>A graph which contains infinite no. of vertices.</li>
+        <li><span>Cyclic Graph : </span>A graph in which there exists at least one cycle containing more than three vertices.</li>
+        <li><span>Acyclic Graph : </span>A graph in which does not contain any cycle.</li>
+        <li><span>Bigraph/Bipartite Graph : </span>A graph in which the nodes can be divided into two groups such that no two nodes belong to same group. <p>or</p> If a graph can be partitioned into two non-empty disjoint substes in such a way that graph has one end in one subset and another one in another subsets then this graph can be called Bipartite graph.</li>
+        <li><span>Complete Bipartite Graph : </span>A graph which is bipartite and whose every node of X subset is connected to every node of Y subset.</li>
+        <li><span>Tree Graph : </span>A graph in which there is a root node and every node is connected to the root node.</li>
+        <li><span>Forest Graph : </span>A graph in which there is a root node and every node is connected to the root node and also there is no cycle.</li>
+        <li><span>Subgraph : </span>A subgraph is a subset of nodes and edges that are derived from a larger graph. It retains the structural properties of the original graph but contains only a portion of its elements.</li>
+        <li><span>Spanning Subgraph : </span>A subgraph which contains all the vertices of the original graph.</li>
+        <li><span>Isomorphic Graphs : </span>
+            Two graphs are said to be isomorphic if there is a one to one correspondence between their vertices such that if there is an edge between two vertices in one graph then there is also an edge between the corresponding vertices in the other graph.
+            <p>or</p>
+            Two graphs are said to be isomorphic if they have same number of vertices and edges and also have same degree of vertices.
+            <p>We can also check that the two graphs are isomorphic or not by these conditions.</p>
+            <ul>
+                <li>Both graphs should have same number of vertices.</li>
+                <li>Both graphs should have same number of edges.</li>
+                <li>Both graphs should have same degree of vertices.</li>
+                <li>Both graphs complement graph should be same.</li>
+                <li>Both graphs Adjacency matrix should be same.</li>
+            </ul>
+        </li>
+        <li><span>Homomorphic Graph : </span>
+            If a graph can be obtained from second graph then the graph is homomorphic of the second graph.
+        </li>
+        <li><span>Planar Graph : </span>A graph which can be drawn on a plane without any edge crossing.</li>
+    </ol>
+
+    <h2>Walk, Path and Circuits</h2>
+    <ol>
+        <li><span>Walk : </span>A walk is a sequence of vertices and edges of a graph. The sequence of vertices and edges are not necessarily distinct.</li>
+        <li><span>Trail : </span>A trail is a walk in which all the edges are distinct.</li>
+        <li><span>Path : </span>A path is a walk in which all the vertices are distinct.</li>
+        <li><span>Closed Walk : </span>A walk in which the starting vertex and ending vertex are same.</li>
+        <li><span>Circuit : </span>A circuit is a closed walk in which all the edges are distinct.</li>
+        <li><span>Simple Circuit : </span>A circuit in which all the vertices are distinct.</li>
+        <li><span>Simple Path : </span>A path in which all the vertices are distinct.</li>
+        <li><span>Length of Walk : </span>The number of edges in a walk.</li>
+        <li><span>Length of Trail : </span>The number of edges in a trail.</li>
+        <li><span>Length of Path : </span>The number of edges in a path.</li>
+        <li><span>Length of Circuit : </span>The number of edges in a circuit.</li>
+    </ol>
+
+    <h2>Important Formulas</h2>
+    <p>In graph theory, there are several important formulas that help us understand the properties of graphs:</p>
+    <div class="code">
+      <pre><div class="symbol">&Sigma;</div><sup>n</sup><sub>i=0</sub> deg(v<sub>i</sub>) = 2e</pre>
+      
+    </div>
+    <p>where v = vertex of the graph </p>
+    <p>e = no. of edges</p>
+    <p>This formula states that the sum of the degrees of all vertices in a graph is equal to twice the number of edges (2e).</p>
+    <div class="code">
+        <pre>R = E - V + 2</pre>
+    </div>
+    <p>where R = no of regions in the graph</p>
+
+    <h2>Matrix Representation</h2>
+    <p>There are two types of matrix representation of a graph.</p>
+    <h3>Adjacency Matrix</h3>
+
+    <p>An adjacency matrix is a 2D array where the rows and columns represent the vertices. If there is an edge from vertex i to vertex j, the value at matrix[i][j] is 1, otherwise it is 0.</p>
+
+    <h3>Incidence Matrix</h3>
+
+    <p>An incidence matrix is a 2D array where the rows represent vertices and columns represent edges. If vertex i is incident on edge j, the value at matrix[i][j] is 1, otherwise it is 0.</p>
+
+    <p>The adjacency matrix emphasizes the connectivity between vertices, while the incidence matrix emphasizes the relationships between vertices and edges.</p>
+
+    <h2>Shortest Path Algorithm</h2>
+    <p>There are two types of shortest path algorithms:</p>
+    <h3>Dijkstra's Algorithm</h3>
+
+    <p>Dijkstra's algorithm finds the shortest path from a single source vertex to all other vertices in a weighted graph. It maintains a priority queue of vertices to visit and updates the shortest distances to each vertex when a shorter path is found.</p>
+
+    <span>Steps to find the shortest path using this:</span>
+
+    <ul>
+    <li>Initialize the distance to all vertices to infinity and distance to source to 0.</li>
+    <li>Add all vertices to the priority queue, prioritized by distance.</li>
+    <li>While the priority queue is not empty:
+        <ol>
+        <li>Pop the vertex with the smallest distance.</li>
+        <li>For each neighboring vertex, calculate the distance to the new vertex through the current vertex. If this distance is less than the current distance, update the distance.</li>
+        </ol>
+    </li>
+    <li>The distances array now contains the shortest path distances from the source.</li>
+    </ul>
+
+
+    <h3>Floyd-Warshall Algorithm</h3>
+
+    <p>The Floyd-Warshall algorithm computes the shortest paths between all pairs of vertices in a weighted graph. It does this by iteratively improving an estimate on the shortest path distances until the estimates converge on the true shortest path distances.</p>
+    <p>Dijkstra's algorithm finds the shortest path from a single source vertex to all other vertices in a weighted graph. It maintains a priority queue of vertices to visit and updates the shortest distances to each vertex when a shorter path is found.</p>
+
+    <span>Steps to find the shortest path using this : </span>
+
+    <ul>
+    <li>Initialize the distance to all vertices to infinity and distance to source to 0.</li>
+    <li>Add all vertices to the priority queue, prioritized by distance.</li>
+    <li>While the priority queue is not empty:
+        <ol>
+        <li>Pop the vertex with the smallest distance.</li>
+        <li>For each neighboring vertex, calculate the distance to the new vertex through the current vertex. If this distance is less than the current distance, update the distance.</li>
+        </ol>
+    </li>
+    <li>The distances array now contains the shortest path distances from the source.</li>
+    </ul>
+
+    <h2>Travelling Salesman Problem (TSP)</h2>
+
+    <h3>1. Brute Force</h3>
+
+    <p>Brute force involves generating all possible permutations of the cities. Once a permutation is generated, its total cost is calculated and compared with the best cost found so far. The best permutation gives the optimal solution.</p>
+
+    <h3>2. Greedy</h3>
+
+    <p>The greedy algorithm is used to find a feasible solution for the TSP. The algorithm starts at an arbitrary city, then selects the closest city not yet visited, and adds it to the solution. The algorithm continues until all cities have been visited. Although the solution obtained using this approach may not be optimal, it provides a reasonable approximation.</p>
+
+    <h3>3. Branch and Bound</h3>
+
+    <p>Branch and bound is an optimization algorithm used to solve combinatorial optimization problems, including the TSP. It systematically enumerates all possible solutions to the problem by branching on the solution tree and bounding the objective function. Each bound represents a solution that has already been generated. By systematically bounding the solutions that are generated, the algorithm ensures that no feasible solution is missed and that the most promising solutions are explored first.</p>
+
+    <p>Branch and bound algorithms use a priority queue to store the solutions. Each bound is associated with a cost, and the solution with the smallest cost is selected for further processing. This ensures that the algorithm explores the most promising solutions first.</p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

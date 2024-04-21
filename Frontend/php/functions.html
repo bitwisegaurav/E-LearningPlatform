@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Functions in PHP</title>
+</head>
+<body>
+    <h1>Functions</h1>
+
+    <h2>What is a Function?</h2>
+    <p>
+        A function in PHP is a block of code that can be called and executed multiple times. Functions are used to encapsulate a set of actions, making code more organized, reusable, and easier to maintain.
+    </p>
+
+    <h2>Arguments (Formal and Actual)</h2>
+    <p>
+        Functions can accept parameters, known as formal parameters or arguments. When a function is called, you provide actual values for these arguments.
+    </p>
+    <div class="code">
+        <pre>
+function greet($name) {
+    echo "Hello, $name!";
+}
+greet("John");</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-args.png" alt="">
+    </div>
+    <p>So in this example, <span>John</span> is actual paramerter and <span>$name</span> is formal parameter</p>
+
+    <h2>Return Value</h2>
+    <p>
+        Functions can return values using the <span>return</span> statement. The returned value can be used in other parts of the code.
+    </p>
+    <div class="code">
+        <pre>
+function add($a, $b) {
+    return $a + $b;
+}
+$result = add(5, 3); // $result will be 8</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-return.png" alt="">
+    </div>
+
+    <h2>Default Values</h2>
+    <p>
+        You can specify default values for function arguments. If no value is provided when calling the function, the default value is used.
+    </p>
+    <div class="code">
+        <pre>
+function greet($name = "Guest") {
+    echo "Hello, $name!";
+}
+greet(); // $result will be "Hello, Guest!"</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-default.png" alt="">
+    </div>
+
+    <h2>Dynamic Function Calling</h2>
+    <p>
+        PHP allows you to call functions dynamically using variable functions and the <span>call_user_func</span> function.
+    </p>
+    <div class="code">
+        <pre>
+$functionName = "greet";
+$functionName("Gaurav"); // Calls the greet function</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-dfc.png" alt="">
+    </div>
+
+    <h2>Call by Value and Reference</h2>
+    <p>
+        By default, PHP uses call by value, which means function arguments are copies of the original values. To pass arguments by reference, you can use the <span>&</span> symbol.
+    </p>
+    <div class="code">
+        <pre>
+function increment($num) {
+    $num++;
+}
+function incrementByReference(&$num) {
+    $num++;
+}
+$value = 5;
+echo "Value before function calling = $value &lt;br>";
+
+increment($value); // $value remains 5
+echo "Value after call by value = $value &lt;br>";
+
+incrementByReference($value); // $value becomes 6
+echo "Value after call by reference = $value &lt;br>";</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-callby.png" alt="">
+    </div>
+
+    <h2>Function and Variable Scope</h2>
+    <p>
+        PHP has different scopes for variables: local, global, and static. Variables declared inside a function are local by default.
+    </p>
+    <div class="code">
+        <pre>
+$globalVar = 10;
+function myFunction() {
+    $localVar = 20;
+}
+echo $globalVar; // Accessible
+echo $localVar; // Not accessible (undefined)</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-scope.png" alt="">
+    </div>
+
+    <h2>Recursion</h2>
+    <p>
+        Recursion is a technique where a function calls itself. It's often used to solve problems that can be broken down into smaller, similar sub-problems.
+    </p>
+    <div class="code">
+        <pre>
+function factorial($n) {
+    if ($n === 0) { return 1; } 
+    else { return $n * factorial($n - 1); }
+}
+$fact = factorial(5);
+echo $fact;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-recursion.png" alt="">
+    </div>
+
+    <h2>Library Functions</h2>
+    <p>
+        PHP provides a wide range of built-in library functions for various tasks, such as string manipulation, file handling, and more. These functions can be used in your PHP scripts to perform common operations. For e.g.
+    </p>
+    <div class="code">
+        <pre>
+$length = strlen("Hello, PHP!");
+echo $length;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/function-library.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Functions are a fundamental part of PHP programming, allowing you to structure your code, make it reusable, and improve maintainability. By understanding function arguments, return values, scope, recursion, and the use of library functions, you can become a more proficient PHP developer.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

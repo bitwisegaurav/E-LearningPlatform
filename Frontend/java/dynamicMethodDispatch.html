@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Dynamic Method Dispatch</title>
+</head>
+<body>
+    <h1>Dynamic Method Dispatch</h1>
+    <p>A super class reference object can refer the subclass object, but it can call only those functions which are inherited from super class to subclass.</p>
+    <p>A sub class reference object cannot refer a super class object.</p>
+    <p>Here's an example of dynamic method dispatch in Java:</p>
+    <div class="code">
+        <pre>
+class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    public void makeSound() {
+        System.out.println("The dog barks");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Animal();
+        Animal animal2 = new Dog();
+        animal1.makeSound();
+        animal2.makeSound();
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>Dynamic method dispatch is a powerful feature of object-oriented programming that allows a superclass reference object to refer to a subclass object and call the appropriate method based on the actual object type at runtime. This allows for greater flexibility and extensibility in object-oriented programs.</p>
+    <p>Overall, dynamic method dispatch is an important concept to understand in object-oriented programming, and it can be a valuable tool for creating flexible and extensible programs.</p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

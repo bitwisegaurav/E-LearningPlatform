@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Views</h1>
+    <p>A view is a virtual table based on the result-set of an SQL statement. It contains rows and columns just like a real table, but the data is not stored in the database. Instead, the data is dynamically generated from the underlying tables/views each time the view is queried.</p>
+    <p>Views are useful for several reasons:</p>
+    <ul>
+      <li>They provide a way to simplify complex SQL queries by encapsulating the query logic into a single view.</li>
+      <li>They can be used to restrict data access by exposing only a subset of columns or rows from a table or joining multiple tables together.</li>
+      <li>They can be used to summarize data, calculate derived values, or provide customized views of the data.</li>
+    </ul>
+    <p>Syntax:</p>
+    <div class="code">
+    CREATE [OR REPLACE] VIEW view_name AS
+    SELECT column1, column2, ...
+    FROM table_name
+    WHERE condition;
+    </div>
+    <p>The <span>OR REPLACE</span> option allows you to modify an existing view without having to drop and recreate it.</p>
+    <p>Once a view is created, you can query it just like a table:</p>
+    <div class="code">
+SELECT * FROM view_name;
+    </div>
+    <p>Views can also be dropped using the following syntax:</p>
+    <div class="code">
+DROP VIEW view_name;
+    </div>
+    <p>Example :</p>
+    <div class="structimg">
+        <img src="../examples/mysql/view/view.PNG" alt="create database" class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

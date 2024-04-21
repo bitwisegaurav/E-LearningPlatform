@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Media Queries in CSS</title>
+</head>
+
+<body>
+    <h1>Media Queries in CSS</h1>
+
+    <p>Media queries in CSS allow you to apply different styles for different devices and screen sizes. They are a crucial part of creating responsive and adaptive web designs.</p>
+
+    <h2>1. Basic Structure:</h2>
+
+    <p>Define a media query using the `@media` rule. Specify the conditions under which the styles should apply:</p>
+
+    <div class="code">
+        <pre>
+/* Standard styles for all devices */
+
+@media screen and (min-width: 600px) {
+    /* Styles for devices with a minimum width of 600px */
+}
+
+@media (orientation: landscape) {
+    /* Styles for devices in landscape orientation */
+}
+        </pre>
+    </div>
+
+    <h2>2. Breakpoints for Responsive Design:</h2>
+
+    <p>Commonly used breakpoints target specific device sizes. Adjust styles based on the width of the viewport:</p>
+
+    <div class="code">
+        <pre>
+/* Standard styles for all devices */
+
+@media screen and (min-width: 600px) {
+    /* Styles for small devices like smartphones */
+}
+
+@media screen and (min-width: 768px) {
+    /* Styles for tablets */
+}
+
+@media screen and (min-width: 1024px) {
+    /* Styles for desktops and larger devices */
+}
+        </pre>
+    </div>
+
+    <h2>3. Responsive Typography:</h2>
+
+    <p>Modify font sizes and spacing for better readability on different devices:</p>
+
+    <div class="code">
+        <pre>
+body {
+    font-size: 16px; /* Default font size */
+
+    @media screen and (min-width: 600px) {
+        font-size: 18px; /* Increase font size for small devices */
+    }
+
+    @media screen and (min-width: 1024px) {
+        font-size: 20px; /* Further increase font size for larger devices */
+    }
+}
+        </pre>
+    </div>
+
+    <h2>4. Conditional Loading of Assets:</h2>
+
+    <p>Load different images or assets based on the device's characteristics:</p>
+
+    <div class="code">
+        <pre>
+.image {
+    background-image: url('default-image.jpg');
+
+    @media screen and (min-width: 600px) {
+        background-image: url('medium-device-image.jpg');
+    }
+
+    @media screen and (min-width: 1024px) {
+        background-image: url('large-device-image.jpg');
+    }
+}
+        </pre>
+    </div>
+
+    <p>Media queries empower you to create designs that adapt to various screen sizes and orientations, providing an optimal user experience across different devices.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

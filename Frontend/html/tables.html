@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>HTML Tables</title>
+</head>
+
+<body>
+    <h1>HTML Tables</h1>
+
+    <p>Tables are used to organize and display data in a structured format. HTML provides a set of elements to create tables, including rows, columns, headers, and cells. Understanding how to build and style tables is essential for presenting information in a clear and organized manner.</p>
+
+    <h2>Basic Table Structure:</h2>
+    <p>The basic structure of an HTML table involves the use of the <span>&lt;table&gt;</span>, <span>&lt;tr&gt;</span> (table row), <span>&lt;th&gt;</span> (table header), and <span>&lt;td&gt;</span> (table data) elements:</p>
+
+    <div class="code"><pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Header 1&lt;/th&gt;
+        &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+        &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 2, Cell 1&lt;/td&gt;
+        &lt;td&gt;Row 2, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </div>
+
+    <p>Output : </p>
+    <table>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+        </tr>
+    </table>    
+
+    <h2>Table Headers and Data:</h2>
+    <p>Use <span>&lt;th&gt;</span> for header cells and <span>&lt;td&gt;</span> for data cells:</p>
+
+    <div class="code"><pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+        &lt;th&gt;Country&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;USA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Alice&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+        &lt;td&gt;Canada&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </div>
+    <p>Output : </p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>25</td>
+            <td>USA</td>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>30</td>
+            <td>Canada</td>
+        </tr>
+    </table>    
+
+    <h2>Table Captions:</h2>
+    <p>Add a caption to describe the purpose of the table:</p>
+
+    <div class="code"><pre>
+&lt;table&gt;
+    &lt;caption&gt;Employee Information&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Department&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Mark&lt;/td&gt;
+        &lt;td&gt;HR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Emily&lt;/td&gt;
+        &lt;td&gt;IT&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </div>
+    <p>Output : </p>
+    <table>
+        <caption>Employee Information</caption>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+        </tr>
+        <tr>
+            <td>Mark</td>
+            <td>HR</td>
+        </tr>
+        <tr>
+            <td>Emily</td>
+            <td>IT</td>
+        </tr>
+    </table>    
+
+    <h2>Table Spanning:</h2>
+    <p>Use the <span>colspan</span> and <span>rowspan</span> attributes to make a cell span multiple columns or rows:</p>
+
+    <div class="code"><pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Employee Information&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Name&lt;/td&gt;
+        &lt;td&gt;Department&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Mark&lt;/td&gt;
+        &lt;td&gt;HR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;IT&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </div>
+    <p>Output : </p>
+    <table>
+        <tr>
+            <th colspan="2">Employee Information</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Department</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Mark</td>
+            <td>HR</td>
+        </tr>
+        <tr>
+            <td>IT</td>
+        </tr>
+    </table>    
+
+    <h2>Conclusion:</h2>
+    <p>The <span>&lt;table&gt;</span> tag is a fundamental element in HTML for creating structured data. It allows us to display information in rows and columns, making it easier to organize and present data. By using additional HTML elements such as <span>&lt;tr&gt;</span>, <span>&lt;th&gt;</span>, and <span>&lt;td&gt;</span>, we can create tables with headers, data cells, and captions. CSS can be applied to tables to enhance their appearance and improve readability. With the knowledge gained in this tutorial, you are now equipped to create and style tables in HTML.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

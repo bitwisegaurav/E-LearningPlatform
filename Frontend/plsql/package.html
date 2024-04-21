@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        #structimg{
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Packages</h1>
+    <p>
+		Packages in PL/SQL are logical groupings of related subprograms, which can include procedures, functions, cursors, constants, variables, exceptions, and other PL/SQL constructs. The primary benefit of packages is that they enable modular programming by providing a way to encapsulate related procedures, functions, and other constructs in a single named program unit, which can then be stored in a database and reused by multiple applications.
+	</p>
+	<p>
+		Packages in PL/SQL have two parts: the specification and the body. The specification defines the interface to the package, including any public procedures, functions, and other constructs that can be accessed from outside the package. The body contains the implementation of the package, including any private procedures, functions, and other constructs that are not visible outside the package. 
+	</p>
+	<h3>Syntax :</h3>
+	<p>
+		The syntax for creating a package in PL/SQL is as follows :
+	</p>
+    <p>Package Declaration :-</p>
+    <div class="code">
+        create [or replace] package package_name as <br>
+        --declare named procedures; <br>
+        --declare named functions; <br>
+        end;
+    </div>
+    <p>Package Body :-</p>
+    <div class="code">
+        create [or replace] package body package_name as <br>
+        --package body; <br>
+        end;
+    </div>
+    
+    <h3>Example :</h3>
+    <p>Package Declaration :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/package/package_create.PNG" alt="procedure"
+        class="hori">
+    </div>
+    <p>Package Body :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/package/package_body_define.PNG" alt="procedure"
+        class="hori">
+    </div>
+    <p>Result :</p>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/package/result.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

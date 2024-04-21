@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Event Delegation in JavaScript</title>
+</head>
+<body>
+    <h1>Event Delegation in JavaScript</h1>
+
+    <p>Event delegation is a JavaScript programming technique that allows you to listen for events on a parent element and respond to events triggered by its descendant elements. This approach simplifies event handling, reduces memory usage, and improves performance, especially in scenarios with dynamically generated or large numbers of elements.</p>
+
+    <h2>1. How Event Delegation Works</h2>
+
+    <p>When an event occurs, it bubbles up through the DOM hierarchy from the target element to its ancestors. Event delegation takes advantage of this bubbling behavior by attaching event listeners to a common ancestor element rather than to individual child elements.</p>
+
+    <h2>2. Benefits of Event Delegation</h2>
+
+    <p>Event delegation offers several advantages in JavaScript development:</p>
+    <ul>
+        <li><strong>Efficiency:</strong> By attaching event listeners to a single parent element, you avoid the need to register multiple listeners on individual child elements, reducing memory usage and improving performance.</li>
+        <li><strong>Flexibility:</strong> Event delegation simplifies event handling, especially for dynamically generated or frequently updated content, as you only need to handle events on the parent element.</li>
+        <li><strong>Scalability:</strong> Event delegation scales well with large numbers of elements, making it suitable for applications with complex DOM structures or dynamic content.</li>
+    </ul>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of event delegation
+document.getElementById('parentElement').addEventListener('click', function(event) {
+    if (event.target && event.target.matches('button')) {
+        // Handle button click event
+        console.log('Button clicked:', event.target.textContent);
+    }
+});
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Event delegation is a powerful technique in JavaScript for handling events efficiently and effectively, especially in scenarios with dynamically generated or large numbers of elements. By understanding how event delegation works and leveraging its benefits, developers can write cleaner, more scalable, and maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

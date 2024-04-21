@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Set Theory - Codevengers</title>
+</head>
+<body>
+    <h1>Set Theory</h1>
+    
+    <h2>What is Set?</h2>
+    <p>A set is a collection of well defined and different objects.</p>
+
+    <h2>Some standard sets</h2>
+    <ul>
+        <li><span>N : </span>Set of all natural numbers.</li>
+        <li><span>W : </span>Set of all whole numbers.</li>
+        <li><span>I or Z : </span>Set of all integers.</li>
+        <li><span>Q : </span>Set of all rational numbers.</li>
+        <li><span>R : </span>Set of all real numbers.</li>
+    </ul>
+
+    <h2>Methods of Designating a set</h2>
+    <ol>
+        <li><span>Tabular, Roaster or Enumeration Method : </span>represent a set by listing all elements. For e.g. A = {a,e,i,o,u}.</li>
+        <li><span>Selector, Set-builder or Rule Method : </span>represented by specifyiung the defining property. For e.g. A = {x : x is a vowel in English alphabets}.</li>
+    </ol>
+
+    <h2>Types of Sets</h2>
+    <ol>
+        <li><span>Finite Set : </span>finite number of elements.</li>
+        <li><span>Infinite Set : </span>infinite number of elements.</li>
+        <li><span>Singleton/Unit Set : </span>set with only one element.</li>
+        <li><span>Empty/Null/Void Set : </span>set with no elements and is denoted by {} or &phi; .</li>
+        <li><span>Subset : </span>If every element of A is in B then A is subset of B and it is denoted as A &subset; B.</li>
+        <li><span>Superset : </span>If every element of A is in B then B is superset of A and it is denoted as B &Superset; A.</li>
+        <li><span>Proper Set : </span>A &subset; B and A &NotEqual; B.
+        <p class="note note-normal">&phi; and A are called improper subsets of A.</p></li>
+        <li><span>Power Set : </span>set of all subsets.</li>
+        <li><span>Universal Set : </span>set of all elements.
+            <p>or</p> if all the sets are subsets of U then U is a universal set.</li>
+    </ol>
+        
+    <h2>Important Terms</h2>
+    <ul>
+        <li><span>Comparable Set : </span>if one of the two sets is a subset of the other then they are comparable sets.</li>
+        <li><span>Equality of Sets : </span>A &subset; B and B &subset; A or if boths sets have the same elements. It is denoted as A = B.</li>
+        <li><span>Non Comparable Set : </span>if no set of the two sets is a subset of the other then they are non comparable sets.</li>
+        <li><span>Order of a Finite Set : </span>number of different elements of a finite set and is denoted by O(set_name). For e.g O(A) = 4;.</li>
+        <li><span>Cardinality : </span>Number of different elements in a set.</li>
+        <li><span>Equivalent Sets : </span>if O(A) = O(B) then both are equivalent.</li>
+    </ul>
+
+    <h2>Venn Diagrams</h2>
+    <p>A Venn diagram is a diagrammatic representation of sets where each set is represented by a circle.</p>
+    <h2>Operations on Sets</h2>
+    <ol>
+        <li><span>Union of Sets : </span>The union of two sets A and B is the set of elements which are in A, in B, or in both A and B. It is denoted by A ∪ B.
+            <div class="structimg img-center mt-2 blue-purple"><img src="../examples/discrete/sets/union.png" alt="Union of sets"></div>
+        </li>
+        <li><span>Intersection of Sets : </span>The intersection of two sets A and B is the set of elements which are in both A and B. It is denoted by A ∩ B.
+            <div class="structimg img-center img-50 mt-2"><img src="../examples/discrete/sets/intersection.jpeg" alt="Intersection of sets"></div>
+        </li>
+        <li><span>Difference of Sets : </span>The difference of the set B from the set A is the set of all elements that are in A but not in B. It is denoted by A - B or A\B.
+            <div class="structimg img-center img-50 mt-2 blue-purple"><img src="../examples/discrete/sets/difference.png" alt="Difference of sets"></div>
+        </li>
+        <li><span>Complement of a Set : </span>The complement of a set A refers to elements not in A. It is denoted by A' or A̅.
+            <div class="structimg img-center img-50 mt-2 pink-purple"><img src="../examples/discrete/sets/complement.png" alt="Complement of sets"></div>
+        </li>
+    </ol>
+
+    <h2>Fundamental Laws of Set Theory</h2>
+    <table>
+        <tr>
+            <th width="30%">Law</th>
+            <th>Definition</th>
+        </tr>
+        <tr>
+            <td>Identity Law</td>
+            <td><p>A ∪ &phi; = A</p><p>A ∩ U = A</p></td>
+        </tr>
+        <tr>
+            <td>Domination Law</td>
+            <td><p>A ∩ &phi; = &phi;</p><p> A ∪ U = U</p></td>
+        </tr>
+        <tr>
+            <td>Idempotent Law</td>
+            <td><p>A ∪ A = A</p><p>A ∩ A = A</p></td>
+        </tr>
+        <tr>
+            <td>Complementation Law</td>
+            <td><p>(A')' = A</p></td>
+        </tr>
+        <tr>
+            <td>Commutative Law</td>
+            <td><p>A ∪ B = B ∪ A</p><p>A ∩ B = B ∩ A</p></td>
+        </tr>
+        <tr>
+            <td>Associative Law</td>
+            <td><p>(A ∪ B) ∪ C = A ∪ (B ∪ C)</p><p>(A ∩ B) ∩ C = A ∩ (B ∩ C)</p></td>
+        </tr>
+        <tr>
+            <td>Distributive Law</td>
+            <td><p>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</p><p>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</p></td>
+        </tr>
+        <tr>
+            <td>De Morgan's Law</td>
+            <td><p>(A ∪ B)' = A' ∩ B'</p><p>(A ∩ B)' = A' ∪ B'</p></td>
+        </tr>
+        <tr>
+            <td>Absorption Law</td>
+            <td><p>A ∪ (A ∩ B) = A</p><p>A ∩ (A ∪ B) = A</p></td>
+        </tr>
+        <tr>
+            <td>Complement Law</td>
+            <td><p>A ∩ A' = &phi;</p><p> A ∪ A' = U</p></td>
+        </tr>
+    </table>
+
+    <h2>Inclusion - Exclusion Principle</h2>
+    <p>Number of elements of a finite set A is denoted by n(A).</p>
+    <p>Following results of number of elements should be kept in mind for doing problems : </p>
+    <ol>
+        <li>n(A &Union; B) = n(A) + n(B) - n(A &Intersection; B)</li>
+        <li>n(A &Union; B) = n(A) + n(B) if A, B are disjoint sets.</li>
+        <li>n(A &Union; B) = n(A-B) + n(B-A) - n(A &Intersection; B)</li>
+        <li>n(A) = n(A-B) + n(A &Intersection; B)</li>
+        <li>n(B) = n(B-A) + n(A &Intersection; B)</li>
+        <li>n(A &Union; B &Union; C) = n(A) + n(B) + n(C) - n(A &Intersection; B) - n(A &Intersection; C) - n(B &Intersection; C) + n(A &Intersection; B &Intersection; C)</li>
+        <li>n(A' &Union; B') = n((A &Intersection; B)') = n(U) - n(A &Intersection; B)</li>
+        <li>n(A' &Intersection; B') = n((A &Union; B)') = n(U) - n(A &Union; B)</li>
+        <li>n(A &Intersection; B' &Intersection; C') = n(A) - n(A &Intersection; B) - n(A &Intersection; C) + n(A &Intersection; B &Intersection; C)</li>
+    </ol>
+
+    <h2>Cartesian Product of Sets</h2>
+    <p>The Cartesian product of two sets A and B, denoted by A x B, is the set of all ordered pairs (a, b) where a is in A and b is in B.</p>
+    <p>For example, if A = {1, 2} and B = {a, b}, then A x B = {(1, a), (1, b), (2, a), (2, b)}.</p>
+
+    <h2>Partitions of Sets</h2>
+    <h3>Minimum Set/Minset/Minterm</h3>
+    <p>A minset of a set A with respect to a set function f is a subset B of A such that for every subset C of A, if f(B) = f(C), then B is a subset of C.</p>
+
+    <h3>Maximum Set/Maxset/Maxterm</h3>
+    <p>A maxset of a set A with respect to a set function f is a subset B of A such that for every subset C of A, if f(B) = f(C), then C is a subset of B.</p>
+
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

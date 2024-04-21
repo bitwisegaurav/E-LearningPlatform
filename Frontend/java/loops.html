@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Loops</title>
+</head>
+<body>
+    <h1>Loops in Java</h1>
+    <p>
+        Loops in Java are control structures that allow you to repeat a block of code multiple times. They are essential for tasks like iterating over arrays, performing calculations, and handling repetitive tasks efficiently.
+    </p>
+
+    <h2>For Loop</h2>
+    <p>
+        The <span>for</span> loop is used when you known in advance how many times you want to iterate. It consists of an initialization, a condition, and an iteration statement.
+    </p>
+    <div class="code">
+        <pre>
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration " + i);
+}</pre>
+    </div>
+
+    <h2>While Loop</h2>
+    <p>
+        The <span>while</span> loop is used when you want to repeat a block of code as long as a condition is true. It checks the condition before each iteration.
+    </p>
+    <div class="code">
+        <pre>
+int i = 0;
+while (i < 5) {
+    System.out.println("Iteration " + i);
+    i++;
+}</pre>
+    </div>
+
+    <h2>Do-while Loop</h2>
+    <p>
+        The <span>do-while</span> loop is similar to the <span>while</span> loop, but it guarantees that the code block is executed at least once before checking the condition.
+    </p>
+    <div class="code">
+        <pre>
+int i = 0;
+do {
+    System.out.println("Iteration " + i);
+    i++;
+} while (i < 5);</pre>
+    </div>
+
+    <h2>For-each Loop</h2>
+    <p>
+        The enhanced for loop (for-each loop) is used for iterating over elements of arrays and collections. It simplifies the loop structure by eliminating the need for loop control variables.
+    </p>
+    <div class="code">
+        <pre>
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println("Number: " + num);
+}</pre>
+    </div>
+
+    <h2>Loop Control Statements</h2>
+    <p>
+        Java provides loop control statements like <span>break</span> and <span>continue</span> to modify the flow of loops. <span>break</span> is used to exit a loop prematurely, while <span>continue</span> is used to skip the current iteration and proceed to the next.
+    </p>
+    <div class="code">
+        <pre>
+for (int i = 0; i < 5; i++) {
+    if (i == 3) {
+        break; // Exits the loop when i is 3
+    }
+    if (i == 1) {
+        continue; // Skips the iteration when i is 1
+    }
+    System.out.println("Iteration " + i);
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Loops are fundamental in Java programming for performing repetitive tasks efficiently. The <span>for</span>, <span>while</span> and <span>do-while</span> loops offer various ways to control program flow, and the enhanced for loop simplifies array and collection iteration. Understanding and using loops is essential for writing robust Java applications.
+    </p>
+
+    
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+</head>
+
+<body>
+    <h1>Decision Control Structures</h1>
+    <p>PL/SQL provides the following decision control structures:</p>
+	<ul>
+		<li><span>IF-THEN</span>: The IF-THEN statement executes a sequence of statements if a condition is true.</li>
+		<li><span>IF-THEN-ELSE</span>: The IF-THEN-ELSE statement executes one sequence of statements if a condition is true and another sequence of statements if the condition is false.</li>
+		<li><span>IF-THEN-ELSIF</span>: The IF-THEN-ELSIF statement executes one sequence of statements if a condition is true and another sequence of statements if the condition is false, but additional conditions can be tested.</li>
+	</ul>
+	<p>Example of IF-THEN statement:</p>
+	<pre class="code">
+DECLARE
+	num1 NUMBER := 10;
+BEGIN
+	IF num1 > 5 THEN
+		DBMS_OUTPUT.PUT_LINE('num1 is greater than 5');
+	END IF;
+END;</pre>
+	<p>Example of IF-THEN-ELSE statement:</p>
+	<pre class="code">
+DECLARE
+	num1 NUMBER := 3;
+BEGIN
+	IF num1 > 5 THEN
+		DBMS_OUTPUT.PUT_LINE('num1 is greater than 5');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('num1 is less than or equal to 5');
+	END IF;
+END;</pre>
+	<p>Example of IF-THEN-ELSIF statement:</p>
+	<pre class="code">
+DECLARE
+	num1 NUMBER := 7;
+BEGIN
+	IF num1 < 5 THEN
+		DBMS_OUTPUT.PUT_LINE('num1 is less than 5');
+	ELSIF num1 < 10 THEN
+		DBMS_OUTPUT.PUT_LINE('num1 is between 5 and 10');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('num1 is greater than or equal to 10');
+	END IF;
+END;</pre>
+    <h3>Output :</h3>
+	<div class="structimg" class="pl">
+        <img src="../examples/plsql/decision/decision.PNG" alt="procedure"
+        class="hori">
+    </div>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

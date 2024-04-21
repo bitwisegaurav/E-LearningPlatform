@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Functions</title>
+</head>
+<body>
+    <h1>Functions (Methods) in Java</h1>
+    <p>
+        Functions, also known as <span>methods</span> in Java, are reusable blocks of code that perform a specific task. They allow you to break down a program into smaller, more manageable pieces. Functions make your code more organized, readable, and maintainable. In Java, methods can be categorized as:
+    </p>
+    <ul>
+        <li><strong>Static Methods:</strong> Methods that belong to the class rather than an instance of the class. They are called using the class name.</li>
+        <li><strong>Instance Methods:</strong> Methods that are associated with an instance (object) of the class. They are called using an object of the class.</li>
+    </ul>
+
+    <h2>Defining and Using Methods</h2>
+    <p>
+        Here's an example of defining and using a simple method in Java:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MyClass {
+    // Static method
+    public static void sayHello() {
+        System.out.println("Hello, World!");
+    }
+
+    public static void main(String[] args) {
+        // Calling the static method
+        sayHello();
+    }
+}</pre>
+    </div>
+
+    <h2>Method Parameters</h2>
+    <p>
+        Methods can accept parameters (inputs) to perform specific actions. Here's an example of a method with parameters:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class Calculator {
+    // Static method with parameters
+    public static int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    public static void main(String[] args) {
+        int result = add(5, 3);
+        System.out.println("Addition Result: " + result);
+    }
+}</pre>
+    </div>
+
+    <h2>Return Values</h2>
+    <p>
+        Methods can return values to the caller. Here's an example:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class MathOperations {
+    // Static method with parameters and return value
+    public static int multiply(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    public static void main(String[] args) {
+        int result = multiply(4, 6);
+        System.out.println("Multiplication Result: " + result);
+    }
+}</pre>
+    </div>
+
+    <h2>Method Overriding</h2>
+    <p>
+        Method overriding in Java allows a subclass to provide a specific implementation of a method that is already defined in its superclass. The overridden method in the subclass should have the same name, return type, and parameters as the method in the superclass. Method overriding is used for achieving runtime polymorphism in Java.
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    void sound() { 
+        System.out.println("Dog barks"); // overiding
+    }
+}</pre>
+    </div>
+
+    <h2>Introduction to Method Overloading</h2>
+    <p>
+        Method overloading in Java allows you to define multiple methods in the same class with the same name but different parameters. The parameters must differ in either the number of parameters or their data types. Method overloading is used for providing multiple ways to call a method based on different input combinations.
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+class Calculator {
+    int add(int num1, int num2) {
+        return num1 + num2;
+    }
+    double add(double num1, double num2) {
+        return num1 + num2;
+    }
+}</pre>
+    </div>
+
+    <h2>Method Overriding Example</h2>
+    <p>
+        Here's an example of method overriding:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Dog();
+        myAnimal.sound();
+    }
+}</pre>
+    </div>
+
+    <h2>Method Overloading Example</h2>
+    <p>
+        Here's an example of method overloading:
+    </p>
+    <div class="code">
+        <!-- <button type="button" class="copybtn">Copy</button> -->
+        <pre>
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        int sum1 = calc.add(5, 3);
+        double sum2 = calc.add(4.5, 2.3);
+        System.out.println("Sum 1: " + sum1);
+        System.out.println("Sum 2: " + sum2);
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Functions (methods) are essential in Java programming for code organization, reusability, and modularity. By defining methods with parameters and return values, you can create versatile and efficient Java programs.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

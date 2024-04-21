@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Immediately Invoked Functions in JavaScript</title>
+</head>
+<body>
+    <h1>Immediately Invoked Functions in JavaScript</h1>
+
+    <p>An Immediately Invoked Function Expression (IIFE) in JavaScript is a function that is executed immediately after it is defineIt is a self-invoking function that helps create a private scope for variables, avoiding polluting the global namespace.</p>
+
+    <h2>Basic IIFE Structure</h2>
+
+    <p>The basic structure of an IIFE involves defining a function expression and immediately invoking it using parentheses.</p>
+
+    <div class="code"><pre>
+(function() {
+    // IIFE body
+    console.log("This is an IIFE!");
+})();
+</pre></div>
+
+    <p>The function is defined inside parentheses, and the additional set of parentheses immediately invokes the function.</p>
+
+    <h2>Passing Parameters to IIFE</h2>
+
+    <p>IIFE can accept parameters just like regular functions, providing a way to pass values into the immediately invoked scope.</p>
+
+    <div class="code"><pre>
+(function(message) {
+    console.log("IIFE says: " + message);
+})("Hello from the IIFE!");
+</pre></div>
+
+    <h2>Creating Private Scopes</h2>
+
+    <p>IIFE is commonly used to create private scopes for variables, preventing them from polluting the global scope and avoiding potential naming conflicts.</p>
+
+    <div class="code"><pre>
+(function() {
+    let secretNumber = 42;
+    console.log("Inside the private scope: " + secretNumber);
+})();
+
+// Attempting to access the variable outside the IIFE will result in an error
+// console.log("Outside the private scope: " + secretNumber);
+</pre></div>
+
+    <h2>Use Cases and Benefits</h2>
+
+    <p>IIFE is useful for various scenarios, including encapsulating code, avoiding global pollution, and ensuring the isolation of variableIt is commonly employed in modular and clean JavaScript code.</p>
+
+    <div class="code"><pre>
+let result = (function(a, b) {
+    return a + b;
+})(10, 5);
+
+console.log("Result of the IIFE: " + result);
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Immediately Invoked Function Expressions provide a way to create private scopes and execute code immediately after its definitioWhile their usage might vary, they are a valuable tool for maintaining a clean and organized codebase, especially in scenarios where variables need to be isolated or encapsulated.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

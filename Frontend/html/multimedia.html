@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Multimedia in HTML</title>
+</head>
+
+<body>
+    <h1>Multimedia</h1>
+
+    <p>HTML provides various elements for embedding multimedia content, enhancing the visual and auditory experience of web pages. The most common multimedia elements include images, audio, and video.</p>
+
+    <h2>Images:</h2>
+    <p>Images can be embedded using the <span>&lt;img&gt;</span> element. Specify the image source using the <span>src</span> attribute:</p>
+
+    <div class="code"><pre>
+&lt;img src="image.jpg" alt="Description of the image"&gt;</pre>
+    </div>
+    <p>Output : </p>
+    <div class="structimg"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJzsHPys1EoSnxprcPapwsQsb1gr97KzKfnRBw%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=ddfc75ff73d7ce7ee25a25a6bc81ad58b4daad1c176e93f4a8483497e492b296&ipo=images" alt="Description of the image"></div>
+
+    <p>The <span>alt</span> attribute provides alternative text for screen readers and browsers that cannot display the image.</p>
+
+    <div class="code">
+        <img src="slkdfoi" alt="Description of the image">
+    </div>
+
+
+    <h2>Audio:</h2>
+    <p>Audio files can be embedded using the <span>&lt;audio&gt;</span> element. Specify the audio source using the <span>src</span> attribute:</p>
+
+    <div class="code">
+        <pre>
+&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mp3"&gt;
+    Your browser does not support the audio tag.
+&lt;/audio&gt;</pre>
+    </div>
+
+    <p>Output : </p>
+    <p>
+        <audio controls>
+            <source src="https://www.computerhope.com/jargon/m/example.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    </p>
+
+    <p>The <span>controls</span> attribute adds audio controls (play, pause, volume) to the embedded audio player. Multiple <span>&lt;source&gt;</span> elements can be used to provide different audio formats for browser compatibility.</p>
+
+    <h2>Video:</h2>
+    <p>Video files can be embedded using the <span>&lt;video&gt;</span> element. Specify the video source using the <span>src</span> attribute:</p>
+
+    <div class="code">
+        <pre>
+&lt;video controls width="600"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</pre>
+    </div>
+
+    <p>The <span>controls</span> attribute adds video controls (play, pause, volume) to the embedded video player. Multiple <span>&lt;source&gt;</span> elements can be used to provide different video formats for browser compatibility.</p>
+
+    <h2>Considerations and Best Practices:</h2>
+    <ul>
+        <li>Ensure proper accessibility by providing descriptive alternative text for images and captions for audio and video content.</li>
+        <li>Optimize multimedia files for web use to improve loading times.</li>
+        <li>Consider using responsive design techniques to ensure a good user experience across different devices.</li>
+    </ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

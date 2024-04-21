@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Loops in JavaScript</title>
+</head>
+<body>
+    <h1>Loops in JavaScript</h1>
+
+    <p>Loops in JavaScript are used to execute a block of code repeatedly as long as a specified condition is truhey provide a convenient way to iterate over arrays, manipulate data, and perform repetitive tasks in a more efficient manner.</p>
+
+    <h2>For Loop</h2>
+
+    <p>The <span>for</span> loop is a common choice for iterating a specific number of timet consists of an initialization, a condition, and an increment or decrement statement.</p>
+
+    <div class="code"><pre>
+for (let i = 0; i < 5; i++) {
+    console.log("Iteration: " + i);
+}
+</pre></div>
+
+    <h2>While Loop</h2>
+
+    <p>The <span>while</span> loop repeats a block of code as long as a specified condition is trut's suitable when the number of iterations is not known beforehand.</p>
+
+    <div class="code"><pre>
+let counter = 0;
+
+while (counter < 3) {
+    console.log("Counting: " + counter);
+    counter++;
+}
+</pre></div>
+
+    <h2>Do-while Loop</h2>
+
+    <p>The <span>do-while</span> loop is similar to the <span>while</span> loop, but it guarantees that the block of code is executed at least once, even if the condition is initially false.</p>
+
+    <div class="code"><pre>
+let num = 5;
+
+do {
+    console.log("Number is: " + num);
+    num--;
+} while (num > 0);
+</pre></div>
+
+    <h2>For...in Loop</h2>
+
+    <p>The <span>for...in</span> loop iterates over the enumerable properties of an object, providing a convenient way to loop through object properties.</p>
+
+    <div class="code"><pre>
+const person = { name: "John", age: 30, job: "Developer" };
+
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}
+</pre></div>
+
+    <h2>For...of Loop</h2>
+
+    <p>The <span>for...of</span> loop is used to iterate over iterable objects such as arrays, strings, and mort provides a simpler syntax compared to the traditional <span>for</span> loop.</p>
+
+    <div class="code"><pre>
+const colors = ["red", "green", "blue"];
+
+for (let color of colors) {
+    console.log("Color: " + color);
+}
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Loops are powerful constructs in JavaScript, enabling developers to efficiently perform repetitive tasks and iterate over data structurehether using the classic <span>for</span> loop or the modern <span>for...of</span> loop, understanding these constructs is key to writing efficient and maintainable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

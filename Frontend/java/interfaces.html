@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Interfaces</title>
+</head>
+<body>
+    <h1>Interfaces</h1>
+    <p>
+        In Java, an interface is a blueprint for a class that defines a set of methods but does not provide the implementation of those methods. Interfaces allow you to achieve multiple inheritance and ensure that classes implementing the interface provide specific behaviors.
+    </p>
+    <ul>
+        <li>Interfaces are the collection of abstract functions and final static variables.</li>
+        <li>We cannot define any function in the interfaces.</li>
+        <li>If we don't write <span>abstract</span> keyword, then by default all the functions are abstract.</li>
+        <li>In interfaces, the members are by default <span>public</span>.</li>
+        <li>We cannot create an object of the interface.</li>
+        <li>An interface is inherited by a class or another interface.</li>
+        <li>When a class inherits an interface then it uses a keyword <span>implements</span>.</li>
+    </ul>
+
+    <h2>Defining an Interface</h2>
+    <p>
+        To define an interface in Java, you use the <span>interface</span> keyword followed by the interface name. Methods declared in an interface are implicitly <span>public</span> and <span>abstract</span> (no method body).
+    </p>
+    <div class="code">
+        <pre>
+interface Drawable {
+    void draw(); // Abstract method
+}</pre>
+    </div>
+
+    <h2>Implementing an Interface</h2>
+    <p>
+        To use an interface, a class must implement it using the <span>implements</span> keyword. The implementing class must provide concrete implementations for all the methods declared in the interface.
+    </p>
+    <div class="code">
+        <pre>
+class Circle implements Drawable {
+    // Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}</pre>
+    </div>
+
+    <h2>Using Interfaces</h2>
+    <p>
+        You can create objects of classes that implement interfaces and invoke the methods defined in those interfaces.
+    </p>
+    <div class="code">
+        <pre>
+public class Main {
+    public static void main(String[] args) {
+        Drawable circle = new Circle();
+        circle.draw(); // Calls the draw() method of Circle class
+    }
+}</pre>
+    </div>
+
+    <h2>Multiple Interface Implementation</h2>
+    <p>
+        A class can implement multiple interfaces in Java, allowing it to inherit and provide implementations for methods from multiple sources.
+    </p>
+    <div class="code">
+        <pre>
+interface Soundable {
+    void makeSound();
+}
+class Dog implements Drawable, Soundable {
+    // Overriding
+    public void draw() {
+        System.out.println("Drawing a dog");
+    }
+    public void makeSound() {
+        System.out.println("Dog barks");
+    }
+}</pre>
+    </div>
+
+    <h2>Interface inheriting interface</h2>
+    <p>When Interface inherits another interface, then it uses a keyword <span>extends</span>. An interface can inherit multiple interfaces.</p>
+    <div class="code">
+        <pre>
+interface A {
+    void a();
+}
+interface B extends A {
+    void b();
+}</pre>
+    </div>
+
+    <h2>Class inheriting class and implementing interfaces</h2>
+    <p>A class must inherit first then implement interfaces.</p>
+    <div class="code">
+        <pre>
+class C extends D implements A, B {
+    // Implementing all the methods of A and B
+    public void a() {
+        System.out.println("a");
+    }
+    public void b() {
+        System.out.println("b");
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Interfaces in Java are a powerful way to achieve abstraction and multiple inheritance. They define a contract that implementing classes must adhere to, ensuring that specific behaviors are provided. Interfaces play a key role in building flexible and extensible Java applications.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

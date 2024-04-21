@@ -1,0 +1,23 @@
+{
+    "name": "E-Commerce",
+    "folder": "eCommerce",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction to E-Commerce",
+            "file": "introduction"
+        },
+        {
+            "name": "EDI"
+        },
+        {
+            "name": "Web Based E-Commerce"
+        },
+        {
+            "name": "Electronic Payment System"
+        },
+        {
+            "name": "Applications of E-Commerce"
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "name": "Java",
+    "folder": "java",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction to Core Java",
+            "file": "introduction"
+        },
+        {
+            "name": "JDK & JRE",
+            "file": "jdk"
+        },
+        {
+            "name": "Data Types in Java",
+            "file": "datatypes"
+        },
+        {
+            "name": "Command Line Arguments",
+            "file": "commandLine"
+        },
+        {
+            "name": "Decision Control Structures",
+            "file": "decisionControl"
+        },
+        {
+            "name": "Loops",
+            "file": "loops"
+        },
+        {
+            "name": "Functions",
+            "file": "functions"
+        },
+        {
+            "name": "OOPs and Static Keyword",
+            "file": "oops_static"
+        },
+        {
+            "name": "Constructors",
+            "file": "constructors"
+        },
+        {
+            "name": "Inheritance",
+            "file": "inheritance"
+        },
+        {
+            "name": "Dynamic Method Dispatch",
+            "file": "dynamicMethodDispatch"
+        },
+        {
+            "name": "Final Keyword",
+            "file": "final"
+        },
+        {
+            "name": "Abstract Keyword",
+            "file": "abstract"
+        },
+        {
+            "name": "Interfaces",
+            "file": "interfaces"
+        },
+        {
+            "name": "Packages",
+            "file": "packages"
+        },
+        {
+            "name": "Exception Handling",
+            "file": "exceptionHandling"
+        },
+        {
+            "name": "Input Output",
+            "file": "inputOutput"
+        },
+        {
+            "name": "Strings",
+            "file": "strings"
+        },
+        {
+            "name": "Arrays",
+            "file": "arrays"
+        },
+        {
+            "name": "Awt",
+            "file": "awt"
+        },
+        {
+            "name": "Event Handling",
+            "file": "events"
+        },
+        {
+            "name": "Java Database Connectivity (JDBC)",
+            "file": "jdbc"
+        },
+        {
+            "name": "Some JDBC Classes",
+            "file": "jdbcClasses"
+        },
+        {
+            "name": "Operations on Database",
+            "file": "jdbcOperations"
+        },
+        {
+            "name": "Applets",
+            "file": "applets"
+        },
+        {
+            "name": "Multithreading",
+            "file": "mutlithreading"
+        }
+    ]
+}

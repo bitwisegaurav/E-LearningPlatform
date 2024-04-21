@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Data Types Conversion in JavaScript</title>
+</head>
+<body>
+    <h1>Data Types Conversion in JavaScript</h1>
+
+    <p>JavaScript performs automatic type conversion, also known as type coercion, when values of different data types are combined or compared. Understanding how this conversion occurs is important for writing reliable and predictable code.</p>
+
+    <h2>Implicit Type Conversion</h2>
+
+    <p>JavaScript automatically converts data types when operators or functions expect different types. This is known as implicit type conversion.</p>
+
+    <div class="code"><pre>
+let numString = "10";
+let num = 5;
+
+let result = numString + num;
+console.log(result); // Outputs: "105" (string concatenation)
+</pre></div>
+
+<h2>Explicit Type Conversion</h2>
+
+    <p><strong>Explicit type conversion</strong> is when you, the developer, use conversion functions or methods to convert a value from one type to another. Some common examples of explicit type conversion functions in JavaScript are <span>String()</span>, <span>Number()</span>, and <span>Boolean()</span>.</p>
+
+    <h3>String()</h3>
+
+    <p>The <span>String()</span> function can be used to convert a value to a string. This is useful when you want to display a non-string value as a string, such as a number or a boolean.</p>
+
+    <div class="code"><pre>
+let numberValue = 42;
+let stringValue = String(numberValue);
+console.log(stringValue); // Outputs: "42"
+</pre></div>
+
+    <p class="note note-normal">When you use the <span>String()</span> function to convert a number to a string, the resulting string will have no. of digits as length and will contain only the digits of the number. For example:</p>
+
+    <div class="code"><pre>
+let numberValue = 123;
+let stringValue = String(numberValue);
+console.log(stringValue.length); // Outputs: 3
+</pre></div>
+
+    <h3>Number()</h3>
+
+    <p>The <span>Number()</span> function can be used to convert a value to a number. This is useful when you want to perform mathematical operations on a non-number value, such as a string or a boolean.</p>
+
+    <div class="code"><pre>
+let stringValue = "3.14";
+let numberValue = Number(stringValue);
+console.log(numberValue); // Outputs: 3.14
+</pre></div>
+
+    <p class="note note-normal">The <span>Number()</span> function will return <span>NaN</span> (Not a Number) if the conversion is not possible, such as when converting a non-numeric string:</p>
+
+    <div class="code"><pre>
+let stringValue = "hello";
+let numberValue = Number(stringValue);
+console.log(numberValue); // Outputs: NaN
+</pre></div>
+
+    <h3>Boolean()</h3>
+
+    <p>The <span>Boolean()</span> function can be used to convert a value to a boolean. This is useful when you want to check the "truthiness" or "falsiness" of a value.</p>
+
+    <div class="code"><pre>
+let stringValue = "Hello, world!";
+let booleanValue = Boolean(stringValue);
+console.log(booleanValue); // Outputs: true
+</pre></div>
+
+    <p class="note note-imp">
+        The <span>Boolean()</span> function will return <span>false</span> for <span>:</span> 0, "" (an empty string), null, undefined
+    </p>
+
+    <h2>Truthy and Falsy Values</h2>
+
+    <p>When a non-boolean value is used in a boolean context, it is implicitly converted to either <span>true</span> or <span>false</span>.</p>
+
+    <div class="code"><pre>
+if ("Hello") {
+    console.log("This statement is executed."); // Outputs: "This statement is executed."
+}
+</pre></div>
+
+    <h2>NaN (Not a Number)</h2>
+
+    <p>Attempting to perform arithmetic with non-numeric values results in <span>NaN</span>. Checking for <span>NaN</span> can be done using the <span>isNaN()</span> function.</p>
+
+    <div class="code"><pre>
+let result = "abc" / 2;
+console.log(isNaN(result)); // Outputs: true
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding how JavaScript handles data type conversion is crucial for preventing unexpected behaviors in your code. Whether implicit or explicit, being aware of how values are coerced allows you to write more predictable and robust programs.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

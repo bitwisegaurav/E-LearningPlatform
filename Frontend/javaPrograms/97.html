@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="../common_files/inner.css"> -->
+    <link rel="stylesheet" href="../common_files/javaPrograms.css" />
+    <link rel="stylesheet" href="../common_files/javaPrograms-inner.css" />
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <title>Java Programs - Codevengers</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <ul>
+        <li>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <a href="../index.html" id="logoimg">
+            <img src="../images/logo.png" alt="logo" />
+          </a>
+        </li>
+        <li class="comname">
+          <a href="../index.html">Codevengers</a>
+        </li>
+        <li class="languages">
+          <p class="courses">Courses ↓</p>
+          <div class="options">
+            <a href="../languages/mysql.html">MySQL</a>
+            <a href="../languages/plsql.html">PL/SQL</a>
+            <a href="../languages/java.html">Java</a>
+            <a href="../index.html#courses">Others</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+      <section class="content1">
+        <h1 class="title">97. Write a Java program to segregate all 0s on left side and all 1s on right side of a given array of 0s and 1s</h1>
+        <div class="codeblock">
+          <p class="codetitle">Code :</p>
+          <div class="code">
+            <!-- <button type="button" class="copybtn">Copy</button> -->
+            <pre>
+class ninty_seven{
+    static void display(int[] arr){
+        for(int i: arr)
+            System.out.print(i + " ");
+        System.out.println();
+    }
+    public static void main(String[] args){
+        int  zero = 0;
+        int[] arr = {0,1,1,1,0,0,1,0,0,1};
+        System.out.print("Array before separation : ");
+        display(arr);
+        for(int i: arr){
+            if(i==0) zero++;
+        }
+        for(int i=0; i&lt;arr.length; i++){
+          if(zero&gt;0){
+                arr[i] = 0;
+                zero--;
+            }
+            else arr[i] = 1;
+        }
+        System.out.print("Array after separation : ");
+        display(arr);
+    }
+}</pre>
+          </div>
+        </div>
+        <div class="output">
+          <p class="codetitle">Output :</p>
+          <img src="../examples/javaPrograms/97.png" alt="output" />
+        </div>
+      </section>
+    </main>
+  </body>
+  
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

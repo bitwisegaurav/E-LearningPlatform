@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Remote Login and FTP</title>
+</head>
+<body>
+        <h1>Remote Login and File Transfer</h1>
+        <h2>Remote Login</h2>
+        <p>Remote login is a process of loggin on to remote site (computer) and using the services available on the remote computer.</p>
+
+    <h2>TELNET</h2>
+    <p>TELNET stands for <span>TE</span>rmina<span>L</span> <span>NET</span>work.</p>
+    <p>TELNET is a protocol that enables one computer to connect to remote computer. It is a standard TCP/IP protocol for virtual terminal service given by ISO.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/remote/telnet.png" alt="TELNET"></div>
+
+    <h2>Remote Login Procedure</h2>
+    <p>When user types on local computer, the local operating system accepts the character but does not interpret them, rather sends these characters to TELNET client.</p>
+    <p>TELNET client transforms these characters to a universal character set called <span>Network VIrtual Terminal (NVT)</span> characters fand pass them to local TCP/IP protocol Stack.</p>
+    <p>The commands or text travel through Internet and arrive at the TCP/IP stack at remote computer and then delivered to the operating system and passed to TELNET server. The TELNET server changes the character to corresponding characters of understandable format by remote computer. </p>
+    <p>The remote operation system receives the character from a <span>pseudoterminal driver</span>, which is a piece of software that pretends that the characters are coming from a terminal. Then operating system passes the characters to appropriate application.</p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/remote/remote-procedure.png" alt="Remote Login Procedure"></div>
+
+    <h2>File Transfer Protocol</h2>
+    <p>Transferring files from one computer to another is one of the most common tasks in a networking and internetworking environment. File Transfer is accomplished using a protocol known as <span>FTP</span>.</p>
+    <p>FTP is a standard internet protocol provided by TCP/IP used for transmitting the files from one host to another. It is mainly used for transferring the web page files from their creator to the computer that acts as a server for other computers on the internet. It is also used for downloading the files to computer from other servers.</p>
+
+    <h3>Objectives</h3>
+    <ul>
+        <li>It provides the sharing of files.</li>
+        <li>It is used to encourage the use of remote computers.</li>
+        <li>It transfers the data more reliably and efficiently.</li>
+    </ul>
+
+    <h3>Mechanism of FTP</h3>
+    <p>The above figure shows the basic model of the FTP. The FTP client has three components: the user interface, control process, and data transfer process. The server has two components: the server control process and the server data transfer process.</p>
+    <p><span>Types of connections in FTP : </span></p>
+    <div class="structimg img-center mt-2"><img src="../examples/networks/remote/ftp-connections.png" alt="FTP connectionss"></div>
+    <ul>
+        <li><strong>Control Connection:</strong> The control connection uses very simple rules for communication. Through control connection, we can transfer a line of command or line of response at a time. The control connection is made between the control processes. The control connection remains connected during the entire interactive FTP session.</li>
+        <li><strong>Data Connection:</strong> The Data Connection uses very complex rules as data types may vary. The data connection is made between data transfer processes. The data connection opens when a command comes for transferring the files and closes when the file is transferred.</li>
+    </ul>
+
+    <h3>FTP Clients</h3>
+    <ul>
+        <li>FTP client is a program that implements a file transfer protocol which allows you to transfer files between two hosts on the internet.</li>
+        <li>It allows a user to connect to a remote host and upload or download the files.</li>
+        <li>It has a set of commands that we can use to connect to a host, transfer the files between you and your host and close the connection.</li>
+        <li>The FTP program is also available as a built-in component in a Web browser. This GUI based FTP client makes the file transfer very easy and also does not require to remember the FTP commands.</li>
+    </ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

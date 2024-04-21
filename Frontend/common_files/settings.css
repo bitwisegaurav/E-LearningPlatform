@@ -1,0 +1,305 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    height: 100vh;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar styles */
+.sidebar {
+    flex: 0 0 300px;
+    background-color: rgb(107, 80, 158);
+    color: #fff;
+}
+
+.sidebar h2 {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sidebar ul li .active {
+    background-color: #fff !important;
+    color: #8a2be2 !important;
+}
+
+/* Content styles */
+.content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.content .innerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 85%;
+    padding-bottom: 2rem;
+}
+
+.content section {
+    margin-bottom: 30px;
+}
+
+.change-coverimage {
+    width: 100%;
+    max-height: 15rem;
+}
+
+.change-coverimage .image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.change-coverimage .image img {
+    width: 100%;
+    object-fit: contain;
+}
+
+#user-details {
+    display: grid;
+    grid-template-columns: 1fr 30rem;
+    gap: 2rem;
+}
+
+#user-details .change-avatar {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding-top: 2rem;
+}
+
+#user-details .change-avatar .image {
+    width: 100%;
+    margin: auto;
+    max-width: 15rem;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+}
+
+#user-details .change-avatar .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-coverimage .image:hover:before, #user-details .change-avatar .image:hover:before {
+    content: "Edit";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+
+.content h2 {
+    color: rgb(107, 80, 158);
+    margin-bottom: 20px;
+}
+
+.container form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.container label {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(107, 80, 158);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container form .btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container button {
+    padding: 10px 20px;
+    background-color: rgb(107, 80, 158);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.container button:hover {
+    background-color: rgb(92, 69, 133);
+}
+
+#delete-account {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#delete-account button {
+    background-color: red;
+}
+
+#delete-account button:hover{
+    background-color: rgb(223, 3, 3);
+}
+
+.imageFormContainer {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.main {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+}
+
+.file-upload {
+    display: block;
+    /* height: calc(100% - 3rem); */
+    height: 30rem;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload .box {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.file-upload .box p {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.file-upload .box img{
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.file-upload .box .wrapper {
+    position: absolute;
+    display: none;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.file-upload .box:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.file-upload .box:hover .wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.imageFormContainer button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(107, 80, 158);
+    color: #fff;
+    cursor: pointer;
+}
+
+.imageFormContainer button[type="submit"]:hover {
+    background-color: rgb(83, 61, 124);
+}

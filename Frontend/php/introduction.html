@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <link rel="stylesheet" href="../common_files/php.css">
+    <title>Introduction to PHP</title>
+</head>
+<body>
+    <h1>Introduction to PHP</h1>
+
+    <h2>What is PHP?</h2>
+    <p>
+        PHP (Hypertext Preprocessor) is a popular server-side scripting language for web development. It is widely used for creating dynamic web pages and web applications.
+    </p>
+
+    <h2>Features of PHP</h2>
+    <ul>
+        <li>Simple and easy to learn.</li>
+        <li>Open-source and free.</li>
+        <li>Platform-independent.</li>
+        <li>Supports various databases.</li>
+        <li>Extensive community support.</li>
+    </ul>
+
+    <h2>Embedding PHP Code in Web Pages</h2>
+    <p>
+        PHP code can be embedded directly into HTML files to create dynamic web pages. PHP scripts are enclosed within special tags, typically <span>&lt;?php</span> for the opening tag and <span>?&gt;</span> for the closing tag. Here's an example of embedding PHP code to display the current date and time:
+    </p>
+
+    <div class="code">
+        <pre>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Dynamic Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to our website!&lt;/h1&gt;
+    &lt;p&gt;
+        The current date and time is:
+        &lt;?php
+            echo date('Y-m-d H:i:s');
+        ?&gt;
+    &lt;/p&gt;
+    &lt;p&gt;More dynamic content goes here.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/intro1.png" alt="">
+    </div>
+
+<p>
+    In the example above, the PHP code between the <span>&lt;?php</span> and <span>?&gt;</span> tags is used to generate and display the current date and time. When the page is loaded in a web browser, the PHP code is executed on the server, and the result is sent to the client's browser as part of the HTML response.
+</p>
+
+    <h2>Printing in PHP</h2>
+    <p>
+        You can print in PHP whose syntax is like this: <span>echo "Hello, PHP!";</span>
+    </p>
+    <p>Here's an example of a simple PHP script that displays a message:</p>
+    <div class="code">
+        <pre>
+&lt;?php
+$message = "Hello, PHP!";
+echo $message;
+?&gt;</pre>
+    </div>
+    <p>Output :</p>
+    <div class="output">
+        <img src="../examples/php/intro2.png" alt="">
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        This webpage provides a brief introduction to PHP, highlighting its features and syntax. PHP is a powerful language for web development, and understanding its fundamentals is essential for building dynamic web applications.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

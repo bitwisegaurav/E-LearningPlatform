@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Exception Handling in Java</title>
+</head>
+<body>
+    <h1>Exception</h1>
+    <p>Exceptions are the runtime errors. it occurs depending on the data entered by the user or either at the time of type conversion. Exceptions are the errors which are not handled by the compiler. If we don't handle the exceptions, then JVM will handle it and the program will terminate abnormally
+    </p>
+
+    <h2>Exception Handling</h1>
+    <p>
+        Exception handling in Java is a mechanism that allows you to gracefully handle unexpected or exceptional situations in your code. These exceptions can occur during runtime and may disrupt the normal flow of your program.
+    </p>
+    <p>In java, there are multiple exceptions and for handling these exceptions, we are having multiple exception type classes. The topmost class in exception heirarchy is throwable. After that, we have exception class. After that, we have runtime exception class and all other exception classes comes under runtime exception.</p>
+
+    <h2>Types of Exceptions</h2>
+    <p>
+        In Java, exceptions are categorized into two main types: Checked Exceptions and Unchecked Exceptions.
+    </p>
+    <ol>
+        <li>
+            <strong>Inbuilt Exceptions :</strong>
+            <ul>
+                <li><strong>Checked Exceptions:</strong> These are exceptions that are checked at compile time. They must be either caught (handled) using try-catch blocks or declared to be thrown using the <span>throws</span> keyword in method signatures. Examples include <span>IOException</span> and <span>SQLException</span>.</li>
+                <li><strong>Unchecked Exceptions (Runtime Exceptions):</strong> These exceptions are not checked at compile time and can occur at runtime. They do not require explicit handling or declaration. Examples include <span>NullPointerException</span> and <span>ArithmeticException</span>.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>User defined Exceptions :</strong>
+            <ul>
+                <li><strong>Checked Exceptions : </strong>User defined exceptions are checked exceptions only.</li>
+            </ul>
+        </li>
+    </ol>
+            
+    <h2>Key Blocks, Functions, and Keywords</h2>
+    <p>To handle the exception in java, we will use the following keywords and blocks.</p>
+    <ul>
+        <li><strong>Try block :</strong> The <span>try</span> block is used when the programmer scans some instructinos which can occur exception. Try cannot be used alone. It always be used either with catch function or with finally block.</li>
+        <li><strong>Catch function :</strong> A <span>catch</span> function is used with try block. Every catch function will have one argument of an exception type class. We can use multiple catch funtions with try block.
+            <ul>
+                <li>The order of class for catch argument should be, 
+                    <p>first subclass -> then super class </p>
+                    <p>because if super class is written first then it will handle the exception first.</p>
+                </li>
+                <li>Other catch functions should either be at the same level or should be the super class.</li>
+                <li>If a super class catch function is written before the subclass catch funtion, then it is a compilation error.</li>
+            </ul>
+        </li>
+        <li><strong>Throws keyword :</strong> The <span>throws</span> keyword is used when a function want to throw a checked exception. That exception will thrown to a function or JVM.</li>
+        <li><strong>Finally block :</strong> The <span>finally</span> block is used to specify code that should be executed whether an exception occurs or not. It is optional but useful for cleanup operations. The finally block is written at the end or after the catch functions or we can write it with try block also if there is no catch function.</li>
+        <li><strong>Throw keyword :</strong> The <span>throw</span> keyword is used to throw an exception explicitly. It is often used to throw custom exceptions.</li>
+    </ul>
+
+    <h2>Example of Exception Handling</h2>
+    <p>
+        Here's an example of exception handling in Java:
+    </p>
+    <div class="code">
+        <pre>
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.err.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println("Cleanup operations here.");
+        }
+    }
+    static int divide(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return dividend / divisor;
+    }
+}</pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Exception handling is a crucial aspect of Java programming, allowing you to gracefully handle errors and unexpected situations. Understanding the types of exceptions, key blocks, functions, and keywords is essential for writing robust and reliable Java applications.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

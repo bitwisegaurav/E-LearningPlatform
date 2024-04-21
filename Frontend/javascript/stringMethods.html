@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Some String Methods in JavaScript</title>
+</head>
+<body>
+    <h1>Some String Methods in JavaScript</h1>
+
+    <p>JavaScript provides a variety of methods that can be applied to strings for manipulation and analysiThese methods offer powerful tools for working with textual data in web development.</p>
+
+    <h2>substr(startIndex, length)</h2>
+
+    <p>The <span>substr</span> method extracts a specified number of characters from a string, starting at a specified index.</p>
+
+    <div class="code"><pre>
+let originalString = "JavaScript is amazing!";
+let extractedString = originalString.substr(11, 7); // Extracts "amazing"
+</pre></div>
+
+    <h2>replace(searchValue, replaceValue)</h2>
+
+    <p>The <span>replace</span> method replaces a specified value or pattern with another value in a string.</p>
+
+    <div class="code"><pre>
+let message = "Hello, World!";
+let newMessage = message.replace("World", "Universe"); // Replaces "World" with "Universe"
+</pre></div>
+
+    <h2>trim()</h2>
+
+    <p>The <span>trim</span> method removes whitespace from both ends of a string.</p>
+
+    <div class="code"><pre>
+let spacedString = "    Trim me!    ";
+let trimmedString = spacedString.trim(); // Removes leading and trailing spaces
+</pre></div>
+
+    <h2>toUpperCase() and toLowerCase()</h2>
+
+    <p>The <span>toUpperCase</span> and <span>toLowerCase</span> methods convert a string to uppercase or lowercase, respectively.</p>
+
+    <div class="code"><pre>
+let mixedCaseString = "MiXeD CaSe";
+let upperCaseVersion = mixedCaseString.toUpperCase(); // Converts to uppercase
+let lowerCaseVersion = mixedCaseString.toLowerCase(); // Converts to lowercase
+</pre></div>
+
+    <h2>split(separator)</h2>
+
+    <p>The <span>split</span> method splits a string into an array of substrings based on a specified separator.</p>
+
+    <div class="code"><pre>
+let sentence = "This is a sample sentence.";
+let wordsArray = sentence.split(" "); // Splits the sentence into an array of words
+</pre></div>
+
+    <h2>charCodeAt(index)</h2>
+
+    <p>The <span>charCodeAt</span> method returns the Unicode value of the character at a specified index in a string.</p>
+
+    <div class="code"><pre>
+let alphabet = "ABC";
+let unicodeOfB = alphabet.charCodeAt(1); // Returns the Unicode value of "B"
+</pre></div>
+
+<h2>includes(searchString)</h2>
+
+    <p>The <span>includes</span> method checks if a string contains a specified substring and returns a boolean value indicating the result.</p>
+
+    <div class="code"><pre>
+let phrase = "To be or not to be, that is the question.";
+let containsQuestion = phrase.includes("question"); // Returns true
+</pre></div>
+
+    <h2>startsWith(searchString)</h2>
+
+    <p>The <span>startsWith</span> method checks if a string starts with a specified substring and returns a boolean value.</p>
+
+    <div class="code"><pre>
+let greeting = "Hello, World!";
+let startsWithHello = greeting.startsWith("Hello"); // Returns true
+</pre></div>
+
+    <h2>endsWith(searchString)</h2>
+
+    <p>The <span>endsWith</span> method checks if a string ends with a specified substring and returns a boolean value.</p>
+
+    <div class="code"><pre>
+let fileName = "script.js";
+let isJavaScriptFile = fileName.endsWith(".js"); // Returns true
+</pre></div>
+
+    <h2>repeat(count)</h2>
+
+    <p>The <span>repeat</span> method creates and returns a new string by concatenating the original string a specified number of times.</p>
+
+    <div class="code"><pre>
+let star = "*";
+let repeatedStars = star.repeat(5); // Creates "*****"
+</pre></div>
+
+    <h2>match(regexp)</h2>
+
+    <p>The <span>match</span> method retrieves the result of matching a string against a regular expression.</p>
+
+    <div class="code"><pre>
+let text = "The pattern is not always easy to see.";
+let pattern = /pattern/g;
+let matches = text.match(pattern); // Returns an array of matches
+</pre></div>
+
+    <h2>substring(startIndex, endIndex)</h2>
+
+    <p>The <span>substring</span> method extracts characters from a string between two specified indices, not including the endIndex.</p>
+
+    <div class="code"><pre>
+let sentence = "Extract this part.";
+let extractedPart = sentence.substring(8, 12); // Extracts "this"
+</pre></div>
+
+    <p>These are only some commonly used methods for string.</p>
+
+    <p> If you want to know more about string methods then you can visit <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">MDN Web Docs</a></span>. It provides a comprehensive list of string methods and their usage.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>These are just a few examples of the many string methods available in JavaScript. Understanding and utilizing these methods empower developers to manipulate and process strings efficiently, enhancing the functionality of their web applications.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

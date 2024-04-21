@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>JDBC Classes in Java</title>
+</head>
+<body>
+    <h1>Some Classes of JDBC</h1>
+    <p>
+        JDBC in Java provides a set of classes and interfaces that allow interaction with databases. Understanding these classes is essential for database connectivity.
+    </p>
+
+    <h2>Commonly Used JDBC Classes</h2>
+
+    <h3>Connection</h3>
+    <p>
+        The <span>Connection</span> class represents a connection to a database. It allows you to establish and manage connections.
+    </p>
+    <!-- Example: Creating a Connection -->
+    <div class="code">
+        <pre>
+import java.sql.Connection;
+Connection connection = DriverManager.getConnection(url, username, password);</pre>
+    </div>
+
+    <h3>Statement</h3>
+    <p>
+        The <span>Statement</span> class is used to execute SQL queries. It provides methods for executing SQL statements.
+    </p>
+    <!-- Example: Creating a Statement and Executing a Query -->
+    <div class="code">
+        <pre>
+import java.sql.Statement;
+Statement statement = connection.createStatement();
+String sqlQuery = "SELECT * FROM users";
+statement.executeQuery(sqlQuery);</pre>
+    </div>
+
+    <h3>PreparedStatement</h3>
+    <p>
+        <span>PreparedStatement</span> is an interface that extends <span>Statement</span> and is used for executing precompiled SQL queries.
+    </p>
+    <!-- Example: Using a PreparedStatement -->
+    <div class="code">
+        <pre>
+import java.sql.PreparedStatement;
+String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+PreparedStatement preparedStatement = connection.prepareStatement(sql);
+preparedStatement.setString(1, "user1");
+preparedStatement.setString(2, "pass123");
+preparedStatement.executeUpdate();</pre>
+    </div>
+
+    <h3>ResultSet</h3>
+    <p>
+        The <span>ResultSet</span> class represents the result set of a query. It provides methods to retrieve data from query results.
+    </p>
+    <!-- Example: Processing a ResultSet -->
+    <div class="code">
+        <pre>
+import java.sql.ResultSet;
+ResultSet resultSet = statement.executeQuery(sqlQuery);
+while (resultSet.next()) {
+    String username = resultSet.getString("username");
+    // Process data
+}
+resultSet.close();</pre>
+    </div>
+
+    <h2>Navigate Funciton</h2>
+    <p>By default, the resultset is forward only. So, we can use a navigation function for moving the cursor to that row from where we want to fetch the value.</p>
+    <p>Every navigation function returns a boolean datatype, which tells that row exists or not. If row exits then it returns true otherwise false.</p>
+
+    <h2>Statement vs PreparedStatement</h2>
+    <p>
+        Understanding the differences between <span>Statement</span> and <span>PreparedStatement</span> is crucial when working with JDBC in Java.
+    </p>
+    <ul>
+        <li><strong>Statement:</strong>
+            <p> 
+                A <span>Statement</span> is used for executing simple SQL queries. It is suitable for static SQL queries that do not contain user input.
+            </p>
+        </li>
+        <li><strong>PreparedStatement:</strong>
+            <p>
+                A <span>PreparedStatement</span> is used for executing precompiled SQL queries. It is suitable for dynamic SQL queries that include user input and provides better security and performance.
+            </p>
+        </li>
+        <li><strong>Security:</strong>
+            <p>
+                <span>Statement</span> is susceptible to SQL injection attacks when user input is directly concatenated into queries. <span>PreparedStatement</span> mitigates this risk by automatically escaping user input.
+            </p>
+        </li>
+        <li><strong>Performance:</strong>
+            <p>
+                <span>Statement</span> can be less efficient for executing the same query multiple times as it needs to be parsed each time. <span>PreparedStatement</span> is precompiled, making it more efficient for repeated executions.
+            </p>
+        </li>
+    </ul>
+    <p>Example of both are :</p>
+    <div class="code">
+        <pre>
+// Statement
+String sql1 = "SELECT * FROM users WHERE username = 'user1'";
+ResultSet resultSet1 = statement.executeQuery(sql1);
+
+// PreparedStatement
+String sql2 = "SELECT * FROM users WHERE username = ?";
+PreparedStatement preparedStatement = connection.prepareStatement(sql2);
+preparedStatement.setString(1, "user1");
+ResultSet resultSet2 = preparedStatement.executeQuery();</pre>
+    </div>
+</div>
+
+    <h2>Conclusion</h2>
+    <p>
+        These JDBC classes are fundamental for connecting to databases and executing SQL queries in Java applications. Understanding their usage is essential for effective database interaction.
+    </p>
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>DOM Hierarchy Fundamentals</title>
+</head>
+<body>
+    <h1>DOM Hierarchy Fundamentals</h1>
+
+    <p>In JavaScript, you can easily traverse the DOM tree to access an element's children, parent, and siblings. These relationships helps us in manipulating the structure of a web page dynamically.</p>
+
+    <h2>Children of an Element</h2>
+
+    <p>The <span>children</span> property of an element returns a collection of all child elements of the specified element. <span>Child elements</span> are the elements that are directly nested within the parent element.</p>
+    <p>This property excludes <span>text</span> nodes and <span>comment</span> nodes. You can iterate over this collection to access and manipulate each child element individually.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let parentElement = document.getElementById('parent');
+let children = parentElement.children;
+for (let i = 0; i &lt; children.length; i++) {
+    console.log(children[i]);
+}</pre>
+    </div>
+
+    <h3>Some properties/methods : </h3>
+    <ul>
+        <li><span>childElementCount : </span>Number of child elements directly nested within the parent element.</li>
+        <li><span>hasChildNodes : </span>Checks if the element has any child nodes, including text nodes and comment nodes.</li>
+        <li><span>children : </span>HTMLCollection of all child elements of the specified element.</li>
+        <li><span>childNodes : </span>Return NodeList of all child nodes of the specified element, including text nodes and comment nodes.</li>
+        <li><span>firstChild : </span>First child node of the specified element, including text nodes and comment nodes.</li>
+        <li><span>lastChild : </span>Last child node of the specified element, including text nodes and comment nodes.</li>
+        <li><span>firstElementChild : </span>First child element of the specified element.</li>
+        <li><span>lastElementChild : </span>Last child element of the specified element.</li>
+        <li><span>appendChild : </span>Appends a node as the last child (as by default) of the specified element.</li>
+        <li><span>removeChild : </span>Removes a child node from the specified element.</li>
+        <li><span>replaceChild : </span>Replaces a child node of the specified element with a new node.</li>
+    </ul>
+
+    <h2>Parent of an Element</h2>
+
+    <p>The <span>parentElement</span> property of an element returns the parent element of the specified element. This property provides direct access to the parent element, allowing you to traverse up the DOM tree.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let childElement = document.getElementById('child');
+let parent = childElement.parentElement;
+console.log(parent);</pre>
+    </div>
+
+    <h3>Some properties/methods : </h3>
+    <ul>
+        <li><span>parentElement : </span>parentElement property returns the Parent element of the specified element.</li>
+        <li><span>parentNode : </span>parentNode property returns the parent node of the specified element, including text nodes and comment nodes.</li>
+    </ul>
+
+    <h2>Siblings of an Element</h2>
+
+    <p>The <span>previousElementSibling</span> and <span>nextElementSibling</span> properties of an element return the previous and next sibling elements, respectively. These properties enable you to navigate horizontally within the DOM tree, accessing adjacent elements.</p>
+
+    <h3>Example : </h3>
+    <br>
+    <div class="code"><pre>
+let sibling = childElement.nextElementSibling;
+console.log(sibling);</pre>
+    </div>
+
+    <h3>Some properties/methods : </h3>
+    <ul>
+        <li><span>previousSibling:</span> Returns the previous sibling node, including text and comment nodes.</li>
+        <li><span>nextSibling:</span> Returns the next sibling node, including text and comment nodes.</li>
+        <li><span>insertAdjacentElement(position, element):</span> Inserts a provided element into the DOM relative to the current element, at a specified position (e.g., 'beforebegin', 'afterbegin', 'beforeend', 'afterend').</li>
+        <li><span>insertAdjacentHTML(position, markup):</span> Inserts a provided string of HTML or XML into the DOM relative to the current element, at a specified position (e.g., 'beforebegin', 'afterbegin', 'beforeend', 'afterend').</li>
+        <li><span>insertAdjacentText(position, text):</span> Inserts a provided string of text into the DOM relative to the current element, at a specified position (e.g., 'beforebegin', 'afterbegin', 'beforeend', 'afterend').</li>
+        <li><span>insertBefore(newNode, referenceNode):</span> Inserts a new node before a specified existing node, as a child of the current node's parent.</li>
+        <li><span>replaceChild(newNode, oldNode):</span> Replaces a child node with a new node within the current node's parent</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+
+    <p>Understanding the relationships between elements in the DOM tree, including children, parent, and siblings, is essential for manipulating the structure of a web page dynamically. By leveraging properties such as <span>children</span>, <span>parentElement</span>, <span>previousElementSibling</span>, and <span>nextElementSibling</span>, developers can easily navigate and interact with elements in the DOM.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

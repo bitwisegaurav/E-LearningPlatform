@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/createArticle.css">
+    <link rel="stylesheet" href="../common_files/header.css">
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <title>Create Article - Codevengers</title>
+    <style>
+        main .container form .data {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <main>
+        <div class="container">
+            <div class="upper">
+                <button type="button" onclick="window.history.back()">Back</button>
+                <h1>Article</h1>
+            </div>
+            <p id="errorbox"></p>
+            <form action="#" method="post">
+                <div class="content">
+                    <div class="data">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div class="data">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" id="image" required>
+                    </div>
+                    <div class="data">
+                        <label for="content">Content</label>
+                        <textarea name="body" id="content" cols="30" rows="10" required></textarea>
+                    </div>
+                </div>
+                <a href="textEditor.html">Text Editor</a>   
+                <button type="submit">Submit</button>    
+            </form>
+        </div>
+    </main>
+</body>
+<script src="../common_files/theme.js"></script>
+<script src="../common_files/api.js"></script>
+<script src="../common_files/createArticle.js"></script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Console Methods in JavaScript</title>
+</head>
+<body>
+    <h1>Console Methods in JavaScript</h1>
+
+    <p>The console object in JavaScript provides various methods that allow developers to interact with the browser's console. These methods are valuable for debugging, logging information, and monitoring the behavior of JavaScript code.</p>
+
+    <h2>console.log()</h2>
+
+    <p>The <span>console.log()</span> method is used to log messages to the console. It is widely used for debugging purposes and to display information about the state of variables or objects:</p>
+
+    <div class="code"><pre>
+let message = "Hello, World!";
+console.log(message);
+</pre></div>
+
+    <p>The message "Hello, World!" will be printed to the console.</p>
+
+    <h2>console.error()</h2>
+
+    <p>The <span>console.error()</span> method is used to log error messages to the console. It is particularly useful for indicating errors or unexpected behaviors in code:</p>
+
+    <div class="code"><pre>
+let x = 10;
+if (x > 5) {
+    console.error("Unexpected value for x:", x);
+}
+</pre></div>
+
+    <p>If the value of <span>x</span> is greater than 5, an error message will be printed to the console.</p>
+
+    <h2>console.warn()</h2>
+
+    <p>The <span>console.warn()</span> method is used to log warning messages to the console. It is commonly used to highlight potential issues or areas of concern in code:</p>
+
+    <div class="code"><pre>
+let array = [1, 2, 3];
+if (array.length < 5) {
+    console.warn("Array length is less than expected:", array.length);
+}
+</pre></div>
+
+    <p>If the length of the array is less than 5, a warning message will be printed to the console.</p>
+
+    <h2>console.table()</h2>
+
+    <p>The <span>console.table()</span> method is used to display tabular data in the console. It takes an array or object as an argument and presents it in a table format:</p>
+
+    <div class="code"><pre>
+let students = [
+    { name: "Alice", grade: 95 },
+    { name: "Bob", grade: 88 },
+    { name: "Charlie", grade: 72 }
+];
+
+console.table(students);
+</pre></div>
+
+    <p>This will display a table in the console with columns for the keys of the objects and rows for each element in the array.</p>
+
+    <h2>Other Console Methods</h2>
+
+    <p>There are additional console methods available, such as <span>console.info()</span> for informational messages, etc. These methods provide flexibility in how information is presented in the console. For a detailed study of all the properties and methods in the Number object, please refer the <a href="https://developer.mozilla.org/en-US/docs/Web/API/console">MDN</a>. </p>
+
+    <h2>Conclusion</h2>
+
+    <p>Console methods are invaluable tools for JavaScript developers, providing ways to log messages, errors, and warnings to the console for debugging and monitoring purposes. Understanding and utilizing these methods effectively can greatly improve the development process.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

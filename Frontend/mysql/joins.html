@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <style>
+        li {
+            margin-bottom: 1rem;
+        }
+        #structimg{
+            margin-bottom: 3rem;
+        }
+        #structimg img {
+            margin-top: 0;
+            margin-bottom: 0rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Joins in MySQL</h1>
+    <p>Joins are used in MySQL to combine rows from two or more tables based on a related column between them. The
+        different types of joins in MySQL are:</p>
+    <ul>
+        <li><span>INNER JOIN :</span> Returns all matching rows from both tables.</li>
+        <li><span>LEFT JOIN :</span> Returns all rows from the left table and matching rows from the right table.</li>
+        <li><span>RIGHT JOIN :</span> Returns all rows from the right table and matching rows from the left table.</li>
+        <li><span>FULL OUTER JOIN :</span> Returns all rows from both tables.</li>
+        <li><span>CROSS JOIN :</span> Returns the Cartesian product of the two tables.</li>
+    </ul>
+    <h3>Syntax and Examples :</h3>
+    <ul>
+        <li>INNER JOIN :</li>
+        <div class="code">
+            SELECT column_name(s)
+            FROM table1
+            INNER JOIN table2
+            ON table1.column_name = table2.column_name;</div>
+            <p>Example:</p>
+            <div class="structimg" class="pl">
+                <img src="../examples/mysql/Joins/inner_join.PNG" alt="procedure"
+                class="hori">
+            </div>
+
+        <li>LEFT JOIN :</li>
+        <div class="code">
+            SELECT column_name(s)
+            FROM table1
+            LEFT JOIN table2
+            ON table1.column_name = table2.column_name;</div>
+            <p>Example:</p>
+            <div class="structimg" class="pl">
+                <img src="../examples/mysql/Joins/left_join.PNG" alt="procedure"
+                class="hori">
+            </div>
+
+        <li>RIGHT JOIN :</li>
+        <div class="code">
+            SELECT column_name(s)
+            FROM table1
+            RIGHT JOIN table2
+            ON table1.column_name = table2.column_name;</div>
+            <p>Example:</p>
+            <div class="structimg" class="pl">
+                <img src="../examples/mysql/Joins/right_join.PNG" alt="procedure"
+                class="hori">
+            </div>
+
+        <li>FULL OUTER JOIN :</li>
+        <div class="code">
+            SELECT column_name(s)
+            FROM table1
+            FULL OUTER JOIN table2
+            ON table1.column_name = table2.column_name;</div>
+            <p>Example:</p>
+            <div class="structimg" class="pl">
+                <img src="../examples/mysql/Joins/full_outer_join.PNG" alt="procedure"
+                class="hori">
+            </div>
+
+        <li>CROSS JOIN :</li>
+        <div class="code">
+            SELECT column_name(s)
+            FROM table1
+            CROSS JOIN table2;</div>
+            <p>Example:</p>
+            <div class="structimg" class="pl">
+                <img src="../examples/mysql/Joins/cross_join.PNG" alt="procedure"
+                class="hori">
+            </div>
+    </ul>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Classes in JavaScript</title>
+</head>
+<body>
+    <h1>Classes in JavaScript</h1>
+
+    <p>Classes are a fundamental concept in object-oriented programming (OOP) that represent blueprints for creating objects with shared properties and methods. JavaScript introduced class syntax in ECMAScript 2015 (ES6) to provide a more familiar and structured way of defining objects and their behavior.</p>
+
+    <h2>1. Class Declaration</h2>
+
+    <p>In JavaScript, classes are declared using the <code>class</code> keyword followed by the class name and class body, which contains the constructor method and other class methods.</p>
+
+    <h2>2. Example:</h2>
+
+    <div class="code"><pre>
+// Example of class declaration
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    area() {
+        return this.width * this.height;
+    }
+}
+
+const rectangle = new Rectangle(10, 5);
+console.log(rectangle.area()); // Output: 50
+</pre></div>
+
+    <h2>3. Class Inheritance</h2>
+
+    <p>Classes support inheritance, allowing subclasses (child classes) to inherit properties and methods from parent classes. This enables code reuse and promotes a hierarchical structure of classes.</p>
+
+    <h2>4. Example:</h2>
+
+    <div class="code"><pre>
+// Example of class inheritance
+class Square extends Rectangle {
+    constructor(side) {
+        super(side, side);
+    }
+}
+
+const square = new Square(5);
+console.log(square.area()); // Output: 25
+</pre></div>
+
+    <h2>5. Static Methods</h2>
+
+    <p>Static methods are methods that belong to the class itself rather than instances of the class. They are defined using the <code>static</code> keyword and can be called directly on the class.</p>
+
+    <h2>Conclusion</h2>
+
+    <p>Classes are a powerful feature in JavaScript for creating blueprints for objects with shared properties and methods. By leveraging class syntax and inheritance, developers can create more structured, maintainable, and reusable code.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

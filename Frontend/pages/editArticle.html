@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <link rel="stylesheet" href="../common_files/editArticle.css">
+    <link rel="stylesheet" href="../common_files/header.css">
+    <title>Edit Article - Codevengers</title>
+</head>
+<body>
+    <nav></nav>
+    <main>
+        <div class="container">
+            <div id="error"></div>
+            <div class="upper">
+                <h1 class="title">Edit Article</h1>
+            </div>
+            <div class="lower">
+                <div class="content">
+                    <form action="#" method="POST">
+                        <div class="data">
+                            <div class="left">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" id="title" placeholder="Enter your title">
+                            </div>
+                            <div class="imageBox">
+                                <label for="image" class="file-upload">
+                                    <input type="file" name="image" id="image" accept=".jpg,.jpeg,.png,.svg,.gif">
+                                    <div class="box">
+                                        <p>Choose a file</p>
+                                        <img src="" alt="">
+                                        <div class="wrapper"></div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="wrap">
+                            <div class="data">
+                                <label for="content">Content</label>
+                                <a href="textEditor.html" id="textEditorbtn" target="_blank">Edit Content</a>
+                            </div>
+                            <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter your content"></textarea>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../common_files/theme.js"></script>
+<script src="../common_files/api.js"></script>
+<script src="../common_files/setHeader.js"></script>
+<script src="../common_files/editArticle.js"></script>
+</html>

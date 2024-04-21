@@ -1,0 +1,15 @@
+li > .code{
+    margin-top: 1rem;
+}
+.output{
+    width: 85%;
+    margin-bottom: 1rem;
+    display: grid;
+    gap: 10px;
+}
+.output img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    border: 1px solid #00000086;
+}

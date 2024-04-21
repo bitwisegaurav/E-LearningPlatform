@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Inheritance in Java</title>
+</head>
+<body>
+    <h1>Inheritance</h1>
+    <ul>
+        <li>It is a technique, through which one class give its properties to another class.</li>
+        <li>The class which gives the properties is known as <span>Super Class</span>.</li>
+        <li>The class which acquires properties/functionalities is known as <span>Sub Class</span></li>
+        <li>In java, every subclass can have only one super class.</li>
+        <li>If a subclass want to inherit super class, then we will use a keywork known as <span>extends</span>.</li>
+        <li>We can change its access specifier to the upper direction only, e.g default and protected to public, but public cannot be changed.</li>
+        <li>We inherit when we want to change super class but we don't own it.</li>
+    </ul>
+
+    <h2>Creating a Subclass</h2>
+    <p>
+        To create a subclass in Java, you use the <span>extends</span> keyword followed by the name of the superclass. The subclass inherits all the non-private members (fields and methods) of the superclass.
+    </p>
+    <div class="code">
+        <pre>
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    // Subclass inherits the sound() method
+    void wagTail() {
+        System.out.println("Dog wags its tail");
+    }
+}</pre>
+    </div>
+
+    <p>
+        Now Subclasses can use the inherited members from the superclass and can also add their own members and behaviors. Here's an example of using inheritance:
+    </p>
+    <div class="code">
+        <pre>
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.sound(); // Inherited from Animal class
+        myDog.wagTail(); // Defined in Dog class
+    }
+}</pre>
+    </div>
+
+    <h2>Types of Inheritance</h2>
+    <p>
+        In Java, there are several types of inheritance:
+    </p>
+    <ul>
+        <li><strong>Single Inheritance:</strong> A subclass inherits from only one superclass.</li>
+        <li><strong>Multiple Inheritance:</strong> A subclass inherits from multiple superclasses. (Note: Java does not support multiple inheritance of classes, but it supports multiple inheritance of interfaces.)</li>
+        <li><strong>Multi-level Inheritance:</strong> A subclass inherits from another subclass, creating a chain of inheritance.</li>
+        <li><strong>Hierarchical Inheritance:</strong> Multiple subclasses inherit from a single superclass.</li>
+    </ul>
+
+    <h2>Constructors in Inheritance</h2>
+    <p>When we call a subclass constructor then the constructor of subclass is called but it will also call the super class default constructor whether it is any type of constructor of subclass.</p>
+    <div class="code"><pre>super(10);</pre></div>
+    <p>It is used to call the parameterized constructor of super class and it must be the first line of any constructor of subclass.</p>
+
+    <h2>Conclusion</h2>
+    <p>
+        Inheritance is a powerful mechanism in Java that promotes code reuse and organization. It allows you to create new classes by inheriting properties and behaviors from existing classes, fostering a hierarchical structure in your object-oriented programs.
+    </p>
+
+</body>
+
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

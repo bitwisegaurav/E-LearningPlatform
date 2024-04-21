@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/login.css">
+    <link rel="shortcut icon" href="../images/icon1.png" type="image/x-icon">
+    <title>Login/Sign Up - Codevengers</title>
+</head>
+<body>
+    <main>
+        <section id="outerBox">
+            <div class="signup">
+                <p class="error" id="signup-error"></p>
+                <form action="#" method="post" id="signupForm" enctype="multipart/form-data">
+                    <!-- username, name, email, profile pic, coverimage, password -->
+                    <data class="dataBox">
+                        <div class="data">
+                            <label for="signup-username">Username : </label>
+                            <input type="text" name="username" id="signup-username" placeholder="User123"/>
+                        </div>
+                        <div class="data">
+                            <label for="name">Name : </label>
+                            <input type="text" name="name" id="name" placeholder="John Cena"/>
+                        </div>
+                        <div class="data">
+                            <label for="email">Email : </label>
+                            <input type="email" name="email" id="email" placeholder="example@gmail.com"/>
+                        </div>
+                        <div class="data">
+                            <label for="signup-password">Password : </label>
+                            <input type="password" name="password" id="signup-password" placeholder="123@abcd">
+                        </div>
+                        <div class="data">
+                            <label for="avatar">Profile Pic : </label>
+                            <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg"/>
+                        </div>
+                        <div class="data">
+                            <label for="coverImage">Cover Image : </label>
+                            <input type="file" name="coverImage" id="coverImage" accept=".png, .jpg, .jpeg, .svg"/>
+                        </div>
+                    </data>
+                    <button type="submit">Sign Up</button>
+                    <button type="reset">Reset</button>
+                    <a href="#" id="loginbtn">Log In</a>
+                </form>
+            </div>
+            <div class="design">
+                <div class="image">
+                    <img src="../images/login.png" alt="Design Image"/>
+                </div>
+            </div>
+            <div class="login">
+                <p class="error" id="login-error"></p>
+                <form action="#" method="post" id="loginForm">
+                    <div class="data">
+                        <label for="username">Username : </label>
+                        <input type="text" name="username" id="username" placeholder="User123"/>
+                    </div>
+                    <div class="data">
+                        <label for="password">Password : </label>
+                        <input type="password" name="password" id="password" placeholder="123@abcd">
+                    </div>
+                    <button type="submit">Log In</button>
+                    <button type="reset">Reset</button>
+                    <a href="#" id="signupbtn">Sign Up</a>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../common_files/login.js"></script>
+</html>

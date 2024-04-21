@@ -1,0 +1,59 @@
+{
+    "name": "Computer Networks",
+    "folder": "networks",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction",
+            "file": "introduction"
+        },
+        {
+            "name": "Network Reference Models",
+            "file": "networkModels"
+        },
+        {
+            "name": "Transmission Media",
+            "file": "transmission-media"
+        },
+        {
+            "name": "Communication Switching Techniques",
+            "file": "communication-switching"
+        },
+        {
+            "name": "Physical Layer",
+            "file": "physical-layer"
+        },
+        {
+            "name": "Data Link Layer",
+            "file": "data-link-layer"
+        },
+        {
+            "name": "Medium Access Control Sublayer",
+            "file": "access-control"
+        },
+        {
+            "name": "Network Layer",
+            "file": "network-layer"
+        },
+        {
+            "name": "Network Security",
+            "file": "security"
+        },
+        {
+            "name": "World Wide Web",
+            "file": "www"
+        },
+        {
+            "name": "Electronic Mail",
+            "file": "electronic-mail"
+        },
+        {
+            "name": "Remote Login and File Transfer",
+            "file": "remote"
+        },
+        {
+            "name": "Some Important Full Forms",
+            "file": "abbrevations"
+        }
+    ]
+}

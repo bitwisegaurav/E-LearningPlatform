@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../common_files/inner.css"> -->
+    <title>Codevengers</title>
+    <style>
+        *{
+            color: transparent !important;
+        }
+        body{
+            padding: 1rem 3rem;
+            color: #41396ef3;
+            display: flex;
+            gap: 2rem;
+            overflow-y: hidden;
+        }
+        .dark{
+            background-color: #2e2b52;
+            color: rgba(255,255,255,0.6);
+        }
+        h1,h2,h3,h4,h5,h6,span,p,strong,ul,ol,#topics,.top,.structimg{
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            animation: light 1s alternate infinite ease-in-out;
+        }
+        .dark h1,.dark h2,.dark h3,.dark h4,.dark h5,.dark h6,.dark span,.dark p,.dark strong,.dark ul,.dark ol,.dark #topics,.dark .top,.dark .structimg{
+            animation: dark 1s alternate infinite ease-in-out;
+        }
+        li > span{
+            display: none;
+        }
+        h1,h2,h3,h4,h5,h6,p{
+            display: inline-block;
+        }
+        .structimg{
+            height: 12rem;
+            width: 75%;
+            margin: auto;
+        }
+        .display-none {
+            display: none;
+        }
+        @keyframes dark {
+            from {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            to {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+        @keyframes light {
+            from {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            to {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+        #sideTopicSection {
+            width: 100%;
+            min-width: 12rem;
+            max-width: 20rem;
+            position: sticky;
+            top: 1rem;
+            right: 0;
+            overflow-x: hidden;
+            height: max-content;
+            min-height: 50rem;
+        }
+
+        .top{
+            color: #403c69;
+            width: 100%;
+            height: 2rem;
+            background-color: #c3c1de;
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 1rem;
+        }
+
+        #topics {
+            /* border: 2px solid rgba(22, 16, 16, 0.1); */
+            /* height: 39rem; */
+            display: flex;
+            flex-direction: column;
+            background-color: #403c69;
+            border-radius: 7px;
+            /* box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); */
+            overflow: scroll;
+            padding: 2px;
+        }
+
+        #sideTopicSection a{
+            width: 100%;
+            padding: 1rem;
+            text-decoration: none;
+            color: #c3c1de;
+            border-radius: 5px;
+            transition: all 0.1s ease-in-out;
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body>
+        <main>
+            <h1>Communication Switching</h1>
+            <br>
+            <h2>Introduction</h2>
+            <p>Switching is the technique by which nodes control or switch data to transmit it between specific points on a
+                network. There are three main switching techniques used in computer networks: circuit switching, packet
+                switching, and message switching.
+            </p>
+            <div class="structimg img-center mt-2">
+            </div>
+            <p>Functions:</p>
+            <ul>
+                <li>Groups all transmitted data into suitably sized blocks</li>
+                <li>Transmits via a medium that may be shared by multiple simultaneous communication sessions</li>
+            </ul>
+            <p>Types of packet switching : </p>
+            <ul>
+                <li><span>Datagram Packet Switching : </span>In this type of packet switching, each packet is treated
+                    independently from all others. Even if two packets are part of the same message, they may take different
+                    paths to reach the destination. This type of switching is used when the network needs to be robust and
+                    survive failures of some of its parts.</li>
+                <li><span>Virtual Circuit Packet Switching : </span>This type of packet switching establishes a dedicated
+                    path for data transmission before sending the packets, which helps reduce delays and improve
+                    performance. It is similar to circuit switching in that a dedicated path is established before any data
+                    transmission occurs. However, unlike circuit switching, the path is virtual rather than physical.</li>
+            </ul>
+            <h2>Functions</h2>
+            <ul>
+                <li><span>Datagram Packet Switching : </span>In this type of packet switching, each packet is treated
+                    independently from all others. Even if two packets are part of the same message, they may take different
+                    paths to reach the destination. This type of switching is used when the network needs to be robust and
+                    survive failures of some of its parts.</li>
+                <li><span>Virtual Circuit Packet Switching : </span>This type of packet switching establishes a dedicated
+                    path for data transmission before sending the packets, which helps reduce delays and improve
+                    performance. It is similar to circuit switching in that a dedicated path is established before any data
+                    transmission occurs. However, unlike circuit switching, the path is virtual rather than physical.</li>
+            </ul>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+            <h2 class="display-none">Introduction</h2>
+        </main>
+        <aside id="sideTopicSection">
+            <section class="top"></section>
+            <section id="topics">
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+                <a href="#">something</a>
+            </section>
+        </aside>
+
+</body>
+<script>
+    let theme = localStorage.getItem("theme");
+    if(theme === "dark") document.body.classList.add("dark");
+</script>
+<!-- <script src="../common_files/innerTheme.js"></script> -->
+</html>

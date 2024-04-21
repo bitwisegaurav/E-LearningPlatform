@@ -1,0 +1,292 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: color 0s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+body {
+    background-color: #f8f8f8;
+    height: 100vh;
+}
+
+.dark {
+	background-color: #2e2b52;
+}
+
+nav{
+    height: 5rem;
+    background-color: rgb(148, 126, 194);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    height: calc(100% - 5rem);
+}
+
+main .container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 18rem 1fr;
+    gap: 2rem;
+    padding: 2rem 6%;
+}
+
+main .container .innercontainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    overflow: auto;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+}
+
+main .container .innercontainer .upper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+main .container .innercontainer .upper input {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    outline: none;
+}
+
+.dark main .container .innercontainer .upper input {
+    background-color: #403c69;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+main .container .innercontainer .upper .btns {
+    display: flex;
+    gap: 1rem;
+}
+
+main .container .innercontainer .upper .btns button,
+main .container .innercontainer .upper .btns a{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: rgb(107, 80, 158);
+    color: white;
+    text-decoration: none;
+}
+
+main .container .innercontainer .upper .btns a {
+    font-size: x-large;
+}
+
+.dark main .container .innercontainer .upper .btns button,
+.dark main .container .innercontainer .upper .btns a {
+    color: #2e2b52;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+main .container .innercontainer .upper .btns button:hover,
+main .container .innercontainer .upper .btns a:hover {
+    background-color: rgb(84, 63, 122);
+}
+
+.dark main .container .innercontainer .upper .btns button:hover,
+.dark main .container .innercontainer .upper .btns a:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+main .container section {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 3rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.dark main .container section {
+    background-color: #403c69;
+    color: #fff;
+}
+
+main .container section .articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* padding: 2rem 5%; */
+    /* border: 2px solid red; */
+}
+
+main .container section .articles .article {
+    display: flex;
+    width: 100%;
+    min-height: 9rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(141, 103, 218, 0.4);
+    background-color: #fff;
+    transition: all 0.1s ease-in-out;
+}
+
+.dark main .container section .articles .article {
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+}
+
+main .container section .articles .article a {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    width: calc(100% - 4rem);
+    gap: 2rem;
+    text-decoration: none;
+    color: rgb(109 82 158);
+    /* border: 2px solid red; */
+}
+
+main .container section .articles .article a .image  {
+    height: 8rem;
+    aspect-ratio: 3/2;
+    border: 2px solid rgb(242, 235, 255);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dark main .container section .articles .article a .image {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+main .container section .articles .article a .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .container section .articles .article a .details {
+    display: flex;
+    width: calc(100%);
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+main .container section .articles .article a .details h3 {
+    font-size: large;
+    color: rgb(107, 80, 158);
+}
+
+.dark main .container section .articles .article a .details h3 {
+    color: #fff;
+}
+
+main .container section .articles .article a .details p {
+    color: rgb(148, 126, 194);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dark main .container section .articles .article a .details p {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+main .container section .articles .article a .details .user {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin-top: 20px;
+    height: 2.5rem;
+}
+
+main .container section .articles .article a .details .user .image {
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+main .container section .articles .article a .details .user .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main .container section .articles .article a .details .user .username {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+
+.dark main .container section .articles .article a .details .user .username {
+    color: #fff;
+}
+
+main .container section .articles .article a .details .user .like {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    gap: 5px;
+}
+
+main .container section .articles .article a .details .user .like button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+main .container section .articles .article a .details .user .like button span {
+    color: red;
+    transform: translateY(1px);
+}
+
+main .container section .articles .article .btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .container section .articles .article .btns button {
+    width: 100%;
+    height: max-content;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    color: red;
+    background-color: transparent;
+}
+
+.dark main .container section .articles .article .btns button {
+    color: #ff3131;
+}
+
+main .container section .articles .article .btns button:hover {
+    color: white;
+    background-color: rgb(255, 0, 0);
+}
+
+.dark main .container section .articles .article .btns button:hover {
+    background-color: #ff2727;
+}
+
+main .container section .articles .article:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark main .container section .articles .article:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

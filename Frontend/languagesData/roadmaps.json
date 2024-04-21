@@ -1,0 +1,145 @@
+[
+    {
+        "name": "Courses",
+        "containers": [
+            {
+                "title": "Web development",
+                "category": "web",
+                "file": "../roadmaps/roadmapTemplate.html?roadmap=webdevelopment",
+                "roadmap": "webdevelopment",
+                "image": "web.png"
+            },
+            {
+                "title": "App development",
+                "category": "app",
+                "file": "../comingsoon.html",
+                "roadmap": "appdevelopment",
+                "image": "app.png"
+            },
+            {
+                "title": "Software development",
+                "category": "software",
+                "file": "../comingsoon.html",
+                "roadmap": "softwaredevelopment",
+                "image": "software.png"
+            },
+            {
+                "title": "Frontend Development",
+                "category": "frontend",
+                "file": "../comingsoon.html",
+                "roadmap": "frontend",
+                "image": "frontend.png"
+            },
+            {
+                "title": "Backend Development",
+                "category": "backend",
+                "file": "../comingsoon.html",
+                "roadmap": "backend",
+                "image": "backend.png"
+            }
+        ]
+    },
+    {
+        "name": "Languages",
+        "containers": [
+            {
+                "title": "HTML",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "html",
+                "image": "html.png"
+            },
+            {
+                "title": "CSS",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "css",
+                "image": "css.png"
+            },
+            {
+                "title": "JavaScript",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "javascript",
+                "image": "js.png"
+            },
+            {
+                "title": "React",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "react",
+                "image": "react.png"
+            },
+            {
+                "title": "Next Js",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "nextjs",
+                "image": "nextJs.png"
+            },
+            {
+                "title": "Angular",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "angular",
+                "image": "angular.png"
+            },
+            {
+                "title": "Vue",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "vue",
+                "image": "vueJs.png"
+            },
+            {
+                "title": "Node Js",
+                "category": "web",
+                "file": "../roadmaps/roadmapTemplate.html?roadmap=nodejs",
+                "roadmap": "nodejs",
+                "image": "node.png"
+            },
+            {
+                "title": "Php",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "php",
+                "image": "php.png"
+            },
+            {
+                "title": "C++",
+                "category": "software",
+                "file": "../comingsoon.html",
+                "roadmap": "cpp",
+                "image": "cpp.png"
+            },
+            {
+                "title": "Java",
+                "category": "software",
+                "file": "../comingsoon.html",
+                "roadmap": "java",
+                "image": "java.png"
+            },
+            {
+                "title": "Mongo DB",
+                "category": "web",
+                "file": "../roadmaps/roadmapTemplate.html?roadmap=mongodb",
+                "roadmap": "mongodb",
+                "image": "mongodb.png"
+            },
+            {
+                "title": "PL/SQL",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "plsql",
+                "image": "plsql.svg"
+            },
+            {
+                "title": "MySQL",
+                "category": "web",
+                "file": "../comingsoon.html",
+                "roadmap": "mysql",
+                "image": "mysql.png"
+            }
+        ]
+    }
+]

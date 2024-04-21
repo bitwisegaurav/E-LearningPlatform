@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Prototype in JavaScript</title>
+</head>
+<body>
+    <h1>Prototype in JavaScript</h1>
+
+    <p>Prototypes are a fundamental concept in JavaScript that allows objects to inherit properties and methods from other objects. Every object in JavaScript has a prototype, which is another object that it inherits properties and methods from.</p>
+
+    <h2>1. Prototype Chain</h2>
+
+    <p>JavaScript follows a prototype-based inheritance model, where each object has a prototype object. When a property or method is accessed on an object, JavaScript looks up the prototype chain to find the property or method if it doesn't exist on the object itself.</p>
+
+    <h2>2. Prototype Property</h2>
+
+    <p>Every function in JavaScript has a <code>prototype</code> property, which is an object that serves as the prototype for objects created by the function. When you create a new object using the <code>new</code> keyword, the object inherits properties and methods from the constructor function's prototype.</p>
+
+    <h2>3. Example:</h2>
+
+    <div class="code"><pre>
+// Example of prototype property
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.greet = function() {
+    console.log(`Hello, my name is ${this.name}`);
+}
+
+const person = new Person('Alice');
+person.greet(); // Output: Hello, my name is Alice
+</pre></div>
+
+    <h2>4. Prototype Object</h2>
+
+    <p>Every object in JavaScript has a <code>__proto__</code> property, which points to its prototype object. You can access and modify the prototype object of an object using the <code>Object.getPrototypeOf()</code> and <code>Object.setPrototypeOf()</code> methods.</p>
+
+    <h2>5. Example:</h2>
+
+    <div class="code"><pre>
+// Example of prototype object
+const obj = {};
+const proto = { hello: 'world' };
+
+Object.setPrototypeOf(obj, proto);
+
+console.log(obj.hello); // Output: world
+</pre></div>
+
+    <h2>Conclusion</h2>
+
+    <p>Prototypes are a fundamental aspect of JavaScript's inheritance mechanism. By understanding prototypes and the prototype chain, developers can better understand how JavaScript objects inherit properties and methods from other objects.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>

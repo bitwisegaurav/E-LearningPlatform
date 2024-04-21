@@ -1,0 +1,43 @@
+{
+    "name": "Discrete Mathematics",
+    "folder": "discrete",
+    "default": 0,
+    "chapters": [
+        {
+            "name": "Introduction to Discrete Maths",
+            "file": "introduction"
+        },
+        {
+            "name": "Set Theory",
+            "file": "sets"
+        },
+        {
+            "name": "Relations",
+            "file": "relations"
+        },
+        {
+            "name": "Functions",
+            "file": "functions"
+        },
+        {
+            "name": "Recursion and Recurrence Relations",
+            "file": "recurrence"
+        },
+        {
+            "name": "Graph Theory",
+            "file": "graphs"
+        },
+        {
+            "name": "Finite State Machine and Languages",
+            "file": "automata"
+        },
+        {
+            "name": "Analysis of Algorithms",
+            "file": "algorithms"
+        },
+        {
+            "name": "Important Formulas and Points",
+            "file": "formulas"
+        }
+    ]
+}

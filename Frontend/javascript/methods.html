@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common_files/inner.css">
+    <title>Inline, Internal, and External</title>
+</head>
+
+<body>
+    <h1>Inline, Internal, and External</h1>
+
+    <p>JavaScript can be included in HTML documents in various ways. Understanding these methods is essential for organizing and maintaining your code efficiently.</p>
+
+    <h2>Inline JavaScript</h2>
+
+    <p>Inline JavaScript is used within the tags.</p>
+    <p>For example : </p>
+
+    <div class="code"><pre>
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h2&gt;This is an inline script&lt;/h2&gt;
+    &lt;button onclick="function() { getBgRed(); }" &gt;Click me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <h2>Internal JavaScript</h2>
+
+    <p>Internal JavaScript is placed within the <span>&lt;script&gt;</span> tags in the head or body of the HTML document:</p>
+
+    <div class="code"><pre>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Internal JavaScript&lt;/title&gt;
+    &lt;script&gt;
+        // Your JavaScript code here
+        function greet() {
+            alert("Hello, Internal!");
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Call the greet function&lt;/h2&gt;
+    &lt;button onclick="greet()"&gt;Click me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <h2>External JavaScript</h2>
+
+    <p>External JavaScript is stored in separate files with a <span>.js</span> extension. It can be linked to an HTML document using the <span>&lt;script&gt;</span> tag with the <span>src</span> attribute:</p>
+
+    <p>Linking the external file in HTML:</p>
+
+    <div class="code"><pre>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;External JavaScript&lt;/title&gt;
+    &lt;script src="external.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;This content is modified by external JavaScript&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <p>In external.js : </p>
+
+    <div class="code"><pre>
+document.getElementById("demo").innerHTML = "Hello, External!";</pre>
+    </div>
+
+    <p>Choose the method that suits your project's structure and requirements.</p>
+</body>
+<script src="../common_files/innerTheme.js"></script>
+<script src="../common_files/jsPrograms-inner.js"></script>
+</html>
