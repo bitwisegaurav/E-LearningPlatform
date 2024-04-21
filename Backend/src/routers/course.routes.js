@@ -32,7 +32,7 @@ router.route("/get-course").get(verifyUser, getCourses);
 router.route("/get-courseById/:id").get(verifyUser, getCourseById);
 router.route("/get-all-courses").get(verifyUser, getAllCourses);
 router.route("/get-modules").get(verifyUser, getModules);
-router.route("/update-course-details/:id").patch(verifyUser, verifyAdmin, updateCourse);
+router.route("/update-course/:id").patch(verifyUser, verifyAdmin, updateCourse);
 router
     .route("/update-course-image/:id")
     .patch(verifyUser, verifyAdmin, upload.single("image"), updateCourseImage);

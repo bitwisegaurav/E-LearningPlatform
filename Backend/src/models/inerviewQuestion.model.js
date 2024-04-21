@@ -11,8 +11,7 @@ const interviewQuestionSchema = new Schema(
             required: true,
         },
         answer: {
-            type: String,
-            required: true,
+            type: String
         },
         course: [
             {

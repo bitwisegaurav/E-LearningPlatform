@@ -15,25 +15,24 @@ const getUser = asyncHandler(async (req, res, next) => {
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
                 console.log("Unauthorized access");
-                next();
+            } else {
+                const decodedValues = await jwt.verify(
+                    refreshToken,
+                    process.env.JWT_REFRESH_TOKEN_SECRET,
+                );
+                const user = await User.findById(decodedValues?._id).select([
+                    "-password",
+                ]);
+                // refresh accessToken and refreshToken
+                const {
+                    accessToken: newAccessToken,
+                    refreshToken: newRefreshToken,
+                } = await generateAccessAndRefreshToken(user._id);
+                
+                res.cookie("accessToken", newAccessToken, options);
+                res.cookie("refreshToken", newRefreshToken, options);
+                req.user = user;
             }
-            const decodedValues = await jwt.verify(
-                refreshToken,
-                process.env.JWT_REFRESH_TOKEN_SECRET,
-            );
-            const user = await User.findById(decodedValues?._id).select([
-                "-password",
-            ]);
-            // refresh accessToken and refreshToken
-            const {
-                accessToken: newAccessToken,
-                refreshToken: newRefreshToken,
-            } = await generateAccessAndRefreshToken(user._id);
-
-            res.cookie("accessToken", newAccessToken, options);
-            res.cookie("refreshToken", newRefreshToken, options);
-            req.user = user;
-
         } else {
             const decodedValues = await jwt.verify(
                 accessToken,
@@ -46,14 +45,13 @@ const getUser = asyncHandler(async (req, res, next) => {
 
             if (!user) {
                 console.log("User not found");
-                next();
+            } else {   
+                req.user = user;
             }
-
-            req.user = user;
         }
-        next();
     } catch (error) {
         console.log(error?.message || "Invalid access token");
+    } finally {
         next();
     }
 });

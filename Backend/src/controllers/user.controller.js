@@ -208,6 +208,7 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
 
 const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const { username } = req.params;
+    // res.send("user") // sends the "user" correctly
 
     const user = await User.aggregate([
         {
@@ -292,17 +293,22 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
             },
         },
     ]);
+    // res.send("user") // gives the error of cannot set headers after they are sent to the client
 
-    if (!user) {
+    // console.log(user);
+
+    if (!user[0]) {
         throw new ApiError(404, "User not found");
     }
+
+    // console.log(user[0]);
 
     // check if user is logged in that they follow each other or not
     let isFollowedByAccessingUser = false;
     let isFollowingAccessingUser = false;
-    const accessingUser = req.user?._id;
+    const accessingUser = req?.user?._id;
     const accessedUser = user[0]?._id;
-    const isBothSame = accessingUser?.toString() === accessedUser?.toString();
+    const isBothSame = accessingUser ? accessingUser.toString() === accessedUser.toString() : false;
 
     if (accessingUser && accessedUser && accessingUser !== accessedUser) {
 
@@ -342,6 +348,37 @@ const getUserCourses = asyncHandler(async (req, res) => {
     const user = req.user;
 
     return res.status(200).json(new ApiResponse(200, {courses: user.courses}, "Courses fetched successfully"));
+});
+
+const getAllUsers = asyncHandler(async (req, res) => {
+    let query = {};
+    if (req.user) {
+        query._id = { $ne: req.user._id };
+    }
+
+    const users = await User.find(query).select("_id username name avatar");
+
+    if(!users){
+        throw new ApiError(404, "No users found");
+    }
+
+    // get all the usersId which are followed by accessing user
+    const accessingUser = req.user?._id;
+
+    const following = accessingUser ? await Followers.find({ FollowerId: accessingUser }) : [];
+
+    const followingIds = following.map((follower) => follower.FollowingId.toString());
+
+    const responseData = {
+        users: users.map((user) => {
+            return {
+                ...user.toObject(),
+                isFollowedByAccessingUser: followingIds.includes(user._id.toString())
+            }
+        })
+    }
+
+    return res.status(200).json(new ApiResponse(200, responseData, "Users fetched successfully"));
 });
 
 const updateUserProfile = asyncHandler(async (req, res) => {
@@ -674,6 +711,7 @@ export {
     getUserProfile,
     getUserProfileByUsername,
     getUserCourses,
+    getAllUsers,
     updateUserProfile,
     loginUser,
     logoutUser,
