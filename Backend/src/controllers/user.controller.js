@@ -208,6 +208,7 @@ const getUserProfile = asyncHandler(async (req, res, next) => {
 
 const getUserProfileByUsername = asyncHandler(async (req, res) => {
     const { username } = req.params;
+    // res.send("user") // sends the "user" correctly
 
     const user = await User.aggregate([
         {
@@ -292,17 +293,22 @@ const getUserProfileByUsername = asyncHandler(async (req, res) => {
             },
         },
     ]);
+    // res.send("user") // gives the error of cannot set headers after they are sent to the client
 
-    if (!user) {
+    // console.log(user);
+
+    if (!user[0]) {
         throw new ApiError(404, "User not found");
     }
+
+    // console.log(user[0]);
 
     // check if user is logged in that they follow each other or not
     let isFollowedByAccessingUser = false;
     let isFollowingAccessingUser = false;
-    const accessingUser = req.user?._id;
+    const accessingUser = req?.user?._id;
     const accessedUser = user[0]?._id;
-    const isBothSame = accessingUser.toString() === accessedUser.toString();
+    const isBothSame = accessingUser ? accessingUser.toString() === accessedUser.toString() : false;
 
     if (accessingUser && accessedUser && accessingUser !== accessedUser) {
 
